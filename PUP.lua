@@ -57,7 +57,7 @@ function get_sets()
 --Bruiser tank
 	sets.idle.bruiser = {
 		--main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
-		main={ name="Xiucoatl", augments={'Path: C',}},
+		--main={ name="Xiucoatl", augments={'Path: C',}},
 		range="Animator P +1",
 		ammo="Automat. Oil +3",
 		head={ name="Taeon Chapeau", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -77,7 +77,7 @@ function get_sets()
 
 --General dps
 	sets.idle.melee = {
-		main={ name="Xiucoatl", augments={'Path: C',}},
+		--main={ name="Xiucoatl", augments={'Path: C',}},
 		range="Animator P +1",
 		ammo="Automat. Oil +3",
 		head="Kara. Cappello +2",
@@ -96,7 +96,7 @@ function get_sets()
 
 -- ranged dps
 	sets.idle.ranged = {
-		main={ name="Xiucoatl", augments={'Path: C',}},
+		--main={ name="Xiucoatl", augments={'Path: C',}},
 		--range="Animator P II +1",
 		ammo="Automat. Oil +3",
 		head={ name="Pitre Taj +3", augments={'Enhances "Optimization" effect',}},
@@ -116,7 +116,7 @@ function get_sets()
 
 -- Master only TP Set
 	sets.idle.master = {
-		main={ name="Xiucoatl", augments={'Path: C',}},
+		--main={ name="Xiucoatl", augments={'Path: C',}},
         head="Malignance Chapeau",
 		body="Mpaca's Doublet",
 		hands="Karagoz Guanti +2",

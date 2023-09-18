@@ -53,7 +53,7 @@ function get_sets()
 	
 --Sharpshot overdrive
 	sets.idle.sharpshot = {
- 		main={ name="Xiucoatl", augments={'Path: C',}},
+ 		--main={ name="Xiucoatl", augments={'Path: C',}},
 		range="Animator P +1",
 		ammo="Automat. Oil +3",
 		head="Kara. Cappello +2",
@@ -72,7 +72,7 @@ function get_sets()
 
 ---valoredge overdrive
 	sets.idle.valoredge = {
-		main={ name="Xiucoatl", augments={'Path: C',}},
+		--main={ name="Xiucoatl", augments={'Path: C',}},
 		range="Animator P +1",
 		ammo="Automat. Oil +3",
 		head={ name="Taeon Chapeau", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
