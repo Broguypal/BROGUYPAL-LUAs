@@ -53,8 +53,8 @@ function get_sets()
 
 -- harletank idle
 	sets.idle.harle = {
-		main={ name="Xiucoatl", augments={'Path: C',}},
-		range="Animator P +1",
+		--main={ name="Xiucoatl", augments={'Path: C',}},
+		--range="Animator P +1",
 		ammo="Automat. Oil +3",
 		head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','Accuracy+3','Pet: Haste+5',}},
 		body={ name="Taeon Tabard", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -72,8 +72,8 @@ function get_sets()
 	
 --pet fastcast idle set
 	sets.idle.petfastcast = {
-		main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
-		range="Animator P II +1",
+		--main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
+		--range="Animator P II +1",
 		ammo="Automat. Oil +3",
 		head={ name="Naga Somen", augments={'Pet: MP+80','Automaton: "Cure" potency +4%','Automaton: "Fast Cast"+3',}},
 		body={ name="Naga Samue", augments={'Pet: MP+80','Automaton: "Cure" potency +4%','Automaton: "Fast Cast"+3',}},
@@ -178,7 +178,7 @@ function get_sets()
 -- pet midcast BLM
 	sets.midcast.nuke = {
 --	    main="Sakpata's Fists",
-		range="Animator P II +1",
+		--range="Animator P II +1",
 		ammo="Automat. Oil +3",
 		head="Kara. Cappello +2",
 		body="Kara. Farsetto +2",
@@ -195,8 +195,8 @@ function get_sets()
 
 -- pet midcast WHM
 	sets.midcast.cure = {
-		main="Gnafron's Adargas",
-		range="Animator P II +1",
+		--main="Gnafron's Adargas",
+		--range="Animator P II +1",
 		ammo="Automat. Oil +3",
 		head={ name="Naga Somen", augments={'Pet: MP+80','Automaton: "Cure" potency +4%','Automaton: "Fast Cast"+3',}},
 		body={ name="Naga Samue", augments={'Pet: MP+80','Automaton: "Cure" potency +4%','Automaton: "Fast Cast"+3',}},
@@ -210,8 +210,8 @@ function get_sets()
 
 -- Pet midcast RDM
 	sets.midcast.buff = {
-	    main="Sakpata's Fists",
-		range="Animator P II +1",
+	    --main="Sakpata's Fists",
+		--range="Animator P II +1",
 		ammo="Automat. Oil +3",
 		head="Kara. Cappello +2",
 		body="Kara. Farsetto +2",
