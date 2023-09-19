@@ -192,6 +192,21 @@ function get_sets()
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
 	}
 
+sets.ws.stringingpummel = {
+		head="Mpaca's Cap",
+		body="Mpaca's Doublet",
+		hands="Mpaca's Gloves",
+		legs="Mpaca's Hose",
+		feet="Mpaca's Boots",
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Schere Earring",
+		left_ring="Fickblix's Ring",
+		right_ring="Niqmaddu Ring",
+		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+	}
+	
 --  overload
 	sets.ja.overload = {
 		body="Kara. Farsetto +1",
@@ -344,7 +359,11 @@ function precast(spell)
 	if spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" then 
 		equip(sets.precast.fastcast)
 	elseif spell.type == "WeaponSkill" then 
+		if spell.english == "Stringing Pummel" then
+		equip(sets.ws.stringingpummel)
+		else
 		equip(sets.ws.weaponskill)
+		end
 	elseif spell.english == "Fire Maneuver" or spell.english == "Ice Maneuver" or 
 	spell.english == "Wind Maneuver" or spell.english == "Earth Maneuver" or 
 	spell.english == "Thunder Maneuver" or spell.english == "Water Maneuver" or 
@@ -370,7 +389,11 @@ function midcast(spell)
 	if spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" then 
 		equip(sets.midcast.spelldamage)
 	elseif spell.type == "WeaponSkill" then 
-		equip(sets.ws.weaponskill)	
+		if spell.english == "Stringing Pummel" then
+		equip(sets.ws.stringingpummel)
+		else
+		equip(sets.ws.weaponskill)
+		end
 	elseif spell.english == "Fire Maneuver" or spell.english == "Ice Maneuver" or 
 	spell.english == "Wind Maneuver" or spell.english == "Earth Maneuver" or 
 	spell.english == "Thunder Maneuver" or spell.english == "Water Maneuver" or 
