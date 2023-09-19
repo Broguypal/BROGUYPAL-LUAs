@@ -10,6 +10,16 @@
 -- EDITED FOR TREASURE HUNTER
                        
 
+-- For easy weaponskills
+
+windower.register_event('tp change', function(tp)
+    if tp >= 1000 then
+        windower.send_command('input /ws "Stringing Pummel" <t>')
+    end
+end)
+
+
+
 -- Keybinds for swaps
 send_command ('bind numpad9 gs l PUP.lua')
 send_command ('bind numpad8 gs l PUPo.lua')
@@ -58,7 +68,7 @@ function get_sets()
 --Bruiser tank
 	sets.idle.bruiser = {
 		--main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
-		main={ name="Xiucoatl", augments={'Path: C',}},
+		--main={ name="Xiucoatl", augments={'Path: C',}},
 		range="Animator P +1",
 		ammo="Automat. Oil +3",
 		head={ name="Taeon Chapeau", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -78,7 +88,7 @@ function get_sets()
 
 --General dps
 	sets.idle.melee = {
-		main={ name="Xiucoatl", augments={'Path: C',}},
+		--main={ name="Xiucoatl", augments={'Path: C',}},
 		range="Animator P +1",
 		ammo="Automat. Oil +3",
 		head="Kara. Cappello +2",
@@ -97,7 +107,7 @@ function get_sets()
 
 -- ranged dps
 	sets.idle.ranged = {
-		main={ name="Xiucoatl", augments={'Path: C',}},
+		--main={ name="Xiucoatl", augments={'Path: C',}},
 		--range="Animator P II +1",
 		ammo="Automat. Oil +3",
 		head={ name="Pitre Taj +3", augments={'Enhances "Optimization" effect',}},
@@ -117,10 +127,10 @@ function get_sets()
 
 -- Master only TP Set
 	sets.idle.master = {
-		main={ name="Xiucoatl", augments={'Path: C',}},
+		--main={ name="Xiucoatl", augments={'Path: C',}},
         head="Malignance Chapeau",
-		body={ name="Herculean Vest", augments={'CHR+1','Attack+6','"Treasure Hunter"+2','Mag. Acc.+13 "Mag.Atk.Bns."+13',}},
-		feet={ name="Herculean Boots", augments={'Pet: Phys. dmg. taken -1%','STR+4','"Treasure Hunter"+2','Accuracy+18 Attack+18',}},
+		body="Mpaca's Doublet",
+		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
 		hands="Karagoz Guanti +2",
 		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
 		neck="Shulmanu Collar",
@@ -151,7 +161,7 @@ function get_sets()
 --Hybrid tank
 	sets.idle.hybridtank = {
 	    --main="Varga Purnikawa",
-		range="Animator P +1",
+		--range="Animator P +1",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Karagoz Guanti +2",
@@ -209,7 +219,7 @@ sets.ws.stringingpummel = {
 	
 --  overload
 	sets.ja.overload = {
-		body="Kara. Farsetto +1",
+		body="Kara. Farsetto +2",
 		hands="Foire Dastanas +1",
 		neck="Bfn. Collar +1",
 		left_ear="Burana Earring",
@@ -418,7 +428,7 @@ function aftercast(spell)
 	idle()
 end
 
---[[ -- Pet mid cast is really only useful for when pets cast spells. Pats do weaponskills server side, so cant use forthat (weapon skill is already initiated at time this event is captured)
+--[[ -- Pet mid cast is really only useful for when pets cast spells. Pets do weaponskills server side, so cant use for that (weapon skill is already initiated at time this event is captured)
 function pet_midcast(spell)
 	if pet.frame == "Sharpshot Frame" then
 		equip(sets.midcast.petdaze)

@@ -187,7 +187,7 @@ sets.ws.stringingpummel = {
 
 -- Precast overload
 	sets.ja.overload = {
-		body="Kara. Farsetto +1",
+		body="Kara. Farsetto +2",
 		hands="Foire Dastanas +1",
 		neck="Bfn. Collar +1",
 		left_ear="Burana Earring",
