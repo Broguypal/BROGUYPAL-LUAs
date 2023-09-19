@@ -54,10 +54,8 @@ function get_sets()
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
 	}
 	
---Bruiser tank
+--Bruiser tank no Ohtas equiped
 	sets.idle.bruiser = {
-		--main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
-		--main={ name="Xiucoatl", augments={'Path: C',}},
 		range="Animator P +1",
 		ammo="Automat. Oil +3",
 		head={ name="Taeon Chapeau", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -66,18 +64,35 @@ function get_sets()
 		legs={ name="Taeon Tights", augments={'Pet: Accuracy+20 Pet: Rng. Acc.+20','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		feet={ name="Taeon Boots", augments={'Pet: Accuracy+23 Pet: Rng. Acc.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		neck="Shulmanu Collar",
-		--waist="Incarnation Sash",
-		waist="Klouskap Sash +1",
 		left_ear="Rimeice Earring",
 		right_ear="Crep. Earring",
 		left_ring="C. Palug Ring",
 		right_ring="Thur. Ring +1",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+		waist="Klouskap Sash +1",
 	}
+
+-- Bruiser tank with Ohtas
+	sets.idle.bruiserohtas = {
+		range="Animator P +1",
+		ammo="Automat. Oil +3",
+		head={ name="Taeon Chapeau", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		body={ name="Taeon Tabard", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		hands={ name="Taeon Gloves", augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		legs={ name="Taeon Tights", augments={'Pet: Accuracy+20 Pet: Rng. Acc.+20','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		feet={ name="Taeon Boots", augments={'Pet: Accuracy+23 Pet: Rng. Acc.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		neck="Shulmanu Collar",
+		left_ear="Rimeice Earring",
+		right_ear="Crep. Earring",
+		left_ring="C. Palug Ring",
+		right_ring="Thur. Ring +1",
+		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+		waist="Incarnation Sash",
+	}
+
 
 --General dps
 	sets.idle.melee = {
-		--main={ name="Xiucoatl", augments={'Path: C',}},
 		range="Animator P +1",
 		ammo="Automat. Oil +3",
 		head="Kara. Cappello +2",
@@ -96,7 +111,6 @@ function get_sets()
 
 -- ranged dps
 	sets.idle.ranged = {
-		--main={ name="Xiucoatl", augments={'Path: C',}},
 		--range="Animator P II +1",
 		ammo="Automat. Oil +3",
 		head={ name="Pitre Taj +3", augments={'Enhances "Optimization" effect',}},
@@ -116,7 +130,6 @@ function get_sets()
 
 -- Master only TP Set
 	sets.idle.master = {
-		--main={ name="Xiucoatl", augments={'Path: C',}},
         head="Malignance Chapeau",
 		body="Mpaca's Doublet",
 		hands="Karagoz Guanti +2",
@@ -315,11 +328,23 @@ end)
 -- How swaps are calculated --
 function idle()
 	if player.status == "Idle" and pet.status == "Engaged" and pet.head == "Soulsoother Head" and pet.frame == "Valoredge Frame" then
-		equip(sets.idle.bruiser)
+		if player.equipment.main == "Ohtas" then
+			equip(sets.idle.bruiserohtas)
+		else
+			equip(sets.idle.bruiser)
+		end
 	elseif player.status == "Idle" and pet.status == "Engaged" and pet.head == "Valoredge Head" and pet.frame == "Valoredge Frame" then
-		equip(sets.idle.bruiser)
+		if player.equipment.main == "Ohtas" then
+			equip(sets.idle.bruiserohtas)
+		else
+			equip(sets.idle.bruiser)
+		end
 	elseif player.status == "Idle" and pet.status == "Engaged" and pet.head == "Valoredge Head" and pet.frame == "Harlequin Frame" then
-		equip(sets.idle.bruiser)
+		if player.equipment.main == "Ohtas" then
+			equip(sets.idle.bruiserohtas)
+		else
+			equip(sets.idle.bruiser)
+		end
 	elseif player.status == "Idle" and pet.status == "Engaged" and pet.head == "Valoredge Head" and pet.frame == "Sharpshot Frame" then
 		equip(sets.idle.melee)
 	elseif pet.status == "Engaged" and pet.head == "Sharpshot Head" and pet.frame == "Sharpshot Frame" then
