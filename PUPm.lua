@@ -40,7 +40,7 @@ function get_sets()
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
+		legs="Malignance Tights",
 		feet="Hermes' Sandals",
 		neck="Sanctity Necklace",
 		waist="Moonbow Belt",

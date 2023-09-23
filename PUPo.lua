@@ -16,7 +16,7 @@ send_command ('bind numpad7 gs l PUPm.lua')
 send_command ('bind numpad6 input //acon equipset sharpshot')
 send_command ('bind numpad5 input //acon equipset valoredge')
 send_command ('bind numpad4 input //acon equipset turtle')
-
+send_command ('bind numpad3 input //acon equipset zerg')
 
 send_command ('bind numpad1 input /mount "Crawler"')
 send_command ('bind numpad2 input /dismount')
@@ -40,7 +40,7 @@ function get_sets()
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
+		legs="Malignance Tights",
 		feet="Hermes' Sandals",
 		neck="Sanctity Necklace",
 		waist="Moonbow Belt",

@@ -42,7 +42,7 @@ function get_sets()
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		legs="Malignance Tights",
 		feet="Malignance Boots",
 		neck="Defiant Collar",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
