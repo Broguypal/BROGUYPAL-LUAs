@@ -211,6 +211,21 @@ function get_sets()
 		right_ring="Niqmaddu Ring",
 		back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 		}
+	sets.ws.savageblade = {
+		ammo="Knobkierrie",
+		head="Erilaz Galea +2",
+		body="Erilaz Surcoat +2",
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs="Nyame Flanchard",
+		feet="Erilaz Greaves +2",
+		neck={ name="Futhark Torque +1", augments={'Path: A',}},
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Ishvara Earring",
+		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		left_ring="Niqmaddu Ring",
+		right_ring="Persis Ring",
+		back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
+	}
 end
 
 
@@ -246,8 +261,12 @@ function precast(spell)
 	if spell.type == "WeaponSkill" then 
 		if spell.english == "Resolution" then
 			equip (sets.ws.resolution) 
-		else
+		elseif spell.english == "Dimidiation" then
 			equip(sets.ws.dimidiation)	
+		elseif spell.english == "Savage Blade" then
+			equip(sets.ws.savageblade)
+		else
+			equip(sets.ws.dimidiation)
 		end
 	elseif spell.english == "Battuta" then
 		equip(sets.precast.battuta)
@@ -265,7 +284,17 @@ function precast(spell)
 end
 
 function midcast(spell)
-	if spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" then
+	if spell.type == "WeaponSkill" then 
+		if spell.english == "Resolution" then
+			equip (sets.ws.resolution) 
+		elseif spell.english == "Dimidiation" then
+			equip(sets.ws.dimidiation)	
+		elseif spell.english == "Savage Blade" then
+			equip(sets.ws.savageblade)
+		else
+			equip(sets.ws.dimidiation)
+		end
+	elseif spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" then
 		equip(sets.midcast.enmity)
 	elseif spell.english == "Phalanx" then
 		equip(sets.midcast.phalanx)
