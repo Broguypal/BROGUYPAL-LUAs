@@ -234,9 +234,13 @@ end
 
 function status_change(new,old)
 	if new == "Engaged" then
-	equip(sets.idle.attack)
+		if player.sub_job == "NIN" or player.sub_job == "DNC" then 
+			equip(sets.idle.dwattack) 
+		else
+			equip(sets.idle.attack)
+		end
 	else
-	idle()
+		idle()
 	end
 end
 
