@@ -22,7 +22,7 @@ send_command ('bind numpad1 input /mount "Crawler"')
 send_command ('bind numpad2 input /dismount')
 
 --send_command ('bind numpad3 input //acon equipset caitsith')
-send_command ('bind numpad3 input //acon equipset lilith')
+--send_command ('bind numpad3 input //acon equipset lilith')
 
 function get_sets()
   
@@ -39,7 +39,7 @@ function get_sets()
 	sets.idle.tank = {
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
-		hands="Nyame Gauntlets",
+		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Hermes' Sandals",
 		neck="Sanctity Necklace",
@@ -56,7 +56,7 @@ function get_sets()
  		--main={ name="Xiucoatl", augments={'Path: C',}},
 		range="Animator P +1",
 		ammo="Automat. Oil +3",
-		head="Kara. Cappello +2",
+		head="Kara. Cappello +3",
 		body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
 		hands="Mpaca's Gloves",
 		legs="Heyoka Subligar +1",
@@ -64,7 +64,7 @@ function get_sets()
 		neck="Shulmanu Collar",
 		waist="Klouskap Sash +1",
 		left_ear="Rimeice Earring",
-		right_ear="Crep. Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
 		left_ring="Fickblix's Ring",
 		right_ring="Thur. Ring +1",
 		back={ name="Dispersal Mantle", augments={'STR+2','DEX+4','Pet: TP Bonus+500',}},
@@ -83,7 +83,7 @@ function get_sets()
 		neck="Shulmanu Collar",
 		waist="Klouskap Sash +1",
 		left_ear="Rimeice Earring",
-		right_ear="Crep. Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
 		left_ring="C. Palug Ring",
 		right_ring="Thur. Ring +1",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
@@ -138,7 +138,7 @@ function get_sets()
 		neck="Shulmanu Collar",
 		waist="Klouskap Sash +1",
 		left_ear="Rimeice Earring",
-		right_ear="Crep. Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
 		left_ring="Fickblix's Ring",
 		right_ring="Thur. Ring +1",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
@@ -244,7 +244,7 @@ sets.ws.stringingpummel = {
 	
 -- pet Arcubalista / Daze
 	sets.midcast.petdaze = {
-	    head="Kara. Cappello +2",
+	    head="Kara. Cappello +3",
 		body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
 		hands="Mpaca's Gloves",
 		legs="Kara. Pantaloni +2",
@@ -268,7 +268,7 @@ sets.ws.stringingpummel = {
 		neck="Shulmanu Collar",
 		waist="Incarnation Sash",
 		left_ear="Burana Earring",
-		right_ear="Crep. Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
 		left_ring="C. Palug Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},

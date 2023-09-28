@@ -42,7 +42,7 @@ function get_sets()
 	sets.idle.tank = {
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
-		hands="Nyame Gauntlets",
+		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Hermes' Sandals",
 		neck="Sanctity Necklace",
@@ -65,7 +65,7 @@ function get_sets()
 		feet={ name="Taeon Boots", augments={'Pet: Accuracy+23 Pet: Rng. Acc.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		neck="Shulmanu Collar",
 		left_ear="Rimeice Earring",
-		right_ear="Crep. Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
 		left_ring="C. Palug Ring",
 		right_ring="Thur. Ring +1",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
@@ -83,7 +83,7 @@ function get_sets()
 		feet={ name="Taeon Boots", augments={'Pet: Accuracy+23 Pet: Rng. Acc.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		neck="Shulmanu Collar",
 		left_ear="Rimeice Earring",
-		right_ear="Crep. Earring",
+		rright_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
 		left_ring="C. Palug Ring",
 		right_ring="Thur. Ring +1",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
@@ -95,7 +95,7 @@ function get_sets()
 	sets.idle.melee = {
 		range="Animator P +1",
 		ammo="Automat. Oil +3",
-		head="Kara. Cappello +2",
+		head="Kara. Cappello +3",
 		body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
 		hands="Mpaca's Gloves",
 		legs="Kara. Pantaloni +2",
@@ -103,7 +103,7 @@ function get_sets()
 		neck="Shulmanu Collar",
 		waist="Klouskap Sash +1",
 		left_ear="Burana Earring",
-		right_ear="Crep. Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
 		left_ring="C. Palug Ring",
 		right_ring="Thur. Ring +1",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
@@ -137,8 +137,8 @@ function get_sets()
 		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
 		neck="Shulmanu Collar",
 		waist="Moonbow Belt",
-		left_ear="Crep. Earring",
-		right_ear="Schere Earring",
+		right_ear="Crep. Earring",
+		left_ear="Schere Earring",
 		left_ring="Fickblix's Ring",
 		right_ring="Niqmaddu Ring",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
@@ -153,8 +153,8 @@ function get_sets()
 		feet="Mpaca's Boots",
 		neck="Shulmanu Collar",
 		waist="Moonbow Belt",
-		left_ear="Crep. Earring",
-		right_ear="Schere Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
+		left_ear="Schere Earring",
 		left_ring="Fickblix's Ring",
 		right_ring="Niqmaddu Ring",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
@@ -172,7 +172,7 @@ function get_sets()
 		neck="Shulmanu Collar",
 		waist="Klouskap Sash +1",
 		left_ear="Rimeice Earring",
-		right_ear="Crep. Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
 		left_ring="Fickblix's Ring",
 		right_ring="Thur. Ring +1",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
@@ -278,7 +278,7 @@ sets.ws.stringingpummel = {
 
 -- pet Arcubalista / Daze Weaponskill set
 	sets.midcast.petdaze = {
-		head="Kara. Cappello +2",
+		head="Kara. Cappello +3",
 		body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
 		hands="Mpaca's Gloves",
 		legs="Kara. Pantaloni +2",
@@ -286,7 +286,7 @@ sets.ws.stringingpummel = {
 		neck="Shulmanu Collar",
 		waist="Klouskap Sash +1",
 		left_ear="Burana Earring",
-		right_ear="Crep. Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
 		left_ring="Fickblix's Ring",
 		right_ring="Thur. Ring +1",
 		back={ name="Dispersal Mantle", augments={'STR+2','DEX+4','Pet: TP Bonus+500',}},
@@ -294,7 +294,7 @@ sets.ws.stringingpummel = {
 
 -- pet Bonecrusher Weaponskill set
 	sets.midcast.petbone = {
-		--head="Kara. Cappello +2",
+		--head="Kara. Cappello +3",
 		head={ name="Taeon Chapeau", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		body={ name="Taeon Tabard", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		hands="Mpaca's Gloves",
@@ -303,7 +303,7 @@ sets.ws.stringingpummel = {
 		neck="Shulmanu Collar",
 		waist="Incarnation Sash",
 		left_ear="Burana Earring",
-		right_ear="Crep. Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
 		left_ring="C. Palug Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
@@ -334,6 +334,12 @@ function idle()
 			equip(sets.idle.bruiser)
 		end
 	elseif player.status == "Idle" and pet.status == "Engaged" and pet.head == "Valoredge Head" and pet.frame == "Valoredge Frame" then
+		if player.equipment.main == "Ohtas" then
+			equip(sets.idle.bruiserohtas)
+		else
+			equip(sets.idle.bruiser)
+		end
+	elseif player.status == "Idle" and pet.status == "Engaged" and pet.head == "Harlequin Head" and pet.frame == "Valoredge Frame" then
 		if player.equipment.main == "Ohtas" then
 			equip(sets.idle.bruiserohtas)
 		else

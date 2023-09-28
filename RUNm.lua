@@ -1,7 +1,7 @@
 send_command ('bind numpad9 gs l RUN.lua')
 send_command ('bind numpad8 gs l RUNd.lua')
-send_command ('bind numpad7 gs l RUNa.lua')
-send_command ('bind numpad6 gs l RUNm.lua')
+send_command ('bind numpad6 gs l RUNa.lua')
+send_command ('bind numpad7 gs l RUNm.lua')
 send_command ('bind numpad4 input //aset set tank')
 
 send_command ('bind numpad1 input /mount "Morbol"')
@@ -151,10 +151,11 @@ function get_sets()
 		ammo="Knobkierrie",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-		hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		hands="Nyame Gauntlets",	
+		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
 		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
 		neck={ name="Futhark Torque +1", augments={'Path: A',}},
-		waist="Windbuffet Belt +1",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Sherida Earring",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Epona's Ring",
@@ -165,7 +166,8 @@ function get_sets()
 		ammo="Knobkierrie",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-		hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		hands="Nyame Gauntlets",	
+		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
 		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
@@ -209,7 +211,7 @@ function precast(spell)
 		equip(sets.precast.pulse)
 	elseif spell.type == "JobAbility" or spell.english == "Pflug" or spell.english == "Liement" or spell.english == "Battuta" then
 		equip(sets.precast.enmity)
-	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" then 
+	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
 		equip(sets.precast.fastcast)
 	else
 		idle()
@@ -221,7 +223,7 @@ function midcast(spell)
 		equip(sets.midcast.enmity)
 	elseif spell.english == "Phalanx" then
 		equip(sets.midcast.phalanx)
-	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" then 
+	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
 		equip(sets.midcast.SIR)
 	else
 		idle()

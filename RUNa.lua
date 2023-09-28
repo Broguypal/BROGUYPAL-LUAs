@@ -1,7 +1,7 @@
 send_command ('bind numpad9 gs l RUN.lua')
 send_command ('bind numpad8 gs l RUNd.lua')
-send_command ('bind numpad7 gs l RUNa.lua')
-send_command ('bind numpad6 gs l RUNm.lua')
+send_command ('bind numpad6 gs l RUNa.lua')
+send_command ('bind numpad7 gs l RUNm.lua')
 send_command ('bind numpad4 input //aset set tank')
 
 send_command ('bind numpad1 input /mount "Morbol"')
@@ -21,18 +21,37 @@ function get_sets()
 		sub="Utu Grip",
 		ammo="Staunch Tathlum +1",
 		head="Nyame Helm",
-		body="Nyame Mail",
+		body="Runeist Coat +3",
 		hands="Nyame Gauntlets",
 		legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
-		feet="Nyame Sollerets",
-		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		feet="Erilaz Greaves +2",
+		neck="Warder's Charm +1",
 		waist="Flume Belt +1",
-		left_ear="Genmei Earring",
+		left_ear="Hearty Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
 		right_ring="Moonlight Ring",
 		back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 		}
+
+	sets.idle.dualwield = {
+		main="Naegling",
+		sub="Reikiko",
+		ammo="Staunch Tathlum +1",
+		head="Nyame Helm",
+		body="Runeist Coat +3",
+		hands="Nyame Gauntlets",
+		legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
+		feet="Erilaz Greaves +2",
+		neck="Warder's Charm +1",
+		waist="Flume Belt +1",
+		left_ear="Hearty Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+		right_ring="Moonlight Ring",
+		back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+		}
+		
 	sets.idle.attack = {
 		sub="Utu Grip",
 		ammo="Yamarang",
@@ -41,13 +60,31 @@ function get_sets()
 		hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
 		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
 		neck={ name="Futhark Torque +1", augments={'Path: A',}},
-		waist="Windbuffet Belt +1",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Sherida Earring",
 		right_ear="Brutal Earring",
 		left_ring="Epona's Ring",
 		right_ring="Niqmaddu Ring",
 		back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 		}
+		
+	sets.idle.dwattack = {
+		main="Naegling",
+		sub="Reikiko",
+		ammo="Yamarang",
+		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
+		neck={ name="Futhark Torque +1", augments={'Path: A',}},
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Sherida Earring",
+		right_ear="Brutal Earring",
+		left_ring="Epona's Ring",
+		right_ring="Niqmaddu Ring",
+		back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+		}
+		
     sets.precast.fastcast = {
 		ammo="Sapience Orb",
 		head={ name="Herculean Helm", augments={'Attack+5','"Triple Atk."+3','Accuracy+6',}},
@@ -148,11 +185,11 @@ function get_sets()
 		ammo="Knobkierrie",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-		hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		hands="Nyame Gauntlets",
 		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
 		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
 		neck={ name="Futhark Torque +1", augments={'Path: A',}},
-		waist="Windbuffet Belt +1",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Sherida Earring",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Epona's Ring",
@@ -163,7 +200,8 @@ function get_sets()
 		ammo="Knobkierrie",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-		hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		hands="Nyame Gauntlets",	
+		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
 		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
@@ -178,9 +216,17 @@ end
 
 function idle()
 	if player.status == "Engaged" then
-	equip(sets.idle.attack) 
+		if player.sub_job == "NIN" or player.sub_job == "DNC" then 
+			equip(sets.idle.dwattack) 
+		else
+			equip(sets.idle.attack)
+		end
 	else
-	equip(sets.idle.normal)
+		if player.sub_job == "NIN" or player.sub_job == "DNC" then 
+			equip(sets.idle.dualwield) 
+		else
+			equip(sets.idle.normal)
+		end
 	end
 end
 
@@ -207,7 +253,7 @@ function precast(spell)
 		equip(sets.precast.pulse)
 	elseif spell.type == "JobAbility" or spell.english == "Pflug" or spell.english == "Liement" or spell.english == "Battuta" then
 		equip(sets.precast.enmity)
-	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" then 
+	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
 		equip(sets.precast.fastcast)
 	else
 		idle()
@@ -219,7 +265,7 @@ function midcast(spell)
 		equip(sets.midcast.enmity)
 	elseif spell.english == "Phalanx" then
 		equip(sets.midcast.phalanx)
-	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" then 
+	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
 		equip(sets.midcast.SIR)
 	else
 		idle()
