@@ -223,7 +223,7 @@ function get_sets()
 		left_ear="Ishvara Earring",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Niqmaddu Ring",
-		right_ring="Persis Ring",
+		right_ring="Sroda Ring",
 		back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 end
