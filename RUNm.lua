@@ -2,7 +2,13 @@ send_command ('bind numpad9 gs l RUN.lua')
 send_command ('bind numpad8 gs l RUNd.lua')
 send_command ('bind numpad6 gs l RUNa.lua')
 send_command ('bind numpad7 gs l RUNm.lua')
-send_command ('bind numpad4 input //aset set tank')
+send_command ('bind numpad5 gs l RUNe.lua')
+
+--RUN is standard everday use. -DT capped but good dps gear
+--RUNd is defence mode. Ideal for Big pulls. Spell interruption is capped at a sacrifice to enmity generation. While engaged, parry set takes over.
+--RUNe is the same as RUNd, except enmity takes priority over SIR. Ideal for tanking individual mobs.
+--RUNm is for fights where magic damage is the concern. High M-EVA and elemental resistances.
+--RUNa is purely for DPS where you're not afraid to take damage.
 
 send_command ('bind numpad1 input /mount "Morbol"')
 send_command ('bind numpad2 input /dismount')
@@ -219,7 +225,7 @@ function precast(spell)
 end
 
 function midcast(spell)
-	if spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" then
+	if spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
 		equip(sets.midcast.enmity)
 	elseif spell.english == "Phalanx" then
 		equip(sets.midcast.phalanx)
