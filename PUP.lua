@@ -249,17 +249,16 @@ function get_sets()
 
 --  weaponskills
     sets.ws.weaponskill = {
-		ammo="Automat. Oil +3",
-		head="Mpaca's Cap",
-		body="Mpaca's Doublet",
-		hands={ name="Pitre Dastanas +3", augments={'Enhances "Fine-Tuning" effect',}},
-		legs="Hiza. Hizayoroi +2",
-		feet="Mpaca's Boots",
+	    head="Mpaca's Cap",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Fotia Gorget",
-		waist="Windbuffet Belt +1",
-		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		right_ear="Crep. Earring",
-		left_ring="Fickblix's Ring",
+		waist="Fotia Belt",
+		left_ear="Schere Earring",
+		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		left_ring="Sroda Ring",
 		right_ring="Niqmaddu Ring",
 		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
@@ -272,12 +271,88 @@ function get_sets()
 		feet="Mpaca's Boots",
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
-		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		right_ear="Schere Earring",
-		left_ring="Fickblix's Ring",
+		left_ear="Schere Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
+		left_ring="Gere Ring",
 		right_ring="Niqmaddu Ring",
 		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 		}
+	
+	sets.ws.victorysmite = {
+	    head="Mpaca's Cap",
+		body="Mpaca's Doublet",
+		hands="Mpaca's Gloves",
+		legs="Mpaca's Hose",
+		feet="Mpaca's Boots",
+		neck="Fotia Gorget",
+		waist="Moonbow Belt +1",
+		left_ear="Schere Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
+		left_ring="Gere Ring",
+		right_ring="Niqmaddu Ring",
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+	}
+
+	sets.ws.shijinspiral = {
+	    head="Mpaca's Cap",
+		body="Mpaca's Doublet",
+		hands="Mpaca's Gloves",
+		legs="Mpaca's Hose",
+		feet="Mpaca's Boots",
+		neck="Fotia Gorget",
+		waist="Moonbow Belt +1",
+		left_ear="Schere Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
+		left_ring="Gere Ring",
+		right_ring="Niqmaddu Ring",
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+	}
+
+	sets.ws.howlingfist = {
+	    head="Mpaca's Cap",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs="Mpaca's Hose",
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Shulmanu Collar",
+		waist="Moonbow Belt +1",
+		left_ear="Schere Earring",
+		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		left_ring="Gere Ring",
+		right_ring="Niqmaddu Ring",
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+	}
+
+	sets.ws.ragingfists = {
+	    head="Mpaca's Cap",
+		body="Mpaca's Doublet",
+		hands="Mpaca's Gloves",
+		legs="Mpaca's Hose",
+		feet="Mpaca's Boots",
+		neck="Fotia Gorget",
+		waist="Moonbow Belt +1",
+		left_ear="Schere Earring",
+		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		left_ring="Gere Ring",
+		right_ring="Niqmaddu Ring",
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+	}
+
+	sets.ws.asuranfists = {
+	    head="Kara. Cappello +3",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs="Mpaca's Hose",
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear="Schere Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
+		left_ring="Sroda Ring",
+		right_ring="Niqmaddu Ring",
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+	}
+
 
 --  overload
 	sets.ja.overload = {
@@ -459,9 +534,19 @@ function precast(spell)
 		equip(sets.precast.fastcast)
 	elseif spell.type == "WeaponSkill" then 
 		if spell.english == "Stringing Pummel" then
-		equip(sets.ws.stringingpummel)
+			equip(sets.ws.stringingpummel)
+		elseif spell.english = "Victory Smite" then
+			equip(sets.ws.victorysmite)
+		elseif spell.english = "Shijin Spiral" then
+			equip(sets.ws.shijinspiral)
+		elseif spell.english = "Howling Fist" then
+			equip(sets.ws.howlingfist)
+		elseif spell.english = "Raging Fists" then
+			equip(sets.ws.ragingfists)
+		elseif spell.english = "Asuran Fists" then
+			equip(sets.ws.asuranfists)
 		else
-		equip(sets.ws.weaponskill)
+			equip(sets.ws.weaponskill)
 		end
 	elseif spell.english == "Fire Maneuver" or spell.english == "Ice Maneuver" or 
 	spell.english == "Wind Maneuver" or spell.english == "Earth Maneuver" or 
@@ -489,9 +574,19 @@ function midcast(spell)
 		equip(sets.midcast.spelldamage)
 	elseif spell.type == "WeaponSkill" then 
 		if spell.english == "Stringing Pummel" then
-		equip(sets.ws.stringingpummel)
+			equip(sets.ws.stringingpummel)
+		elseif spell.english = "Victory Smite" then
+			equip(sets.ws.victorysmite)
+		elseif spell.english = "Shijin Spiral" then
+			equip(sets.ws.shijinspiral)
+		elseif spell.english = "Howling Fist" then
+			equip(sets.ws.howlingfist)
+		elseif spell.english = "Raging Fists" then
+			equip(sets.ws.ragingfists)
+		elseif spell.english = "Asuran Fists" then
+			equip(sets.ws.asuranfists)
 		else
-		equip(sets.ws.weaponskill)
+			equip(sets.ws.weaponskill)
 		end
 	elseif spell.english == "Fire Maneuver" or spell.english == "Ice Maneuver" or 
 	spell.english == "Wind Maneuver" or spell.english == "Earth Maneuver" or 
