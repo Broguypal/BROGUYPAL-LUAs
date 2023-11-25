@@ -412,15 +412,15 @@ function precast(spell)
 	elseif spell.type == "WeaponSkill" then 
 		if spell.english == "Stringing Pummel" then
 			equip(sets.ws.stringingpummel)
-		elseif spell.english = "Victory Smite" then
+		elseif spell.english == "Victory Smite" then
 			equip(sets.ws.victorysmite)
-		elseif spell.english = "Shijin Spiral" then
+		elseif spell.english == "Shijin Spiral" then
 			equip(sets.ws.shijinspiral)
-		elseif spell.english = "Howling Fist" then
+		elseif spell.english == "Howling Fist" then
 			equip(sets.ws.howlingfist)
-		elseif spell.english = "Raging Fists" then
+		elseif spell.english == "Raging Fists" then
 			equip(sets.ws.ragingfists)
-		elseif spell.english = "Asuran Fists" then
+		elseif spell.english == "Asuran Fists" then
 			equip(sets.ws.asuranfists)
 		else
 			equip(sets.ws.weaponskill)
@@ -459,15 +459,15 @@ function midcast(spell)
 	elseif spell.type == "WeaponSkill" then 
 		if spell.english == "Stringing Pummel" then
 			equip(sets.ws.stringingpummel)
-		elseif spell.english = "Victory Smite" then
+		elseif spell.english == "Victory Smite" then
 			equip(sets.ws.victorysmite)
-		elseif spell.english = "Shijin Spiral" then
+		elseif spell.english == "Shijin Spiral" then
 			equip(sets.ws.shijinspiral)
-		elseif spell.english = "Howling Fist" then
+		elseif spell.english == "Howling Fist" then
 			equip(sets.ws.howlingfist)
-		elseif spell.english = "Raging Fists" then
+		elseif spell.english == "Raging Fists" then
 			equip(sets.ws.ragingfists)
-		elseif spell.english = "Asuran Fists" then
+		elseif spell.english == "Asuran Fists" then
 			equip(sets.ws.asuranfists)
 		else
 			equip(sets.ws.weaponskill)
