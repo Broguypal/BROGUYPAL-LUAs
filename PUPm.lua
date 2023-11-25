@@ -37,18 +37,19 @@ function get_sets()
 
 --Normal idle
 	sets.idle.tank = {
+		ammo="Automat. Oil +3",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Hermes' Sandals",
 		neck="Sanctity Necklace",
-		waist="Moonbow Belt",
+		waist="Moonbow Belt +1",
 		left_ear="Genmei Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="C. Palug Ring",
 		right_ring="Defending Ring",
-		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 
 -- harletank idle
@@ -89,18 +90,38 @@ function get_sets()
 -- Master only TP Set
 	sets.idle.master = {
 		--main={ name="Xiucoatl", augments={'Path: C',}},
-        head="Malignance Chapeau",
+		range="Animator P +1",
+		ammo="Automat. Oil +3",
+		head="Malignance Chapeau",
 		body="Mpaca's Doublet",
 		hands="Karagoz Guanti +2",
 		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
 		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
 		neck="Shulmanu Collar",
-		waist="Moonbow Belt",
-		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
+		waist="Moonbow Belt +1",
 		left_ear="Schere Earring",
-		left_ring="Fickblix's Ring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
+		left_ring="Gere Ring",
 		right_ring="Niqmaddu Ring",
-		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+	}
+
+--Master only TP - Godhands/xiucoatle
+	sets.idle.mastergodhands = {
+	    range="Animator P +1",
+		ammo="Automat. Oil +3",
+		head="Malignance Chapeau",
+		body="Mpaca's Doublet",
+		hands="Karagoz Guanti +2",
+		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
+		neck="Shulmanu Collar",
+		waist="Moonbow Belt +1",
+		left_ear="Mache Earring +1",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
+		left_ring="Gere Ring",
+		right_ring="Niqmaddu Ring",
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 	
 -- Precast fastcast (MASTER)
@@ -126,10 +147,10 @@ function get_sets()
 		right_ear="Crep. Earring",
 		left_ring="Fickblix's Ring",
 		right_ring="Niqmaddu Ring",
-		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
-	}
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+		}
 
-sets.ws.stringingpummel = {
+	sets.ws.stringingpummel = {
 		head="Mpaca's Cap",
 		body="Mpaca's Doublet",
 		hands="Mpaca's Gloves",
@@ -141,8 +162,8 @@ sets.ws.stringingpummel = {
 		right_ear="Schere Earring",
 		left_ring="Fickblix's Ring",
 		right_ring="Niqmaddu Ring",
-		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
-	}
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+		}
 
 -- Precast overload
 	sets.ja.overload = {
@@ -253,7 +274,11 @@ function idle()
 	elseif player.status == "Idle" and pet.status == "Engaged" and pet.head == "Stormwaker Head" and pet.frame == "Stormwaker Frame" then
 		equip(sets.idle.petfastcast)
 	elseif player.status == "Engaged" then
-		equip (sets.idle.master)
+		if player.equipment.main == "Godhands" or player.equipment.main == "Xiucoatl" then
+			equip(sets.idle.mastergodhands)
+		else
+			equip(sets.idle.master)
+		end
 	else  
 		equip(sets.idle.tank)
 	end

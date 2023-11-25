@@ -37,18 +37,19 @@ function get_sets()
 
 --Normal idle
 	sets.idle.tank = {
+		ammo="Automat. Oil +3",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Hermes' Sandals",
 		neck="Sanctity Necklace",
-		waist="Moonbow Belt",
+		waist="Moonbow Belt +1",
 		left_ear="Genmei Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="C. Palug Ring",
 		right_ring="Defending Ring",
-		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 	
 --Sharpshot overdrive
@@ -77,8 +78,8 @@ function get_sets()
 		ammo="Automat. Oil +3",
 		head={ name="Taeon Chapeau", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		body={ name="Taeon Tabard", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-		hands={ name="Taeon Gloves", augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-		legs={ name="Taeon Tights", augments={'Pet: Accuracy+20 Pet: Rng. Acc.+20','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		hands={ name="Taeon Gloves", augments={'Pet: Accuracy+23 Pet: Rng. Acc.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		legs={ name="Taeon Tights", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		feet="Mpaca's Boots",
 		neck="Shulmanu Collar",
 		waist="Klouskap Sash +1",
@@ -86,7 +87,7 @@ function get_sets()
 		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
 		left_ring="C. Palug Ring",
 		right_ring="Thur. Ring +1",
-		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+10 Pet: Rng. Acc.+10','Pet: Haste+10','System: 1 ID: 1246 Val: 4',}},
 	}
 
 -- turtle tank
@@ -111,37 +112,56 @@ function get_sets()
 -- Master only TP Set
 	sets.idle.master = {
 		--main={ name="Xiucoatl", augments={'Path: C',}},
+		range="Animator P +1",
 		ammo="Automat. Oil +3",
-		head="Mpaca's Cap",
+		head="Malignance Chapeau",
 		body="Mpaca's Doublet",
-		hands={ name="Herculean Gloves", augments={'Rng.Atk.+23','"Triple Atk."+3','AGI+10','Accuracy+13','Attack+1',}},
-		legs="Mpaca's Hose",
+		hands="Karagoz Guanti +2",
+		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
 		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
 		neck="Shulmanu Collar",
-		waist="Moonbow Belt",
-		left_ear="Brutal Earring",
-		right_ear="Crep. Earring",
-		left_ring="Fickblix's Ring",
+		waist="Moonbow Belt +1",
+		left_ear="Schere Earring",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
+		left_ring="Gere Ring",
 		right_ring="Niqmaddu Ring",
-		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+	}
+
+--Master only TP - Godhands/xiucoatle
+	sets.idle.mastergodhands = {
+	    range="Animator P +1",
+		ammo="Automat. Oil +3",
+		head="Malignance Chapeau",
+		body="Mpaca's Doublet",
+		hands="Karagoz Guanti +2",
+		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
+		neck="Shulmanu Collar",
+		waist="Moonbow Belt +1",
+		left_ear="Mache Earring +1",
+		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
+		left_ring="Gere Ring",
+		right_ring="Niqmaddu Ring",
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 
 --Hybrid Dual Tank set
 	sets.idle.hybridtank = {
-	    --main="Varga Purnikawa",
 		range="Animator P +1",
+		ammo="Automat. Oil +3",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Karagoz Guanti +2",
-		legs="Mpaca's Hose",
+		legs="Malignance Tights",
 		feet="Malignance Boots",
-		neck="Shulmanu Collar",
-		waist="Klouskap Sash +1",
-		left_ear="Rimeice Earring",
+		neck="Empath Necklace",
+		waist="Moonbow Belt +1",
+		left_ear="Burana Earring",
 		right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
-		left_ring="Fickblix's Ring",
-		right_ring="Thur. Ring +1",
-		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+		left_ring="C. Palug Ring",
+		right_ring="Defending Ring",
+		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+10 Pet: Rng. Acc.+10','Pet: Haste+10','System: 1 ID: 1246 Val: 4',}},
 	}
 
 -- Precast fastcast
@@ -167,10 +187,10 @@ function get_sets()
 		right_ear="Crep. Earring",
 		left_ring="Fickblix's Ring",
 		right_ring="Niqmaddu Ring",
-		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
-	}
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+		}
 
-sets.ws.stringingpummel = {
+	sets.ws.stringingpummel = {
 		head="Mpaca's Cap",
 		body="Mpaca's Doublet",
 		hands="Mpaca's Gloves",
@@ -182,7 +202,7 @@ sets.ws.stringingpummel = {
 		right_ear="Schere Earring",
 		left_ring="Fickblix's Ring",
 		right_ring="Niqmaddu Ring",
-		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 
 -- Precast overload
@@ -325,7 +345,15 @@ function precast(spell)
 	spell.english == "Wind Maneuver" or spell.english == "Earth Maneuver" or 
 	spell.english == "Thunder Maneuver" or spell.english == "Water Maneuver" or 
 	spell.english == "Light Maneuver" or spell.english == "Dark Maneuver" then
-		equip(sets.ja.overload)
+		if buffactive["Overdrive"] then
+			if pet.frame == "Valoredge Frame" then
+				equip(sets.idle.valoredge)
+			elseif pet.frame == "Sharpshot Frame" then
+				equip(sets.idle.sharpshot)
+			end
+		else
+			equip(sets.ja.overload)
+		end
 	elseif spell.english == "Tactical Switch" then
 		equip(sets.ja.tacticalswitch)
 	elseif spell.english == "Overdrive" then
@@ -354,7 +382,15 @@ function midcast(spell)
 	spell.english == "Wind Maneuver" or spell.english == "Earth Maneuver" or 
 	spell.english == "Thunder Maneuver" or spell.english == "Water Maneuver" or 
 	spell.english == "Light Maneuver" or spell.english == "Dark Maneuver" then
-		equip(sets.ja.overload)
+		if buffactive["Overdrive"] then
+			if pet.frame == "Valoredge Frame" then
+				equip(sets.idle.valoredge)
+			elseif pet.frame == "Sharpshot Frame" then
+				equip(sets.idle.sharpshot)
+			end
+		else
+			equip(sets.ja.overload)
+		end
 	elseif spell.english == "Tactical Switch" then
 		equip(sets.ja.tacticalswitch)
 	elseif spell.english == "Overdrive" then
@@ -371,24 +407,57 @@ function midcast(spell)
 end
 
 function pet_midcast(spell)
---	if pet.frame == "Sharpshot Frame" then
---		equip(sets.midcast.petdaze)
---	elseif pet.frame == "Valoredge Frame" then
---		equip(sets.midcast.petbone)
---	else
+	if buffactive["Overdrive"] then
+		if pet.frame == "Valoredge Frame" then
+			equip(sets.idle.valoredge)
+		elseif pet.frame == "Sharpshot Frame" then
+			equip(sets.idle.sharpshot)
+		else
+			idle()
+		end
+	else
 		idle()
---	end
+	end
 end
 
 function pet_aftercast(spell)
-	idle()
+	if buffactive["Overdrive"] then
+		if pet.frame == "Valoredge Frame" then
+			equip(sets.idle.valoredge)
+		elseif pet.frame == "Sharpshot Frame" then
+			equip(sets.idle.sharpshot)
+		else
+			idle()
+		end
+	else
+		idle()
+	end
 end
 
 
 function aftercast(spell)
-	idle()
+	if spell.english == "Overdrive" then
+		if pet.frame == "Valoredge Frame" then
+			equip(sets.idle.valoredge)
+		elseif pet.frame == "Sharpshot Frame" then
+			equip(sets.idle.sharpshot)
+		else
+			idle()
+		end
+	elseif buffactive["Overdrive"] then
+		if pet.frame == "Valoredge Frame" then
+			equip(sets.idle.valoredge)
+		elseif pet.frame == "Sharpshot Frame" then
+			equip(sets.idle.sharpshot)
+		else
+			idle()
+		end
+	else
+		idle()
+	end
 end
 
+--[[
 function buff_change(name,gain)
 	if name == "terror" and gain == "true" then
 		equip(sets.idle.tank)
@@ -400,3 +469,4 @@ function buff_change(name,gain)
 		equip(sets.idle.tank)
 		end
 end
+]]
