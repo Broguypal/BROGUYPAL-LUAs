@@ -384,7 +384,17 @@ function idle()
 	elseif pet.status == "Engaged" and pet.head == "Soulsoother Head" and pet.frame == "Harlequin Frame" then
 		equip(sets.idle.harle)
 	elseif player.status == "Engaged" and pet.status == "Idle" then
-		equip (sets.idle.master)
+		if player.equipment.main == "Godhands" or player.equipment.main == "Xiucoatl" then
+			equip(sets.idle.mastergodhands)
+		else
+			equip(sets.idle.master)
+		end
+	elseif player.status == "Engaged" and pet.isvalid == false then
+		if player.equipment.main == "Godhands" or player.equipment.main == "Xiucoatl" then
+			equip(sets.idle.mastergodhands)
+		else
+			equip(sets.idle.master)
+		end
 	else
 		equip(sets.idle.tank)
 	end

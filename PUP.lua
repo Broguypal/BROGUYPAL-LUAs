@@ -508,6 +508,12 @@ function idle()
 		else
 			equip(sets.idle.master)
 		end
+	elseif player.status == "Engaged" and pet.isvalid == false then
+		if player.equipment.main == "Godhands" or player.equipment.main == "Xiucoatl" then
+			equip(sets.idle.mastergodhands)
+		else
+			equip(sets.idle.master)
+		end
 	else  
 		equip(sets.idle.tank)
 	end
