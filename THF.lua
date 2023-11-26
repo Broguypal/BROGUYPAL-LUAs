@@ -1,9 +1,8 @@
 send_command ('bind numpad9 gs l THF.lua')
-send_command ('bind numpad8 gs l THFacc.lua')
-send_command ('bind numpad7 gs l THFdef.lua')
 
 
-send_command ('bind numpad1 input /mount "Crawler"')
+
+send_command ('bind numpad1 input /mount "Noble Chocobo"')
 send_command ('bind numpad2 input /dismount')
 --send_command ('bind numpad1 input /equip ring2 "Warp Ring"; /echo Warping; wait 11; input /item "Warp Ring" <me>;')
 --send_command ('bind numpad3 input /equip ring2 "Dim. Ring (holla)"; /echo Warping; wait 11; input /item "Dim. Ring (holla)" <me>;')
@@ -21,31 +20,31 @@ function get_sets()
 		ammo="Staunch Tathlum +1",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
 		feet="Trotter Boots",
 		neck="Sanctity Necklace",
-		waist="Isa Belt",
+		waist="Flume Belt +1",
 		left_ear="Genmei Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring="Defending Ring",
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		right_ring="Moonlight Ring",
 		back="Moonbeam Cape",
 	}
 	
 	sets.idle.attack = {
-		ammo="Per. Lucky Egg",
+		ammo="Coiste Bodhar",
 		head="Malignance Chapeau",
-		body={ name="Herculean Vest", augments={'CHR+1','Attack+6','"Treasure Hunter"+2','Mag. Acc.+13 "Mag.Atk.Bns."+13',}},
-		hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
-		legs={ name="Herculean Trousers", augments={'"Drain" and "Aspir" potency +1','Pet: Accuracy+27 Pet: Rng. Acc.+27','"Treasure Hunter"+2','Accuracy+12 Attack+12','Mag. Acc.+13 "Mag.Atk.Bns."+13',}},
-		feet={ name="Herculean Boots", augments={'Pet: Phys. dmg. taken -1%','STR+4','"Treasure Hunter"+2','Accuracy+18 Attack+18',}},
-		neck="Erudit. Necklace",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Sanctity Necklace",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear="Sherida Earring",
+		left_ear="Suppanomimi",
 		right_ear={ name="Skulker's Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+9','Mag. Acc.+9',}},
-		left_ring="Epona's Ring",
-		right_ring="Ilabrat Ring",
+		left_ring="Fickblix's Ring",
+		right_ring="Gere Ring",
 		back="Moonbeam Cape",
 	}
 
@@ -66,45 +65,29 @@ function get_sets()
 		
 	
     sets.precast.fastcast = {
-	    head={ name="Herculean Helm", augments={'Attack+5','"Triple Atk."+3','Accuracy+6',}},
-		body={ name="Taeon Tabard", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-		feet={ name="Taeon Boots", augments={'Pet: Accuracy+23 Pet: Rng. Acc.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-		neck="Deviant Necklace",
-		left_ring="Varar Ring +1",
-		right_ring="Chirich Ring",
 	}
 	
 	sets.ja.waltz = {
-	    ammo="Yamarang",
-		head="Mummu Bonnet +1",
-		body="Mummu Jacket +1",
-		hands="Turms Mittens +1",
-		legs="Mummu Kecks +1",
-		feet="Turms Leggings +1",
-		neck="Sanctity Necklace",
-		waist="Dynamic Belt",
-		left_ear="Crep. Earring",
-		left_ring="Varar Ring +1",
-		right_ring="Chirich Ring",
-		back="Moonbeam Cape",
+
 	}
 	
     sets.midcast.enmity = {
 	}
 	
 	sets.ws.weapons = {
-		ammo="Aurgelmir Orb",
-		head="Nyame Helm",
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-		feet="Nyame Sollerets",
+		ammo="Coiste Bodhar",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Fotia Gorget",
-		waist="Dynamic Belt",
-		left_ear="Sherida Earring",
-		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		left_ring="Petrov Ring",
-		right_ring="Persis Ring",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Moonshade Earring",
+		right_ear={ name="Skulker's Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+9','Mag. Acc.+9',}},
+		left_ring="Fickblix's Ring",
+		right_ring="Gere Ring",
+		back="Moonbeam Cape",
 	}
 
 end
