@@ -21,7 +21,7 @@ function get_sets()
     sets.idle.normal = {
 	    ammo="Staunch Tathlum +1",
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Adamantite Armor",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Hermes' Sandals",

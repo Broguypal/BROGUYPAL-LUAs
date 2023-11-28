@@ -18,7 +18,7 @@ send_command ('bind numpad5 input //acon equipset valoredge')
 send_command ('bind numpad4 input //acon equipset turtle')
 send_command ('bind numpad3 input //acon equipset zerg')
 
-send_command ('bind numpad1 input /mount "Crawler"')
+send_command ('bind numpad1 input /mount "Noble Chocobo"')
 send_command ('bind numpad2 input /dismount')
 
 --send_command ('bind numpad3 input //acon equipset caitsith')
@@ -39,7 +39,7 @@ function get_sets()
 	sets.idle.tank = {
 		ammo="Automat. Oil +3",
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Adamantite Armor",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Hermes' Sandals",

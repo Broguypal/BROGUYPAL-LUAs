@@ -21,7 +21,7 @@ send_command ('bind numpad4 input //acon equipset ranged')
 send_command ('bind numpad3 input //acon equipset boneslayer')
 
 
-send_command ('bind numpad1 input /mount "Crawler"')
+send_command ('bind numpad1 input /mount "Noble Chocobo"')
 send_command ('bind numpad2 input /dismount')
 
 
@@ -42,7 +42,7 @@ function get_sets()
 	sets.idle.tank = {
 		ammo="Automat. Oil +3",
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Adamantite Armor",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Hermes' Sandals",
@@ -618,7 +618,7 @@ function aftercast(spell)
 	idle()
 end
 
---[[ -- Pet mid cast is really only useful for when pets cast spells. Pats do weaponskills server side, so cant use forthat (weapon skill is already initiated at time this event is captured)
+--[[ -- Pet mid cast is really only useful for when pets cast spells. Pats do weaponskills server side, so cant use for that (weapon skill is already initiated at time this event is captured)
 function pet_midcast(spell)
 	if pet.frame == "Sharpshot Frame" then
 		equip(sets.midcast.petdaze)
