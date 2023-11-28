@@ -176,7 +176,7 @@ function get_sets()
 	sets.ws.howlingfist = {
 	    ammo="Knobkierrie",
 		head="Mpaca's Cap",
-		body={ name="Nyame Mail", augments={'Path: B',}},
+		body="Adamantite Armor",
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs="Mpaca's Hose",
 		feet="Mpaca's Boots",
