@@ -52,6 +52,25 @@ function get_sets()
 		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 
+--Pet turtle (Differs in that it wont change sets if Master engages
+	sets.idle.turtle = {
+--		main="Gnafron's Adargas",
+	    range="Animator P +1",
+		ammo="Automat. Oil +3",
+       	head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','Accuracy+3','Pet: Haste+5',}},
+		body={ name="Rao Togi +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+		hands={ name="Rao Kote +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+		legs={ name="Rao Haidate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+		feet={ name="Rao Sune-Ate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+		neck="Shepherd's Chain",
+		waist="Isa Belt",
+		left_ear="Rimeice Earring",
+		right_ear="Hypaspist Earring",
+		left_ring="C. Palug Ring",
+		right_ring="Thur. Ring +1",
+		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+	}
+
 -- harletank idle
 	sets.idle.harle = {
 		--main={ name="Xiucoatl", augments={'Path: C',}},
@@ -106,7 +125,7 @@ function get_sets()
 		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 
---Master only TP - Godhands/xiucoatle
+--Master only TP - Godhands/xiucoatl
 	sets.idle.mastergodhands = {
 	    range="Animator P +1",
 		ammo="Automat. Oil +3",
@@ -347,11 +366,19 @@ function idle()
 		equip(sets.idle.petfastcast)
 	elseif player.status == "Idle" and pet.status == "Engaged" and pet.head == "Stormwaker Head" and pet.frame == "Stormwaker Frame" then
 		equip(sets.idle.petfastcast)
+	elseif player.status == "Idle" and pet.status == "Engaged" and pet.head == "Soulsoother Head" and pet.frame == "Valoredge Frame" then
+		equip(sets.idle.turtle)
+	elseif player.status == "Idle" and pet.status == "Idle" and pet.head == "Soulsoother Head" and pet.frame == "Valoredge Frame" then
+		equip(sets.idle.turtle)
 	elseif player.status == "Engaged" then
-		if player.equipment.main == "Godhands" or player.equipment.main == "Xiucoatl" then
-			equip(sets.idle.mastergodhands)
+		if pet.head == "Soulsoother Head" and pet.frame == "Valoredge Frame" then
+			equip(sets.idle.turtle)
 		else
-			equip(sets.idle.master)
+			if player.equipment.main == "Godhands" or player.equipment.main == "Xiucoatl" then
+				equip(sets.idle.mastergodhands)
+			else
+				equip(sets.idle.master)
+			end
 		end
 	else  
 		equip(sets.idle.tank)
