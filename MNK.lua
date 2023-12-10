@@ -1,4 +1,5 @@
 send_command ('bind numpad9 gs l MNK.lua')
+send_command ('bind numpad8 gs l MNKc.lua')
 
 
 
@@ -444,6 +445,18 @@ end
 function aftercast(spell)
 	if spell.english == "Boost" then
 		equip(sets.ja.boost)
+	elseif spell.english == "Impetus" then
+		if buffactive["Footwork"] then
+			equip(sets.idle.tpimpetusfootwork)
+		else
+			equip(sets.idle.tpimpetus) 
+		end
+	elseif spell.english == "Footwork" then
+		if buffactive["Impetus"] then
+			equip(sets.idle.tpimpetusfootwork)
+		else
+			equip(sets.idle.tpfootwork) 
+		end
 	else
 		idle()
 	end

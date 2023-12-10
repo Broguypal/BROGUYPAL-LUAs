@@ -16,7 +16,7 @@ send_command ('bind numpad7 gs l PUPm.lua')
 send_command ('bind numpad6 input //acon equipset buff')
 send_command ('bind numpad5 input //acon equipset cure')
 send_command ('bind numpad4 input //acon equipset nuke')
-send_command ('bind numpad3 input //acon equipset harle')
+send_command ('bind numpad3 input //acon equipset sortie')
 
 
 send_command ('bind numpad1 input /mount "Noble Chocobo"')
