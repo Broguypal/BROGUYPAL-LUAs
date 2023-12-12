@@ -3,11 +3,12 @@ send_command ('bind numpad8 gs l RUNd.lua')
 send_command ('bind numpad6 gs l RUNa.lua')
 send_command ('bind numpad7 gs l RUNm.lua')
 send_command ('bind numpad5 gs l RUNe.lua')
+send_command ('bind numpad4 gs l RUNme.lua')
 
 --RUN is standard everday use. -DT capped but good dps gear
 --RUNd is defence mode. Ideal for Big pulls. Spell interruption is capped at a sacrifice to enmity generation. While engaged, parry set takes over.
 --RUNe is the same as RUNd, except enmity takes priority over SIR. Ideal for tanking individual mobs.
---RUNm is for fights where magic damage is the concern. High M-EVA and elemental resistances.
+--RUNm is for fights where magic damage is the concern. High M-EVA and elemental resistances. (RUNme is aettir variant)
 --RUNa is purely for DPS where you're not afraid to take damage.
 
 send_command ('bind numpad1 input /mount "Noble Chocobo"')
@@ -47,7 +48,7 @@ function get_sets()
 		head="Nyame Helm",
 		body="Erilaz Surcoat +2",
 		hands="Turms Mittens +1",
-		legs="Eri. Leg Guards +2",
+		legs="Eri. Leg Guards +3",
 		feet="Turms Leggings +1",
 		neck={ name="Futhark Torque +1", augments={'Path: A',}},
 		waist="Engraved Belt",
@@ -77,7 +78,7 @@ function get_sets()
 		head="Nyame Helm",
 		body="Runeist Coat +3",
 		hands="Kurys Gloves",
-		legs="Eri. Leg Guards +2",
+		legs="Eri. Leg Guards +3",
 		feet="Erilaz Greaves +3",
 		neck="Moonlight Necklace",
 		waist="Plat. Mog. Belt",
@@ -98,7 +99,7 @@ function get_sets()
 		head="Halitus Helm",
 		body="Emet Harness +1",
 		hands="Kurys Gloves",
-		legs="Eri. Leg Guards +2",
+		legs="Eri. Leg Guards +3",
 		feet="Erilaz Greaves +3",
 		neck="Moonlight Necklace",
 		waist="Plat. Mog. Belt",
@@ -113,7 +114,7 @@ function get_sets()
 		head="Halitus Helm",
 		body="Emet Harness +1",
 		hands="Kurys Gloves",
-		legs="Eri. Leg Guards +2",
+		legs="Eri. Leg Guards +3",
 		feet="Erilaz Greaves +3",
 		neck={ name="Futhark Torque +1", augments={'Path: A',}},
 		waist="Flume Belt +1",
@@ -128,7 +129,7 @@ function get_sets()
 		head="Erilaz Galea +2",
 		body="Nyame Mail",
 		hands="Rawhide Gloves",
-		legs="Eri. Leg Guards +2",
+		legs="Eri. Leg Guards +3",
 		feet="Erilaz Greaves +3",
 		neck="Moonlight Necklace",
 		waist="Audumbla Sash",
