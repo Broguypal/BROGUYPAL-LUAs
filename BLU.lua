@@ -24,32 +24,32 @@ function get_sets()
  
     sets.idle.normal = {
 		ammo="Staunch Tathlum +1",
-		head="Malignance Chapeau",
+		head={ name="Nyame Helm", augments={'Path: B',}},
 		body="Hashishin Mintan +2",
 		hands="Hashi. Bazu. +2",
 		legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
-		feet="Malignance Boots",
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Sibyl Scarf",
-		waist="Flume Belt +1",
-		left_ear="Hearty Earring",
-		right_ear="Suppanomimi",
-		left_ring="Defending Ring",
-		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Accuracy+5','"Store TP"+10',}},
+		waist="Carrier's Sash",
+		left_ear="Genmei Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Shadow Ring",
+		right_ring="Defending Ring",
+		back="Shadow Mantle",
 	}
 	sets.idle.attack = {
-		ammo="Focal Orb",
+		ammo="Aurgelmir Orb",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
-		hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
-		neck="Defiant Collar",
+		neck="Mirage Stole +1",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Suppanomimi",
-		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring="Defending Ring",
-		right_ring="Fickblix's Ring",
+		right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+		left_ring="Epona's Ring",
+		right_ring="Defending Ring",
 		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Accuracy+5','"Store TP"+10',}},
 	}
     sets.precast.fastcast = {
@@ -68,19 +68,8 @@ function get_sets()
 		back="Swith Cape",
 	}
 	    sets.precast.diffusion = {
-		ammo="Sapience Orb",
-		head={ name="Herculean Helm", augments={'Attack+5','"Triple Atk."+3','Accuracy+6',}},
-		body={ name="Taeon Tabard", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-		hands="Jhakri Cuffs +2",
-		legs={ name="Lengo Pants", augments={'INT+4','Mag. Acc.+2','"Mag.Atk.Bns."+4',}},
 		feet="Luhlaza Charuqs +1",
-		neck="Nefarious Collar",
-		waist="Witful Belt",
-		left_ear="Friomisi Earring",
-		right_ear="Hecate's Earring",
-		left_ring="Jhakri Ring",
-		right_ring="Lebeche Ring",
-		back="Swith Cape",
+
 	}
     sets.midcast.spelldamage = {
 		ammo="Staunch Tathlum +1",
@@ -115,15 +104,15 @@ function get_sets()
 	sets.ws.weapons = {
 		ammo="Oshasha's Treatise",
 		head="Hashishin Kavuk +2",
-		body="Gleti's Cuirass",
-		hands="Jhakri Cuffs +2",
-		legs="Gleti's Breeches",
-		feet="Gleti's Boots",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Rep. Plat. Medal",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Ishvara Earring",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		left_ring="Petrov Ring",
+		left_ring="Sroda Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
@@ -149,7 +138,7 @@ end
 function precast(spell)
 	if spell.name == "Diffusion" then
 		equip(sets.precast.diffusion)
-	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" then 
+	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
 		equip(sets.precast.fastcast)
 	elseif spell.type == "WeaponSkill" then 
 		equip(sets.ws.weapons)	
@@ -170,6 +159,7 @@ function aftercast(spell)
 	idle()
 end
 
+--[[
 function buff_change(name,gain)
 	if name == "terror" and gain == "true" then
 		equip(sets.idle.normal)
@@ -181,3 +171,4 @@ function buff_change(name,gain)
 		equip(sets.idle.normal)
 		end
 end
+]]
