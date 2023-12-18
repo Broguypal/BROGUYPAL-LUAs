@@ -3,7 +3,7 @@ send_command ('bind numpad8 gs l BLUd.lua')
 
 send_command ('bind numpad6 input //aset set melee')
 send_command ('bind numpad5 input //aset set acc')
-send_command ('bind numpad4 input //aset set aoe')
+send_command ('bind numpad4 input //aset set odyssey')
 
 
 send_command ('bind numpad1 input /mount "Crawler"')
@@ -22,35 +22,36 @@ function get_sets()
 	sets.ws = {}					-- Leave this empty
  
     sets.idle.normal = {
-		ammo="Homiliary",
-		head="Nyame Helm",
-		body="Shamash Robe",
-		hands="Nyame Gauntlets",
-		legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
-		feet="Nyame Sollerets",
-		neck="Loricate Torque",
-		waist="Flume Belt +1",
-		left_ear="Hearty Earring",
-		right_ear="Suppanomimi",
-		left_ring="Defending Ring",
+		main="Sakpata's Sword",
+		sub="Bunzi's Rod",
+		ammo="Amar Cluster",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		waist="Plat. Mog. Belt",
+		left_ear="Eabani Earring",
+		right_ear="Infused Earring",
+		left_ring="Warden's Ring",
 		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Accuracy+5','"Store TP"+10',}},
+		back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
 	}
 	sets.idle.attack = {
-		ammo="Staunch Tathlum +1",
-		head="Aya. Zucchetto +2",
-		body="Ayanmo Corazza +2",
-		hands="Aya. Manopolas +2",
-		legs="Nyame Flanchard",
-		--legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
-		feet="Aya. Gambieras +2",
-		neck={ name="Loricate Torque +1", augments={'Path: A',}},
-		waist="Cetl Belt",
-		left_ear="Brutal Earring",
+		ammo="Coiste Bodhar",
+		head="Malignance Chapeau",
+		body="Hashishin Mintan +2",
+		hands="Hashi. Bazu. +2",
+		legs="Hashishin Tayt +2",
+		feet="Malignance Boots",
+		neck="Mirage Stole +1",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Genmei Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring="Defending Ring",
+		left_ring="Fickblix's Ring",
 		right_ring="Epona's Ring",
-		back="Moonbeam Cape",
+		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Accuracy+5','"Store TP"+10',}},
 	}
     sets.precast.fastcast = {
 		ammo="Sapience Orb",
@@ -84,21 +85,37 @@ function get_sets()
 	}
 	
     sets.midcast.enmity = {
-		ammo="Staunch Tathlum +1",
-		head="Nyame Helm",
-		body="Shamash Robe",
-		hands="Rawhide Gloves",
-		legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
-		feet="Nyame Sollerets",
-		neck={ name="Loricate Torque +1", augments={'Path: A',}},
-		waist="Eschan Stone",
-		left_ear="Magnetic Earring",
-		right_ear="Halasz Earring",
-		left_ring="Persis Ring",
-		right_ring="Evanescence Ring",
+		main="Sakpata's Sword",
+		sub="Bunzi's Rod",
+		ammo="Pemphredo Tathlum",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Mirage Stole +1",
+		waist="Plat. Mog. Belt",
+		left_ear="Genmei Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Stikini Ring",
+		right_ring="Stikini Ring",
 		back="Moonbeam Cape",
 		}
-		
+	sets.midcast.phalanx = {
+	    ammo="Sapience Orb",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+		hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+		legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+		feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+		neck="Mirage Stole +1",
+		waist="Plat. Mog. Belt",
+		left_ear="Genmei Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Stikini Ring",
+		right_ring="Stikini Ring",
+		back="Moonbeam Cape",
+	}
 	sets.ws.weapons = {
 	    ammo="Crepuscular Pebble",
 		head="Nyame Helm",
@@ -146,7 +163,11 @@ function precast(spell)
 end
 
 function midcast(spell)
-	equip(sets.midcast.enmity)
+	if spell.english == "Phalanx" then
+		equip(sets.midcast.phalanx)
+	else
+		equip(sets.midcast.enmity)
+	end
 end
 
 function aftercast(spell)
