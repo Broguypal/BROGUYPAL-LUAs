@@ -123,8 +123,8 @@ function get_sets()
 		waist="Moonbow Belt +1",
 		left_ear="Schere Earring",
 		right_ear={ name="Kara. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
-		left_ring="Gere Ring",
-		right_ring="Niqmaddu Ring",
+		left_ring="Niqmaddu Ring",
+		right_ring="Gere Ring",
 		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 
@@ -141,8 +141,8 @@ function get_sets()
 		waist="Moonbow Belt +1",
 		left_ear="Mache Earring +1",
 		right_ear={ name="Kara. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
-		left_ring="Gere Ring",
-		right_ring="Niqmaddu Ring",
+		left_ring="Niqmaddu Ring",
+		right_ring="Gere Ring",
 		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 
@@ -184,8 +184,8 @@ function get_sets()
 		waist="Fotia Belt",
 		left_ear="Schere Earring",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		left_ring="Sroda Ring",
-		right_ring="Niqmaddu Ring",
+		left_ring="Niqmaddu Ring",
+		right_ring="Sroda Ring",
 		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 
@@ -199,8 +199,8 @@ function get_sets()
 		waist="Fotia Belt",
 		left_ear="Schere Earring",
 		right_ear={ name="Kara. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
-		left_ring="Gere Ring",
-		right_ring="Niqmaddu Ring",
+		left_ring="Niqmaddu Ring",
+		right_ring="Gere Ring",
 		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 		}
 	
@@ -214,8 +214,8 @@ function get_sets()
 		waist="Moonbow Belt +1",
 		left_ear="Schere Earring",
 		right_ear={ name="Kara. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
-		left_ring="Gere Ring",
-		right_ring="Niqmaddu Ring",
+		left_ring="Niqmaddu Ring",
+		right_ring="Gere Ring",
 		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 
@@ -229,8 +229,8 @@ function get_sets()
 		waist="Moonbow Belt +1",
 		left_ear="Schere Earring",
 		right_ear={ name="Kara. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
-		left_ring="Gere Ring",
-		right_ring="Niqmaddu Ring",
+		left_ring="Niqmaddu Ring",
+		right_ring="Gere Ring",
 		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 
@@ -244,8 +244,8 @@ function get_sets()
 		waist="Moonbow Belt +1",
 		left_ear="Schere Earring",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		left_ring="Gere Ring",
-		right_ring="Niqmaddu Ring",
+		left_ring="Niqmaddu Ring",
+		right_ring="Gere Ring",
 		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 
@@ -259,8 +259,8 @@ function get_sets()
 		waist="Moonbow Belt +1",
 		left_ear="Schere Earring",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		left_ring="Gere Ring",
-		right_ring="Niqmaddu Ring",
+		left_ring="Niqmaddu Ring",
+		right_ring="Gere Ring",
 		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 
@@ -274,8 +274,8 @@ function get_sets()
 		waist="Fotia Belt",
 		left_ear="Schere Earring",
 		right_ear={ name="Kara. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
-		left_ring="Sroda Ring",
-		right_ring="Niqmaddu Ring",
+		left_ring="Niqmaddu Ring",
+		right_ring="Sroda Ring",
 		back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 
