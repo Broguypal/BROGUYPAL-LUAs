@@ -147,7 +147,7 @@ function get_sets()
 		body="Bhikku Cyclas +2",
 		hands="Mpaca's Gloves",
 		legs="Bhikku Hose +2",
-		feet="Anch. Gaiters +2",
+		feet="Anch. Gaiters +3",
 		neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},
 		waist="Moonbow Belt +1",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -224,6 +224,7 @@ function get_sets()
 
 -- Footwork
 	sets.ja.footwork = {
+		feet="Bhikku Gaiters +1",
 	}
 
 -- Mantra

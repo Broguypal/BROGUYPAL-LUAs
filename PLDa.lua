@@ -1,7 +1,9 @@
 send_command ('bind numpad9 gs l PLD.lua')
 send_command ('bind numpad8 gs l PLDb.lua')
 send_command ('bind numpad7 gs l PLDa.lua')
-
+send_command ('bind numpad6 input /equip Sub "Aegis"')
+send_command ('bind numpad5 input /equip Sub "Ochain"')
+send_command ('bind numpad4 input /equip Sub "Blurred Shield +1"')
 
 send_command ('bind numpad1 input /mount "Noble Chocobo"')
 send_command ('bind numpad2 input /dismount')
@@ -183,8 +185,8 @@ function get_sets()
 		waist="Audumbla Sash",
 		left_ear="Mendi. Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-		right_ring="Eihwaz Ring",
+		left_ring="Eihwaz Ring",
+		right_ring="Moonlight Ring",
 		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 		}
 

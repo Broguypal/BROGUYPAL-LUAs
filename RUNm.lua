@@ -42,7 +42,7 @@ function get_sets()
 		back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 		}
 	sets.idle.attack = {
-		main={ name="Aettir", augments={'Accuracy+70','Mag. Evasion+50','Weapon skill damage +10%',}},
+		main={ name="Epeolatry", augments={'Path: A',}},
 		sub={ name="Refined Grip +1", augments={'Path: A',}},
 		ammo="Staunch Tathlum +1",
 		head="Nyame Helm",
