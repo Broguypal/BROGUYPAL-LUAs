@@ -6,7 +6,7 @@ send_command ('bind f12 input //fillmode')
 send_command ('bind numpad6 input //aset set melee')
 send_command ('bind numpad5 input //aset set acc')
 send_command ('bind numpad4 input //aset set aoe')
-send_command ('bind numpad3 input //aset set treasure')
+send_command ('bind numpad3 input //aset set aoeth')
 
 send_command ('bind numpad1 input /mount "Crawler"')
 send_command ('bind numpad2 input /dismount')
