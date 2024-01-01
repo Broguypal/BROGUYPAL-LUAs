@@ -1,5 +1,6 @@
 send_command ('bind numpad9 gs l BLU.lua')
 send_command ('bind numpad8 gs l BLUd.lua')
+send_command ('bind numpad7 gs l BLUth.lua')
 
 send_command ('bind numpad5 input //aset set omen')
 send_command ('bind numpad4 input //aset set odyssey')

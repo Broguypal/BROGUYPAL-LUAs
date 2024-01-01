@@ -39,12 +39,12 @@ function get_sets()
 		back="Shadow Mantle",
 	}
 	sets.idle.attack = {
-		ammo="Aurgelmir Orb",
+		ammo="Per. Lucky Egg",
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body={ name="Herculean Vest", augments={'CHR+1','Attack+6','"Treasure Hunter"+2','Mag. Acc.+13 "Mag.Atk.Bns."+13',}},
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
-		feet="Malignance Boots",
+		legs={ name="Herculean Trousers", augments={'"Drain" and "Aspir" potency +1','Pet: Accuracy+27 Pet: Rng. Acc.+27','"Treasure Hunter"+2','Accuracy+12 Attack+12','Mag. Acc.+13 "Mag.Atk.Bns."+13',}},
+		feet={ name="Herculean Boots", augments={'Pet: Phys. dmg. taken -1%','STR+4','"Treasure Hunter"+2','Accuracy+18 Attack+18',}},
 		neck="Mirage Stole +1",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Suppanomimi",
@@ -73,12 +73,12 @@ function get_sets()
 
 	}
     sets.midcast.spelldamage = {
-		ammo="Staunch Tathlum +1",
+		ammo="Per. Lucky Egg",
 		head="Hashishin Kavuk +2",
-		body="Hashishin Mintan +2",
+		body={ name="Herculean Vest", augments={'CHR+1','Attack+6','"Treasure Hunter"+2','Mag. Acc.+13 "Mag.Atk.Bns."+13',}},
 		hands="Hashi. Bazu. +2",
-		legs="Hashishin Tayt +2",
-		feet="Hashi. Basmak +2",
+		legs={ name="Herculean Trousers", augments={'"Drain" and "Aspir" potency +1','Pet: Accuracy+27 Pet: Rng. Acc.+27','"Treasure Hunter"+2','Accuracy+12 Attack+12','Mag. Acc.+13 "Mag.Atk.Bns."+13',}},
+		feet={ name="Herculean Boots", augments={'Pet: Phys. dmg. taken -1%','STR+4','"Treasure Hunter"+2','Accuracy+18 Attack+18',}},
 		neck="Sibyl Scarf",
 		waist="Eschan Stone",
 		left_ear="Friomisi Earring",
