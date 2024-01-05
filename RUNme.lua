@@ -26,7 +26,7 @@ function get_sets()
  
     sets.idle.normal = {
 		main={ name="Aettir", augments={'Accuracy+70','Mag. Evasion+50','Weapon skill damage +10%',}},
-		sub={ name="Refined Grip +1", augments={'Path: A',}},
+		sub="Irenic Strap",
 		ammo="Staunch Tathlum +1",
 		head="Nyame Helm",
 		body="Runeist Coat +3",
@@ -43,7 +43,7 @@ function get_sets()
 		}
 	sets.idle.attack = {
 		main={ name="Aettir", augments={'Accuracy+70','Mag. Evasion+50','Weapon skill damage +10%',}},
-		sub={ name="Refined Grip +1", augments={'Path: A',}},
+		sub="Irenic Strap",
 		ammo="Staunch Tathlum +1",
 		head="Nyame Helm",
 		body="Runeist Coat +3",
