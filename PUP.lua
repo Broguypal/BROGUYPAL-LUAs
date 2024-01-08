@@ -447,7 +447,7 @@ end
 -- Registering event for pet change -- Essentially, this checks the Pet TP every second, and if it reaches 850+ it automatically swaps to the appropriate pet weaponskill set.
 windower.register_event('time change', function(new, old)
 	if pet.isvalid and pet.status == "Engaged" then
-		if new > old and pet.tp >= 850 and tp <= 900 then
+		if new > old and pet.tp >= 850 then
 			if pet.frame == "Sharpshot Frame" then
 				equip(sets.midcast.petdaze)
 			end
@@ -619,7 +619,7 @@ function midcast(spell)
 end
 
 function aftercast(spell)
-	
+	idle()
 end
 
 --[[ -- Pet mid cast is really only useful for when pets cast spells. Pats do weaponskills server side, so cant use for that (weapon skill is already initiated at time this event is captured)
