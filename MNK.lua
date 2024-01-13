@@ -46,12 +46,16 @@ function get_sets()
 		feet="Mpaca's Boots",
 		neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},
 		waist="Moonbow Belt +1",
-		left_ear="Mache Earring +1",
+		left_ear="Schere Earring",
 		right_ear="Sherida Earring",
 		left_ring="Gere Ring",
 		right_ring="Niqmaddu Ring",
 		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
+	
+	sets.idle.tp.godhands = set_combine(sets.idle.tp,{
+		left_ear="Mache Earring +1",
+	})
 
 -- TP Set impetus up
 	sets.idle.tpimpetus = {
@@ -63,12 +67,16 @@ function get_sets()
 		feet="Mpaca's Boots",
 		neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},
 		waist="Moonbow Belt +1",
-		left_ear="Mache Earring +1",
+		left_ear="Schere Earring",
 		right_ear="Sherida Earring",
 		left_ring="Gere Ring",
 		right_ring="Niqmaddu Ring",
 		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
+
+	sets.idle.tpimpetus.godhands = set_combine(sets.idle.tpimpetus,{
+		left_ear="Mache Earring +1",
+	})
 
 -- TP Set footwork up
 	sets.idle.tpfootwork = {
@@ -80,12 +88,16 @@ function get_sets()
 		feet="Anch. Gaiters +3",
 		neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},
 		waist="Moonbow Belt +1",
-		left_ear="Mache Earring +1",
+		left_ear="Schere Earring",
 		right_ear="Sherida Earring",
 		left_ring="Gere Ring",
 		right_ring="Niqmaddu Ring",
 		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
+	
+	sets.idle.tpfootwork.godhands = set_combine(sets.idle.tpfootwork,{
+		left_ear="Mache Earring +1",
+	})
 
 -- TP Set Impetus + Footwork up
 	sets.idle.tpimpetusfootwork = {
@@ -97,13 +109,17 @@ function get_sets()
 		feet="Anch. Gaiters +3",
 		neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},
 		waist="Moonbow Belt +1",
-		left_ear="Mache Earring +1",
+		left_ear="Schere Earring",
 		right_ear="Sherida Earring",
 		left_ring="Gere Ring",
 		right_ring="Niqmaddu Ring",
 		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
+	sets.idle.tpimpetusfootwork.godhands = set_combine(sets.idle.tpimpetusfootwork,{
+		left_ear="Mache Earring +1",
+	})
+	
 ----------------------------------- Weaponskill sets----------------------------------------------------
 --Victory Smite
 	sets.ws.victorysmite = {
@@ -303,16 +319,30 @@ end
 
 function idle()
 	if player.status == "Engaged" then
-		if buffactive["Impetus"] then
-			if buffactive["Footwork"] then
-				equip(sets.idle.tpimpetusfootwork)
+		if player.equipment.main == "Godhands" then
+			if buffactive["Impetus"] then
+				if buffactive["Footwork"] then
+					equip(sets.idle.tpimpetusfootwork.godhands)
+				else
+					equip(sets.idle.tpimpetus.godhands) 
+				end
+			elseif buffactive["Footwork"] then
+				equip(sets.idle.tpfootwork.godhands)
 			else
-				equip(sets.idle.tpimpetus) 
+				equip(sets.idle.tp.godhands) 
 			end
-		elseif buffactive["Footwork"] then
-			equip(sets.idle.tpfootwork)
 		else
-			equip(sets.idle.tp) 
+			if buffactive["Impetus"] then
+				if buffactive["Footwork"] then
+					equip(sets.idle.tpimpetusfootwork)
+				else
+					equip(sets.idle.tpimpetus) 
+				end
+			elseif buffactive["Footwork"] then
+				equip(sets.idle.tpfootwork)
+			else
+				equip(sets.idle.tp) 
+			end
 		end
 	else
 		equip(sets.idle.normal)
@@ -321,16 +351,30 @@ end
 
 function status_change(new,old)
 	if new == "Engaged" then
-		if buffactive["Impetus"] then
-			if buffactive["Footwork"] then
-				equip(sets.idle.tpimpetusfootwork)
+		if player.equipment.main == "Godhands" then
+			if buffactive["Impetus"] then
+				if buffactive["Footwork"] then
+					equip(sets.idle.tpimpetusfootwork.godhands)
+				else
+					equip(sets.idle.tpimpetus.godhands) 
+				end
+			elseif buffactive["Footwork"] then
+				equip(sets.idle.tpfootwork.godhands)
 			else
-				equip(sets.idle.tpimpetus) 
+				equip(sets.idle.tp.godhands) 
 			end
-		elseif buffactive["Footwork"] then
-			equip(sets.idle.tpfootwork)
 		else
-			equip(sets.idle.tp) 
+			if buffactive["Impetus"] then
+				if buffactive["Footwork"] then
+					equip(sets.idle.tpimpetusfootwork)
+				else
+					equip(sets.idle.tpimpetus) 
+				end
+			elseif buffactive["Footwork"] then
+				equip(sets.idle.tpfootwork)
+			else
+				equip(sets.idle.tp) 
+			end
 		end
 	else
 		idle()
@@ -448,20 +492,37 @@ function aftercast(spell)
 		equip(sets.ja.boost)
 	elseif spell.english == "Impetus" then
 		if buffactive["Footwork"] then
-			equip(sets.idle.tpimpetusfootwork)
+			if player.equipment.main == "Godhands" then
+				equip(sets.idle.tpimpetusfootwork.godhands)
+			else
+				equip(sets.idle.tpimpetusfootwork)
+			end
 		else
-			equip(sets.idle.tpimpetus) 
+			if player.equipment.main == "Godhands" then
+				equip(sets.idle.tpimpetus.godhands)
+			else
+				equip(sets.idle.tpimpetus)
+			end
 		end
 	elseif spell.english == "Footwork" then
 		if buffactive["Impetus"] then
-			equip(sets.idle.tpimpetusfootwork)
+			if player.equipment.main == "Godhands" then
+				equip(sets.idle.tpimpetusfootwork.godhands)
+			else
+				equip(sets.idle.tpimpetusfootwork)
+			end
 		else
-			equip(sets.idle.tpfootwork) 
+			if player.equipment.main == "Godhands" then
+				equip(sets.idle.tpfootwork.godhands) 
+			else
+				equip(sets.idle.tpfootwork) 
+			end
 		end
 	else
 		idle()
 	end
 end
+
 
 function buff_change(name,gain)
 	if name == "terror" and gain == "true" then
