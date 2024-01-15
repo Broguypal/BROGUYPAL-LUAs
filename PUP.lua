@@ -446,8 +446,8 @@ end
 
 -- Registering event for pet change -- Essentially, this checks the Pet TP every second, and if it reaches 850+ it automatically swaps to the appropriate pet weaponskill set.
 windower.register_event('time change', function(new, old)
-	if pet.isvalid and pet.status == "Engaged" then
-		if new > old and pet.tp >= 850 then
+	if new > old and pet.isvalid and pet.status == "Engaged" then 
+		if pet.tp >= 850 and player.tp <= 400 then
 			if pet.frame == "Sharpshot Frame" then
 				equip(sets.midcast.petdaze)
 			end
