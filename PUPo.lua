@@ -42,7 +42,7 @@ function get_sets()
 		body="Adamantite Armor",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
-		feet="Hermes' Sandals",
+		feet="Malignance Boots",
 		neck="Sanctity Necklace",
 		waist="Moonbow Belt +1",
 		left_ear="Genmei Earring",
