@@ -100,7 +100,7 @@ function get_sets()
 		waist="Plat. Mog. Belt",
 		left_ear="Eabani Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring="Prolix Ring",
+		left_ring="Kishar Ring",
 		right_ring="Moonlight Ring",
 		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 		}
@@ -117,7 +117,7 @@ function get_sets()
 		waist="Plat. Mog. Belt",
 		left_ear="Mendi. Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring="Prolix Ring",
+		left_ring="Kishar Ring",
 		right_ring="Moonlight Ring",
 		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 	}
