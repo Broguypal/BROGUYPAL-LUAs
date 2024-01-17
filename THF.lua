@@ -67,6 +67,10 @@ function get_sets()
     sets.precast.fastcast = {
 	}
 	
+	sets.precast.steal = {
+		ammo="Barathrum",
+	}
+	
 	sets.ja.waltz = {
 
 	}
@@ -94,28 +98,32 @@ end
 
 
 function idle()
-	if buffactive["terror"] or buffactive["petrification"] or buffactive["stun"] then
-    equip(sets.idle.normal)
-	elseif player.status == "Engaged" then 
-	equip(sets.idle.attack) 
+	if player.status == "Engaged" then 
+		equip(sets.idle.attack) 
 	else
-	equip(sets.idle.normal)
+		equip(sets.idle.normal)
 	end
 end
 
 function status_change(new,old)
 	if new == "Engaged" then
-	equip(sets.idle.attack)
+		equip(sets.idle.attack)
 	else
-	idle()
+		idle()
 	end
 end
 
 function precast(spell)
 	if spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" then 
 		equip(sets.precast.fastcast)
-	elseif spell.type == "WeaponSkill" or spell.type == "JobAbility" then 
-		midcast(spell)
+	elseif spell.type == "WeaponSkill" then
+		equip(sets.ws.weapons)
+	elseif spell.type == "JobAbility" then 
+		if spell.english == "Steal" or spell.english == "Despoil" then
+			equip(sets.precast.steal)
+		else
+			equip(sets.ja.waltz)
+		end
 	else
 		equip(sets.midcast.enmity)
 	end
@@ -124,8 +132,12 @@ end
 function midcast(spell)
 	if spell.type == "WeaponSkill" then 
 		equip(sets.ws.weapons)	
-	elseif spell.type == "JobAbility" then
-		equip(sets.ja.waltz)
+	elseif spell.type == "JobAbility" then 
+		if spell.english == "Steal" or spell.english == "Despoil" then
+			equip(sets.precast.steal)
+		else
+			equip(sets.ja.waltz)
+		end
 	else
 		equip(sets.midcast.enmity)
 	end
