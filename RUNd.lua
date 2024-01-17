@@ -69,7 +69,7 @@ function get_sets()
 		waist="Siegel Sash",
 		left_ear="Friomisi Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring="Lebeche Ring",
+		left_ring="Kishar Ring",
 		right_ring="Moonlight Ring",
 		back={ name="Ogma's Cape", augments={'HP+60','HP+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 		}
