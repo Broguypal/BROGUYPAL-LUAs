@@ -64,7 +64,7 @@ function get_sets()
 		waist="Witful Belt",
 		left_ear="Friomisi Earring",
 		right_ear="Hecate's Earring",
-		left_ring="Jhakri Ring",
+		left_ring="Kishar Ring",
 		right_ring="Lebeche Ring",
 		back="Swith Cape",
 	}

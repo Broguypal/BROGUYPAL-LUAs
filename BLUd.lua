@@ -64,7 +64,7 @@ function get_sets()
 		waist="Witful Belt",
 		left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
-		left_ring="Lebeche Ring",
+		left_ring="Kishar Ring",
 		right_ring="Prolix Ring",
 		back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
 	}
