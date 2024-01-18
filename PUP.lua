@@ -15,7 +15,8 @@ send_command ('bind numpad8 gs l PUPo.lua')
 send_command ('bind numpad7 gs l PUPm.lua')
 
 
-send_command ('bind numpad6 input //acon equipset bruiser')
+--send_command ('bind numpad6 input //acon equipset bruiser')
+send_command ('bind numpad6 input //acon equipset bruisertank')
 send_command ('bind numpad5 input //acon equipset standard')
 send_command ('bind numpad4 input //acon equipset ranged')
 send_command ('bind numpad3 input //acon equipset boneslayer')
@@ -154,7 +155,7 @@ function get_sets()
 		ammo="Automat. Oil +3",
 		head="Malignance Chapeau",
 		body="Mpaca's Doublet",
-		hands="Karagoz Guanti +2",
+		hands="Karagoz Guanti +3",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
 		neck="Shulmanu Collar",
@@ -172,7 +173,7 @@ function get_sets()
 		ammo="Automat. Oil +3",
 		head="Malignance Chapeau",
 		body="Mpaca's Doublet",
-		hands="Karagoz Guanti +2",
+		hands="Karagoz Guanti +3",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
 		neck="Shulmanu Collar",
@@ -190,7 +191,7 @@ function get_sets()
 		ammo="Automat. Oil +3",
 		head="Heyoka Cap +1",
 		body="Mpaca's Doublet",
-		hands="Karagoz Guanti +2",
+		hands="Karagoz Guanti +3",
 		legs="Heyoka Subligar +1",
 		feet="Mpaca's Boots",
 		neck="Shulmanu Collar",
@@ -208,7 +209,7 @@ function get_sets()
 		ammo="Automat. Oil +3",
 		head="Heyoka Cap +1",
 		body="Mpaca's Doublet",
-		hands="Karagoz Guanti +2",
+		hands="Karagoz Guanti +3",
 		legs="Heyoka Subligar +1",
 		feet="Mpaca's Boots",
 		neck="Shulmanu Collar",
@@ -226,7 +227,7 @@ function get_sets()
 		ammo="Automat. Oil +3",
 		head="Heyoka Cap +1",
 		body="Mpaca's Doublet",
-		hands="Karagoz Guanti +2",
+		hands="Karagoz Guanti +3",
 		legs="Heyoka Subligar +1",
 		feet="Mpaca's Boots",
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
