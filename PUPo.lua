@@ -424,7 +424,7 @@ function precast(spell)
 			equip(sets.ws.stringingpummel)
 		elseif spell.english == "Victory Smite" then
 			equip(sets.ws.victorysmite)
-		elseif spell.english == "Shijin Spiral" then
+		elseif spell.english == "Shijin Spiral" or spell.english == "Evisceration" then
 			equip(sets.ws.shijinspiral)
 		elseif spell.english == "Howling Fist" then
 			equip(sets.ws.howlingfist)
@@ -471,7 +471,7 @@ function midcast(spell)
 			equip(sets.ws.stringingpummel)
 		elseif spell.english == "Victory Smite" then
 			equip(sets.ws.victorysmite)
-		elseif spell.english == "Shijin Spiral" then
+		elseif spell.english == "Shijin Spiral" or spell.english == "Evisceration" then
 			equip(sets.ws.shijinspiral)
 		elseif spell.english == "Howling Fist" then
 			equip(sets.ws.howlingfist)
