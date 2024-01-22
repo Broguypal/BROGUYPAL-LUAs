@@ -488,6 +488,12 @@ function idle()
 		end
 	elseif player.status == "Idle" and pet.status == "Engaged" and pet.head == "Sharpshot Head" and pet.frame == "Sharpshot Frame" then
 		equip(sets.idle.ranged)
+	elseif player.status == "Engaged" and pet.status == "Engaged" and pet.head == "Sharpshot Head" and pet.frame == "Sharpshot Frame" then
+		if player.equipment.main == "Godhands" or player.equipment.main == "Xiucoatl" then
+			equip(sets.idle.hybridgodhands)
+		else
+			equip(sets.idle.hybrid)
+		end
 	elseif player.status == "Engaged" and pet.status == "Engaged" and pet.head == "Valoredge Head" and pet.frame == "Sharpshot Frame" then
 		if player.equipment.main == "Godhands" or player.equipment.main == "Xiucoatl" then
 			equip(sets.idle.hybridgodhands)
