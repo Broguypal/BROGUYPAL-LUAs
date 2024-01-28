@@ -257,6 +257,8 @@ function midcast(spell)
 end
 
 function aftercast(spell)
-	idle()
+	if spell.english == "Battuta" and player.status == "Engaged" then
+		equip(sets.idle.battuta)
+	else
+		idle()
 end
-
