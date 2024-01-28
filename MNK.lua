@@ -278,6 +278,7 @@ function get_sets()
 
 -- Chakra
 	sets.ja.chakra = {
+		hands="Hes. Gloves +3",
 	}
 
 -- Chi Blast
@@ -316,7 +317,7 @@ function get_sets()
 
 end
 
-
+------------------------------------ Logic ----------------------------------------------------------
 function idle()
 	if player.status == "Engaged" then
 		if player.equipment.main == "Godhands" then

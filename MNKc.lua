@@ -212,6 +212,7 @@ function get_sets()
 
 -- Chakra
 	sets.ja.chakra = {
+		hands="Hes. Gloves +3",
 	}
 
 -- Chi Blast

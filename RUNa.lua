@@ -1,15 +1,16 @@
 send_command ('bind numpad9 gs l RUN.lua')
-send_command ('bind numpad8 gs l RUNd.lua')
+send_command ('bind numpad8 gs l RUNaoe.lua')
 send_command ('bind numpad6 gs l RUNa.lua')
 send_command ('bind numpad7 gs l RUNm.lua')
-send_command ('bind numpad5 gs l RUNe.lua')
-send_command ('bind numpad4 gs l RUNme.lua')
+send_command ('bind numpad5 gs l RUNsingle.lua')
+send_command ('bind numpad4 gs l RUNma.lua')
 
 --RUN is standard everday use. -DT capped but good dps gear
---RUNd is defence mode. Ideal for Big pulls. Spell interruption is capped at a sacrifice to enmity generation. While engaged, parry set takes over.
---RUNe is the same as RUNd, except enmity takes priority over SIR. Ideal for tanking individual mobs.
---RUNm is for fights where magic damage is the concern. High M-EVA and elemental resistances. (RUNme is aettir variant)
+--RUNaoe is defence mode for AoE Pulls. Spell interruption is capped at a sacrifice to enmity generation. Parry set is swapped while Battuta is active.
+--RUNsingle is defence mode for single target. enmity generation takes priority over SIR. Ideal for tanking individual mobs.
+--RUNm / RUNma is for fights where magic damage is the concern. High M-EVA and elemental resistances. (RUNme is aettir variant where more MEVA is needed)
 --RUNa is purely for DPS where you're not afraid to take damage.
+
 
 send_command ('bind numpad1 input /mount "Noble Chocobo"')
 send_command ('bind numpad2 input /dismount')
