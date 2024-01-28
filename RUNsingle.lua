@@ -264,4 +264,5 @@ function aftercast(spell)
 		equip(sets.idle.battuta)
 	else
 		idle()
+	end
 end
