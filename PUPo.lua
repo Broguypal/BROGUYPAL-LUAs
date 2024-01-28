@@ -440,11 +440,7 @@ function precast(spell)
 	spell.english == "Thunder Maneuver" or spell.english == "Water Maneuver" or 
 	spell.english == "Light Maneuver" or spell.english == "Dark Maneuver" then
 		if buffactive["Overdrive"] then
-			if pet.frame == "Valoredge Frame" then
-				equip(sets.idle.valoredge)
-			elseif pet.frame == "Sharpshot Frame" then
-				equip(sets.idle.sharpshot)
-			end
+			idle()
 		else
 			equip(sets.ja.overload)
 		end
@@ -487,11 +483,7 @@ function midcast(spell)
 	spell.english == "Thunder Maneuver" or spell.english == "Water Maneuver" or 
 	spell.english == "Light Maneuver" or spell.english == "Dark Maneuver" then
 		if buffactive["Overdrive"] then
-			if pet.frame == "Valoredge Frame" then
-				equip(sets.idle.valoredge)
-			elseif pet.frame == "Sharpshot Frame" then
-				equip(sets.idle.sharpshot)
-			end
+			idle()
 		else
 			equip(sets.ja.overload)
 		end
