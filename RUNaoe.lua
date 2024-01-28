@@ -37,7 +37,7 @@ function get_sets()
 		waist="Flume Belt +1",
 		left_ear="Tuisto Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		 left_ring="Warden's Ring",
 		right_ring="Moonlight Ring",
 		back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 		}
@@ -54,7 +54,7 @@ function get_sets()
 		waist="Flume Belt +1",
 		left_ear="Tuisto Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		 left_ring="Warden's Ring",
 		right_ring="Moonlight Ring",
 		back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 		}
