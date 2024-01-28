@@ -569,7 +569,11 @@ function precast(spell)
 	spell.english == "Wind Maneuver" or spell.english == "Earth Maneuver" or 
 	spell.english == "Thunder Maneuver" or spell.english == "Water Maneuver" or 
 	spell.english == "Light Maneuver" or spell.english == "Dark Maneuver" then
-		equip(sets.ja.overload)
+		if buffactive["Overdrive"] then
+			idle()
+		else
+			equip(sets.ja.overload)
+		end
 	elseif spell.english == "Tactical Switch" then
 		equip(sets.ja.tacticalswitch)
 	elseif spell.english == "Overdrive" then
@@ -609,7 +613,11 @@ function midcast(spell)
 	spell.english == "Wind Maneuver" or spell.english == "Earth Maneuver" or 
 	spell.english == "Thunder Maneuver" or spell.english == "Water Maneuver" or 
 	spell.english == "Light Maneuver" or spell.english == "Dark Maneuver" then
-		equip(sets.ja.overload)
+		if buffactive["Overdrive"] then
+			idle()
+		else
+			equip(sets.ja.overload)
+		end
 	elseif spell.english == "Tactical Switch" then
 		equip(sets.ja.tacticalswitch)
 	elseif spell.english == "Overdrive" then
