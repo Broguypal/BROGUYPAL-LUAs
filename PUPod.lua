@@ -14,10 +14,10 @@ send_command ('bind numpad7 gs l PUPm.lua')
 
 --PUPOd is Defence version
 
-send_command ('bind numpad6 input //acon equipset sharpshot')
-send_command ('bind numpad5 input //acon equipset valoredge')
-send_command ('bind numpad4 input //acon equipset turtle')
-send_command ('bind numpad3 input //acon equipset zerg')
+send_command ('bind numpad6 input //acon equipset fu')
+send_command ('bind numpad5 input //acon equipset bumba')
+send_command ('bind numpad4 input //acon equipset gogmagog')
+send_command ('bind numpad3 input //acon equipset caitsith')
 
 send_command ('bind numpad1 input /mount "Noble Chocobo"')
 send_command ('bind numpad2 input /dismount')
