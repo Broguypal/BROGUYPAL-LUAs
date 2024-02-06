@@ -6,10 +6,10 @@
 -- |____/|_|  \___/ \__, |\__,_|\__, | .__/ \__,_|_| |___/
 --                   __/ |       __/ | |                  
 --                  |___/       |___/|_|    
--- OVERDRIVE/TANK PUP LUA - TURTLE TANK / SHARPSHOT / VALOREDGE
+-- OVERDRIVE/TANK (DEFENCE SET FOCUSSED) PUP LUA - TURTLE TANK / SHARPSHOT / VALOREDGE
 
 send_command ('bind numpad9 gs l PUP.lua')
-send_command ('bind numpad8 gs l PUPod.lua')
+send_command ('bind numpad8 gs l PUPo.lua')
 send_command ('bind numpad7 gs l PUPm.lua')
 
 --PUPOd is Defence version
@@ -56,37 +56,35 @@ function get_sets()
 --Sharpshot overdrive
 	sets.idle.sharpshot = {
  		--main={ name="Xiucoatl", augments={'Path: C',}},
-		range="Animator P +1",
 		ammo="Automat. Oil +3",
 		head="Kara. Cappello +3",
-		body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
-		hands="Mpaca's Gloves",
-		legs="Heyoka Subligar +1",
-		feet="Mpaca's Boots",
+		body={ name="Rao Togi +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+		hands={ name="Rao Kote +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+		legs={ name="Rao Haidate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+		feet={ name="Rao Sune-Ate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
 		neck="Shulmanu Collar",
 		waist="Klouskap Sash +1",
 		left_ear="Rimeice Earring",
 		right_ear={ name="Kara. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
 		left_ring="Fickblix's Ring",
 		right_ring="Thur. Ring +1",
-		back={ name="Dispersal Mantle", augments={'STR+2','DEX+4','Pet: TP Bonus+500',}},
+		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+10 Pet: Rng. Acc.+10','Pet: Haste+10','System: 1 ID: 1246 Val: 4',}},
 	}
 
 ---valoredge overdrive
 	sets.idle.valoredge = {
 		--main={ name="Xiucoatl", augments={'Path: C',}},
-		range="Animator P +1",
 		ammo="Automat. Oil +3",
-		head={ name="Taeon Chapeau", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-		body={ name="Taeon Tabard", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-		hands={ name="Taeon Gloves", augments={'Pet: Accuracy+23 Pet: Rng. Acc.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-		legs={ name="Taeon Tights", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-		feet="Mpaca's Boots",
+		head="Kara. Cappello +3",
+		body={ name="Rao Togi +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+		hands={ name="Rao Kote +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+		legs={ name="Rao Haidate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+		feet={ name="Rao Sune-Ate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
 		neck="Shulmanu Collar",
 		waist="Klouskap Sash +1",
 		left_ear="Rimeice Earring",
 		right_ear={ name="Kara. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
-		left_ring="C. Palug Ring",
+		left_ring="Fickblix's Ring",
 		right_ring="Thur. Ring +1",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+10 Pet: Rng. Acc.+10','Pet: Haste+10','System: 1 ID: 1246 Val: 4',}},
 	}
