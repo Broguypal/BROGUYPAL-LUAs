@@ -12,6 +12,9 @@
 -- NINH1.lua = Assuming recieiving Haste 1
 -- NINTank = Tank
 
+
+-- Requires Gearswap Addon - "Cancel"
+
 send_command ('bind numpad9 gs l NIN.lua')
 send_command ('bind numpad8 gs l NINH1.lua')
 send_command ('bind numpad7 gs l NINTank.lua')
@@ -74,9 +77,9 @@ function get_sets()
 	-- 0 haste 0 shadows
 	sets.engaged.haste0def = set_combine(sets.engaged.haste0,{
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
+		legs="Mpaca's Hose",
 		feet="Malignance Boots",
 		left_ring="Defending Ring",
 	})
@@ -100,9 +103,9 @@ function get_sets()
 	-- 15 haste 0 shadows
 	sets.engaged.haste15def = set_combine(sets.engaged.haste15,{
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
+		legs="Mpaca's Hose",
 		feet="Malignance Boots",
 		left_ring="Defending Ring",
 	})
@@ -126,9 +129,9 @@ function get_sets()
 	-- 30 haste 0 shadows
 	sets.engaged.haste30def = set_combine(sets.engaged.haste30,{
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
+		legs="Mpaca's Hose",
 		feet="Malignance Boots",
 		left_ring="Defending Ring",
 	})
@@ -152,9 +155,9 @@ function get_sets()
 	-- 35 haste 0 shadows
 	sets.engaged.haste35def = set_combine(sets.engaged.haste35,{
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
+		legs="Mpaca's Hose",
 		feet="Malignance Boots",
 		left_ring="Defending Ring",
 	})
@@ -178,9 +181,9 @@ function get_sets()
 	-- Cap haste 0 shadows
 	sets.engaged.hastecapdef = set_combine(sets.engaged.hastecap,{
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
+		legs="Mpaca's Hose",
 		feet="Malignance Boots",
 		left_ring="Defending Ring",
 	})
@@ -196,6 +199,7 @@ function get_sets()
 --------------- MIDCAST SETS ------------------
 	--Utsusemi Midcast
     sets.midcast.utsusemi = {
+		body="Ken. Samue +1",
 	}
 	--Enfeeble Midcast
     sets.midcast.enfeeble = {
@@ -337,6 +341,58 @@ function idle()
 	end
 end
 
+--[[  FOR TRANSFER TO H1 set once made
+function idle()
+	if player.status == "Engaged" then 
+		if ( buffactive[580] and ( buffactive.march or buffactive[33] or buffactive.embrava or buffactive[604]) ) or  -- geo haste + anything
+		   ( buffactive.embrava and (buffactive.march or buffactive[33] or buffactive[604]) ) or  -- embrava + anything
+		   ( buffactive.march == 2 and (buffactive[33] or buffactive[604]) ) or  -- two marches + anything
+		   ( buffactive[33] and buffactive[604] and buffactive.march ) then -- haste + mighty guard + any marches
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.hastecap)
+			else
+				equip(sets.engaged.hastecapdef)
+			end
+		elseif ( (buffactive[604] or buffactive[33]) and buffactive['haste samba'] and buffactive.march == 1) or -- MG or haste + samba with 1 march
+			   ( buffactive.march == 2 and buffactive['haste samba'] ) or
+			   ( buffactive[580] and buffactive['haste samba'] ) then 
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.haste35)
+			else
+				equip(sets.engaged.haste35def)
+			end
+		elseif ( buffactive.march == 2 ) or -- two marches from ghorn
+			   ( (buffactive[33] or buffactive[604]) and buffactive.march == 1 ) or  -- MG or haste + 1 march
+			   ( buffactive[580] ) or  -- geo haste
+			   ( buffactive[33] and buffactive[604] ) then  -- haste with MG
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.haste30)
+			else
+				equip(sets.engaged.haste30def)
+			end	
+		elseif buffactive[33] or buffactive[604] or buffactive.march == 1 then
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.haste15)
+			else
+				equip(sets.engaged.haste15def)
+			end	 
+		else
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.haste0)
+			else
+				equip(sets.engaged.haste0def)
+			end	 
+		end
+	else
+		if world.time >= (17*60) or world.time <= (7*60) then
+			equip(sets.idle.night)
+		else
+			equip(sets.idle.normal)
+		end
+	end
+end
+]]
+
 function precast(spell)
 	if spell.name:match('Utsusemi') then
 		equip(sets.precast.utsusemi)
@@ -359,7 +415,21 @@ end
 
 function midcast(spell)
 	if spell.name:match('Utsusemi') then
-		equip(sets.midcast.utsusemi)
+		if buffactive['Copy Image'] then
+			send_command('cancel Copy Image')
+			equip(sets.midcast.utsusemi)
+		elseif buffactive['Copy Image (2)'] then
+			send_command('cancel 444')
+			equip(sets.midcast.utsusemi)
+		elseif buffactive['Copy Image (3)'] then
+			send_command('cancel 445')
+			equip(sets.midcast.utsusemi)
+		elseif buffactive['Copy Image (4+)'] then
+			send_command('cancel 446')
+			equip(sets.midcast.utsusemi)
+		else
+			equip(sets.midcast.utsusemi)
+		end
 	elseif spell.name:match('Kurayami') or spell.name:match('Hojo') or spell.name:match('Dokumori') or spell.name:match('Jubaku') then
 		equip(sets.midcast.enfeeble)
 	elseif spell.name:match('Katon') or spell.name:match('Suiton') or spell.name:match('Raiton') or spell.name:match('Doton') or spell.name:match('Huton') or spell.name:match('Hyoton') then
