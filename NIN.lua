@@ -36,6 +36,19 @@ function get_sets()
  -------------- IDLE SETS ---------------------
     --Normal Idle Set w/ movement speed
 	sets.idle.normal = {
+	    ammo="Date Shuriken",
+		head="Malignance Chapeau",
+		body="Adamantite Armor",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Danzo Sune-Ate",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Flume Belt +1",
+		left_ear="Tuisto Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 	}
 	--Night Idle set w/ movement speed
 	sets.idle.night = set_combine(sets.idle.normal,{
@@ -44,6 +57,19 @@ function get_sets()
 --------------- ENGAGED SETS ------------------
 	-- 0 Haste
 	sets.engaged.haste0 = {
+		ammo="Date Shuriken",
+		head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+		hands="Malignance Gloves",
+		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		feet="Malignance Boots",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Reiki Yotai",
+		left_ear="Eabani Earring",
+		right_ear="Suppanomimi",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 	}
 	-- 0 haste 0 shadows
 	sets.engaged.haste0def = set_combine(sets.engaged.haste0,{
@@ -57,6 +83,19 @@ function get_sets()
 	
 	-- 15 Haste
 	sets.engaged.haste15 = {
+		ammo="Date Shuriken",
+		head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+		hands="Malignance Gloves",
+		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		feet="Malignance Boots",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Reiki Yotai",
+		left_ear="Eabani Earring",
+		right_ear="Suppanomimi",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 	}
 	-- 15 haste 0 shadows
 	sets.engaged.haste15def = set_combine(sets.engaged.haste15,{
@@ -70,6 +109,19 @@ function get_sets()
 	
 	-- 30 Haste
 	sets.engaged.haste30 = {
+		ammo="Date Shuriken",
+		head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+		hands="Malignance Gloves",
+		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		feet="Malignance Boots",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Reiki Yotai",
+		left_ear="Telos Earring",
+		right_ear="Brutal Earring",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 	}
 	-- 30 haste 0 shadows
 	sets.engaged.haste30def = set_combine(sets.engaged.haste30,{
@@ -83,6 +135,19 @@ function get_sets()
 	
 	-- 35 Haste
 	sets.engaged.haste35 = {
+		ammo="Date Shuriken",
+		head="Malignance Chapeau",
+		body="Ken. Samue +1",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Reiki Yotai",
+		left_ear="Telos Earring",
+		right_ear="Brutal Earring",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 	}
 	-- 35 haste 0 shadows
 	sets.engaged.haste35def = set_combine(sets.engaged.haste35,{
@@ -96,6 +161,19 @@ function get_sets()
 
 	-- Capped Haste
 	sets.engaged.hastecap = {
+		ammo="Date Shuriken",
+		head="Malignance Chapeau",
+		body="Ken. Samue +1",
+		hands={ name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}},
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Telos Earring",
+		right_ear="Brutal Earring",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 	}
 	-- Cap haste 0 shadows
 	sets.engaged.hastecapdef = set_combine(sets.engaged.hastecap,{
@@ -162,16 +240,47 @@ windower.register_event('time change', function(new, old)
 end)
 
 windower.register_event('lose buff', function(buff_id)
-	if buff_id == 66 or buff_id == 33 or buff_id == 580 or buff_id == 604 or buff_id == 214 or buff_id == 228 then
+	if buff_id == 66 then
+		idle()
+	end
+	if buff_id == 33 then
+		idle()
+	end
+	if buff_id == 580 then
+		idle()
+	end
+	if buff_id == 604 then
+		idle()
+	end
+	if buff_id == 214 then
+		idle()
+	end
+	if buff_id == 228 then
 		idle()
 	end
 end)
 
 windower.register_event('gain buff', function(buff_id)
-	if buff_id == 66 or buff_id == 33 or buff_id == 580 or buff_id == 604 or buff_id == 214 or buff_id == 228 then
+	if buff_id == 66 then
+		idle()
+	end
+	if buff_id == 33 then
+		idle()
+	end
+	if buff_id == 580 then
+		idle()
+	end
+	if buff_id == 604 then
+		idle()
+	end
+	if buff_id == 214 then
+		idle()
+	end
+	if buff_id == 228 then
 		idle()
 	end
 end)
+
 
 function status_change(new,old)
 	if new == "Engaged" then
