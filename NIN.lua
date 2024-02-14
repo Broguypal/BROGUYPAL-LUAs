@@ -14,6 +14,8 @@
 
 
 -- Requires Gearswap Addon - "Cancel"
+-- requires Dressup
+--> Use command "//du blinking self always on" to stop blinking
 
 send_command ('bind numpad9 gs l NIN.lua')
 send_command ('bind numpad8 gs l NINH1.lua')
@@ -199,31 +201,108 @@ function get_sets()
 --------------- MIDCAST SETS ------------------
 	--Utsusemi Midcast
     sets.midcast.utsusemi = {
-		body="Ken. Samue +1",
 	}
 	--Enfeeble Midcast
     sets.midcast.enfeeble = {
+	    ammo="Pemphredo Tathlum",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Sanctity Necklace",
+		waist="Eschan Stone",
+		left_ear="Hermetic Earring",
+		right_ear="Digni. Earring",
+		left_ring="Defending Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 	}
 
 	--Elemental Midcast
     sets.midcast.elemental = {
+	    ammo="Pemphredo Tathlum",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Sibyl Scarf",
+		waist="Eschan Stone",
+		left_ear="Hermetic Earring",
+		right_ear="Friomisi Earring",
+		left_ring="Stikini Ring",
+		right_ring="Stikini Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 	}
 
 --------------- Weaponskill SETS ------------------
 	--undefined Weaponskills
 	sets.ws.normal = {
+	   ammo="Coiste Bodhar",
+		head="Mpaca's Cap",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Fotia Gorget",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Mache Earring +1",
+		left_ring="Gere Ring",
+		right_ring="Sroda Ring",
+		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
 	}
 	
 	--shun Weaponskill
 	sets.ws.shun = {
+	    ammo="Coiste Bodhar",
+		head="Mpaca's Cap",
+		body="Malignance Tabard",
+		hands={ name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}},
+		legs="Mpaca's Hose",
+		feet="Malignance Boots",
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Mache Earring +1",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 	}
 
 	--metsu Weaponskill
 	sets.ws.metsu = {
+	    ammo="Coiste Bodhar",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Telos Earring",
+		right_ear="Mache Earring +1",
+		left_ring="Gere Ring",
+		right_ring="Ilabrat Ring",
+		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
 	}
 	
 	--ten Weaponskill
 	sets.ws.ten = {
+	    ammo="Coiste Bodhar",
+		head="Mpaca's Cap",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Rep. Plat. Medal",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Telos Earring",
+		left_ring="Gere Ring",
+		right_ring="Sroda Ring",
+		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
 	}
 end
 
@@ -295,7 +374,7 @@ function status_change(new,old)
 end
 
 
--- Idle (NOTE: This = Haste 2)
+-- Idle (NOTE: This = Haste 2) -
 function idle()
 	if player.status == "Engaged" then 
 		if ( ( (buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive.march or buffactive[604]) ) or
