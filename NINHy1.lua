@@ -13,7 +13,6 @@
 -- NINH2.lua - DPS - Assuming recieiving Haste 1
 -- NINH1.lua = DPS - Assuming recieiving Haste 1
 -- NINTank = Tank
--- NINTank = MEva tank
 
 
 -- Requires Gearswap Addon - "Cancel"
@@ -25,7 +24,6 @@ send_command ('bind numpad6 gs l NINHy1.lua')
 send_command ('bind numpad7 gs l NINH2.lua')
 send_command ('bind numpad4 gs l NINH1.lua')
 send_command ('bind numpad8 gs l NINTank.lua')
-send_command ('bind numpad8 gs l NINTankmagic.lua')
 --send_command ('bind f12 input //fillmode')
 
 send_command ('bind numpad1 input /mount "Crawler"')
@@ -59,7 +57,7 @@ function get_sets()
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Defending Ring",
 		right_ring="Fickblix's Ring",
-		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
 	}
 	--Night Idle set w/ movement speed
 	sets.idle.night = set_combine(sets.idle.normal,{
@@ -69,63 +67,60 @@ function get_sets()
 	-- 0 Haste (need 39 DW)
 	sets.engaged.haste0 = {
 		ammo="Date Shuriken",
-		head="Ken. Jinpachi +1",
-		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
-		hands="Mpaca's Gloves",
-		legs="Ken. Hakama +1",
+		head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+		body="Mpaca's Doublet",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
 		feet="Hiza. Sune-Ate +2",
 		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
 		waist="Reiki Yotai",
-		left_ear="Eabani Earring",
+		left_ear="Telos Earring",
 		right_ear="Suppanomimi",
 		left_ring="Gere Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
-	}
+		}
 	-- 0 haste 0 shadows
 	sets.engaged.haste0def = set_combine(sets.engaged.haste0,{
 		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
+		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
+		legs="Malignance Tights",
 		feet="Malignance Boots",
-		right_ring="Defending Ring",
-	})
+    	})
 	
 	-- 15 Haste (need 32 DW)
 	sets.engaged.haste15 = {
 		ammo="Date Shuriken",
-		head="Ken. Jinpachi +1",
-		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
-		hands="Mpaca's Gloves",
-		legs="Ken. Hakama +1",
-		feet="Ken. Sune-Ate +1",
+		head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+		body="Mpaca's Doublet",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
+		feet="Malignance Boots",
 		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
 		waist="Reiki Yotai",
-		left_ear="Eabani Earring",
+		left_ear="Telos Earring",
 		right_ear="Suppanomimi",
 		left_ring="Gere Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
-	}
+		}
 	-- 15 haste 0 shadows
 	sets.engaged.haste15def = set_combine(sets.engaged.haste15,{
 		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		})
+	
+	-- 30 Haste (need 21 DW)
+		sets.engaged.haste30 = {
+		head="Malignance Chapeau",
 		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
 		legs="Mpaca's Hose",
 		feet="Malignance Boots",
-		right_ring="Defending Ring",
-	})
-	
-	-- 30 Haste (need 21 DW)
-	sets.engaged.haste30 = {
-		ammo="Date Shuriken",
-		head="Ken. Jinpachi +1",
-		body="Ken. Samue +1",
-		hands="Mpaca's Gloves",
-		legs="Ken. Hakama +1",
-		feet="Ken. Sune-Ate +1",
 		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
 		waist="Reiki Yotai",
 		left_ear="Telos Earring",
@@ -133,25 +128,24 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
-	}
+		}
 	-- 30 haste 0 shadows
 	sets.engaged.haste30def = set_combine(sets.engaged.haste30,{
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		})
+
+	-- 35 Haste (need 12 DW)
+	sets.engaged.haste35 = {
+		ammo="Date Shuriken",
 		head="Malignance Chapeau",
 		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
 		legs="Mpaca's Hose",
 		feet="Malignance Boots",
-		right_ring="Defending Ring",
-	})
-	
-	-- 35 Haste (need 12 DW)
-	sets.engaged.haste35 = {
-		ammo="Date Shuriken",
-		head="Ken. Jinpachi +1",
-		body="Ken. Samue +1",
-		hands="Mpaca's Gloves",
-		legs="Ken. Hakama +1",
-		feet="Ken. Sune-Ate +1",
 		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
 		waist="Reiki Yotai",
 		left_ear="Telos Earring",
@@ -159,43 +153,41 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
-	}
+		}
 	-- 35 haste 0 shadows
 	sets.engaged.haste35def = set_combine(sets.engaged.haste35,{
 		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
+		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
+		legs="Malignance Tights",
 		feet="Malignance Boots",
-		right_ring="Defending Ring",
-	})
-
+		})
+	
 	-- Capped Haste (need 1 DW - negligible)
 	sets.engaged.hastecap = {
 		ammo="Date Shuriken",
-		head="Ken. Jinpachi +1",
-		body="Ken. Samue +1",
-		hands="Mpaca's Gloves",
-		legs="Ken. Hakama +1",
-		feet="Ken. Sune-Ate +1",
-		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
-		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear="Telos Earring",
-		right_ear="Brutal Earring",
-		left_ring="Gere Ring",
-		right_ring="Fickblix's Ring",
-		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
-	}
-	-- Cap haste 0 shadows
-	sets.engaged.hastecapdef = set_combine(sets.engaged.hastecap,{
 		head="Malignance Chapeau",
 		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
 		legs="Mpaca's Hose",
 		feet="Malignance Boots",
-		right_ring="Defending Ring",
-	})
-
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Telos Earring",
+		right_ear="Crep. Earring",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
+		}
+	-- Cap haste 0 shadows
+	sets.engaged.hastecapdef = set_combine(sets.engaged.hastecap,{
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		})
+		
 
 --------------- PRECAST SETS ------------------
 	--Fastcast Set
@@ -223,7 +215,7 @@ function get_sets()
 		left_ring="Defending Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
-	}
+		}
 
 	--Elemental Midcast
     sets.midcast.elemental = {
@@ -240,7 +232,7 @@ function get_sets()
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
 		back={ name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
-	}
+		}
 
 --------------- Weaponskill SETS ------------------
 	--undefined Weaponskills
@@ -258,7 +250,7 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Sroda Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
-	}
+		}
 	
 	--shun Weaponskill
 	sets.ws.shun = {
@@ -275,7 +267,7 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
-	}
+		}
 
 	--metsu Weaponskill
 	sets.ws.metsu = {
@@ -292,7 +284,7 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Ilabrat Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
-	}
+		}
 	
 	--ten Weaponskill
 	sets.ws.ten = {
@@ -309,7 +301,7 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Sroda Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
-	}
+		}
 end
 
 --------------- LOGIC - DO NOT TOUCH BELOW ------------------
@@ -380,7 +372,6 @@ function status_change(new,old)
 end
 
 
--- Haste 2
 --[[
 function idle()
 	if player.status == "Engaged" then 
@@ -479,6 +470,7 @@ function idle()
 	end
 end
 
+
 function precast(spell)
 	if spell.name:match('Utsusemi') then
 		equip(sets.precast.utsusemi)
@@ -516,7 +508,7 @@ function midcast(spell)
 		else
 			equip(sets.midcast.utsusemi)
 		end
-	elseif spell.name:match('Kurayami') or spell.name:match('Hojo') or spell.name:match('Dokumori') or spell.name:match('Jubaku') then
+	elseif spell.name:match('Kurayami') or spell.name:match('Hojo') or spell.name:match('Dokumori') or spell.name:match('Jubaku') or spell.name:match('Yurin') or spell.name:match('Aisha') then
 		equip(sets.midcast.enfeeble)
 	elseif spell.name:match('Katon') or spell.name:match('Suiton') or spell.name:match('Raiton') or spell.name:match('Doton') or spell.name:match('Huton') or spell.name:match('Hyoton') then
 		equip(sets.midcast.elemental)

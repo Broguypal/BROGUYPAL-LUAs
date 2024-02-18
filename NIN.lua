@@ -9,18 +9,21 @@
 --                  |___/       |___/|_|    
 -- 						NINJA LUA
 -- NIN = Hybrid (haste 2)
--- NINH1.lua = Hybrid - Assuming recieiving Haste 1
+-- NINHy1 = Hybrid (Haste 1)
+-- NINH2.lua - DPS - Assuming recieiving Haste 1
+-- NINH1.lua = DPS - Assuming recieiving Haste 1
 -- NINTank = Tank
-
 
 
 -- Requires Gearswap Addon - "Cancel"
 -- requires Dressup
---> Use command "//du blinking self always on" to stop blinking
+--> Use command "//du blinking self combat on" to stop blinking
 
 send_command ('bind numpad9 gs l NIN.lua')
-send_command ('bind numpad8 gs l NINH1.lua')
-send_command ('bind numpad6 gs l NINTank.lua')
+send_command ('bind numpad6 gs l NINHy1.lua')
+send_command ('bind numpad7 gs l NINH2.lua')
+send_command ('bind numpad4 gs l NINH1.lua')
+send_command ('bind numpad8 gs l NINTank.lua')
 --send_command ('bind f12 input //fillmode')
 
 send_command ('bind numpad1 input /mount "Crawler"')
@@ -54,7 +57,7 @@ function get_sets()
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Defending Ring",
 		right_ring="Fickblix's Ring",
-		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
 	}
 	--Night Idle set w/ movement speed
 	sets.idle.night = set_combine(sets.idle.normal,{
@@ -68,27 +71,23 @@ function get_sets()
 		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
 		legs="Mpaca's Hose",
-		feet="Malignance Boots",
+		feet="Hiza. Sune-Ate +2",
 		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
 		waist="Reiki Yotai",
-		left_ear="Eabani Earring",
+		left_ear="Telos Earring",
 		right_ear="Suppanomimi",
-		left_ring="Defending Ring",
-		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},	}
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
+		}
 	-- 0 haste 0 shadows
 	sets.engaged.haste0def = set_combine(sets.engaged.haste0,{
 		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
+		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
+		legs="Malignance Tights",
 		feet="Malignance Boots",
-		left_ring="Defending Ring",
-	})
-	--Tsuru equipped in sub (accounting for -8%DT)
-	sets.engaged.haste0tsuru = set_combine(sets.engaged.haste0,{
-		right_ring="Fickblix's Ring",
-	})
+    	})
 	
 	-- 15 Haste (need 32 DW)
 	sets.engaged.haste15 = {
@@ -100,28 +99,23 @@ function get_sets()
 		feet="Malignance Boots",
 		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
 		waist="Reiki Yotai",
-		left_ear="Eabani Earring",
+		left_ear="Telos Earring",
 		right_ear="Suppanomimi",
-		left_ring="Defending Ring",
-		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},	}
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
+		}
 	-- 15 haste 0 shadows
 	sets.engaged.haste15def = set_combine(sets.engaged.haste15,{
 		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
+		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
+		legs="Malignance Tights",
 		feet="Malignance Boots",
-		left_ring="Defending Ring",
-	})
-	--Tsuru equipped in sub (accounting for -8%DT)
-	sets.engaged.haste15tsuru = set_combine(sets.engaged.haste15,{
-		right_ring="Fickblix's Ring",
-	})
+		})
 	
 	-- 30 Haste (need 21 DW)
-	sets.engaged.haste30 = {
-		ammo="Date Shuriken",
+		sets.engaged.haste30 = {
 		head="Malignance Chapeau",
 		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
@@ -131,24 +125,19 @@ function get_sets()
 		waist="Reiki Yotai",
 		left_ear="Telos Earring",
 		right_ear="Suppanomimi",
-		left_ring="Defending Ring",
+		left_ring="Gere Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
-	}
+		}
 	-- 30 haste 0 shadows
 	sets.engaged.haste30def = set_combine(sets.engaged.haste30,{
 		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
+		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
+		legs="Malignance Tights",
 		feet="Malignance Boots",
-		left_ring="Defending Ring",
-	})
-	--Tsuru equipped in sub (accounting for -8%DT)
-	sets.engaged.haste30tsuru = set_combine(sets.engaged.haste30,{
-		left_ring="Gere Ring",
-	})
-	
+		})
+
 	-- 35 Haste (need 12 DW)
 	sets.engaged.haste35 = {
 		ammo="Date Shuriken",
@@ -161,23 +150,18 @@ function get_sets()
 		waist="Reiki Yotai",
 		left_ear="Telos Earring",
 		right_ear="Suppanomimi",
-		left_ring="Defending Ring",
+		left_ring="Gere Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
-	}
+		}
 	-- 35 haste 0 shadows
 	sets.engaged.haste35def = set_combine(sets.engaged.haste35,{
 		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
+		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
+		legs="Malignance Tights",
 		feet="Malignance Boots",
-		left_ring="Defending Ring",
-	})
-	--Tsuru equipped in sub (accounting for -8%DT)
-	sets.engaged.haste35tsuru = set_combine(sets.engaged.haste35,{
-		left_ring="Gere Ring",
-	})
+		})
 	
 	-- Capped Haste (need 1 DW - negligible)
 	sets.engaged.hastecap = {
@@ -191,23 +175,19 @@ function get_sets()
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Telos Earring",
 		right_ear="Crep. Earring",
-		left_ring="Defending Ring",
+		left_ring="Gere Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
-	}
+		}
 	-- Cap haste 0 shadows
 	sets.engaged.hastecapdef = set_combine(sets.engaged.hastecap,{
 		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
+		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
+		legs="Malignance Tights",
 		feet="Malignance Boots",
-		left_ring="Defending Ring",
-	})
-	--Tsuru equipped in sub (accounting for -8%DT)
-	sets.engaged.hastecaptsuru = set_combine(sets.engaged.hastecap,{
-		left_ring="Gere Ring",
-	})
+		})
+		
 
 --------------- PRECAST SETS ------------------
 	--Fastcast Set
@@ -235,7 +215,7 @@ function get_sets()
 		left_ring="Defending Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
-	}
+		}
 
 	--Elemental Midcast
     sets.midcast.elemental = {
@@ -252,7 +232,7 @@ function get_sets()
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
 		back={ name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
-	}
+		}
 
 --------------- Weaponskill SETS ------------------
 	--undefined Weaponskills
@@ -270,7 +250,7 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Sroda Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
-	}
+		}
 	
 	--shun Weaponskill
 	sets.ws.shun = {
@@ -287,7 +267,7 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
-	}
+		}
 
 	--metsu Weaponskill
 	sets.ws.metsu = {
@@ -304,7 +284,7 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Ilabrat Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
-	}
+		}
 	
 	--ten Weaponskill
 	sets.ws.ten = {
@@ -321,7 +301,7 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Sroda Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
-	}
+		}
 end
 
 --------------- LOGIC - DO NOT TOUCH BELOW ------------------
@@ -399,52 +379,32 @@ function idle()
 			 ( buffactive[33] and (buffactive[580] or buffactive.embrava) ) or
 			 ( buffactive.march == 2 and buffactive[604] ) ) then
 			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				if player.equipment.sub == "Tsuru" then
-					equip(sets.engaged.hastecaptsuru)
-				else
-					equip(sets.engaged.hastecap)
-				end
+				equip(sets.engaged.hastecap)
 			else
 				equip(sets.engaged.hastecapdef)
 			end
 		elseif ( (buffactive[33] or buffactive.march == 2 or buffactive[580]) and buffactive['haste samba'] ) then
 			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				if player.equipment.sub == "Tsuru" then
-					equip(sets.engaged.haste35tsuru)
-				else
-					equip(sets.engaged.haste35)
-				end
+				equip(sets.engaged.haste35)
 			else
 				equip(sets.engaged.haste35def)
 			end
 		elseif ( ( buffactive[580] or buffactive[33] or buffactive.march == 2 ) or
 				 ( buffactive.march == 1 and buffactive[604] ) ) then
 			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				if player.equipment.sub == "Tsuru" then
-					equip(sets.engaged.haste30tsuru)
-				else
-					equip(sets.engaged.haste30)
-				end
+				equip(sets.engaged.haste30)
 			else
 				equip(sets.engaged.haste30def)
 			end	 
 		elseif ( buffactive.march == 1 or buffactive[604] ) then
 			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				if player.equipment.sub == "Tsuru" then
-					equip(sets.engaged.haste15tsuru)
-				else
-					equip(sets.engaged.haste15)
-				end
+				equip(sets.engaged.haste15)
 			else
 				equip(sets.engaged.haste15def)
 			end	 
 		else
 			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				if player.equipment.sub == "Tsuru" then
-					equip(sets.engaged.haste0tsuru)
-				else
-					equip(sets.engaged.haste0)
-				end
+				equip(sets.engaged.haste0)
 			else
 				equip(sets.engaged.haste0def)
 			end	 
@@ -547,7 +507,7 @@ function midcast(spell)
 		else
 			equip(sets.midcast.utsusemi)
 		end
-	elseif spell.name:match('Kurayami') or spell.name:match('Hojo') or spell.name:match('Dokumori') or spell.name:match('Jubaku') then
+	elseif spell.name:match('Kurayami') or spell.name:match('Hojo') or spell.name:match('Dokumori') or spell.name:match('Jubaku') or spell.name:match('Yurin') or spell.name:match('Aisha') then
 		equip(sets.midcast.enfeeble)
 	elseif spell.name:match('Katon') or spell.name:match('Suiton') or spell.name:match('Raiton') or spell.name:match('Doton') or spell.name:match('Huton') or spell.name:match('Hyoton') then
 		equip(sets.midcast.elemental)

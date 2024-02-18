@@ -381,7 +381,6 @@ end
 
 
 -- Haste 2
---[[
 function idle()
 	if player.status == "Engaged" then 
 		if ( ( (buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive.march or buffactive[604]) ) or
@@ -426,9 +425,9 @@ function idle()
 		end
 	end
 end
-]]
 
--- Haste 1
+
+--[[ Haste 1
 function idle()
 	if player.status == "Engaged" then 
 		if ( buffactive[580] and ( buffactive.march or buffactive[33] or buffactive.embrava or buffactive[604]) ) or  -- geo haste + anything
@@ -478,6 +477,7 @@ function idle()
 		end
 	end
 end
+]]
 
 function precast(spell)
 	if spell.name:match('Utsusemi') then
