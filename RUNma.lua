@@ -1,3 +1,13 @@
+--  ____                                          _ _     
+-- |  _ \                                        | ( )    
+-- | |_) |_ __ ___   __ _ _   _ _   _ _ __   __ _| |/ ___ 
+-- |  _ <| '__/ _ \ / _` | | | | | | | '_ \ / _` | | / __|
+-- | |_) | | | (_) | (_| | |_| | |_| | |_) | (_| | | \__ \
+-- |____/|_|  \___/ \__, |\__,_|\__, | .__/ \__,_|_| |___/
+--                   __/ |       __/ | |                  
+--                  |___/       |___/|_|    
+--RUN LUA
+
 send_command ('bind numpad9 gs l RUN.lua')
 send_command ('bind numpad8 gs l RUNaoe.lua')
 send_command ('bind numpad6 gs l RUNa.lua')
@@ -61,17 +71,17 @@ function get_sets()
 		}
     sets.precast.fastcast = {
 		ammo="Sapience Orb",
-		head={ name="Herculean Helm", augments={'Attack+5','"Triple Atk."+3','Accuracy+6',}},
-		body="Agwu's Robe",
-		hands="Agwu's Gages",
+		head={ name="Herculean Helm", augments={'"Fast Cast"+5','"Mag.Atk.Bns."+14',}},
+		body="Erilaz Surcoat +3",
+		hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
 		legs="Agwu's Slops",
-		feet="Agwu's Pigaches",
+		feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+8','"Fast Cast"+6','INT+9',}},
 		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-		waist="Siegel Sash",
-		left_ear="Friomisi Earring",
+		waist="Plat. Mog. Belt",
+		left_ear="Tuisto Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring="Lebeche Ring",
-		right_ring="Moonlight Ring",
+		left_ring="Kishar Ring",
+		right_ring="Rahab Ring",
 		back={ name="Ogma's Cape", augments={'HP+60','HP+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 		}
 	sets.precast.valiance = {
