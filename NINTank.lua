@@ -101,6 +101,18 @@ function get_sets()
 	--Utsusemi Precast
 	sets.precast.utsusemi = set_combine(sets.precast.fastcast,{
 	})
+
+	sets.precast.enmity = {
+	    ammo="Aqreqaq Bomblet",
+		body="Emet Harness +1",
+		hands="Kurys Gloves",
+		feet="Ahosi Leggings",
+		neck="Moonlight Necklace",
+		waist="Kasiri Belt",
+		left_ear="Friomisi Earring",
+		left_ring="Begrudging Ring",
+		right_ring="Eihwaz Ring",
+	}
 --------------- MIDCAST SETS ------------------
 	--Utsusemi Midcast
     sets.midcast.utsusemi = set_combine(sets.precast.fastcast,{
@@ -256,6 +268,8 @@ function precast(spell)
 		else
 			equip(sets.ws.normal)
 		end
+	elseif spell.english == "Provoke" or spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
+		equip(sets.precast.enmity)
 	else
 		idle()
 	end
@@ -292,6 +306,8 @@ function midcast(spell)
 		else
 			equip(sets.ws.normal)
 		end
+	elseif spell.english == "Provoke" or spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
+		equip(sets.precast.enmity)
 	else
 		idle()
 	end
