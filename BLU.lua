@@ -1,3 +1,13 @@
+--  ____                                          _ _     
+-- |  _ \                                        | ( )    
+-- | |_) |_ __ ___   __ _ _   _ _   _ _ __   __ _| |/ ___ 
+-- |  _ <| '__/ _ \ / _` | | | | | | | '_ \ / _` | | / __|
+-- | |_) | | | (_) | (_| | |_| | |_| | |_) | (_| | | \__ \
+-- |____/|_|  \___/ \__, |\__,_|\__, | .__/ \__,_|_| |___/
+--                   __/ |       __/ | |                  
+--                  |___/       |___/|_|    
+--BLU LUA
+
 send_command ('bind numpad9 gs l BLU.lua')
 send_command ('bind numpad8 gs l BLUd.lua')
 send_command ('bind numpad7 gs l BLUth.lua')
@@ -6,7 +16,7 @@ send_command ('bind numpad7 gs l BLUth.lua')
 send_command ('bind numpad6 input //aset set melee')
 send_command ('bind numpad5 input //aset set acc')
 send_command ('bind numpad4 input //aset set aoe')
-send_command ('bind numpad3 input //aset set treasure')
+--send_command ('bind numpad3 input //aset set treasure')
 
 send_command ('bind numpad1 input /mount "Crawler"')
 send_command ('bind numpad2 input /dismount')
@@ -54,20 +64,23 @@ function get_sets()
 		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Accuracy+5','"Store TP"+10',}},
 	}
     sets.precast.fastcast = {
-		ammo="Sapience Orb",
-		head={ name="Herculean Helm", augments={'Attack+5','"Triple Atk."+3','Accuracy+6',}},
-		body="Hashishin Mintan +2",
-		hands="Jhakri Cuffs +2",
-		legs={ name="Lengo Pants", augments={'INT+4','Mag. Acc.+2','"Mag.Atk.Bns."+4',}},
-		feet="Jhakri Pigaches +1",
-		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+		ammo="Amar Cluster",
+		head={ name="Herculean Helm", augments={'"Fast Cast"+5','"Mag.Atk.Bns."+14',}},
+		body={ name="Adhemar Jacket +1", augments={'HP+105','"Fast Cast"+10','Magic dmg. taken -4',}},
+		hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+		legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+8','"Fast Cast"+6','INT+4',}},
+		feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+8','"Fast Cast"+6','INT+9',}},
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		waist="Witful Belt",
-		left_ear="Friomisi Earring",
-		right_ear="Hecate's Earring",
 		left_ring="Kishar Ring",
-		right_ring="Lebeche Ring",
-		back="Swith Cape",
+		right_ring="Rahab Ring",
+		back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
 	}
+	
+	sets.precast.bluemagic = set_combine(sets.precast.fastcast,{ 
+		body="Hashishin Mintan +2",
+	})
+	
 	    sets.precast.diffusion = {
 		feet="Luhlaza Charuqs +1",
 
@@ -139,7 +152,9 @@ end
 function precast(spell)
 	if spell.name == "Diffusion" then
 		equip(sets.precast.diffusion)
-	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
+	elseif spell.type == "BlueMagic"
+		equip(sets.precast.bluemagic)
+	elseif spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
 		equip(sets.precast.fastcast)
 	elseif spell.type == "WeaponSkill" then 
 		equip(sets.ws.weapons)	

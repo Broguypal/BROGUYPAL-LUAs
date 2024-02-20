@@ -1,3 +1,13 @@
+--  ____                                          _ _     
+-- |  _ \                                        | ( )    
+-- | |_) |_ __ ___   __ _ _   _ _   _ _ __   __ _| |/ ___ 
+-- |  _ <| '__/ _ \ / _` | | | | | | | '_ \ / _` | | / __|
+-- | |_) | | | (_) | (_| | |_| | |_| | |_) | (_| | | \__ \
+-- |____/|_|  \___/ \__, |\__,_|\__, | .__/ \__,_|_| |___/
+--                   __/ |       __/ | |                  
+--                  |___/       |___/|_|    
+--BLU LUA
+
 send_command ('bind numpad9 gs l BLU.lua')
 send_command ('bind numpad8 gs l BLUd.lua')
 send_command ('bind numpad7 gs l BLUth.lua')
@@ -54,20 +64,22 @@ function get_sets()
 		back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
 	}
     sets.precast.fastcast = {
-	    ammo="Sapience Orb",
-		head={ name="Herculean Helm", augments={'Attack+5','"Triple Atk."+3','Accuracy+6',}},
-		body="Hashishin Mintan +2",
-		hands="Hashi. Bazu. +2",
-		legs={ name="Lengo Pants", augments={'INT+8','Mag. Acc.+14','"Mag.Atk.Bns."+13',}},
-		feet={ name="Nyame Sollerets", augments={'Path: B',}},
-		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+		ammo="Amar Cluster",
+		head={ name="Herculean Helm", augments={'"Fast Cast"+5','"Mag.Atk.Bns."+14',}},
+		body={ name="Adhemar Jacket +1", augments={'HP+105','"Fast Cast"+10','Magic dmg. taken -4',}},
+		hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+		legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+8','"Fast Cast"+6','INT+4',}},
+		feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+8','"Fast Cast"+6','INT+9',}},
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		waist="Witful Belt",
-		left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		right_ear={ name="Hashi. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+13','Mag. Acc.+13','"Dbl.Atk."+4',}},
 		left_ring="Kishar Ring",
-		right_ring="Prolix Ring",
+		right_ring="Rahab Ring",
 		back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
 	}
+	
+	sets.precast.bluemagic = set_combine(sets.precast.fastcast,{ 
+		body="Hashishin Mintan +2",
+	})
 	
 	sets.precast.dreamflower = {
 		head={ name="Nyame Helm", augments={'Path: B',}},
@@ -176,12 +188,14 @@ end
 function precast(spell)
 	if spell.name == "Diffusion" then
 		equip(sets.precast.diffusion)
-	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
+	elseif spell.type == "BlueMagic" then
 		if spell.english == "Dream Flower" or spell.english == "Sheep Song" then
 			equip(sets.precast.dreamflower)
 		else
-			equip(sets.precast.fastcast)
+			equip(sets.precast.bluemagic)
 		end
+	elseif spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
+		equip(sets.precast.fastcast)
 	elseif spell.type == "WeaponSkill" then 
 		equip(sets.ws.weapons)	
 	else
