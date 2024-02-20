@@ -200,14 +200,28 @@ function get_sets()
 --------------- PRECAST SETS ------------------
 	--Fastcast Set
     sets.precast.fastcast = {
+	    ammo="Sapience Orb",
+		head={ name="Herculean Helm", augments={'"Fast Cast"+5','"Mag.Atk.Bns."+14',}},
+		body={ name="Adhemar Jacket +1", augments={'HP+105','"Fast Cast"+10','Magic dmg. taken -4',}},
+		hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+		legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+8','"Fast Cast"+6','INT+4',}},
+		feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+8','"Fast Cast"+6','INT+9',}},
+		neck="Moonlight Necklace",
+		waist="Audumbla Sash",
+		left_ear="Tuisto Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Rahab Ring",
+		right_ring="Kishar Ring",
+		back={ name="Andartia's Mantle", augments={'"Fast Cast"+10',}},
 	}
 	--Utsusemi Precast
-	sets.precast.utsusemi = {
-	}
+	sets.precast.utsusemi = set_combine(sets.precast.fastcast,{
+	})
 --------------- MIDCAST SETS ------------------
 	--Utsusemi Midcast
-    sets.midcast.utsusemi = {
-	}
+    sets.midcast.utsusemi = set_combine(sets.precast.fastcast,{
+	})
+	
 	--Enfeeble Midcast
     sets.midcast.enfeeble = {
 	    ammo="Pemphredo Tathlum",
