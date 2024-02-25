@@ -316,9 +316,10 @@ function get_sets()
 		feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},
 		neck="Adad Amulet",
 		waist="Incarnation Sash",
-		right_ear="Burana Earring",
-		right_ring="Thur. Ring +1",
+		left_ear="Burana Earring",
+		right_ear={ name="Kara. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
 		left_ring="Fickblix's Ring",
+		right_ring="C. Palug Ring",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
 	}
 
