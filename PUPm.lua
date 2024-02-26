@@ -109,7 +109,7 @@ function get_sets()
 -- Master only TP Set
 	sets.idle.master = {
 		--main={ name="Xiucoatl", augments={'Path: C',}},
-		range="Animator P +1",
+		--range="Animator P +1",
 		ammo="Automat. Oil +3",
 		head="Malignance Chapeau",
 		body="Mpaca's Doublet",
@@ -307,7 +307,7 @@ function get_sets()
 -- pet midcast BLM
 	sets.midcast.nuke = {
 --	    main="Sakpata's Fists",
-		--range="Animator P II +1",
+--		range="Animator P II +1",
 		ammo="Automat. Oil +3",
 		head="Kara. Cappello +3",
 		body="Kara. Farsetto +2",
