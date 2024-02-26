@@ -10,12 +10,12 @@
 
 send_command ('bind numpad9 gs l PUP.lua')
 send_command ('bind numpad8 gs l PUPo.lua')
-send_command ('bind numpad7 gs l PUPmacc.lua')
+send_command ('bind numpad7 gs l PUPm.lua')
 
 
 send_command ('bind numpad6 input //acon equipset buff')
 send_command ('bind numpad5 input //acon equipset cure')
-send_command ('bind numpad4 input //acon equipset nuke')
+send_command ('bind numpad4 input //acon equipset nukeacc')
 send_command ('bind numpad3 input //acon equipset sortie')
 
 
@@ -312,11 +312,11 @@ function get_sets()
 		head="Kara. Cappello +3",
 		body="Kara. Farsetto +2",
 		hands="Karagoz Guanti +3",
-		legs={ name="Pitre Churidars +3", augments={'Enhances "Ventriloquy" effect',}},
-		feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},
+		legs="Kara. Pantaloni +2",
+		feet="Mpaca's Boots",
 		neck="Adad Amulet",
 		waist="Incarnation Sash",
-		left_ear="Burana Earring",
+		left_ear="Crep. Earring",
 		right_ear={ name="Kara. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
 		left_ring="Fickblix's Ring",
 		right_ring="C. Palug Ring",
