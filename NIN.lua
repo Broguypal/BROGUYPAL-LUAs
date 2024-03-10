@@ -507,7 +507,7 @@ end
 function precast(spell)
 	if spell.name:match('Utsusemi') then
 		equip(sets.precast.utsusemi)
-	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then then 
+	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
 		equip(sets.precast.fastcast)
 	elseif spell.type == "WeaponSkill" then 
 		if spell.english == "Blade: Shun" then
