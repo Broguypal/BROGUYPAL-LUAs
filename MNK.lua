@@ -325,6 +325,15 @@ function get_sets()
     sets.midcast.spell = {
 	}
 
+-- Midcast for trusts - want to have 119 gear in head,body,hands,legs,feet.
+	sets.midcast.trust = {
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+	}
+	
 end
 
 ------------------------------------ Logic ----------------------------------------------------------
@@ -439,7 +448,7 @@ function precast(spell)
 		else 
 			idle()
 		end
-	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
+	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
 		equip(sets.precast.fastcast)
 	else
 		idle()
@@ -493,6 +502,8 @@ function midcast(spell)
 		else 
 			idle()
 		end
+	elseif spell.type == "Trust" then
+		equip(sets.midcast.trust)
 	else
 		equip(sets.midcast.spell)
 	end
