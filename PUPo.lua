@@ -326,6 +326,15 @@ function get_sets()
 		left_ring="Evanescence Ring",
 		right_ring="Stikini Ring",
 	}
+
+-- Midcast for trusts - want to have 119 gear in head,body,hands,legs,feet.
+	sets.midcast.trust = {
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+	}
 	
 -- pet Enmity - Flashbulb/strobe	
 	sets.midcast.petenmity = {
@@ -418,7 +427,7 @@ function pet_status_change(new,old)
 end
 
 function precast(spell)
-	if spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" then 
+	if spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Trust" then 
 		equip(sets.precast.fastcast)
 	elseif spell.type == "WeaponSkill" then 
 		if spell.english == "Stringing Pummel" then
@@ -463,6 +472,8 @@ end
 function midcast(spell)
 	if spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" then 
 		equip(sets.midcast.spelldamage)
+	elseif spell.type == "Trust" then
+		equip(sets.midcast.trust)
 	elseif spell.type == "WeaponSkill" then 
 		if spell.english == "Stringing Pummel" then
 			equip(sets.ws.stringingpummel)
