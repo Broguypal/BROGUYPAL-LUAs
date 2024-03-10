@@ -268,6 +268,14 @@ function get_sets()
 		back={ name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
 	}
 
+-- Midcast for trusts - want to have 119 gear in head,body,hands,legs,feet.
+	sets.midcast.trust = {
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+	}
 --------------- Weaponskill SETS ------------------
 	--undefined Weaponskills
 	sets.ws.normal = {
@@ -508,7 +516,7 @@ end
 function precast(spell)
 	if spell.name:match('Utsusemi') then
 		equip(sets.precast.utsusemi)
-	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
+	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
 		equip(sets.precast.fastcast)
 	elseif spell.type == "WeaponSkill" then 
 		if spell.english == "Blade: Shun" then
@@ -560,6 +568,8 @@ function midcast(spell)
 		end
 	elseif spell.english == "Provoke" or spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
 		equip(sets.precast.enmity)
+	elseif spell.type == "Trust" then
+		equip(sets.midcast.trust)
 	else
 		idle()
 	end
