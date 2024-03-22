@@ -58,7 +58,11 @@ function get_sets()
 		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		right_ring="Defending Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
-	}
+		}
+
+	sets.idle.normaltsuru = set_combine(sets.idle.normaltank,{
+		right_ring="Shadow ring",
+		})
 --------------- ENGAGED SETS ------------------
 	sets.engaged.normaltank = {
 		ammo="Date Shuriken",
@@ -77,6 +81,7 @@ function get_sets()
 		}
 	--Tsuru equipped in sub (accounting for -8%DT)
 	sets.engaged.normaltsuru = set_combine(sets.engaged.normaltank,{
+		right_ring="Shadow ring",
 		})
 	
 
@@ -252,12 +257,16 @@ end
 function idle()
 	if player.status == "Engaged" then 
 		if player.equipment.sub == "Tsuru" then
-			equip(sets.engaged.normaltanktsuru)
+			equip(sets.engaged.normaltsuru)
 		else
 			equip(sets.engaged.normaltank)
 		end
 	else
-		equip(sets.idle.normal)
+		if player.equipment.sub == "Tsuru" then
+			equip(sets.idle.normaltsuru)
+		else
+			equip(sets.idle.normal)
+		end
 	end
 end
 
