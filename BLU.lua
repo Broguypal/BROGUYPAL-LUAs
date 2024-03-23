@@ -56,7 +56,7 @@ function get_sets()
 		legs="Malignance Tights",
 		feet="Malignance Boots",
 		neck="Mirage Stole +1",
-		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		waist="Reiki Yotai",
 		left_ear="Suppanomimi",
 		right_ear={ name="Hashi. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+13','Mag. Acc.+13','"Dbl.Atk."+4',}},
 		left_ring="Epona's Ring",
@@ -93,7 +93,7 @@ function get_sets()
 		legs="Hashishin Tayt +2",
 		feet="Hashi. Basmak +2",
 		neck="Sibyl Scarf",
-		waist="Eschan Stone",
+		waist="Skrymir Cord",
 		left_ear="Friomisi Earring",
 		right_ear="Hecate's Earring",
 		left_ring="Persis Ring",
@@ -152,7 +152,7 @@ end
 function precast(spell)
 	if spell.name == "Diffusion" then
 		equip(sets.precast.diffusion)
-	elseif spell.type == "BlueMagic"
+	elseif spell.type == "BlueMagic" then
 		equip(sets.precast.bluemagic)
 	elseif spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
 		equip(sets.precast.fastcast)

@@ -255,13 +255,13 @@ function get_sets()
 	--Elemental Midcast
     sets.midcast.elemental = {
 	    ammo="Pemphredo Tathlum",
-		head={ name="Nyame Helm", augments={'Path: B',}},
+		head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Sibyl Scarf",
-		waist="Eschan Stone",
+		waist="Skrymir Cord",
 		left_ear="Hermetic Earring",
 		right_ear="Friomisi Earring",
 		left_ring="Stikini Ring",
