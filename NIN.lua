@@ -10,7 +10,7 @@
 -- 						NINJA LUA
 -- NIN = Hybrid (haste 2)
 -- NINHy1 = Hybrid (Haste 1)
--- NINH2.lua - DPS - Assuming recieiving Haste 1
+-- NINH2.lua - DPS - Assuming recieiving Haste 2
 -- NINH1.lua = DPS - Assuming recieiving Haste 1
 -- NINTank = Tank
 
