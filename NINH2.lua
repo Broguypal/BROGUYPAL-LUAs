@@ -10,7 +10,7 @@
 -- 						NINJA LUA
 -- NIN = Hybrid (haste 2)
 -- NINHy1 = Hybrid (Haste 1)
--- NINH2.lua - DPS - Assuming recieiving Haste 1
+-- NINH2.lua - DPS - Assuming recieiving Haste 2
 -- NINH1.lua = DPS - Assuming recieiving Haste 1
 -- NINTank = Tank
 -- NINTank = MEva tank
@@ -82,15 +82,7 @@ function get_sets()
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
 	}
-	-- 0 haste 0 shadows
-	sets.engaged.haste0def = set_combine(sets.engaged.haste0,{
-		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
-		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
-		feet="Malignance Boots",
-		right_ring="Defending Ring",
-	})
+
 	
 	-- 15 Haste (need 32 DW)
 	sets.engaged.haste15 = {
@@ -108,15 +100,7 @@ function get_sets()
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
 	}
-	-- 15 haste 0 shadows
-	sets.engaged.haste15def = set_combine(sets.engaged.haste15,{
-		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
-		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
-		feet="Malignance Boots",
-		right_ring="Defending Ring",
-	})
+
 	
 	-- 30 Haste (need 21 DW)
 	sets.engaged.haste30 = {
@@ -134,15 +118,7 @@ function get_sets()
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
 	}
-	-- 30 haste 0 shadows
-	sets.engaged.haste30def = set_combine(sets.engaged.haste30,{
-		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
-		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
-		feet="Malignance Boots",
-		right_ring="Defending Ring",
-	})
+
 	
 	-- 35 Haste (need 12 DW)
 	sets.engaged.haste35 = {
@@ -160,15 +136,7 @@ function get_sets()
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 	}
-	-- 35 haste 0 shadows
-	sets.engaged.haste35def = set_combine(sets.engaged.haste35,{
-		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
-		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
-		feet="Malignance Boots",
-		right_ring="Defending Ring",
-	})
+
 
 	-- Capped Haste (need 1 DW - negligible)
 	sets.engaged.hastecap = {
@@ -186,15 +154,6 @@ function get_sets()
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 	}
-	-- Cap haste 0 shadows
-	sets.engaged.hastecapdef = set_combine(sets.engaged.hastecap,{
-		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
-		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
-		feet="Malignance Boots",
-		right_ring="Defending Ring",
-	})
 
 
 --------------- PRECAST SETS ------------------
@@ -421,36 +380,16 @@ function idle()
 		if ( ( (buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive.march or buffactive[604]) ) or
 			 ( buffactive[33] and (buffactive[580] or buffactive.embrava) ) or
 			 ( buffactive.march == 2 and buffactive[604] ) ) then
-			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.hastecap)
-			else
-				equip(sets.engaged.hastecapdef)
-			end
+			equip(sets.engaged.hastecap)
 		elseif ( (buffactive[33] or buffactive.march == 2 or buffactive[580]) and buffactive['haste samba'] ) then
-			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.haste35)
-			else
-				equip(sets.engaged.haste35def)
-			end
+			equip(sets.engaged.haste35)
 		elseif ( ( buffactive[580] or buffactive[33] or buffactive.march == 2 ) or
 				 ( buffactive.march == 1 and buffactive[604] ) ) then
-			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.haste30)
-			else
-				equip(sets.engaged.haste30def)
-			end	 
+			equip(sets.engaged.haste30)
 		elseif ( buffactive.march == 1 or buffactive[604] ) then
-			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.haste15)
-			else
-				equip(sets.engaged.haste15def)
-			end	 
+			equip(sets.engaged.haste15)
 		else
-			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.haste0)
-			else
-				equip(sets.engaged.haste0def)
-			end	 
+			equip(sets.engaged.haste0)
 		end
 	else
 		if world.time >= (17*60) or world.time < (7*60) then
@@ -460,59 +399,6 @@ function idle()
 		end
 	end
 end
-
-
---[[ Haste 1
-function idle()
-	if player.status == "Engaged" then 
-		if ( buffactive[580] and ( buffactive.march or buffactive[33] or buffactive.embrava or buffactive[604]) ) or  -- geo haste + anything
-		   ( buffactive.embrava and (buffactive.march or buffactive[33] or buffactive[604]) ) or  -- embrava + anything
-		   ( buffactive.march == 2 and (buffactive[33] or buffactive[604]) ) or  -- two marches + anything
-		   ( buffactive[33] and buffactive[604] and buffactive.march ) then -- haste + mighty guard + any marches
-			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.hastecap)
-			else
-				equip(sets.engaged.hastecapdef)
-			end
-		elseif ( (buffactive[604] or buffactive[33]) and buffactive['haste samba'] and buffactive.march == 1) or -- MG or haste + samba with 1 march
-			   ( buffactive.march == 2 and buffactive['haste samba'] ) or
-			   ( buffactive[580] and buffactive['haste samba'] ) then 
-			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.haste35)
-			else
-				equip(sets.engaged.haste35def)
-			end
-		elseif ( buffactive.march == 2 ) or -- two marches from ghorn
-			   ( (buffactive[33] or buffactive[604]) and buffactive.march == 1 ) or  -- MG or haste + 1 march
-			   ( buffactive[580] ) or  -- geo haste
-			   ( buffactive[33] and buffactive[604] ) then  -- haste with MG
-			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.haste30)
-			else
-				equip(sets.engaged.haste30def)
-			end	
-		elseif buffactive[33] or buffactive[604] or buffactive.march == 1 then
-			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.haste15)
-			else
-				equip(sets.engaged.haste15def)
-			end	 
-		else
-			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.haste0)
-			else
-				equip(sets.engaged.haste0def)
-			end	 
-		end
-	else
-		if world.time >= (17*60) or world.time <= (7*60) then
-			equip(sets.idle.night)
-		else
-			equip(sets.idle.normal)
-		end
-	end
-end
-]]
 
 function precast(spell)
 	if spell.name:match('Utsusemi') then
