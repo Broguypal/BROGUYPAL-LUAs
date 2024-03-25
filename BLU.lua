@@ -96,8 +96,8 @@ function get_sets()
 		waist="Skrymir Cord",
 		left_ear="Friomisi Earring",
 		right_ear="Hecate's Earring",
-		left_ring="Persis Ring",
-		right_ring="Jhakri Ring",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		right_ring="Shiva Ring +1",
 		back="Moonbeam Cape",
 		}
 	sets.midcast.phalanx = {
