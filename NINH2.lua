@@ -206,8 +206,8 @@ function get_sets()
 		waist="Eschan Stone",
 		left_ear="Hermetic Earring",
 		right_ear="Digni. Earring",
-		left_ring="Defending Ring",
-		right_ring="Fickblix's Ring",
+		left_ring="Stikini Ring",
+		right_ring="Stikini Ring",
 		back={ name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
 	}
 
@@ -223,8 +223,8 @@ function get_sets()
 		waist="Skrymir Cord",
 		left_ear="Hermetic Earring",
 		right_ear="Friomisi Earring",
-		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		right_ring="Shiva Ring +1",
 		back={ name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
 	}
 	-- Midcast elemental - Futae up
