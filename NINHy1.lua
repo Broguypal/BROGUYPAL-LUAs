@@ -260,6 +260,10 @@ function get_sets()
 		right_ring="Stikini Ring",
 		back={ name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
 		}
+	-- Midcast elemental - Futae up
+	sets.midcast.elementalfutae = set_combine(sets.midcast.elemental, {
+		hands="Hattori Tekko +2",
+	})
 
 -- Midcast for trusts - want to have 119 gear in head,body,hands,legs,feet.
 	sets.midcast.trust = {
@@ -548,7 +552,11 @@ function midcast(spell)
 	elseif spell.name:match('Kurayami') or spell.name:match('Hojo') or spell.name:match('Dokumori') or spell.name:match('Jubaku') or spell.name:match('Yurin') or spell.name:match('Aisha') then
 		equip(sets.midcast.enfeeble)
 	elseif spell.name:match('Katon') or spell.name:match('Suiton') or spell.name:match('Raiton') or spell.name:match('Doton') or spell.name:match('Huton') or spell.name:match('Hyoton') then
-		equip(sets.midcast.elemental)
+		if buffactive['Futae'] then
+			equip(sets.midcast.elementalfutae)
+		else
+			equip(sets.midcast.elemental)
+		end
 	elseif spell.type == "WeaponSkill" then 
 		if spell.english == "Blade: Shun" then
 			equip(sets.ws.shun)
