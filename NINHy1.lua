@@ -341,6 +341,80 @@ function get_sets()
 		right_ring="Sroda Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
 		}
+
+	--Ku Weaponskill
+	sets.ws.ku = {
+		ammo="Coiste Bodhar",
+		head="Mpaca's Cap",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands="Malignance Gloves",
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear="Brutal Earring",
+		right_ear="Mache Earring +1",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
+	}
+	
+	--Hi Weaponskill
+	sets.ws.hi = {
+		ammo="C. Palug Stone",
+		head="Ken. Jinpachi +1",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Telos Earring",
+		right_ear="Mache Earring +1",
+		left_ring="Gere Ring",
+		right_ring="Ilabrat Ring",
+		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
+	}
+	
+	--Kamu Weaponskill
+	sets.ws.kamu = {}
+	
+	--Ei Weaponskill
+	sets.ws.ei = {}
+	
+	--chi/teki/to Weaponskill
+	sets.ws.elemental = {
+	    ammo="Pemphredo Tathlum",
+		head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Fotia Gorget",
+		waist="Skrymir Cord",
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Friomisi Earring",
+		left_ring="Gere Ring",
+		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
+	}
+	
+	--savageblade Weaponskill
+	sets.ws.savageblade = {
+		ammo="Crepuscular Pebble",
+		head="Mpaca's Cap",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Rep. Plat. Medal",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Ishvara Earring",
+		left_ring="Gere Ring",
+		right_ring="Sroda Ring",
+		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
+	}
 end
 
 --------------- LOGIC - DO NOT TOUCH BELOW ------------------
@@ -522,6 +596,18 @@ function precast(spell)
 			equip(sets.ws.metsu)
 		elseif spell.english == "Blade: Ten" then
 			equip(sets.ws.ten)
+		elseif spell.english == "Blade: Ku" then
+			equip(sets.ws.ku)
+		elseif spell.english == "Blade: Hi" then
+			equip(sets.ws.hi)
+		elseif spell.english == "Blade: Kamu" then
+			equip(sets.ws.kamu)
+		elseif spell.english == "Blade: Ei" then
+			equip(sets.ws.ei)
+		elseif spell.english == "Blade: Chi" or spell.english == "Blade: Teki" or spell.english == "Blade: To" then
+			equip(sets.ws.elemental)
+		elseif spell.english == "Savage Blade" then
+			equip(sets.ws.savageblade)
 		else
 			equip(sets.ws.normal)
 		end
@@ -564,6 +650,18 @@ function midcast(spell)
 			equip(sets.ws.metsu)
 		elseif spell.english == "Blade: Ten" then
 			equip(sets.ws.ten)
+		elseif spell.english == "Blade: Ku" then
+			equip(sets.ws.ku)
+		elseif spell.english == "Blade: Hi" then
+			equip(sets.ws.hi)
+		elseif spell.english == "Blade: Kamu" then
+			equip(sets.ws.kamu)
+		elseif spell.english == "Blade: Ei" then
+			equip(sets.ws.ei)
+		elseif spell.english == "Blade: Chi" or spell.english == "Blade: Teki" or spell.english == "Blade: To" then
+			equip(sets.ws.elemental)
+		elseif spell.english == "Savage Blade" then
+			equip(sets.ws.savageblade)
 		else
 			equip(sets.ws.normal)
 		end
