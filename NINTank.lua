@@ -116,6 +116,7 @@ function get_sets()
 		neck="Moonlight Necklace",
 		waist="Kasiri Belt",
 		left_ear="Friomisi Earring",
+		right_ear="Trux Earring",
 		left_ring="Begrudging Ring",
 		right_ring="Eihwaz Ring",
 	}
