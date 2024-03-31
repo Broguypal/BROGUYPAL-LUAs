@@ -488,6 +488,8 @@ end
 function precast(spell)
 	if spell.name:match('Utsusemi') then
 		equip(sets.precast.utsusemi)
+	elseif spell.english == "Provoke" then
+		equip(sets.precast.enmity)
 	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
 		equip(sets.precast.fastcast)
 	elseif spell.type == "WeaponSkill" then 
@@ -512,8 +514,6 @@ function precast(spell)
 		else
 			equip(sets.ws.normal)
 		end
-	elseif spell.english == "Provoke" or spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
-		equip(sets.precast.enmity)
 	else
 		idle()
 	end

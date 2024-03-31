@@ -435,6 +435,7 @@ windower.register_event('time change', function(new, old)
 	end
 end)
 
+-- Recognizing when losing utsusemi or haste related buffs to trigger automatic equipment change
 windower.register_event('lose buff', function(buff_id)
 	if buff_id == 66 then
 		idle()
@@ -456,6 +457,7 @@ windower.register_event('lose buff', function(buff_id)
 	end
 end)
 
+-- Recognizing when gaining utsusemi or haste related buffs to trigger automatic equipment change
 windower.register_event('gain buff', function(buff_id)
 	if buff_id == 66 then
 		idle()
@@ -588,6 +590,8 @@ end
 function precast(spell)
 	if spell.name:match('Utsusemi') then
 		equip(sets.precast.utsusemi)
+	elseif spell.english == "Provoke"  then
+		equip(sets.precast.enmity)
 	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
 		equip(sets.precast.fastcast)
 	elseif spell.type == "WeaponSkill" then 
@@ -612,8 +616,6 @@ function precast(spell)
 		else
 			equip(sets.ws.normal)
 		end
-	elseif spell.english == "Provoke" or spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
-		equip(sets.precast.enmity)
 	else
 		idle()
 	end

@@ -52,7 +52,7 @@ function get_sets()
 		legs="Mpaca's Hose",
 		feet="Malignance Boots",
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		waist="Engraved Belt",
+		waist="Isa Belt",
 		left_ear="Eabani Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
@@ -64,6 +64,7 @@ function get_sets()
 		left_ring="Shadow ring",
 		})
 --------------- ENGAGED SETS ------------------
+	-- Normal Engaged
 	sets.engaged.normaltank = {
 		ammo="Date Shuriken",
 		head="Malignance Chapeau",
@@ -72,20 +73,35 @@ function get_sets()
 		legs="Mpaca's Hose",
 		feet="Malignance Boots",
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		waist="Engraved Belt",
+		waist="Isa Belt",
 		left_ear="Eabani Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		right_ring="Defending Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 		}
-	--Tsuru equipped in sub (accounting for -8%DT)
-	
+
+	--No shadows (counter pieces subbed in)
+	sets.engaged.counter = set_combine(sets.engaged.normaltank,{
+		})
+
+	--No shadows (Yonin active)
+	sets.engaged.yonin = set_combine(sets.engaged.counter,{
+		})
+
+----- TSURU engaged ------ (accounting for extra -8% DT from tsuru)
+	-- Normal Engaged (tsuru)
 	sets.engaged.normaltsuru = set_combine(sets.engaged.normaltank,{
 		left_ring="Shadow ring",
 		})
-	
 
+	-- No Shadows (tsuru)
+	sets.engaged.countertsuru = set_combine(sets.engaged.counter,{
+		})
+	
+	-- No shadows + Yonin active (Tsuru)
+	sets.engaged.yonintsuru = set_combine(sets.engaged.yonin,{
+		})
 
 --------------- PRECAST SETS ------------------
 	--Fastcast Set
@@ -318,12 +334,7 @@ end
 
 --------------- LOGIC - DO NOT TOUCH BELOW ------------------
 
---Automatically switch sets for time
-    -- world.time is given in minutes into each day
-    -- 7:00 AM would be 420 minutes
-    -- 17:00 PM would be 1020 minutes
-
-
+-- Change state when engaging enemy
 function status_change(new,old)
 	if new == "Engaged" then
 		idle()
@@ -332,14 +343,45 @@ function status_change(new,old)
 	end
 end
 
+-- Recognizing when losing utsusemi
+windower.register_event('lose buff', function(buff_id)
+	if buff_id == 66 then
+		idle()
+	end
+end)
+
+-- Recognizing when gaining utsusemi
+windower.register_event('gain buff', function(buff_id)
+	if buff_id == 66 then
+		idle()
+	end
+end)
+
+
 
 -- Idle 
 function idle()
 	if player.status == "Engaged" then 
 		if player.equipment.sub == "Tsuru" then
-			equip(sets.engaged.normaltsuru)
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.normaltsuru)
+			else
+				if buffactive['Yonin'] then
+					equip(sets.engaged.yonintsuru)
+				else
+					equip(sets.engaged.countertsuru)
+				end
+			end
 		else
-			equip(sets.engaged.normaltank)
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.normaltank)
+			else
+				if buffactive['Yonin'] then
+					equip(sets.engaged.yonin)
+				else
+					equip(sets.engaged.counter)
+				end
+			end
 		end
 	else
 		if player.equipment.sub == "Tsuru" then
@@ -355,6 +397,8 @@ end
 function precast(spell)
 	if spell.name:match('Utsusemi') then
 		equip(sets.precast.utsusemi)
+	elseif spell.english == "Provoke" then
+		equip(sets.precast.enmity)
 	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
 		equip(sets.precast.fastcast)
 	elseif spell.type == "WeaponSkill" then 
@@ -379,8 +423,6 @@ function precast(spell)
 		else
 			equip(sets.ws.normal)
 		end
-	elseif spell.english == "Provoke" or spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
-		equip(sets.precast.enmity)
 	else
 		idle()
 	end
@@ -433,8 +475,14 @@ function midcast(spell)
 		else
 			equip(sets.ws.normal)
 		end
-	elseif spell.english == "Provoke" or spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
+	elseif spell.english == "Provoke" then
 		equip(sets.precast.enmity)
+	elseif spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
+		if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+			equip(sets.precast.enmity)
+		else
+			idle()
+		end
 	elseif spell.type == "Trust" then
 		equip(sets.midcast.trust)
 	else
