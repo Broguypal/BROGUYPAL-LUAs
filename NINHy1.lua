@@ -13,6 +13,7 @@
 -- NINH2.lua - DPS - Assuming recieiving Haste 2
 -- NINH1.lua = DPS - Assuming recieiving Haste 1
 -- NINTank = Tank
+-- Nineva = Evasion cap
 
 
 -- Requires Gearswap Addon - "Cancel"
@@ -24,6 +25,7 @@ send_command ('bind numpad6 gs l NINHy1.lua')
 send_command ('bind numpad7 gs l NINH2.lua')
 send_command ('bind numpad4 gs l NINH1.lua')
 send_command ('bind numpad8 gs l NINTank.lua')
+send_command ('bind numpad5 gs l NINeva.lua')
 --send_command ('bind f12 input //fillmode')
 
 send_command ('bind numpad1 input /mount "Crawler"')
@@ -46,18 +48,18 @@ function get_sets()
     --Normal Idle Set w/ movement speed
 	sets.idle.normal = {
 		ammo="Date Shuriken",
-		head="Malignance Chapeau",
+		head="Mpaca's Cap",
 		body="Mpaca's Doublet",
-		hands="Malignance Gloves",
+		hands="Mpaca's Gloves",
 		legs="Mpaca's Hose",
 		feet="Danzo Sune-Ate",
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		waist="Kasiri Belt",
-		left_ear="Genmei Earring",
+		waist="Engraved Belt",
+		left_ear="Eabani Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring="Ilabrat Ring",
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		right_ring="Defending Ring",
-		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 	}
 	--Night Idle set w/ movement speed
 	sets.idle.night = set_combine(sets.idle.normal,{

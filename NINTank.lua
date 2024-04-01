@@ -13,6 +13,7 @@
 -- NINH2.lua - DPS - Assuming recieiving Haste 2
 -- NINH1.lua = DPS - Assuming recieiving Haste 1
 -- NINTank = Tank
+-- Nineva = Evasion cap
 
 
 -- Requires Gearswap Addon - "Cancel"
@@ -24,6 +25,7 @@ send_command ('bind numpad6 gs l NINHy1.lua')
 send_command ('bind numpad7 gs l NINH2.lua')
 send_command ('bind numpad4 gs l NINH1.lua')
 send_command ('bind numpad8 gs l NINTank.lua')
+send_command ('bind numpad5 gs l NINeva.lua')
 --send_command ('bind f12 input //fillmode')
 
 send_command ('bind numpad1 input /mount "Crawler"')
@@ -46,18 +48,18 @@ function get_sets()
     --Normal Idle Set w/ movement speed
 	sets.idle.normal = {
 		ammo="Date Shuriken",
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		hands="Malignance Gloves",
-		legs="Malignance Tights",
-		feet="Malignance Boots",
+		head="Mpaca's Cap",
+		body="Mpaca's Doublet",
+		hands="Mpaca's Gloves",
+		legs="Mpaca's Hose",
+		feet="Mpaca's Boots",
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		waist="Kasiri Belt",
+		waist="Engraved Belt",
 		left_ear="Eabani Earring",
-		right_ear="Infused Earring",
-		left_ring="Ilabrat Ring",
-		right_ring="Hizamaru Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		right_ring="Defending Ring",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		}
 
 	sets.idle.normaltsuru = set_combine(sets.idle.normal,{
@@ -66,27 +68,22 @@ function get_sets()
 	-- Normal Engaged
 	sets.engaged.normaltank = {
 		ammo="Date Shuriken",
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		hands="Malignance Gloves",
-		legs="Malignance Tights",
-		feet="Malignance Boots",
+		head="Mpaca's Cap",
+		body="Mpaca's Doublet",
+		hands="Mpaca's Gloves",
+		legs="Mpaca's Hose",
+		feet="Mpaca's Boots",
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		waist="Kasiri Belt",
+		waist="Engraved Belt",
 		left_ear="Eabani Earring",
-		right_ear="Infused Earring",
-		left_ring="Ilabrat Ring",
-		right_ring="Hizamaru Ring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		right_ring="Defending Ring",
 		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
 		}
 
 	--No shadows (counter pieces subbed in)
 	sets.engaged.counter = set_combine(sets.engaged.normaltank,{
-		body="Mpaca's Doublet",
-		legs="Mpaca's Hose",
-		left_ear="Genmei Earring",
-		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		right_ring="Defending Ring",
 		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 
@@ -102,9 +99,6 @@ function get_sets()
 
 	-- No Shadows (tsuru)
 	sets.engaged.countertsuru = set_combine(sets.engaged.normaltsuru,{
-		body="Mpaca's Doublet",
-		legs="Mpaca's Hose",
-		right_ring="Defending Ring",
 		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 	
