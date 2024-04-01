@@ -21,9 +21,7 @@
 --> Use command "//du blinking self combat on" to stop blinking
 
 send_command ('bind numpad9 gs l NIN.lua')
-send_command ('bind numpad6 gs l NINHy1.lua')
 send_command ('bind numpad7 gs l NINH2.lua')
-send_command ('bind numpad4 gs l NINH1.lua')
 send_command ('bind numpad8 gs l NINTank.lua')
 send_command ('bind numpad5 gs l NINeva.lua')
 --send_command ('bind f12 input //fillmode')

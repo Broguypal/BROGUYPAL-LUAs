@@ -21,9 +21,7 @@
 --> Use command "//du blinking self combat on" to stop blinking
 
 send_command ('bind numpad9 gs l NIN.lua')
-send_command ('bind numpad6 gs l NINHy1.lua')
 send_command ('bind numpad7 gs l NINH2.lua')
-send_command ('bind numpad4 gs l NINH1.lua')
 send_command ('bind numpad8 gs l NINTank.lua')
 send_command ('bind numpad5 gs l NINeva.lua')
 --send_command ('bind f12 input //fillmode')
@@ -65,6 +63,7 @@ function get_sets()
 	sets.idle.night = set_combine(sets.idle.normal,{
 		feet="Hachi. Kyahan +1",
 	})
+
 --------------- ENGAGED SETS ------------------
 	-- 0 Haste (need 39 DW)
 	sets.engaged.haste0 = {
@@ -89,12 +88,12 @@ function get_sets()
 		hands="Malignance Gloves",
 		legs="Mpaca's Hose",
 		feet="Malignance Boots",
-		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
     	})
 	--yonin swap
 	sets.engaged.haste0yonin = set_combine(sets.engaged.haste0def,{
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		legs="Hattori Hakama +2",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 	
 	-- 15 Haste (need 32 DW)
@@ -120,12 +119,12 @@ function get_sets()
 		hands="Malignance Gloves",
 		legs="Mpaca's Hose",
 		feet="Malignance Boots",
-		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 	--yonin swap
 	sets.engaged.haste15yonin = set_combine(sets.engaged.haste15def,{
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		legs="Hattori Hakama +2",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 	
 	-- 30 Haste (need 21 DW)
@@ -150,12 +149,12 @@ function get_sets()
 		hands="Malignance Gloves",
 		legs="Mpaca's Hose",
 		feet="Malignance Boots",
-		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 	--yonin swap
 	sets.engaged.haste30yonin = set_combine(sets.engaged.haste30def,{
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		legs="Hattori Hakama +2",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 
 	-- 35 Haste (need 12 DW)
@@ -181,12 +180,12 @@ function get_sets()
 		hands="Malignance Gloves",
 		legs="Mpaca's Hose",
 		feet="Malignance Boots",
-		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 	--yonin swap
 	sets.engaged.haste35yonin = set_combine(sets.engaged.haste35def,{
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		legs="Hattori Hakama +2",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 	
 	-- Capped Haste (need 1 DW - negligible)
@@ -213,11 +212,12 @@ function get_sets()
 		legs="Mpaca's Hose",
 		feet="Malignance Boots",
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 	--yonin swap
 	sets.engaged.hastecapyonin = set_combine(sets.engaged.hastecapdef,{
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		legs="Hattori Hakama +2",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 
 --------------- PRECAST SETS ------------------
