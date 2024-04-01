@@ -59,7 +59,7 @@ function get_sets()
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		right_ring="Defending Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
 	}
 	--Night Idle set w/ movement speed
 	sets.idle.night = set_combine(sets.idle.normal,{
@@ -85,11 +85,17 @@ function get_sets()
 	-- 0 haste 0 shadows
 	sets.engaged.haste0def = set_combine(sets.engaged.haste0,{
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
+		legs="Mpaca's Hose",
 		feet="Malignance Boots",
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
     	})
+	--yonin swap
+	sets.engaged.haste0yonin = set_combine(sets.engaged.haste0def,{
+		legs="Hattori Hakama +2",
+		})
 	
 	-- 15 Haste (need 32 DW)
 	sets.engaged.haste15 = {
@@ -110,10 +116,16 @@ function get_sets()
 	-- 15 haste 0 shadows
 	sets.engaged.haste15def = set_combine(sets.engaged.haste15,{
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
+		legs="Mpaca's Hose",
 		feet="Malignance Boots",
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
+		})
+	--yonin swap
+	sets.engaged.haste15yonin = set_combine(sets.engaged.haste15def,{
+		legs="Hattori Hakama +2",
 		})
 	
 	-- 30 Haste (need 21 DW)
@@ -134,10 +146,16 @@ function get_sets()
 	-- 30 haste 0 shadows
 	sets.engaged.haste30def = set_combine(sets.engaged.haste30,{
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
+		legs="Mpaca's Hose",
 		feet="Malignance Boots",
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
+		})
+	--yonin swap
+	sets.engaged.haste30yonin = set_combine(sets.engaged.haste30def,{
+		legs="Hattori Hakama +2",
 		})
 
 	-- 35 Haste (need 12 DW)
@@ -159,10 +177,16 @@ function get_sets()
 	-- 35 haste 0 shadows
 	sets.engaged.haste35def = set_combine(sets.engaged.haste35,{
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
+		legs="Mpaca's Hose",
 		feet="Malignance Boots",
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
+		})
+	--yonin swap
+	sets.engaged.haste35yonin = set_combine(sets.engaged.haste35def,{
+		legs="Hattori Hakama +2",
 		})
 	
 	-- Capped Haste (need 1 DW - negligible)
@@ -184,12 +208,17 @@ function get_sets()
 	-- Cap haste 0 shadows
 	sets.engaged.hastecapdef = set_combine(sets.engaged.hastecap,{
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
+		legs="Mpaca's Hose",
 		feet="Malignance Boots",
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
-		
+	--yonin swap
+	sets.engaged.hastecapyonin = set_combine(sets.engaged.hastecapdef,{
+		legs="Hattori Hakama +2",
+		})
 
 --------------- PRECAST SETS ------------------
 	--Fastcast Set
@@ -514,32 +543,52 @@ function idle()
 			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
 				equip(sets.engaged.hastecap)
 			else
-				equip(sets.engaged.hastecapdef)
+				if buffactive['Yonin'] then
+					equip(sets.engaged.hastecapyonin)
+				else
+					equip(sets.engaged.hastecapdef)
+				end
 			end
 		elseif ( (buffactive[33] or buffactive.march == 2 or buffactive[580]) and buffactive['haste samba'] ) then
 			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
 				equip(sets.engaged.haste35)
 			else
-				equip(sets.engaged.haste35def)
+				if buffactive['Yonin'] then
+					equip(sets.engaged.haste35yonin)
+				else
+					equip(sets.engaged.haste35def)
+				end
 			end
 		elseif ( ( buffactive[580] or buffactive[33] or buffactive.march == 2 ) or
 				 ( buffactive.march == 1 and buffactive[604] ) ) then
 			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
 				equip(sets.engaged.haste30)
 			else
-				equip(sets.engaged.haste30def)
+				if buffactive['Yonin'] then
+					equip(sets.engaged.haste30yonin)
+				else
+					equip(sets.engaged.haste30def)
+				end
 			end	 
 		elseif ( buffactive.march == 1 or buffactive[604] ) then
 			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
 				equip(sets.engaged.haste15)
 			else
-				equip(sets.engaged.haste15def)
+				if buffactive['Yonin'] then
+					equip(sets.engaged.haste15yonin)
+				else
+					equip(sets.engaged.haste15def)
+				end
 			end	 
 		else
 			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
 				equip(sets.engaged.haste0)
 			else
-				equip(sets.engaged.haste0def)
+				if buffactive['Yonin'] then
+					equip(sets.engaged.haste0yonin)
+				else
+					equip(sets.engaged.haste0def)
+				end
 			end	 
 		end
 	else
