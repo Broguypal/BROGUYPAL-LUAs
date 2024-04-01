@@ -179,7 +179,7 @@ function get_sets()
 		feet={ name="Mochi. Kyahan +3", augments={'Enh. Ninj. Mag. Acc/Cast Time Red.',}},
 		neck="Sibyl Scarf",
 		waist="Skrymir Cord",
-		left_ear="Hermetic Earring",
+		left_ear="Crematio Earring",
 		right_ear="Friomisi Earring",
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Shiva Ring +1",
