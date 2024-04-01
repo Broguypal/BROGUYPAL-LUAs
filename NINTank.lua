@@ -47,60 +47,70 @@ function get_sets()
 	sets.idle.normal = {
 		ammo="Date Shuriken",
 		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
+		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
+		legs="Malignance Tights",
 		feet="Malignance Boots",
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		waist="Isa Belt",
+		waist="Kasiri Belt",
 		left_ear="Eabani Earring",
-		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-		right_ring="Defending Ring",
-		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
+		right_ear="Infused Earring",
+		left_ring="Ilabrat Ring",
+		right_ring="Hizamaru Ring",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
 		}
 
 	sets.idle.normaltsuru = set_combine(sets.idle.normal,{
-		left_ring="Shadow ring",
 		})
 --------------- ENGAGED SETS ------------------
 	-- Normal Engaged
 	sets.engaged.normaltank = {
 		ammo="Date Shuriken",
 		head="Malignance Chapeau",
-		body="Mpaca's Doublet",
+		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		legs="Mpaca's Hose",
+		legs="Malignance Tights",
 		feet="Malignance Boots",
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		waist="Isa Belt",
+		waist="Kasiri Belt",
 		left_ear="Eabani Earring",
-		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-		right_ring="Defending Ring",
-		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
+		right_ear="Infused Earring",
+		left_ring="Ilabrat Ring",
+		right_ring="Hizamaru Ring",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
 		}
 
 	--No shadows (counter pieces subbed in)
 	sets.engaged.counter = set_combine(sets.engaged.normaltank,{
+		body="Mpaca's Doublet",
+		legs="Mpaca's Hose",
+		left_ear="Genmei Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		right_ring="Defending Ring",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 
 	--No shadows (Yonin active)
 	sets.engaged.yonin = set_combine(sets.engaged.counter,{
+		legs="Hattori Hakama +2",
 		})
 
 ----- TSURU engaged ------ (accounting for extra -8% DT from tsuru)
 	-- Normal Engaged (tsuru)
 	sets.engaged.normaltsuru = set_combine(sets.engaged.normaltank,{
-		left_ring="Shadow ring",
 		})
 
 	-- No Shadows (tsuru)
-	sets.engaged.countertsuru = set_combine(sets.engaged.counter,{
+	sets.engaged.countertsuru = set_combine(sets.engaged.normaltsuru,{
+		body="Mpaca's Doublet",
+		legs="Mpaca's Hose",
+		right_ring="Defending Ring",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 	
 	-- No shadows + Yonin active (Tsuru)
-	sets.engaged.yonintsuru = set_combine(sets.engaged.yonin,{
+	sets.engaged.yonintsuru = set_combine(sets.engaged.countertsuru,{
+		legs="Hattori Hakama +2",
 		})
 
 --------------- PRECAST SETS ------------------
@@ -292,7 +302,21 @@ function get_sets()
 	}
 	
 	--Kamu Weaponskill
-	sets.ws.kamu = {}
+	sets.ws.kamu = {
+		ammo="Coiste Bodhar",
+		head="Mpaca's Cap",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Ishvara Earring",
+		left_ring="Gere Ring",
+		right_ring="Sroda Ring",
+		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
+	}
 	
 	--Ei Weaponskill
 	sets.ws.ei = {}
@@ -397,7 +421,7 @@ end
 function precast(spell)
 	if spell.name:match('Utsusemi') then
 		equip(sets.precast.utsusemi)
-	elseif spell.english == "Provoke" then
+	elseif spell.english == "Provoke" or spell.english =="Dodge" or spell.english =="Focus" or spell.english == "Chi Blast" or spell.english =="Counterstance" then
 		equip(sets.precast.enmity)
 	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
 		equip(sets.precast.fastcast)
@@ -475,7 +499,7 @@ function midcast(spell)
 		else
 			equip(sets.ws.normal)
 		end
-	elseif spell.english == "Provoke" then
+	elseif spell.english == "Provoke" or spell.english =="Dodge" or spell.english =="Focus" or spell.english == "Chi Blast" or spell.english =="Counterstance" then
 		equip(sets.precast.enmity)
 	elseif spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
 		if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then

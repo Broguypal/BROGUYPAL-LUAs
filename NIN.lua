@@ -45,19 +45,19 @@ function get_sets()
  -------------- IDLE SETS ---------------------
     --Normal Idle Set w/ movement speed
 	sets.idle.normal = {
-	    ammo="Date Shuriken",
+		ammo="Date Shuriken",
 		head="Malignance Chapeau",
-		body="Adamantite Armor",
+		body="Mpaca's Doublet",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
+		legs="Mpaca's Hose",
 		feet="Danzo Sune-Ate",
-		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
-		waist="Flume Belt +1",
-		left_ear="Tuisto Earring",
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		waist="Kasiri Belt",
+		left_ear="Genmei Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring="Defending Ring",
-		right_ring="Fickblix's Ring",
-		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
+		left_ring="Ilabrat Ring",
+		right_ring="Defending Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 	}
 	--Night Idle set w/ movement speed
 	sets.idle.night = set_combine(sets.idle.normal,{
@@ -379,7 +379,21 @@ function get_sets()
 	}
 	
 	--Kamu Weaponskill
-	sets.ws.kamu = {}
+	sets.ws.kamu = {
+		ammo="Coiste Bodhar",
+		head="Mpaca's Cap",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Ishvara Earring",
+		left_ring="Gere Ring",
+		right_ring="Sroda Ring",
+		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
+	}
 	
 	--Ei Weaponskill
 	sets.ws.ei = {}
@@ -590,7 +604,7 @@ end
 function precast(spell)
 	if spell.name:match('Utsusemi') then
 		equip(sets.precast.utsusemi)
-	elseif spell.english == "Provoke"  then
+	elseif spell.english == "Provoke" or spell.english =="Dodge" or spell.english =="Focus" or spell.english == "Chi Blast" or spell.english =="Counterstance" then
 		equip(sets.precast.enmity)
 	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
 		equip(sets.precast.fastcast)
