@@ -15,13 +15,12 @@
 -- NINdps / NINdps2 = Pure DPS. dps = haste 2 / dps2 = haste 1 as buffs.
 
 
-
 -- Requires Gearswap Addon - "Cancel"
 -- requires Dressup
 --> Use command "//du blinking self combat on" to stop blinking
 
 send_command ('bind numpad9 gs l NIN.lua')
-send_command ('bind numpad7 gs l NINdps.lua')
+send_command ('bind numpad7 gs l NINdps2.lua')
 send_command ('bind numpad8 gs l NINTank.lua')
 send_command ('bind numpad5 gs l NINeva.lua')
 send_command ('bind numpad6 gs l NINMal.lua')
@@ -47,72 +46,113 @@ function get_sets()
     --Normal Idle Set w/ movement speed
 	sets.idle.normal = {
 		ammo="Date Shuriken",
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		hands="Malignance Gloves",
-		legs="Malignance Tights",
-		feet="Malignance Boots",
-		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		waist="Kasiri Belt",
-		left_ear="Eabani Earring",
-		right_ear="Infused Earring",
-		left_ring="Ilabrat Ring",
-		right_ring="Hizamaru Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
-		}
-
-	sets.idle.normaltsuru = set_combine(sets.idle.normal,{
-		})
---------------- ENGAGED SETS ------------------
-	-- Normal Engaged
-	sets.engaged.normaltank = {
-		ammo="Date Shuriken",
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		hands="Malignance Gloves",
-		legs="Malignance Tights",
-		feet="Malignance Boots",
-		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		waist="Kasiri Belt",
-		left_ear="Eabani Earring",
-		right_ear="Infused Earring",
-		left_ring="Ilabrat Ring",
-		right_ring="Hizamaru Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
-		}
-
-	--No shadows (counter pieces subbed in)
-	sets.engaged.counter = set_combine(sets.engaged.normaltank,{
+		head="Mpaca's Cap",
 		body="Mpaca's Doublet",
+		hands="Mpaca's Gloves",
 		legs="Mpaca's Hose",
-		left_ear="Genmei Earring",
+		feet="Danzo Sune-Ate",
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		waist="Engraved Belt",
+		left_ear="Eabani Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		right_ring="Defending Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
-		})
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
+	}
+	--Night Idle set w/ movement speed
+	sets.idle.night = set_combine(sets.idle.normal,{
+		feet="Hachi. Kyahan +1",
+	})
+--------------- ENGAGED SETS ------------------
+	-- 0 Haste (need 39 DW)
+	sets.engaged.haste0 = {
+		ammo="Date Shuriken",
+		head="Ken. Jinpachi +1",
+		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+		hands="Mpaca's Gloves",
+		legs="Ken. Hakama +1",
+		feet="Hiza. Sune-Ate +2",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Reiki Yotai",
+		left_ear="Eabani Earring",
+		right_ear="Suppanomimi",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
+	}
 
-	--No shadows (Yonin active)
-	sets.engaged.yonin = set_combine(sets.engaged.counter,{
-		legs="Hattori Hakama +2",
-		})
-
------ TSURU engaged ------ (accounting for extra -8% DT from tsuru)
-	-- Normal Engaged (tsuru)
-	sets.engaged.normaltsuru = set_combine(sets.engaged.normaltank,{
-		})
-
-	-- No Shadows (tsuru)
-	sets.engaged.countertsuru = set_combine(sets.engaged.normaltsuru,{
-		body="Mpaca's Doublet",
-		legs="Mpaca's Hose",
-		right_ring="Defending Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
-		})
 	
-	-- No shadows + Yonin active (Tsuru)
-	sets.engaged.yonintsuru = set_combine(sets.engaged.countertsuru,{
-		legs="Hattori Hakama +2",
-		})
+	-- 15 Haste (need 32 DW)
+	sets.engaged.haste15 = {
+		ammo="Date Shuriken",
+		head="Ken. Jinpachi +1",
+		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+		hands="Mpaca's Gloves",
+		legs="Ken. Hakama +1",
+		feet="Ken. Sune-Ate +1",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Reiki Yotai",
+		left_ear="Eabani Earring",
+		right_ear="Suppanomimi",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
+	}
+
+	
+	-- 30 Haste (need 21 DW)
+	sets.engaged.haste30 = {
+		ammo="Date Shuriken",
+		head="Ken. Jinpachi +1",
+		body="Ken. Samue +1",
+		hands="Mpaca's Gloves",
+		legs="Ken. Hakama +1",
+		feet="Ken. Sune-Ate +1",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Reiki Yotai",
+		left_ear="Telos Earring",
+		right_ear="Suppanomimi",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
+	}
+
+	
+	-- 35 Haste (need 12 DW)
+	sets.engaged.haste35 = {
+		ammo="Date Shuriken",
+		head="Ken. Jinpachi +1",
+		body="Ken. Samue +1",
+		hands="Mpaca's Gloves",
+		legs="Ken. Hakama +1",
+		feet="Ken. Sune-Ate +1",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Reiki Yotai",
+		left_ear="Telos Earring",
+		right_ear="Suppanomimi",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
+	}
+
+
+	-- Capped Haste (need 1 DW - negligible)
+	sets.engaged.hastecap = {
+		ammo="Date Shuriken",
+		head="Ken. Jinpachi +1",
+		body="Ken. Samue +1",
+		hands="Mpaca's Gloves",
+		legs="Ken. Hakama +1",
+		feet="Ken. Sune-Ate +1",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Telos Earring",
+		right_ear="Brutal Earring",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
+	}
+
 
 --------------- PRECAST SETS ------------------
 	--Fastcast Set
@@ -168,7 +208,7 @@ function get_sets()
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
 		back={ name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
-		}
+	}
 
 	--Elemental Midcast
     sets.midcast.elemental = {
@@ -185,12 +225,12 @@ function get_sets()
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Shiva Ring +1",
 		back={ name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
-		}
+	}
 	-- Midcast elemental - Futae up
-	sets.midcast.elementalfutae = set_combine(sets.midcast.elemental, {
+	sets.midcast.elementalfutae = set_combine(sets.midcast.elemental, {	
 		hands="Hattori Tekko +2",
 	})
-	
+
 -- Midcast for trusts - want to have 119 gear in head,body,hands,legs,feet.
 	sets.midcast.trust = {
 		head="Nyame Helm",
@@ -215,7 +255,7 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Sroda Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
-		}
+	}
 	
 	--shun Weaponskill
 	sets.ws.shun = {
@@ -232,7 +272,7 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
-		}
+	}
 
 	--metsu Weaponskill
 	sets.ws.metsu = {
@@ -249,7 +289,7 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Ilabrat Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
-		}
+	}
 	
 	--ten Weaponskill
 	sets.ws.ten = {
@@ -266,7 +306,7 @@ function get_sets()
 		left_ring="Gere Ring",
 		right_ring="Sroda Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
-		}
+	}
 
 	--Ku Weaponskill
 	sets.ws.ku = {
@@ -359,7 +399,63 @@ end
 
 --------------- LOGIC - DO NOT TOUCH BELOW ------------------
 
--- Change state when engaging enemy
+--Automatically switch sets for time
+    -- world.time is given in minutes into each day
+    -- 7:00 AM would be 420 minutes
+    -- 17:00 PM would be 1020 minutes
+
+windower.register_event('time change', function(new, old)
+	if new > (7*60) and old <= (7*60) then
+		idle()
+	end
+	if new > (17*60) and old <= (17*60) then
+		idle()
+	end
+end)
+
+windower.register_event('lose buff', function(buff_id)
+	if buff_id == 66 then
+		idle()
+	end
+	if buff_id == 33 then
+		idle()
+	end
+	if buff_id == 580 then
+		idle()
+	end
+	if buff_id == 604 then
+		idle()
+	end
+	if buff_id == 214 then
+		idle()
+	end
+	if buff_id == 228 then
+		idle()
+	end
+end)
+
+windower.register_event('gain buff', function(buff_id)
+	if buff_id == 66 then
+		idle()
+	end
+	if buff_id == 33 then
+		idle()
+	end
+	if buff_id == 580 then
+		idle()
+	end
+	if buff_id == 604 then
+		idle()
+	end
+	if buff_id == 214 then
+		idle()
+	end
+	if buff_id == 228 then
+		idle()
+	end
+end)
+
+
 function status_change(new,old)
 	if new == "Engaged" then
 		idle()
@@ -368,57 +464,33 @@ function status_change(new,old)
 	end
 end
 
--- Recognizing when losing utsusemi
-windower.register_event('lose buff', function(buff_id)
-	if buff_id == 66 then
-		idle()
-	end
-end)
 
--- Recognizing when gaining utsusemi
-windower.register_event('gain buff', function(buff_id)
-	if buff_id == 66 then
-		idle()
-	end
-end)
-
-
-
--- Idle 
+-- Haste 2
 function idle()
 	if player.status == "Engaged" then 
-		if player.equipment.sub == "Tsuru" then
-			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.normaltsuru)
-			else
-				if buffactive['Yonin'] then
-					equip(sets.engaged.yonintsuru)
-				else
-					equip(sets.engaged.countertsuru)
-				end
-			end
+		if ( ( (buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive.march or buffactive[604]) ) or
+			 ( buffactive[33] and (buffactive[580] or buffactive.embrava) ) or
+			 ( buffactive.march == 2 and buffactive[604] ) ) then
+			equip(sets.engaged.hastecap)
+		elseif ( (buffactive[33] or buffactive.march == 2 or buffactive[580]) and buffactive['haste samba'] ) then
+			equip(sets.engaged.haste35)
+		elseif ( ( buffactive[580] or buffactive[33] or buffactive.march == 2 ) or
+				 ( buffactive.march == 1 and buffactive[604] ) ) then
+			equip(sets.engaged.haste30)
+		elseif ( buffactive.march == 1 or buffactive[604] ) then
+			equip(sets.engaged.haste15)
 		else
-			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.normaltank)
-			else
-				if buffactive['Yonin'] then
-					equip(sets.engaged.yonin)
-				else
-					equip(sets.engaged.counter)
-				end
-			end
+			equip(sets.engaged.haste0)
 		end
 	else
-		if player.equipment.sub == "Tsuru" then
-			equip(sets.idle.normaltsuru)
+		if world.time >= (17*60) or world.time < (7*60) then
+			equip(sets.idle.night)
 		else
 			equip(sets.idle.normal)
 		end
 	end
 end
 
-
---precast
 function precast(spell)
 	if spell.name:match('Utsusemi') then
 		equip(sets.precast.utsusemi)
@@ -500,14 +572,8 @@ function midcast(spell)
 		else
 			equip(sets.ws.normal)
 		end
-	elseif spell.english == "Provoke" or spell.english =="Dodge" or spell.english =="Focus" or spell.english == "Chi Blast" or spell.english =="Counterstance" then
+	elseif spell.english == "Provoke" or spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
 		equip(sets.precast.enmity)
-	elseif spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
-		if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-			equip(sets.precast.enmity)
-		else
-			idle()
-		end
 	elseif spell.type == "Trust" then
 		equip(sets.midcast.trust)
 	else

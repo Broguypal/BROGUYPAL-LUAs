@@ -8,12 +8,12 @@
 --                   __/ |       __/ | |                  
 --                  |___/       |___/|_|    
 -- 						NINJA LUA
+
 -- NIN / NIN2 = Hybrid gear. NIN = Haste 2/ NIN2 = Haste 1 as buffs
 -- NINMal / NINMal2 = Hybrid Gear - Malignance based (for when need MEva). NinMal = Haste2/ NINMal2 = Haste 1 as buffs
 -- NIN Tank = Aoe Tank + MDef gear. Best suited to pulling large groups
 -- NINeva = Evasion Tank
 -- NINdps / NINdps2 = Pure DPS. dps = haste 2 / dps2 = haste 1 as buffs.
-
 
 
 -- Requires Gearswap Addon - "Cancel"
@@ -47,71 +47,178 @@ function get_sets()
     --Normal Idle Set w/ movement speed
 	sets.idle.normal = {
 		ammo="Date Shuriken",
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		hands="Malignance Gloves",
-		legs="Malignance Tights",
-		feet="Malignance Boots",
-		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		waist="Kasiri Belt",
-		left_ear="Eabani Earring",
-		right_ear="Infused Earring",
-		left_ring="Ilabrat Ring",
-		right_ring="Hizamaru Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
-		}
-
-	sets.idle.normaltsuru = set_combine(sets.idle.normal,{
-		})
---------------- ENGAGED SETS ------------------
-	-- Normal Engaged
-	sets.engaged.normaltank = {
-		ammo="Date Shuriken",
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		hands="Malignance Gloves",
-		legs="Malignance Tights",
-		feet="Malignance Boots",
-		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		waist="Kasiri Belt",
-		left_ear="Eabani Earring",
-		right_ear="Infused Earring",
-		left_ring="Ilabrat Ring",
-		right_ring="Hizamaru Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
-		}
-
-	--No shadows (counter pieces subbed in)
-	sets.engaged.counter = set_combine(sets.engaged.normaltank,{
+		head="Mpaca's Cap",
 		body="Mpaca's Doublet",
+		hands="Mpaca's Gloves",
 		legs="Mpaca's Hose",
-		left_ear="Genmei Earring",
+		feet="Danzo Sune-Ate",
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		waist="Engraved Belt",
+		left_ear="Eabani Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		right_ring="Defending Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
-		})
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
+	}
+	--Night Idle set w/ movement speed
+	sets.idle.night = set_combine(sets.idle.normal,{
+		feet="Hachi. Kyahan +1",
+	})
 
-	--No shadows (Yonin active)
-	sets.engaged.yonin = set_combine(sets.engaged.counter,{
-		legs="Hattori Hakama +2",
-		})
-
------ TSURU engaged ------ (accounting for extra -8% DT from tsuru)
-	-- Normal Engaged (tsuru)
-	sets.engaged.normaltsuru = set_combine(sets.engaged.normaltank,{
-		})
-
-	-- No Shadows (tsuru)
-	sets.engaged.countertsuru = set_combine(sets.engaged.normaltsuru,{
+--------------- ENGAGED SETS ------------------
+	-- 0 Haste (need 39 DW)
+	sets.engaged.haste0 = {
+		ammo="Date Shuriken",
+		head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
 		body="Mpaca's Doublet",
+		hands="Malignance Gloves",
 		legs="Mpaca's Hose",
-		right_ring="Defending Ring",
+		feet="Hiza. Sune-Ate +2",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Reiki Yotai",
+		left_ear="Telos Earring",
+		right_ear="Suppanomimi",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
+		}
+	-- 0 haste 0 shadows
+	sets.engaged.haste0def = set_combine(sets.engaged.haste0,{
+		head="Malignance Chapeau",
+		body="Mpaca's Doublet",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
+		feet="Malignance Boots",
+    	})
+	--yonin swap
+	sets.engaged.haste0yonin = set_combine(sets.engaged.haste0def,{
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		legs="Hattori Hakama +2",
 		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 	
-	-- No shadows + Yonin active (Tsuru)
-	sets.engaged.yonintsuru = set_combine(sets.engaged.countertsuru,{
+	-- 15 Haste (need 32 DW)
+	sets.engaged.haste15 = {
+		ammo="Date Shuriken",
+		head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+		body="Mpaca's Doublet",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
+		feet="Malignance Boots",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Reiki Yotai",
+		left_ear="Telos Earring",
+		right_ear="Suppanomimi",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
+		}
+	-- 15 haste 0 shadows
+	sets.engaged.haste15def = set_combine(sets.engaged.haste15,{
+		head="Malignance Chapeau",
+		body="Mpaca's Doublet",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
+		feet="Malignance Boots",
+		})
+	--yonin swap
+	sets.engaged.haste15yonin = set_combine(sets.engaged.haste15def,{
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		legs="Hattori Hakama +2",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
+		})
+	
+	-- 30 Haste (need 21 DW)
+		sets.engaged.haste30 = {
+		head="Malignance Chapeau",
+		body="Mpaca's Doublet",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
+		feet="Malignance Boots",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Reiki Yotai",
+		left_ear="Telos Earring",
+		right_ear="Suppanomimi",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
+		}
+	-- 30 haste 0 shadows
+	sets.engaged.haste30def = set_combine(sets.engaged.haste30,{
+		head="Malignance Chapeau",
+		body="Mpaca's Doublet",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
+		feet="Malignance Boots",
+		})
+	--yonin swap
+	sets.engaged.haste30yonin = set_combine(sets.engaged.haste30def,{
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		legs="Hattori Hakama +2",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
+		})
+
+	-- 35 Haste (need 12 DW)
+	sets.engaged.haste35 = {
+		ammo="Date Shuriken",
+		head="Malignance Chapeau",
+		body="Mpaca's Doublet",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
+		feet="Malignance Boots",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Reiki Yotai",
+		left_ear="Telos Earring",
+		right_ear="Suppanomimi",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
+		}
+	-- 35 haste 0 shadows
+	sets.engaged.haste35def = set_combine(sets.engaged.haste35,{
+		head="Malignance Chapeau",
+		body="Mpaca's Doublet",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
+		feet="Malignance Boots",
+		})
+	--yonin swap
+	sets.engaged.haste35yonin = set_combine(sets.engaged.haste35def,{
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		legs="Hattori Hakama +2",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
+		})
+	
+	-- Capped Haste (need 1 DW - negligible)
+	sets.engaged.hastecap = {
+		ammo="Date Shuriken",
+		head="Malignance Chapeau",
+		body="Mpaca's Doublet",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
+		feet="Malignance Boots",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Telos Earring",
+		right_ear="Crep. Earring",
+		left_ring="Gere Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
+		}
+	-- Cap haste 0 shadows
+	sets.engaged.hastecapdef = set_combine(sets.engaged.hastecap,{
+		head="Malignance Chapeau",
+		body="Mpaca's Doublet",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
+		feet="Malignance Boots",
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		})
+	--yonin swap
+	sets.engaged.hastecapyonin = set_combine(sets.engaged.hastecapdef,{
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		legs="Hattori Hakama +2",
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
 
 --------------- PRECAST SETS ------------------
@@ -190,7 +297,7 @@ function get_sets()
 	sets.midcast.elementalfutae = set_combine(sets.midcast.elemental, {
 		hands="Hattori Tekko +2",
 	})
-	
+
 -- Midcast for trusts - want to have 119 gear in head,body,hands,legs,feet.
 	sets.midcast.trust = {
 		head="Nyame Helm",
@@ -304,7 +411,7 @@ function get_sets()
 	
 	--Kamu Weaponskill
 	sets.ws.kamu = {
-		ammo="Coiste Bodhar",
+	    ammo="Coiste Bodhar",
 		head="Mpaca's Cap",
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -359,7 +466,63 @@ end
 
 --------------- LOGIC - DO NOT TOUCH BELOW ------------------
 
--- Change state when engaging enemy
+--Automatically switch sets for time
+    -- world.time is given in minutes into each day
+    -- 7:00 AM would be 420 minutes
+    -- 17:00 PM would be 1020 minutes
+
+windower.register_event('time change', function(new, old)
+	if new > (7*60) and old <= (7*60) then
+		idle()
+	end
+	if new > (17*60) and old <= (17*60) then
+		idle()
+	end
+end)
+
+windower.register_event('lose buff', function(buff_id)
+	if buff_id == 66 then
+		idle()
+	end
+	if buff_id == 33 then
+		idle()
+	end
+	if buff_id == 580 then
+		idle()
+	end
+	if buff_id == 604 then
+		idle()
+	end
+	if buff_id == 214 then
+		idle()
+	end
+	if buff_id == 228 then
+		idle()
+	end
+end)
+
+windower.register_event('gain buff', function(buff_id)
+	if buff_id == 66 then
+		idle()
+	end
+	if buff_id == 33 then
+		idle()
+	end
+	if buff_id == 580 then
+		idle()
+	end
+	if buff_id == 604 then
+		idle()
+	end
+	if buff_id == 214 then
+		idle()
+	end
+	if buff_id == 228 then
+		idle()
+	end
+end)
+
+
 function status_change(new,old)
 	if new == "Engaged" then
 		idle()
@@ -368,49 +531,119 @@ function status_change(new,old)
 	end
 end
 
--- Recognizing when losing utsusemi
-windower.register_event('lose buff', function(buff_id)
-	if buff_id == 66 then
-		idle()
-	end
-end)
 
--- Recognizing when gaining utsusemi
-windower.register_event('gain buff', function(buff_id)
-	if buff_id == 66 then
-		idle()
-	end
-end)
-
-
-
--- Idle 
+--[[
 function idle()
 	if player.status == "Engaged" then 
-		if player.equipment.sub == "Tsuru" then
+		if ( ( (buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive.march or buffactive[604]) ) or
+			 ( buffactive[33] and (buffactive[580] or buffactive.embrava) ) or
+			 ( buffactive.march == 2 and buffactive[604] ) ) then
 			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.normaltsuru)
+				equip(sets.engaged.hastecap)
 			else
-				if buffactive['Yonin'] then
-					equip(sets.engaged.yonintsuru)
-				else
-					equip(sets.engaged.countertsuru)
-				end
+				equip(sets.engaged.hastecapdef)
 			end
+		elseif ( (buffactive[33] or buffactive.march == 2 or buffactive[580]) and buffactive['haste samba'] ) then
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.haste35)
+			else
+				equip(sets.engaged.haste35def)
+			end
+		elseif ( ( buffactive[580] or buffactive[33] or buffactive.march == 2 ) or
+				 ( buffactive.march == 1 and buffactive[604] ) ) then
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.haste30)
+			else
+				equip(sets.engaged.haste30def)
+			end	 
+		elseif ( buffactive.march == 1 or buffactive[604] ) then
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.haste15)
+			else
+				equip(sets.engaged.haste15def)
+			end	 
 		else
 			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-				equip(sets.engaged.normaltank)
+				equip(sets.engaged.haste0)
 			else
-				if buffactive['Yonin'] then
-					equip(sets.engaged.yonin)
-				else
-					equip(sets.engaged.counter)
-				end
-			end
+				equip(sets.engaged.haste0def)
+			end	 
 		end
 	else
-		if player.equipment.sub == "Tsuru" then
-			equip(sets.idle.normaltsuru)
+		if world.time >= (17*60) or world.time < (7*60) then
+			equip(sets.idle.night)
+		else
+			equip(sets.idle.normal)
+		end
+	end
+end
+]]
+
+-- Haste 1
+function idle()
+	if player.status == "Engaged" then 
+		if ( buffactive[580] and ( buffactive.march or buffactive[33] or buffactive.embrava or buffactive[604]) ) or  -- geo haste + anything
+		   ( buffactive.embrava and (buffactive.march or buffactive[33] or buffactive[604]) ) or  -- embrava + anything
+		   ( buffactive.march == 2 and (buffactive[33] or buffactive[604]) ) or  -- two marches + anything
+		   ( buffactive[33] and buffactive[604] and buffactive.march ) then -- haste + mighty guard + any marches
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.hastecap)
+			else
+				if buffactive['Yonin'] then
+					equip(sets.engaged.hastecapyonin)
+				else
+					equip(sets.engaged.hastecapdef)
+				end
+			end
+		elseif ( (buffactive[604] or buffactive[33]) and buffactive['haste samba'] and buffactive.march == 1) or -- MG or haste + samba with 1 march
+			   ( buffactive.march == 2 and buffactive['haste samba'] ) or
+			   ( buffactive[580] and buffactive['haste samba'] ) then 
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.haste35)
+			else
+				if buffactive['Yonin'] then
+					equip(sets.engaged.haste35yonin)
+				else
+					equip(sets.engaged.haste35def)
+				end
+			end
+		elseif ( buffactive.march == 2 ) or -- two marches from ghorn
+			   ( (buffactive[33] or buffactive[604]) and buffactive.march == 1 ) or  -- MG or haste + 1 march
+			   ( buffactive[580] ) or  -- geo haste
+			   ( buffactive[33] and buffactive[604] ) then  -- haste with MG
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.haste30)
+			else
+				if buffactive['Yonin'] then
+					equip(sets.engaged.haste30yonin)
+				else
+					equip(sets.engaged.haste30def)
+				end
+			end	
+		elseif buffactive[33] or buffactive[604] or buffactive.march == 1 then
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.haste15)
+			else
+				if buffactive['Yonin'] then
+					equip(sets.engaged.haste15yonin)
+				else
+					equip(sets.engaged.haste15def)
+				end
+			end	 
+		else
+			if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+				equip(sets.engaged.haste0)
+			else
+				if buffactive['Yonin'] then
+					equip(sets.engaged.haste0yonin)
+				else
+					equip(sets.engaged.haste0def)
+				end
+			end	 
+		end
+	else
+		if world.time >= (17*60) or world.time <= (7*60) then
+			equip(sets.idle.night)
 		else
 			equip(sets.idle.normal)
 		end
@@ -418,7 +651,6 @@ function idle()
 end
 
 
---precast
 function precast(spell)
 	if spell.name:match('Utsusemi') then
 		equip(sets.precast.utsusemi)
@@ -500,14 +732,8 @@ function midcast(spell)
 		else
 			equip(sets.ws.normal)
 		end
-	elseif spell.english == "Provoke" or spell.english =="Dodge" or spell.english =="Focus" or spell.english == "Chi Blast" or spell.english =="Counterstance" then
+	elseif spell.english == "Provoke" or spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
 		equip(sets.precast.enmity)
-	elseif spell.english == "Foil" or spell.english == "Poisonga" or spell.english == "Stun" or spell.english == "Flash" or spell.english == "Jettatura" or spell.english == "Blank Gaze" then
-		if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-			equip(sets.precast.enmity)
-		else
-			idle()
-		end
 	elseif spell.type == "Trust" then
 		equip(sets.midcast.trust)
 	else

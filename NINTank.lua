@@ -8,12 +8,12 @@
 --                   __/ |       __/ | |                  
 --                  |___/       |___/|_|    
 -- 						NINJA LUA
--- NIN = Hybrid (haste 2)
--- NINHy1 = Hybrid (Haste 1)
--- NINH2.lua - DPS - Assuming recieiving Haste 2
--- NINH1.lua = DPS - Assuming recieiving Haste 1
--- NINTank = Tank
--- Nineva = Evasion cap
+-- NIN / NIN2 = Hybrid gear. NIN = Haste 2/ NIN2 = Haste 1 as buffs
+-- NINMal / NINMal2 = Hybrid Gear - Malignance based (for when need MEva). NinMal = Haste2/ NINMal2 = Haste 1 as buffs
+-- NIN Tank = Aoe Tank + MDef gear. Best suited to pulling large groups
+-- NINeva = Evasion Tank
+-- NINdps / NINdps2 = Pure DPS. dps = haste 2 / dps2 = haste 1 as buffs.
+
 
 
 -- Requires Gearswap Addon - "Cancel"
@@ -21,9 +21,10 @@
 --> Use command "//du blinking self combat on" to stop blinking
 
 send_command ('bind numpad9 gs l NIN.lua')
-send_command ('bind numpad7 gs l NINH2.lua')
+send_command ('bind numpad7 gs l NINdps.lua')
 send_command ('bind numpad8 gs l NINTank.lua')
 send_command ('bind numpad5 gs l NINeva.lua')
+send_command ('bind numpad6 gs l NINMal.lua')
 --send_command ('bind f12 input //fillmode')
 
 send_command ('bind numpad1 input /mount "Crawler"')
