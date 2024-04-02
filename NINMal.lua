@@ -403,7 +403,7 @@ function get_sets()
 	
 	--chi/teki/to Weaponskill
 	sets.ws.elemental = {
-	    ammo="Pemphredo Tathlum",
+	    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
 		head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
