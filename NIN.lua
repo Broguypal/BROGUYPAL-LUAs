@@ -21,6 +21,18 @@
 -- requires Dressup
 --> Use command "//du blinking self combat on" to stop blinking
 
+function file_unload()
+    send_command('unbind numpad9')
+    send_command('unbind numpad8')
+    send_command('unbind numpad7')
+    send_command('unbind numpad6')
+	send_command('unbind numpad5')
+	send_command('unbind numpad4')
+	send_command('unbind numpad3')
+    enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
+end
+
+
 send_command ('bind numpad9 gs l NIN2.lua')
 send_command ('bind numpad7 gs l NINdps.lua')
 send_command ('bind numpad8 gs l NINTank.lua')

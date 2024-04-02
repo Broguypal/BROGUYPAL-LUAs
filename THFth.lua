@@ -46,18 +46,18 @@ function get_sets()
 	}
 	
 	sets.idle.attack = {
-		ammo="Coiste Bodhar",
+		ammo="Staunch Tathlum +1",
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		hands="Malignance Gloves",
-		legs="Malignance Tights",
-		feet="Malignance Boots",
+		body={ name="Herculean Vest", augments={'CHR+1','Attack+6','"Treasure Hunter"+2','Mag. Acc.+13 "Mag.Atk.Bns."+13',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Herculean Trousers", augments={'"Drain" and "Aspir" potency +1','Pet: Accuracy+27 Pet: Rng. Acc.+27','"Treasure Hunter"+2','Accuracy+12 Attack+12','Mag. Acc.+13 "Mag.Atk.Bns."+13',}},
+		feet={ name="Herculean Boots", augments={'Pet: Phys. dmg. taken -1%','STR+4','"Treasure Hunter"+2','Accuracy+18 Attack+18',}},
 		neck="Sanctity Necklace",
-		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear="Suppanomimi",
-		right_ear={ name="Skulker's Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+9','Mag. Acc.+9',}},
-		left_ring="Fickblix's Ring",
-		right_ring="Gere Ring",
+		waist="Flume Belt +1",
+		left_ear="Genmei Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+		right_ring="Moonlight Ring",
 		back="Moonbeam Cape",
 	}
 

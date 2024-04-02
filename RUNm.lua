@@ -8,6 +8,18 @@
 --                  |___/       |___/|_|    
 --RUN LUA
 
+function file_unload()
+    send_command('unbind numpad9')
+    send_command('unbind numpad8')
+    send_command('unbind numpad7')
+    send_command('unbind numpad6')
+	send_command('unbind numpad5')
+	send_command('unbind numpad4')
+	send_command('unbind numpad3')
+    enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
+end
+
+
 send_command ('bind numpad9 gs l RUN.lua')
 send_command ('bind numpad8 gs l RUNaoe.lua')
 send_command ('bind numpad6 gs l RUNa.lua')
@@ -36,8 +48,9 @@ function get_sets()
 	sets.ws = {}					-- Leave this empty
  
     sets.idle.normal = {
-		main={ name="Epeolatry", augments={'Path: A',}},
-		sub={ name="Refined Grip +1", augments={'Path: A',}},
+--		main={ name="Epeolatry", augments={'Path: A',}},
+--		sub={ name="Refined Grip +1", augments={'Path: A',}},
+	sub="Irenic Strap",
 		ammo="Staunch Tathlum +1",
 		head="Nyame Helm",
 		body="Runeist Coat +3",
@@ -53,8 +66,9 @@ function get_sets()
 		back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 		}
 	sets.idle.attack = {
-		main={ name="Epeolatry", augments={'Path: A',}},
-		sub={ name="Refined Grip +1", augments={'Path: A',}},
+--		main={ name="Epeolatry", augments={'Path: A',}},
+--		sub={ name="Refined Grip +1", augments={'Path: A',}},
+		sub="Irenic Strap",
 		ammo="Staunch Tathlum +1",
 		head="Nyame Helm",
 		body="Runeist Coat +3",

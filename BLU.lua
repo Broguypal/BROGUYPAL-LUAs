@@ -8,6 +8,19 @@
 --                  |___/       |___/|_|    
 --BLU LUA
 
+
+function file_unload()
+    send_command('unbind numpad9')
+    send_command('unbind numpad8')
+    send_command('unbind numpad7')
+    send_command('unbind numpad6')
+	send_command('unbind numpad5')
+	send_command('unbind numpad4')
+	send_command('unbind numpad3')
+    enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
+end
+
+
 send_command ('bind numpad9 gs l BLU.lua')
 send_command ('bind numpad8 gs l BLUd.lua')
 send_command ('bind numpad7 gs l BLUth.lua')
@@ -16,12 +29,13 @@ send_command ('bind numpad7 gs l BLUth.lua')
 send_command ('bind numpad6 input //aset set melee')
 send_command ('bind numpad5 input //aset set acc')
 send_command ('bind numpad4 input //aset set aoe')
+send_command ('bind numpad3 input //aset set tank')
 --send_command ('bind numpad3 input //aset set treasure')
 
 send_command ('bind numpad1 input /mount "Crawler"')
 send_command ('bind numpad2 input /dismount')
 
-send_command ('bind numpad3 input //aset set tank')
+
 --send_command ('bind numpad1 input /equip ring2 "Warp Ring"; /echo Warping; wait 11; input /item "Warp Ring" <me>;')
 --send_command ('bind numpad3 input /equip ring2 "Dim. Ring (holla)"; /echo Warping; wait 11; input /item "Dim. Ring (holla)" <me>;')
 
