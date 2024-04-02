@@ -212,7 +212,6 @@ function get_sets()
 		hands="Malignance Gloves",
 		legs="Mpaca's Hose",
 		feet="Malignance Boots",
-		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		})
 	--yonin swap
 	sets.engaged.hastecapyonin = set_combine(sets.engaged.hastecapdef,{
