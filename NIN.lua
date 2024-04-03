@@ -27,6 +27,7 @@ send_command('bind numpad9 gs c ToggleHybrid')
 send_command('bind numpad8 gs c ToggleTank')
 send_command('bind numpad7 gs c ToggleDPS')
 send_command('bind numpad6 gs c ToggleMalignance')
+send_command('bind numpad5 gs c ToggleEvasion')
 
 Mode = "Hybrid"
 
@@ -1179,13 +1180,15 @@ function self_command(command)
 			idle()
 		end
 	elseif command == "ToggleTank" then
-		if Mode == "AoETank" then 
-			Mode = "EvasionTank"
-			send_command('console_echo "EvasionTank"')
-			idle()
-		elseif Mode == "Hybrid" or Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "EvasionTank" or Mode == "DPS" or Mode == "DPSHaste1" then
+		if Mode == "Hybrid" or Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "EvasionTank" or Mode == "DPS" or Mode == "DPSHaste1" then
 			Mode = "AoETank"
 			send_command('console_echo "AoETank"')
+			idle()
+		end
+	elseif command == "ToggleEvasion" then
+		if Mode == "Hybrid" or Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "AoETank" or Mode == "DPS" or Mode == "DPSHaste1" then
+			Mode = "EvasionTank"
+			send_command('console_echo "EvasionTank"')
 			idle()
 		end
 	elseif command == "ToggleMalignance" then
