@@ -19,6 +19,9 @@ function file_unload()
 	send_command('unbind numpad5')
 	send_command('unbind numpad4')
 	send_command('unbind numpad3')
+	send_command('unbind f9')
+	send_command('unbind f10')
+	send_command('unbind f11')
     enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
 end
 
