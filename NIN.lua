@@ -808,7 +808,6 @@ function status_change(new,old)
 end
 
 
--- Idle (NOTE: This = Haste 2) -
 function idle()
 	if Mode == "Hybrid" or Mode == "Malignance" or Mode == "DPS" then
 		if player.status == "Engaged" then 
@@ -1180,6 +1179,7 @@ function self_command(command)
 		if Mode == "Hybrid" then
 			Mode = "HybridHaste1"
 			send_command('console_echo "HybridHaste1"')
+			idle()
 		elseif Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "AoETank" or Mode == "EvasionTank" or Mode == "DPS" or Mode == "DPSHaste1" then
 			Mode = "Hybrid"
 			send_command('console_echo "Hybrid"')
