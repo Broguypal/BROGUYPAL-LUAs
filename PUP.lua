@@ -21,6 +21,7 @@ function file_unload()
 	send_command('unbind numpad3')
 	send_command('unbind numpad2')
 	send_command('unbind numpad1')
+	send_command('unbind f8')
 	send_command('unbind f9')
 	send_command('unbind f10')
 	send_command('unbind f11')
@@ -31,6 +32,7 @@ end
 ---------------------------	INIT. SETS		---------------------------	
 function get_sets()
 -------- Optional Commands ----------
+send_command('bind f8 input //lua l AutoPUP')
 send_command('bind f9 input /item "Remedy" <me>')
 send_command('bind f10 input /item "Panacea" <me>')
 send_command('bind f11 input /item "Holy Water" <me>')
