@@ -385,9 +385,13 @@ Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','Tank','PetDEF'
 
 -- fastcast	
 	sets.precast.master.fastcast = {
-		head={ name="Herculean Helm", augments={'Attack+5','"Triple Atk."+3','Accuracy+6',}},
-		body={ name="Taeon Tabard", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-		left_ring="Lebeche Ring",
+		ammo="Automat. Oil +3",
+		head={ name="Herculean Helm", augments={'"Fast Cast"+5','"Mag.Atk.Bns."+14',}},
+		body="Vrikodara Jupon",
+		legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+8','"Fast Cast"+6','INT+4',}},
+		feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+8','"Fast Cast"+6','INT+9',}},
+		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+		left_ring="Rahab Ring",
 		right_ring="Prolix Ring",
 		back="Swith Cape",
 	}
@@ -435,7 +439,7 @@ Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','Tank','PetDEF'
 		legs={ name="Pitre Churidars +3", augments={'Enhances "Ventriloquy" effect',}},
 		feet={ name="Naga Kyahan", augments={'Pet: MP+80','Automaton: "Cure" potency +4%','Automaton: "Fast Cast"+3',}},
 		neck="Empath Necklace",
-		waist="Incarnation Sash",
+		waist="Ukko Sash",
 		right_ear="Burana Earring",
 		right_ring="Thur. Ring +1",
 	}
@@ -488,7 +492,7 @@ Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','Tank','PetDEF'
 		legs={ name="Pitre Churidars +3", augments={'Enhances "Ventriloquy" effect',}},
 		feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},
 		neck="Adad Amulet",
-		waist="Incarnation Sash",
+		waist="Ukko Sash",
 		left_ear="Burana Earring",
 		right_ear={ name="Kara. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
 		left_ring="Fickblix's Ring",
@@ -506,7 +510,7 @@ Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','Tank','PetDEF'
 		hands={ name="Naga Tekko", augments={'Pet: MP+80','Automaton: "Cure" potency +4%','Automaton: "Fast Cast"+3',}},
 		legs="Foire Churidars +1",
 		feet={ name="Naga Kyahan", augments={'Pet: MP+80','Automaton: "Cure" potency +4%','Automaton: "Fast Cast"+3',}},
-		waist="Incarnation Sash",
+		waist="Ukko Sash",
 		right_ear="Burana Earring",
 		right_ring="Thur. Ring +1",
 	}
@@ -522,7 +526,7 @@ Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','Tank','PetDEF'
 		legs="Kara. Pantaloni +2",
 		feet="Mpaca's Boots",
 		neck="Adad Amulet",
-		waist="Incarnation Sash",
+		waist="Ukko Sash",
 		right_ear="Burana Earring",
 		left_ring="Fickblix's Ring",
 		right_ring="Thur. Ring +1",
