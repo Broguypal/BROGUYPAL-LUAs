@@ -25,6 +25,7 @@ function file_unload()
 	send_command('unbind f9')
 	send_command('unbind f10')
 	send_command('unbind f11')
+	send_command('unbind f12')
     enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
 end
 
@@ -32,10 +33,11 @@ end
 ---------------------------	INIT. SETS		---------------------------	
 function get_sets()
 -------- Optional Commands ----------
-send_command('bind f8 input //lua l AutoPUP')
 send_command('bind f9 input /item "Remedy" <me>')
 send_command('bind f10 input /item "Panacea" <me>')
 send_command('bind f11 input /item "Holy Water" <me>')
+
+send_command('bind f12 input //lua l AutoPUP')
 
 --[[
 ^ = Ctrl
