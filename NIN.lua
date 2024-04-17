@@ -147,6 +147,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		}
 -- 0 shadows
 	sets.engaged.tank.counter = set_combine(sets.engaged.tank.normal,{
+		ammo="Amar Cluster",
 		waist="Cornelia's Belt",
 		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','System: 1 ID: 640 Val: 4',}},
 		})
@@ -173,6 +174,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 	}
 -- 0 shadows
 	sets.engaged.evasion.counter = set_combine(sets.engaged.evasion.normal,{
+		ammo="Amar Cluster",
 		body="Mpaca's Doublet",
 		legs="Mpaca's Hose",
 		waist="Cornelia's Belt",
