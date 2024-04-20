@@ -17,21 +17,27 @@ function file_unload()
 	send_command('unbind numpad5')
 	send_command('unbind numpad4')
 	send_command('unbind numpad3')
+	send_command('unbind numpad2')
+	send_command('unbind numpad1')
+	send_command('unbind f9')
+	send_command('unbind f10')
+	send_command('unbind f11')
     enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
 end
 
 
-send_command ('bind numpad9 gs l MNK.lua')
-send_command ('bind numpad8 gs l MNKc.lua')
-
-
-
+function get_sets()
+send_command('bind numpad9 gs c ToggleHybrid')
+send_command('bind numpad8 gs c ToggleCounter')
+send_command('bind numpad7 gs c ToggleDefence')
+send_command('bind f9 input /item "Remedy" <me>')
+send_command('bind f10 input /item "Panacea" <me>')
+send_command('bind f11 input /item "Holy Water" <me>')
 send_command ('bind numpad1 input /mount "Noble Chocobo"')
 send_command ('bind numpad2 input /dismount')
---send_command ('bind numpad1 input /equip ring2 "Warp Ring"; /echo Warping; wait 11; input /item "Warp Ring" <me>;')
---send_command ('bind numpad3 input /equip ring2 "Dim. Ring (holla)"; /echo Warping; wait 11; input /item "Dim. Ring (holla)" <me>;')
 
-function get_sets()
+Mode = "Hybrid"
+Modes = {'Hybrid','Counter','Defence'}
   
     sets.idle = {}                  -- Leave this empty.
     sets.precast = {}               -- leave this empty    
@@ -58,6 +64,39 @@ function get_sets()
 		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
+--DT set
+	sets.idle.DT = {
+	    ammo="Staunch Tathlum +1",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body="Mpaca's Doublet",
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs="Mpaca's Hose",
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},
+		waist="Moonbow Belt +1",
+		left_ear="Genmei Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+		right_ring="Niqmaddu Ring",
+		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}
+
+--Counter set
+	sets.idle.counter = {
+		ammo="Amar Cluster",
+		head="Bhikku Crown +2",
+		body="Mpaca's Doublet",
+		hands={ name="Rao Kote +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+		legs="Anch. Hose +2",
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		waist="Moonbow Belt +1",
+		left_ear="Genmei Earring",
+		right_ear={ name="Bhikku Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
+		left_ring="Defending Ring",
+		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','System: 1 ID: 640 Val: 4',}},
+	}
 --------------------------------------TP Sets ----------------------------------------------------------
 --Normal TP Set
 	sets.idle.tp = {
@@ -351,34 +390,44 @@ end
 
 ------------------------------------ Logic ----------------------------------------------------------
 function idle()
-	if player.status == "Engaged" then
-		if player.equipment.main == "Godhands" then
-			if buffactive["Impetus"] then
-				if buffactive["Footwork"] then
-					equip(sets.idle.tpimpetusfootwork.godhands)
+	if Mode == "Defence" then
+		equip(sets.idle.DT)
+	elseif Mode == "Counter" then
+		if player.status == "Engaged" then
+			equip(sets.idle.counter)
+		else
+			equip(sets.idle.DT)
+		end
+	elseif Mode == "Hybrid" then
+		if player.status == "Engaged" then	
+			if player.equipment.main == "Godhands" then
+				if buffactive["Impetus"] then
+					if buffactive["Footwork"] then
+						equip(sets.idle.tpimpetusfootwork.godhands)
+					else
+						equip(sets.idle.tpimpetus.godhands) 
+					end
+				elseif buffactive["Footwork"] then
+					equip(sets.idle.tpfootwork.godhands)
 				else
-					equip(sets.idle.tpimpetus.godhands) 
+					equip(sets.idle.tp.godhands) 
 				end
-			elseif buffactive["Footwork"] then
-				equip(sets.idle.tpfootwork.godhands)
 			else
-				equip(sets.idle.tp.godhands) 
+				if buffactive["Impetus"] then
+					if buffactive["Footwork"] then							
+						equip(sets.idle.tpimpetusfootwork)
+					else
+						equip(sets.idle.tpimpetus) 
+					end
+				elseif buffactive["Footwork"] then
+					equip(sets.idle.tpfootwork)
+				else
+					equip(sets.idle.tp) 
+				end
 			end
 		else
-			if buffactive["Impetus"] then
-				if buffactive["Footwork"] then
-					equip(sets.idle.tpimpetusfootwork)
-				else
-					equip(sets.idle.tpimpetus) 
-				end
-			elseif buffactive["Footwork"] then
-				equip(sets.idle.tpfootwork)
-			else
-				equip(sets.idle.tp) 
-			end
+			equip(sets.idle.normal)
 		end
-	else
-		equip(sets.idle.normal)
 	end
 end
 
@@ -569,4 +618,26 @@ function buff_change(name,gain)
 	if name	== "petrification" and gain == "true" then
 			equip(sets.idle.normal)
 		end
+end
+
+function self_command(command)
+	if command == "ToggleHybrid" then
+		if Mode == "Counter" or Mode == "Defence" then
+			Mode = "Hybrid"
+			send_command('console_echo "Hybrid"')
+			idle()
+		end
+	elseif command == "ToggleCounter" then
+		if Mode == "Hybrid" or Mode == "Defence" then
+			Mode = "Counter"
+			send_command('console_echo "Counter"')
+			idle()
+		end
+	elseif command == "ToggleDefence" then
+		if Mode == "Hybrid" or Mode == "Counter" then
+			Mode = "Defence"
+			send_command('console_echo "Defence"')
+			idle()
+		end
+	end
 end
