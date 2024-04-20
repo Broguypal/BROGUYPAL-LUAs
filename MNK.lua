@@ -50,11 +50,11 @@ Modes = {'Hybrid','Counter','Defence'}
  -- Normal DT / Town set
     sets.idle.normal = {
 	    ammo="Staunch Tathlum +1",
-		head="Malignance Chapeau",
+		head={ name="Nyame Helm", augments={'Path: B',}},
 		body="Adamantite Armor",
-		hands="Malignance Gloves",
-		legs="Malignance Tights",
-		feet="Hermes' Sandals",
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs="Mpaca's Hose",
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},
 		waist="Moonbow Belt +1",
 		left_ear="Genmei Earring",
@@ -626,16 +626,25 @@ function self_command(command)
 			Mode = "Hybrid"
 			send_command('console_echo "Hybrid"')
 			idle()
+		elseif Mode == "Hybrid" then
+			send_command('console_echo "Hybrid"')
+			idle()
 		end
 	elseif command == "ToggleCounter" then
 		if Mode == "Hybrid" or Mode == "Defence" then
 			Mode = "Counter"
 			send_command('console_echo "Counter"')
 			idle()
+		elseif Mode == "Counter" then
+			send_command('console_echo "Counter"')
+			idle()
 		end
 	elseif command == "ToggleDefence" then
 		if Mode == "Hybrid" or Mode == "Counter" then
 			Mode = "Defence"
+			send_command('console_echo "Defence"')
+			idle()
+		elseif Mode == "Defence" then
 			send_command('console_echo "Defence"')
 			idle()
 		end
