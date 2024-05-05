@@ -314,11 +314,13 @@ function idle()
 		equip(sets.idle.tank)
 	elseif Mode == "HybridPhys" then
 		if player.status == "Engaged" then
+			equip(sets.engaged.normal)
 		else
 			equip(sets.idle.normal)
 		end
 	elseif Mode == "HybridMag" then
 		if player.status == "Engaged" then
+			equip(sets.engaged.magic)
 		else
 			equip(sets.idle.magic)
 		end
