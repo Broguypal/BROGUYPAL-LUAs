@@ -66,7 +66,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		right_ring="Defending Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','Evasion+15',}},
 	}
 	--Night Idle set w/ movement speed
 	sets.idle.night = set_combine(sets.idle.normal,{
@@ -87,7 +87,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		right_ear="Infused Earring",
 		left_ring="Ilabrat Ring",
 		right_ring="Hizamaru Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','Evasion+15',}},
 	}
 	--Night Idle set w/ movement speed
 	sets.idle.malignancenight = set_combine(sets.idle.malignance,{
@@ -108,7 +108,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		right_ring="Defending Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','Evasion+15',}},
 		}
 
 	--Evasion Tank Idle
@@ -125,7 +125,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		right_ear="Infused Earring",
 		left_ring="Ilabrat Ring",
 		right_ring="Hizamaru Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','Evasion+15',}},
 		}
 
 --------------- ENGAGED SETS ------------------
@@ -143,7 +143,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		right_ring="Defending Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','Evasion+15',}},
 		}
 -- 0 shadows
 	sets.engaged.tank.counter = set_combine(sets.engaged.tank.normal,{
@@ -170,7 +170,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		right_ear="Infused Earring",
 		left_ring="Ilabrat Ring",
 		right_ring="Hizamaru Ring",
-		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+2','"Store TP"+10','Evasion+15',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','Evasion+15',}},
 	}
 -- 0 shadows
 	sets.engaged.evasion.counter = set_combine(sets.engaged.evasion.normal,{

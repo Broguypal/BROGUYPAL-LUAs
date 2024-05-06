@@ -64,7 +64,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear="Eabani Earring",
 		left_ring="Defending Ring",
 		right_ring="Warden's Ring",
-		back="Moonbeam Cape",
+		back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.idle.magic = set_combine(sets.idle.normal,{
@@ -84,7 +84,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear="Eabani Earring",
 		left_ring="Defending Ring",
 		right_ring="Warden's Ring",
-		back="Moonbeam Cape",
+		back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
 	
 ---- ENGAGED SETS ----
@@ -103,7 +103,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear="Suppanomimi",
 		left_ring="Defending Ring",
 		right_ring="Fickblix's Ring",
-		back="Moonbeam Cape",
+		back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
 
 	sets.engaged.magic = set_combine(sets.engaged.normal,{
@@ -149,7 +149,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear="Ishvara Earring",
 		left_ring="Ilabrat Ring",
 		right_ring="Sroda Ring",
-		back="Moonbeam Cape",
+		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 	
 	sets.ws.laststand = {
@@ -165,7 +165,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear="Ishvara Earring",
 		left_ring="Ilabrat Ring",
 		right_ring="Sroda Ring",
-		back="Moonbeam Cape",
+		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 	
 	sets.ws.savageblade = {
@@ -181,7 +181,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear="Ishvara Earring",
 		left_ring="Apate Ring",
 		right_ring="Sroda Ring",
-		back="Moonbeam Cape",
+		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 	
 	sets.ws.evisceration = {
@@ -197,7 +197,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear="Mache Earring +1",
 		left_ring="Apate Ring",
 		right_ring="Ilabrat Ring",
-		back="Moonbeam Cape",
+		back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws.hotshot = {
@@ -213,7 +213,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear="Friomisi Earring",
 		left_ring="Apate Ring",
 		right_ring="Ilabrat Ring",
-		back="Moonbeam Cape",
+		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 	
 	sets.ws.leadensalute = {
@@ -229,7 +229,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear="Friomisi Earring",
 		left_ring="Apate Ring",
 		right_ring="Ilabrat Ring",
-		back="Moonbeam Cape",
+		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 	
 	sets.ws.wildfire = {
@@ -245,7 +245,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear="Friomisi Earring",
 		left_ring="Apate Ring",
 		right_ring="Ilabrat Ring",
-		back="Moonbeam Cape",
+		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 
 
@@ -263,7 +263,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear="Friomisi Earring",
 		left_ring="Apate Ring",
 		right_ring="Ilabrat Ring",
-		back="Moonbeam Cape",
+		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 
 ---- JOB ABILITY SETS ----
@@ -280,7 +280,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear="Friomisi Earring",
 		left_ring="Stikini Ring",
 		right_ring="Shiva Ring +1",
-		back="Moonbeam Cape",
+		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 	
 	sets.ja.quickdrawACC = {
@@ -296,7 +296,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear={ name="Chas. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','Crit.hit rate+5',}},
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back="Moonbeam Cape",
+		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 	
 	sets.ja.roll = {
@@ -304,6 +304,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		ammo="Chrono Bullet",
 		left_ring="Luzaf's Ring",
 		right_ring="Barataria Ring",
+		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 	
 end
