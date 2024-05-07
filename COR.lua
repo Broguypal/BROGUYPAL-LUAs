@@ -117,6 +117,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		hands="Ikenga's Gloves",
 		legs="Ikenga's Trousers",
 		feet="Ikenga's Clogs",
+		back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}},
 	}
 
 ---- MIDCAST SETS ----
@@ -133,6 +134,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ear="Crep. Earring",
 		left_ring="Ilabrat Ring",
 		right_ring="Fickblix's Ring",
+		back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}},
 	}
 
 ---- WEAPONSKILL SETS ----
