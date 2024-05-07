@@ -304,8 +304,8 @@ send_command ('bind numpad0 gs c RangedAttack')
 	sets.ja.roll = {
 		range="Compensator",
 		ammo="Chrono Bullet",
+		neck="Regal Necklace",
 		left_ring="Luzaf's Ring",
-		right_ring="Barataria Ring",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 	
