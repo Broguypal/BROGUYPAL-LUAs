@@ -113,27 +113,33 @@ send_command ('bind numpad0 gs c RangedAttack')
 ---- PRESHOT SET ----
     sets.precast.preshot = {
 		head="Ikenga's Hat",
-		body="Ikenga's Vest",
+		body="Oshosi Vest +1",
 		hands="Ikenga's Gloves",
-		legs="Ikenga's Trousers",
+		legs="Oshosi Trousers",
 		feet="Ikenga's Clogs",
+		neck="Sanctity Necklace",
+		waist="Impulse Belt",
+		left_ear="Telos Earring",
+		right_ear="Crep. Earring",
+		left_ring="Ilabrat Ring",
+		right_ring="Petrov Ring",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}},
 	}
 
 ---- MIDCAST SETS ----
 
     sets.midcast.midshot = {
-	    head="Ikenga's Hat",
-		body="Ikenga's Vest",
-		hands="Ikenga's Gloves",
-		legs="Ikenga's Trousers",
-		feet="Ikenga's Clogs",
-		neck="Rep. Plat. Medal",
+		head="Malignance Chapeau",
+		body="Oshosi Vest +1",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Sanctity Necklace",
 		waist="Eschan Stone",
 		left_ear="Telos Earring",
 		right_ear="Crep. Earring",
 		left_ring="Ilabrat Ring",
-		right_ring="Fickblix's Ring",
+		right_ring="Petrov Ring",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}},
 	}
 
