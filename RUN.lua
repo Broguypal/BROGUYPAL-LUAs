@@ -156,17 +156,17 @@ Modes = {'Hybrid','DPS','AoETank','SingleTank','MagicEva','MagicAettir'}
  ----			 Engaged Sets				----	
 	sets.engaged.hybrid = {
 		sub="Utu Grip",
-		ammo="Staunch Tathlum +1",
+		ammo="Coiste Bodhar",
 		head={ name="Nyame Helm", augments={'Path: B',}},
-		body="Erilaz Surcoat +3",
-		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-		legs="Eri. Leg Guards +3",
-		feet="Erilaz Greaves +3",
-		neck="Warder's Charm +1",
-		waist="Ioskeha Belt +1",
-		left_ear="Brutal Earring",
-		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring="Shadow Ring",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}},
+		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Anu Torque",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Telos Earring",
+		right_ear="Sherida Earring",
+		left_ring="Niqmaddu Ring",
 		right_ring="Moonlight Ring",
 		back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 		}
@@ -396,7 +396,8 @@ Modes = {'Hybrid','DPS','AoETank','SingleTank','MagicEva','MagicAettir'}
 	}
 end
 
-
+----			 Internal Logic				----	
+-- Idle() - the superhero of the .lua
 function idle()
 	if Mode == "Hybrid" or Mode == "DPS" then
 		if player.status == "Engaged" then
@@ -447,6 +448,7 @@ function idle()
 	end
 end
 
+--Checks state when becoming engaged
 function status_change(new,old)
 	if new == "Engaged" then
 		idle()
@@ -455,6 +457,7 @@ function status_change(new,old)
 	end
 end
 
+--Precast rules
 function precast(spell)
 	if spell.type == "WeaponSkill" then 
 		if spell.english == "Resolution" then
@@ -481,6 +484,7 @@ function precast(spell)
 	end
 end
 
+--midcast rules
 function midcast(spell)
 	if spell.type == "WeaponSkill" then 
 		if spell.english == "Resolution" then
@@ -507,6 +511,7 @@ function midcast(spell)
 	end
 end
 
+--aftercast rules
 function aftercast(spell)
 	if spell.english == "Battuta" and player.status == "Engaged" then
 		if Mode == "AoETank" or Mode == "SingleTank" then
@@ -519,6 +524,7 @@ function aftercast(spell)
 	end
 end
 
+-- rules for setting modes
 function self_command(command)
 	if command == "ToggleHybrid" then
 		if Mode == "Hybrid" then
