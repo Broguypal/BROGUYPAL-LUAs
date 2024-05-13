@@ -243,7 +243,7 @@ Modes = {'Hybrid','DPS','AoETank','SingleTank','MagicEva','MagicAettir'}
  ----			 Precast Sets				----	
     sets.precast.fastcast = {
 		ammo="Sapience Orb",
-		head={ name="Herculean Helm", augments={'"Fast Cast"+5','"Mag.Atk.Bns."+14',}},
+		head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
 		body="Erilaz Surcoat +3",
 		hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
 		legs="Agwu's Slops",

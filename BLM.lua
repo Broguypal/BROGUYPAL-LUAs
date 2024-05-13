@@ -80,7 +80,7 @@ function get_sets()
 		waist="Channeler's Stone",
 		left_ear="Halasz Earring",
 		right_ear="Malignance Earring",
-		left_ring="Stikini Ring",
+		left_ring="Stikini Ring +1",
 		right_ring="Persis Ring",
 		back="Swith Cape",
 	}
@@ -96,7 +96,7 @@ function get_sets()
 		waist="Hachirin-no-Obi",
 		left_ear="Halasz Earring",
 		right_ear="Malignance Earring",
-		left_ring="Stikini Ring",
+		left_ring="Stikini Ring +1",
 		right_ring="Persis Ring",
 		back="Swith Cape",
 	}

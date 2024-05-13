@@ -286,7 +286,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		waist="Skrymir Cord",
 		left_ear="Crematio Earring",
 		right_ear="Friomisi Earring",
-		left_ring="Stikini Ring",
+		left_ring="Stikini Ring +1",
 		right_ring="Shiva Ring +1",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
@@ -302,8 +302,8 @@ send_command ('bind numpad0 gs c RangedAttack')
 		waist="Skrymir Cord",
 		left_ear="Friomisi Earring",
 		right_ear={ name="Chas. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','Crit.hit rate+5',}},
-		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 	

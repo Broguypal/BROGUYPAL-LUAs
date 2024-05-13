@@ -549,8 +549,8 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		waist="Eschan Stone",
 		left_ear="Hermetic Earring",
 		right_ear="Digni. Earring",
-		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
 		back={ name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
 		}
 
