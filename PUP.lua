@@ -390,7 +390,7 @@ Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','Tank','PetDEF'
 		body="Vrikodara Jupon",
 		legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+8','"Fast Cast"+6','INT+4',}},
 		feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+8','"Fast Cast"+6','INT+9',}},
-		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+		neck="Voltsurge Torque",
 		left_ring="Rahab Ring",
 		right_ring="Prolix Ring",
 		back="Swith Cape",
@@ -456,8 +456,8 @@ Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','Tank','PetDEF'
 		neck="Deviant Necklace",
 		left_ear="Saviesa Pearl",
 		right_ear="Friomisi Earring",
-		left_ring="Evanescence Ring",
-		right_ring="Stikini Ring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
 	}
 
 -- Midcast for trusts - want to have 119 gear in head,body,hands,legs,feet.
