@@ -358,7 +358,7 @@ Modes = {'Hybrid','DPS','AoETank','SingleTank','MagicEva','MagicAettir'}
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Sherida Earring",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		left_ring="Ilabrat Ring",
+		left_ring="Epaminondas's Ring",
 		right_ring="Niqmaddu Ring",
 		back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 		}
@@ -374,7 +374,7 @@ Modes = {'Hybrid','DPS','AoETank','SingleTank','MagicEva','MagicAettir'}
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Sherida Earring",
-		left_ring="Epona's Ring",
+		left_ring="Sroda Ring",
 		right_ring="Niqmaddu Ring",
 		back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 		}
@@ -390,7 +390,7 @@ Modes = {'Hybrid','DPS','AoETank','SingleTank','MagicEva','MagicAettir'}
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Ishvara Earring",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		left_ring="Niqmaddu Ring",
+		left_ring="Epaminondas's Ring",
 		right_ring="Sroda Ring",
 		back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}

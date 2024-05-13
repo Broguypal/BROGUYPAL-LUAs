@@ -632,7 +632,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		left_ear="Telos Earring",
 		right_ear="Mache Earring +1",
 		left_ring="Gere Ring",
-		right_ring="Ilabrat Ring",
+		right_ring="Epaminondas's Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
 		}
 	
@@ -648,7 +648,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Telos Earring",
-		left_ring="Gere Ring",
+		left_ring="Epaminondas's Ring",
 		right_ring="Sroda Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
 		}
@@ -682,8 +682,8 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Telos Earring",
 		right_ear="Mache Earring +1",
-		left_ring="Gere Ring",
-		right_ring="Ilabrat Ring",
+		left_ring="Sroda Ring",
+		right_ring="Epaminondas's Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
 	}
 	
@@ -734,7 +734,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Friomisi Earring",
 		left_ring="Gere Ring",
-		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		right_ring="Epaminondas's Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
 	}
 	
@@ -750,7 +750,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
-		left_ring="Gere Ring",
+		left_ring="Epaminondas's Ring",
 		right_ring="Sroda Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
 	}

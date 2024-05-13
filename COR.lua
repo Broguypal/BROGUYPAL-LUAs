@@ -155,7 +155,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		waist="Fotia Belt",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
-		left_ring="Ilabrat Ring",
+		left_ring="Epaminondas's Ring",
 		right_ring="Sroda Ring",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
@@ -171,7 +171,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		waist="Fotia Belt",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
-		left_ring="Ilabrat Ring",
+		left_ring="Epaminondas's Ring",
 		right_ring="Sroda Ring",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
@@ -187,7 +187,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
-		left_ring="Apate Ring",
+		left_ring="Epaminondas's Ring",
 		right_ring="Sroda Ring",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
@@ -219,7 +219,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		waist="Skrymir Cord",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Friomisi Earring",
-		left_ring="Apate Ring",
+		left_ring="Epaminondas's Ring",
 		right_ring="Ilabrat Ring",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
@@ -235,7 +235,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		waist="Skrymir Cord",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Friomisi Earring",
-		left_ring="Apate Ring",
+		left_ring="Epaminondas's Ring",
 		right_ring="Ilabrat Ring",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
@@ -251,7 +251,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		waist="Skrymir Cord",
 		left_ear="Crematio Earring",
 		right_ear="Friomisi Earring",
-		left_ring="Apate Ring",
+		left_ring="Epaminondas's Ring",
 		right_ring="Ilabrat Ring",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
@@ -269,7 +269,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		waist="Skrymir Cord",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Friomisi Earring",
-		left_ring="Apate Ring",
+		left_ring="Epaminondas's Ring",
 		right_ring="Ilabrat Ring",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
