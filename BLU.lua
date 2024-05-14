@@ -144,12 +144,12 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 	}
 
 --35 Magic Haste (22 DW to cap with DW3/17DW to cap with DW4)
-	sets.engaged.hybrid.haste35 = set_combine{sets.engagd.hybrid.hastecap,{
+	sets.engaged.hybrid.haste35 = set_combine(sets.engaged.hybrid.hastecap,{
 		-- NOTE: Need to put in DW cape here
 	})
 
 --30 Magic Haste or lower (31DW to cap with DW3/26DW to cap with DW4)
-	sets.engaged.hybrid.haste30 = set_combine{sets.engagd.hybrid.haste35,{
+	sets.engaged.hybrid.haste30 = set_combine(sets.engaged.hybrid.haste35,{
 		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
 	})
 
@@ -176,13 +176,13 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 	}
 
 --35 Magic Haste(22 DW to cap with DW3/17DW to cap with DW4)
-	sets.engaged.dps.haste35 = set_combine{sets.engaged.dps.hastecap,{
+	sets.engaged.dps.haste35 = set_combine(sets.engaged.dps.hastecap,{
 		waist="Reiki Yotai",
 	})
 
 --30 Magic Haste or lower (31DW to cap with DW3/26DW to cap with DW4
  
-	sets.engaged.dps.haste30 = set_combine{sets.engaged.dps.haste35,{
+	sets.engaged.dps.haste30 = set_combine(sets.engaged.dps.haste35,{
 		-- Put DW ambu cape in here
 	})
 
