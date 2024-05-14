@@ -29,12 +29,13 @@ send_command('bind numpad6 gs c ToggleTreasure')
 
 Mode = "Hybrid"
 
-Modes = {'Hybrid','DPS','DPSHaste1','TreasureHunter','OmenTank'}
+Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 
 
     sets.idle = {}                  -- Leave this empty
 	sets.engaged = {}				-- Leave this empty
 		sets.engaged.dps = {}
+		sets.engaged.hybrid = {}
     sets.precast = {}               -- leave this empty   
 		sets.precast.tank = {}
     sets.midcast = {}               -- leave this empty
@@ -79,23 +80,6 @@ Modes = {'Hybrid','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 	}
 	
 ---- ENGAGED SETS ---- (NOTE - DPS Sets assume Dual Wield 3)
--- Hybrid engaged
-	sets.engaged.hybrid = {
-		ammo="Aurgelmir Orb",
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		hands="Malignance Gloves",
-		legs="Malignance Tights",
-		feet="Malignance Boots",
-		neck="Mirage Stole +1",
-		waist="Reiki Yotai",
-		left_ear="Suppanomimi",
-		right_ear="Telos Earring",
-		left_ring="Defending Ring",
-		right_ring="Fickblix's Ring",
-		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Accuracy+5','"Store TP"+10',}},
-	}
-	
 --Tank engaged
 	sets.engaged.tank = {
 		main="Naegling",
@@ -132,7 +116,48 @@ Modes = {'Hybrid','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Accuracy+5','"Store TP"+10',}},
 	}
 
---DPS Engaged Sets
+----HYBRID ENGAGED SETS ----
+
+--[[ Key DW pieces:
+-- Suppanomimi - 7 DW
+-- Ambu Cape - 10 DW
+-- Adhemar Jacket +1 - 6 DW
+-- Reiki Yotai - 7 DW
+-- Max = 30
+]]
+
+-- Capped Haste (11 DW to Cap with DW3/ 6 DW to cap with DW4)
+	sets.engaged.hybrid.hastecap = {
+		ammo="Aurgelmir Orb",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Mirage Stole +1",
+		waist="Reiki Yotai",
+		left_ear="Suppanomimi",
+		right_ear="Telos Earring",
+		left_ring="Defending Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Accuracy+5','"Store TP"+10',}},
+	}
+
+--35 Magic Haste (22 DW to cap with DW3/17DW to cap with DW4)
+	sets.engaged.hybrid.haste35 = set_combine{sets.engagd.hybrid.hastecap,{
+		-- NOTE: Need to put in DW cape here
+	})
+
+--30 Magic Haste or lower (31DW to cap with DW3/26DW to cap with DW4)
+	sets.engaged.hybrid.haste30 = set_combine{sets.engagd.hybrid.haste35,{
+		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+	})
+
+
+---- DPS ENGAGED SETS ----
+
+
+
 -- Capped Haste (11 DW to Cap with DW3/ 6 DW to cap with DW4)
 	sets.engaged.dps.hastecap = {
 	    ammo="Aurgelmir Orb",
@@ -150,24 +175,16 @@ Modes = {'Hybrid','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Accuracy+5','"Store TP"+10',}},
 	}
 
---35 Magic Haste or lower (22 DW to cap with DW3/17DW to cap with DW4)
-	sets.engaged.dps.haste35 = {
-	    ammo="Aurgelmir Orb",
-		head={ name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}},
-		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
-		hands={ name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}},
-		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
-		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
-		neck="Mirage Stole +1",
+--35 Magic Haste(22 DW to cap with DW3/17DW to cap with DW4)
+	sets.engaged.dps.haste35 = set_combine{sets.engaged.dps.hastecap,{
 		waist="Reiki Yotai",
-		left_ear="Suppanomimi",
-		right_ear="Telos Earring",
-		left_ring="Epona's Ring",
-		right_ring="Fickblix's Ring",
-		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Accuracy+5','"Store TP"+10',}},
-	}
+	})
 
+--30 Magic Haste or lower (31DW to cap with DW3/26DW to cap with DW4
  
+	sets.engaged.dps.haste30 = set_combine{sets.engaged.dps.haste35,{
+		-- Put DW ambu cape in here
+	})
 
 ---- PRECAST SETS ----
     sets.precast.fastcast = {
@@ -391,39 +408,63 @@ function idle()
 		else
 			equip(sets.idle.tank)
 		end
-	elseif Mode == "Hybrid" then
-		if player.status == "Engaged" then 
-			equip(sets.engaged.hybrid) 
-		else
-			equip(sets.idle.hybrid)
-		end
 	elseif Mode == "TreasureHunter" then
 		if player.status == "Engaged" then 
 			equip(sets.engaged.treasure) 
 		else
 			equip(sets.idle.hybrid)
 		end
-	elseif Mode == "DPS" then
-		if player.status == "Engaged" then
+	elseif Mode == "Hybrid" or Mode == "DPS" then
+		if player.status == "Engaged" then 
 			if ( ( (buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive.march or buffactive[604]) ) or
             ( buffactive[33] and (buffactive[580] or buffactive.embrava) ) or
             ( buffactive.march == 2 and buffactive[604] ) ) then
-				equip(sets.engaged.dps.hastecap)
+				if Mode == "Hybrid" then
+					equip(sets.engaged.hybrid.hastecap)
+				elseif Mode == "DPS" then
+					equip(sets.engaged.dps.hastecap)
+				end
+			elseif ( (buffactive[33] or buffactive.march == 2 or buffactive[580]) and buffactive['haste samba'] ) then
+				if Mode == "Hybrid" then
+					equip(sets.engaged.hybrid.haste35)
+				elseif Mode == "DPS" then
+					equip(sets.engaged.dps.haste35)
+				end
 			else
-				equip(sets.engaged.dps.haste35)
+				if Mode == "Hybrid" then
+					equip(sets.engaged.hybrid.haste30)
+				elseif Mode == "DPS" then
+					equip(sets.engaged.dps.haste30)
+				end
 			end
 		else
 			equip(sets.idle.hybrid)
-		end		
-	elseif Mode == "DPSHaste1" then
-		if player.status == "Engaged" then
+		end 
+	elseif Mode == "HybridHaste1" or Mode == "DPSHaste1" then
+		if player.status == "Engaged" then 
 			if ( buffactive[580] and ( buffactive.march or buffactive[33] or buffactive.embrava or buffactive[604]) ) or  -- geo haste + anything
-           ( buffactive.embrava and (buffactive.march or buffactive[33] or buffactive[604]) ) or  -- embrava + anything
-           ( buffactive.march == 2 and (buffactive[33] or buffactive[604]) ) or  -- two marches + anything
-           ( buffactive[33] and buffactive[604] and buffactive.march ) then -- haste + mighty guard + any marches
-				equip(sets.engaged.dps.hastecap)
+			( buffactive.embrava and (buffactive.march or buffactive[33] or buffactive[604]) ) or  -- embrava + anything
+			( buffactive.march == 2 and (buffactive[33] or buffactive[604]) ) or  -- two marches + anything
+			( buffactive[33] and buffactive[604] and buffactive.march ) then -- haste + mighty guard + any marches
+				if Mode == "HybridHaste1" then
+					equip(sets.engaged.hybrid.hastecap)
+				elseif Mode == "DPSHaste1" then
+					equip(sets.engaged.dps.hastecap)
+				end
+			elseif ( (buffactive[604] or buffactive[33]) and buffactive['haste samba'] and buffactive.march == 1) or -- MG or haste + samba with 1 march
+            ( buffactive.march == 2 and buffactive['haste samba'] ) or
+            ( buffactive[580] and buffactive['haste samba'] ) then 
+				if Mode == "HybridHaste1" then
+					equip(sets.engaged.hybrid.haste35)
+				elseif Mode == "DPSHaste1" then
+					equip(sets.engaged.dps.haste35)
+				end
 			else
-				equip(sets.engaged.dps.haste35)
+				if Mode == "HybridHaste1" then
+					equip(sets.engaged.hybrid.haste30)
+				elseif Mode == "DPSHaste1" then
+					equip(sets.engaged.dps.haste30)
+				end
 			end
 		else
 			equip(sets.idle.hybrid)
@@ -516,19 +557,23 @@ end
 
 function self_command(command)
 	if command == "ToggleHybrid" then
-		if Mode == "Hybrid" or Mode == "OmenTank" or Mode == "TreasureHunter" or Mode == "DPS" or Mode == "DPSHaste1" then
+		if Mode == "OmenTank" or Mode == "TreasureHunter" or Mode == "DPS" or Mode == "DPSHaste1" or Mode == "HybridHaste1" then
 			Mode = "Hybrid"
 			send_command('console_echo "Hybrid"')
 			idle()
+		elseif Mode == "Hybrid" then
+			Mode = "HybridHaste1"
+			send_command('console_echo "HybridHaste1"')
+			idle()
 		end
 	elseif command == "ToggleTank" then
-		if Mode == "Hybrid" or Mode == "OmenTank" or Mode == "TreasureHunter" or Mode == "DPS" or Mode == "DPSHaste1" then
+		if Mode == "Hybrid" or Mode == "OmenTank" or Mode == "TreasureHunter" or Mode == "DPS" or Mode == "DPSHaste1" or Mode == "HybridHaste1" then
 			Mode = "OmenTank"
 			send_command('console_echo "OmenTank"')
 			idle()
 		end
 	elseif command == "ToggleDPS" then
-		if Mode == "Hybrid" or Mode == "OmenTank" or Mode == "TreasureHunter" or Mode == "DPSHaste1" then
+		if Mode == "Hybrid" or Mode == "OmenTank" or Mode == "TreasureHunter" or Mode == "DPSHaste1" or Mode == "HybridHaste1" then
 			Mode = "DPS"
 			send_command('console_echo "DPS"')
 			idle()
@@ -538,7 +583,7 @@ function self_command(command)
 			idle()
 		end
 	elseif command == "ToggleTreasure" then
-		if Mode == "Hybrid" or Mode == "OmenTank" or Mode == "DPS" or Mode == "DPSHaste1" or Mode == "TreasureHunter" then
+		if Mode == "Hybrid" or Mode == "OmenTank" or Mode == "DPS" or Mode == "DPSHaste1" or Mode == "TreasureHunter" or Mode == "HybridHaste1" then
 			Mode = "TreasureHunter"
 			send_command('console_echo "TreasureHunter"')
 			idle()
