@@ -829,7 +829,9 @@ end
 function idle()
 	if Mode == "Hybrid" or Mode == "Malignance" or Mode == "DPS" then
 		if player.status == "Engaged" then 
-			if ( ( (buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive.march or buffactive[604]) ) or ( buffactive[33] and (buffactive[580] or buffactive.embrava) ) or ( buffactive.march == 2 and buffactive[604] ) ) then
+			if ( ( (buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive.march or buffactive[604]) ) or
+            ( buffactive[33] and (buffactive[580] or buffactive.embrava) ) or
+            ( buffactive.march == 2 and buffactive[604] ) ) then
 				if Mode == "DPS" then
 					equip(sets.engaged.DPS.hastecap)
 				elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
@@ -869,7 +871,8 @@ function idle()
 						end
 					end
 				end
-			elseif ( ( buffactive[580] or buffactive[33] or buffactive.march == 2 ) or ( buffactive.march == 1 and buffactive[604] ) ) then
+			elseif ( ( buffactive[580] or buffactive[33] or buffactive.march == 2 ) or
+            ( buffactive.march == 1 and buffactive[604] ) ) then
 				if Mode == "DPS" then
 					equip(sets.engaged.DPS.haste30)
 				elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
@@ -947,7 +950,10 @@ function idle()
 		end
 	elseif Mode == "HybridHaste1" or Mode == "MalignanceHaste1" or Mode == "DPSHaste1" then
 		if player.status == "Engaged" then 
-			if ( ( (buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive.march or buffactive[604]) ) or ( buffactive[33] and (buffactive[580] or buffactive.embrava) ) or ( buffactive.march == 2 and buffactive[604] ) ) then
+			if ( buffactive[580] and ( buffactive.march or buffactive[33] or buffactive.embrava or buffactive[604]) ) or  -- geo haste + anything
+			( buffactive.embrava and (buffactive.march or buffactive[33] or buffactive[604]) ) or  -- embrava + anything
+			( buffactive.march == 2 and (buffactive[33] or buffactive[604]) ) or  -- two marches + anything
+			( buffactive[33] and buffactive[604] and buffactive.march ) then -- haste + mighty guard + any marches
 				if Mode == "DPSHaste1" then
 					equip(sets.engaged.DPS.hastecap)
 				elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
@@ -967,7 +973,9 @@ function idle()
 						end
 					end
 				end
-			elseif ( (buffactive[33] or buffactive.march == 2 or buffactive[580]) and buffactive['haste samba'] ) then
+			elseif ( (buffactive[604] or buffactive[33]) and buffactive['haste samba'] and buffactive.march == 1) or -- MG or haste + samba with 1 march
+            ( buffactive.march == 2 and buffactive['haste samba'] ) or
+            ( buffactive[580] and buffactive['haste samba'] ) then 
 				if Mode == "DPSHaste1" then
 					equip(sets.engaged.DPS.haste35)
 				elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
@@ -987,7 +995,10 @@ function idle()
 						end
 					end
 				end
-			elseif ( ( buffactive[580] or buffactive[33] or buffactive.march == 2 ) or ( buffactive.march == 1 and buffactive[604] ) ) then
+			elseif ( buffactive.march == 2 ) or -- two marches from ghorn
+            ( (buffactive[33] or buffactive[604]) and buffactive.march == 1 ) or  -- MG or haste + 1 march
+            ( buffactive[580] ) or  -- geo haste
+            ( buffactive[33] and buffactive[604] ) then -- haste with MG
 				if Mode == "DPSHaste1" then
 					equip(sets.engaged.DPS.haste30)
 				elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
@@ -1007,7 +1018,7 @@ function idle()
 						end
 					end
 				end
-			elseif ( buffactive.march == 1 or buffactive[604] ) then
+			elseif buffactive[33] or buffactive[604] or buffactive.march == 1 then
 				if Mode == "DPSHaste1" then
 					equip(sets.engaged.DPS.haste15)
 				elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
