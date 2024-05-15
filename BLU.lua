@@ -280,7 +280,7 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 		hands="Hashi. Bazu. +2",
 		legs="Hashishin Tayt +2",
 		feet="Hashi. Basmak +2",
-		neck="Sanctity Necklace",
+		neck="Mirage Stole +1",
 		waist="Eschan Stone",
 		left_ear="Crep. Earring",
 		right_ear={ name="Hashi. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+13','Mag. Acc.+13','"Dbl.Atk."+4',}},
