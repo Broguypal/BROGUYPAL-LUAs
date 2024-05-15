@@ -145,7 +145,7 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 
 --35 Magic Haste (22 DW to cap with DW3/17DW to cap with DW4)
 	sets.engaged.hybrid.haste35 = set_combine(sets.engaged.hybrid.hastecap,{
-		-- NOTE: Need to put in DW cape here
+		-- NOTE: Need to put in DW cape here ((HAVE -10% PDT)
 	})
 
 --30 Magic Haste or lower (31DW to cap with DW3/26DW to cap with DW4)
@@ -155,8 +155,6 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 
 
 ---- DPS ENGAGED SETS ----
-
-
 
 -- Capped Haste (11 DW to Cap with DW3/ 6 DW to cap with DW4)
 	sets.engaged.dps.hastecap = {
@@ -183,7 +181,7 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 --30 Magic Haste or lower (31DW to cap with DW3/26DW to cap with DW4
  
 	sets.engaged.dps.haste30 = set_combine(sets.engaged.dps.haste35,{
-		-- Put DW ambu cape in here
+		-- Put DW ambu cape in here (HAVE -10% PDT)
 	})
 
 ---- PRECAST SETS ----
@@ -326,6 +324,21 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 		right_ring="Stikini Ring",
 		back="Moonbeam Cape",
 	}
+	sets.midcast.tank.defence = {
+		ammo="Staunch Tathlum +1",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		waist="Svelt. Gouriz +1",
+		left_ear="Eabani Earring",
+		right_ear="Infused Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
+	}
 
 ---- WEAPONSKILL SETS ----
 	sets.ws.normal = {
@@ -384,7 +397,7 @@ windower.register_event('gain buff', function(buff_id)
 		idle()
 	end
 	if buff_id == 33 then
-		idle()
+		idle() 
 	end
 	if buff_id == 580 then
 		idle()
@@ -484,7 +497,7 @@ function precast(spell)
 	if spell.name == "Diffusion" then
 		equip(sets.precast.diffusion)
 	elseif spell.type == "BlueMagic" then
-		if spell.english == "Dream Flower" or spell.english == "Sheep Song" then
+		if spell.english == "Dream Flower" or spell.english == "Sheep Song" or spell.english == "Cruel Joke" then
 			if Mode == "OmenTank" then
 				equip(sets.precast.tank.dreamflower)
 			else
@@ -521,6 +534,8 @@ function midcast(spell)
 		elseif spell.english == "Aquaveil" then
 			equip(sets.midcast.aquaveil)
 		elseif spell.english == "Dream Flower" or spell.english == "Sheep Song" then
+			equip(sets.midcast.tank.defence)
+		elseif spell.english == "Cruel Joke" then
 			equip(sets.midcast.tank.magicaccuracy)
 		elseif spell.english == "Reaving Wind" or spell.english == "Feather Tickle" then
 			equip(sets.midcast.tpdrain)
