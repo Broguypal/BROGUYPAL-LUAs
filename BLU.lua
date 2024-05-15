@@ -273,7 +273,21 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 		back="Moonbeam Cape",
 		}
 	
-	sets.midcast.magicaccuracy = {}
+	sets.midcast.magicaccuracy = {
+		ammo="Pemphredo Tathlum",
+		head="Hashishin Kavuk +2",
+		body="Hashishin Mintan +2",
+		hands="Hashi. Bazu. +2",
+		legs="Hashishin Tayt +2",
+		feet="Hashi. Basmak +2",
+		neck="Sanctity Necklace",
+		waist="Eschan Stone",
+		left_ear="Crep. Earring",
+		right_ear={ name="Hashi. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+13','Mag. Acc.+13','"Dbl.Atk."+4',}},
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
+	}
 
 	sets.midcast.phalanx = {
 		ammo="Staunch Tathlum +1",
@@ -374,31 +388,101 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 	
-	sets.ws.expiacion = {}
+	sets.ws.expiacion = {
+	    ammo="Coiste Bodhar",
+		head="Hashishin Kavuk +2",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Mirage Stole +1",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Ishvara Earring",
+		left_ring="Sroda Ring",
+		right_ring="Epaminondas's Ring",
+		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
 	
-	sets.ws.chantducygne = {}
+	sets.ws.chantducygne = {
+	    ammo="Coiste Bodhar",
+		head={ name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}},
+		body="Gleti's Cuirass",
+		hands={ name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}},
+		legs="Gleti's Breeches",
+		feet="Gleti's Boots",
+		neck="Mirage Stole +1",
+		waist="Fotia Belt",
+		left_ear="Mache Earring +1",
+		right_ear={ name="Hashi. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+13','Mag. Acc.+13','"Dbl.Atk."+4',}},
+		left_ring="Begrudging Ring",
+		right_ring="Epona's Ring",
+		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
 	
-	sets.ws.requiescat = {}
+	sets.ws.requiescat = {
+	    ammo="Coiste Bodhar",
+		head="Hashishin Kavuk +2",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Ishvara Earring",
+		left_ring="Persis Ring",
+		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
 	
 	sets.ws.savageblade = {
-		ammo="Oshasha's Treatise",
+		ammo="Coiste Bodhar",
 		head="Hashishin Kavuk +2",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Mirage Stole +1",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Ishvara Earring",
+		left_ring="Sroda Ring",
+		right_ring="Epaminondas's Ring",
+		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
+	
+	sets.ws.sanguineblade = {
+	    ammo="Pemphredo Tathlum",
+		head="Pixie Hairpin +1",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands="Jhakri Cuffs +2",
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Sibyl Scarf",
+		waist="Skrymir Cord",
+		left_ear="Crematio Earring",
+		right_ear="Friomisi Earring",
+		left_ring="Epaminondas's Ring",
+		right_ring="Jhakri Ring",
+		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
+	
+	sets.ws.blackhalo = {
+		ammo="Coiste Bodhar",
+		head={ name="Nyame Helm", augments={'Path: B',}},
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Rep. Plat. Medal",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear="Ishvara Earring",
-		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		left_ring="Sroda Ring",
-		right_ring="Fickblix's Ring",
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Ishvara Earring",
+		left_ring="Epaminondas's Ring",
+		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
-	
-	sets.ws.sanguineblade = {}
-	
-	sets.ws.blackhalo = {}
 end
 
 
