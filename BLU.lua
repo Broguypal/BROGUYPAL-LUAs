@@ -380,7 +380,21 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 	
 	sets.ws.requiescat = {}
 	
-	sets.ws.savageblade = {}
+	sets.ws.savageblade = {
+		ammo="Oshasha's Treatise",
+		head="Hashishin Kavuk +2",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Rep. Plat. Medal",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Ishvara Earring",
+		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		left_ring="Sroda Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
 	
 	sets.ws.sanguineblade = {}
 	
@@ -545,7 +559,23 @@ function precast(spell)
 end
 
 function midcast(spell)
-	if Mode == "OmenTank" then
+	if spell.type == "WeaponSkill" then 
+		if spell.english == "Expiacion" then
+			equip(sets.ws.expiacion)
+		elseif spell.english == "Chant du Cygne" then
+			equip(sets.ws.chantducygne)
+		elseif spell.english == "Requiescat" then
+			equip(sets.ws.requiescat)
+		elseif spell.english == "Savage Blade" then
+			equip(sets.ws.savageblade)
+		elseif spell.english == "Sanguine Blade" then
+			equip(sets.ws.sanguineblade)
+		elseif spell.english == "Black Halo" then
+			equip(sets.ws.blackhalo)
+		else
+			equip(sets.ws.normal)	
+		end
+	elseif Mode == "OmenTank" then
 		if spell.english == "Phalanx" then
 			equip(sets.midcast.tank.phalanx)
 		elseif spell.english == "Aquaveil" then
