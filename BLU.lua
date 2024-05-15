@@ -20,12 +20,29 @@ function file_unload()
     enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
 end
 
+--[[
+^ = Ctrl
+! = Alt Key
+@ = Windows Key
+]]
 
 function get_sets()
 send_command('bind numpad9 gs c ToggleHybrid')
 send_command('bind numpad8 gs c ToggleTank')
 send_command('bind numpad7 gs c ToggleDPS')
 send_command('bind numpad6 gs c ToggleTreasure')
+
+send_command ('bind numpad5 input //aset set treasure')
+send_command ('bind !numpad5 input //aset set tpdrain')
+send_command ('bind ^numpad5 input //aset set omen')
+
+send_command ('bind numpad4 input //aset set aoe')
+send_command ('bind ^numpad4 input //aset set odyssey')
+
+send_command ('bind ^numpad6 input //aset set melee')
+
+
+send_command ('bind numpad3 input //aset set tank')
 
 Mode = "Hybrid"
 
@@ -497,7 +514,7 @@ function precast(spell)
 	if spell.name == "Diffusion" then
 		equip(sets.precast.diffusion)
 	elseif spell.type == "BlueMagic" then
-		if spell.english == "Dream Flower" or spell.english == "Sheep Song" or spell.english == "Cruel Joke" then
+		if spell.english == "Dream Flower" or spell.english == "Sheep Song" then
 			if Mode == "OmenTank" then
 				equip(sets.precast.tank.dreamflower)
 			else
