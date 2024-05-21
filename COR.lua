@@ -150,7 +150,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
-		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -166,7 +166,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		body="Ikenga's Vest",
 		hands="Chasseur's Gants +2",
 		legs="Ikenga's Trousers",
-		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -182,7 +182,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands="Chasseur's Gants +2",
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
-		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
 		neck="Rep. Plat. Medal",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -214,7 +214,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
-		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
 		neck="Fotia Gorget",
 		waist="Skrymir Cord",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -230,7 +230,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
-		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
 		neck="Sanctity Necklace",
 		waist="Skrymir Cord",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -246,7 +246,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
-		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
 		neck="Sanctity Necklace",
 		waist="Skrymir Cord",
 		left_ear="Crematio Earring",
@@ -281,7 +281,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
-		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
 		neck="Sanctity Necklace",
 		waist="Skrymir Cord",
 		left_ear="Crematio Earring",
@@ -297,7 +297,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
-		feet="Malignance Boots",
+		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
 		neck="Sanctity Necklace",
 		waist="Skrymir Cord",
 		left_ear="Friomisi Earring",
@@ -315,6 +315,10 @@ send_command ('bind numpad0 gs c RangedAttack')
 		neck="Regal Necklace",
 		left_ring="Luzaf's Ring",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
+	}
+	
+	sets.ja.wildcard = {
+		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
 	}
 	
 end
@@ -380,6 +384,8 @@ function precast(spell,action,spellMap,eventArgs)
 	elseif spell.type == "JobAbility" then
 		if spell.english == "Double-Up" then
 			equip(sets.ja.roll)
+		elseif spell.english == "Wild Card" then
+			equip(sets.ja.wildcard)
 		end
 	elseif spell.type == "CorsairRoll" then
 		equip(sets.ja.roll)
