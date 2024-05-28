@@ -464,7 +464,7 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 		left_ear="Crematio Earring",
 		right_ear="Friomisi Earring",
 		left_ring="Epaminondas's Ring",
-		right_ring="Jhakri Ring",
+		right_ring="Archon Ring",
 		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 	

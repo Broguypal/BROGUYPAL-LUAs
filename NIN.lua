@@ -716,8 +716,8 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		waist="Skrymir Cord",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Friomisi Earring",
-		left_ring="Gere Ring",
-		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		left_ring="Epaminondas's Ring",
+		right_ring="Archon Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
 	}
 	
