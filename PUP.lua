@@ -487,7 +487,7 @@ Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','Tank','PetDEF'
 --		range="Animator P II +1",
 		ammo="Automat. Oil +3",
 		head="Kara. Cappello +3",
-		body="Kara. Farsetto +2",
+		body="Udug Jacket",
 		hands="Karagoz Guanti +3",
 		legs={ name="Pitre Churidars +3", augments={'Enhances "Ventriloquy" effect',}},
 		feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},
