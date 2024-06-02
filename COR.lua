@@ -227,7 +227,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 	sets.ws.leadensalute = {
 		ammo="Chrono Bullet",
 		head="Pixie Hairpin +1",
-		body={ name="Nyame Mail", augments={'Path: B',}},
+		body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
 		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -243,7 +243,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 	sets.ws.wildfire = {
 		ammo="Chrono Bullet",
 		head={ name="Nyame Helm", augments={'Path: B',}},
-		body={ name="Nyame Mail", augments={'Path: B',}},
+		body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
 		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -261,7 +261,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 	sets.ws.aeolianedge = {
 		ammo="Hauksbok Bullet",
 		head={ name="Nyame Helm", augments={'Path: B',}},
-		body={ name="Nyame Mail", augments={'Path: B',}},
+		body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
@@ -278,7 +278,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 	sets.ja.quickdraw = {
 		ammo="Hauksbok Bullet",
 		head="Ikenga's Hat",
-		body={ name="Nyame Mail", augments={'Path: B',}},
+		body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
 		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -319,6 +319,10 @@ send_command ('bind numpad0 gs c RangedAttack')
 	
 	sets.ja.wildcard = {
 		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+	}
+	
+	sets.ja.randomdeal = {
+		body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
 	}
 	
 end
@@ -386,6 +390,8 @@ function precast(spell,action,spellMap,eventArgs)
 			equip(sets.ja.roll)
 		elseif spell.english == "Wild Card" then
 			equip(sets.ja.wildcard)
+		elseif spell.english == "Random Deal" then
+			equip(sets.ja.randomdeal)
 		end
 	elseif spell.type == "CorsairRoll" then
 		equip(sets.ja.roll)
