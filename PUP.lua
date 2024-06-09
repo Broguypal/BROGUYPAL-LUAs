@@ -426,7 +426,9 @@ Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','Tank','PetDEF'
 	    feet="Karagoz Scarpe +1",
 	}
 	sets.ja.repair = {
-	    feet="Foire Bab. +1",
+	    left_ear="Guignol Earring",
+		right_ear={ name="Kara. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
+		feet="Foire Bab. +1",
 	}
 
 ---------------------------	PRECAST PET SETS	---------------------------
