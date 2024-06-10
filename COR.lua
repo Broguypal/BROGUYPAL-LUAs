@@ -68,11 +68,11 @@ send_command ('bind numpad0 gs c RangedAttack')
 	}
 	
 	sets.idle.magic = set_combine(sets.idle.normal,{
-		range="Molybdosis",
+		range="Death Penalty",
+		ammo="Living Bullet",
 	})
 
 	sets.idle.tank = {
-		ammo="Chrono Bullet",
 		head={ name="Nyame Helm", augments={'Path: B',}},
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -107,7 +107,8 @@ send_command ('bind numpad0 gs c RangedAttack')
 	}
 
 	sets.engaged.magic = set_combine(sets.engaged.normal,{
-		range="Molybdosis",
+		range="Death Penalty",
+		ammo="Living Bullet",
 	})
 
 ---- PRESHOT SET ----
@@ -209,7 +210,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 	}
 	
 	sets.ws.hotshot = {
-		ammo="Chrono Bullet",
+		ammo="Living Bullet",
 		head={ name="Nyame Helm", augments={'Path: B',}},
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -225,7 +226,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 	}
 	
 	sets.ws.leadensalute = {
-		ammo="Chrono Bullet",
+		ammo="Living Bullet",
 		head="Pixie Hairpin +1",
 		body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -241,7 +242,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 	}
 	
 	sets.ws.wildfire = {
-		ammo="Chrono Bullet",
+		ammo="Living Bullet",
 		head={ name="Nyame Helm", augments={'Path: B',}},
 		body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
