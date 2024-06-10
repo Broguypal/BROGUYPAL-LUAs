@@ -34,7 +34,7 @@ send_command('bind numpad8 gs c ToggleDefence')
 
 send_command ('bind numpad0 gs c RangedAttack')
  
- Mode = "HybridPhys"
+ Mode = "HybridMag"
  
  Modes = {'HybridPhys','HybridMag','Defence'}
  
