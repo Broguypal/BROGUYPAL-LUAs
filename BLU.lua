@@ -10,6 +10,7 @@
 
 
 function file_unload()
+	send_command('unbind f10')
     send_command('unbind numpad9')
     send_command('unbind numpad8')
     send_command('unbind numpad7')
@@ -41,12 +42,14 @@ send_command ('bind ^numpad4 input //aset set odyssey')
 
 send_command ('bind ^numpad6 input //aset set melee')
 
-
 send_command ('bind numpad3 input //aset set tank')
 
 Mode = "Hybrid"
 
 Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
+
+
+send_command('bind f10 input //fillmode')
 
 
     sets.idle = {}                  -- Leave this empty
@@ -382,7 +385,7 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 		neck="Rep. Plat. Medal",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Ishvara Earring",
-		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
 		left_ring="Sroda Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
@@ -397,7 +400,7 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Mirage Stole +1",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
 		left_ring="Sroda Ring",
 		right_ring="Epaminondas's Ring",
@@ -429,7 +432,7 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
-		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
 		left_ring="Persis Ring",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -445,7 +448,7 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Mirage Stole +1",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
 		left_ring="Sroda Ring",
 		right_ring="Epaminondas's Ring",
@@ -477,7 +480,7 @@ Modes = {'Hybrid','HybridHaste1','DPS','DPSHaste1','TreasureHunter','OmenTank'}
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Rep. Plat. Medal",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
 		left_ring="Epaminondas's Ring",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},

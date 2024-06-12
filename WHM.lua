@@ -111,7 +111,7 @@ function get_sets()
 		feet="Nyame Sollerets",
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
-		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
 		right_ear="Suppanomimi",
 		left_ring="Chirich Ring",
 		right_ring="Rajas Ring",

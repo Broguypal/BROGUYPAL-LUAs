@@ -87,7 +87,7 @@ function get_sets()
 		waist="Ioskeha Belt +1",
 		left_ear="Crep. Earring",
 		right_ear="Saviesa Pearl",
-		left_ring="Mediator's Ring",
+		left_ring="Stikini Ring +1",
 		right_ring="Chirich Ring",
 		back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
 		}
@@ -102,7 +102,7 @@ function get_sets()
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear="Ishvara Earring",
-		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
 		left_ring="Petrov Ring",
 		right_ring="Niqmaddu Ring",
 		back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
