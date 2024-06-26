@@ -1,152 +1,415 @@
-send_command ('bind numpad9 gs l DRK.lua')
+--  ____                                          _ _     
+-- |  _ \                                        | ( )    
+-- | |_) |_ __ ___   __ _ _   _ _   _ _ __   __ _| |/ ___ 
+-- |  _ <| '__/ _ \ / _` | | | | | | | '_ \ / _` | | / __|
+-- | |_) | | | (_) | (_| | |_| | |_| | |_) | (_| | | \__ \
+-- |____/|_|  \___/ \__, |\__,_|\__, | .__/ \__,_|_| |___/
+--                   __/ |       __/ | |                  
+--                  |___/       |___/|_|    
+--DRK LUA
 
-send_command ('bind numpad1 input /mount "Golden Bomb"')
-send_command ('bind numpad2 input /dismount')
---send_command ('bind numpad1 input /equip ring2 "Warp Ring"; /echo Warping; wait 11; input /item "Warp Ring" <me>;')
---send_command ('bind numpad3 input /equip ring2 "Dim. Ring (holla)"; /echo Warping; wait 11; input /item "Dim. Ring (holla)" <me>;')
 
-
-
-function get_sets()
-  
-    sets.idle = {}                  -- Leave this empty.
-    sets.precast = {}               -- leave this empty    
-    sets.midcast = {}               -- leave this empty    
-    sets.aftercast = {}             -- leave this empty
-	sets.ws = {}					-- Leave this empty
-	sets.ja = {}
- 
-    sets.idle.normal = {
-		ammo="Staunch Tathlum +1",
-		head="Nyame Helm",
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
-		feet="Nyame Sollerets",
-		neck={ name="Abyssal Beads +1", augments={'Path: A',}},
-		waist="Ioskeha Belt +1",
-		left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		right_ear="Brutal Earring",
-		left_ring="Defending Ring",
-		right_ring="Niqmaddu Ring",
-		back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
-	}
-	
-	sets.idle.attack = {
-		ammo="Aurgelmir Orb",
-		head="Sakpata's Helm",
-		body="Sakpata's Plate",
-		hands="Sakpata's Gauntlets",
-		legs="Sakpata's Cuisses",
-		feet="Nyame Sollerets",
-		neck={ name="Abyssal Beads +1", augments={'Path: A',}},
-		waist="Ioskeha Belt +1",
-		left_ear="Crep. Earring",
-		right_ear="Brutal Earring",
-		left_ring="Petrov Ring",
-		right_ring="Niqmaddu Ring",
-		back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
-		}
-		
-    sets.precast.fastcast = {
-	    ammo="Ombre Tathlum +1",
-		head={ name="Fall. Burgeonet +1", augments={'Enhances "Dark Seal" effect',}},
-		left_ring="Lebeche Ring",
-		right_ring="Prolix Ring",
-		}
-	
-	sets.ja.void = {
-		legs="Heathen's Flanchard +1"
-		}
-	
-	sets.ja.weaponbash = {
-		hands="Ig. Gauntlets +2",
-		}
-	
-    sets.midcast.drain = {
-		head={ name="Fall. Burgeonet +1", augments={'Enhances "Dark Seal" effect',}},
-		body={ name="Carm. Sc. Mail +1", augments={'Attack+20','"Mag.Atk.Bns."+12','"Dbl.Atk."+4',}},
-		hands={ name="Fall. Fin. Gaunt. +1", augments={'Enhances "Diabolic Eye" effect',}},
-		legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
-		feet="Rat. Sollerets +1",
-		neck="Sanctity Necklace",
-		waist="Austerity Belt +1",
-		right_ear="Hirudinea Earring",
-		left_ring="Evanescence Ring",
-		back={ name="Niht Mantle", augments={'Attack+7','Dark magic skill +2','"Drain" and "Aspir" potency +25',}},
-		}
-	
-	sets.ws.armorbreak = {
-	   ammo="Ombre Tathlum +1",
-		head="Sakpata's Helm",
-		body="Sakpata's Plate",
-		hands="Sakpata's Gauntlets",
-		legs="Sakpata's Cuisses",
-		feet="Sakpata's Leggings",
-		neck={ name="Abyssal Beads +1", augments={'Path: A',}},
-		waist="Ioskeha Belt +1",
-		left_ear="Crep. Earring",
-		right_ear="Saviesa Pearl",
-		left_ring="Stikini Ring +1",
-		right_ring="Chirich Ring",
-		back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
-		}
-			
-	sets.ws.normal = {
-	    ammo="Knobkierrie",
-		head="Sakpata's Helm",
-		body="Sakpata's Plate",
-		hands="Sakpata's Gauntlets",
-		legs="Sakpata's Cuisses",
-		feet="Sakpata's Leggings",
-		neck="Fotia Gorget",
-		waist="Fotia Belt",
-		left_ear="Ishvara Earring",
-		right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-		left_ring="Petrov Ring",
-		right_ring="Niqmaddu Ring",
-		back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}},
-		}
+function file_unload()
+	send_command('unbind f10')
+    send_command('unbind numpad9')
+    send_command('unbind numpad8')
+    send_command('unbind numpad7')
+    send_command('unbind numpad6')
+	send_command('unbind numpad5')
+	send_command('unbind numpad4')
+	send_command('unbind numpad3')
+    enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
 end
 
 
+function get_sets()
+send_command('bind f9 input /item "Remedy" <me>')
+send_command('bind f10 input /item "Panacea" <me>')
+send_command('bind f11 input /item "Holy Water" <me>')
+
+send_command('bind f12 gs c ToggleHybrid')
+
+Mode = "Hybrid"
+
+Modes = {'Hybrid', 'Tank'}
+ 
+    sets.idle = {}                  -- Leave this empty
+	sets.engaged = {}				-- Leave this empty
+    sets.precast = {}               -- leave this empty    
+    sets.midcast = {}               -- leave this empty    
+	sets.ws = {}					-- Leave this empty
+	sets.ja = {}					-- Leave this empty
+	sets.items = {}					-- Leave this empty
+
+ 
+ 
+ ---- IDLE SETS - NOT ENGAGED ----
+ -- Normal Idle set. Equip your movement speed items here
+	sets.idle.normal = {
+	}
+ 
+ -- Tank Idle set. Pure -DT set here. 
+	sets.idle.tank = {
+	}
+ 
+  ---- ENGAGED SETS ----
+ 
+ -- Normal Hybrid Engaged set
+	sets.engaged.normal = {
+	}
+ 
+ 
+ ---- PRECAST SETS ----
+ 
+ --Fastcast set
+	sets.precast.fastcast = {
+	}
+
+---- MIDCAST SETS ----
+-- Midcast spell damage
+	sets.midcast.spelldamage = {
+	}
+
+-- Midcast enfeebles (Spell accuracy focus)
+	sets.midcast.enfeeble = {
+	}
+
+-- Endark
+	sets.midcast.endark = {
+	}
+
+-- Stun
+	sets.midcast.stun = {
+	}
+
+-- Drain
+	sets.midcast.drain = {
+	}
+	
+--Absorb Spells
+	sets.midcast.absorb = {
+	}
+
+-- Dreadspikes
+	sets.midcast.dreadspikes = {
+	}
+
+-- Trusts
+	sets.midcast.trust = {
+	--put all 119 gear in here to prevent trusts from being underleveled.
+	}
+
+---- JOB ABILITY SETS ----
+	sets.ja.bloodweapon = {
+	--fallen's cuirass
+	}
+	
+	sets.ja.arcanecircle = {
+	--ignominy sollerets
+	}
+	
+	sets.ja.lastresort = {
+	--fallen sollerets and ankou's mantle
+	}
+	
+	sets.ja.weaponbash = {
+	--ignominy gauntlets
+	}
+	
+	sets.ja.souleater = {
+	--ignominy Burgeonet
+	}
+	
+	sets.ja.darkseal = {
+	-- Fallen's Burgeonet
+	}
+	
+	sets.ja.diaboliceye = {
+	--Fallen's finger gauntlets
+	}
+	
+	sets.ja.nethervoid = {
+	-- Heathen's flanchard
+	}
+
+ ---- WEAPON SKILL SETS ----
+ --Greatsword:
+	sets.ws.tortcleaver = {
+	}
+	
+	sets.ws.resolution = {
+	}
+	
+	sets.ws.scourge = {
+	}
+	
+	sets.ws.groundstrike = {
+	}
+	
+	sets.ws.shockwave = {
+	}
+	
+	sets.ws.herculeanslash = {
+	}
+	
+--Scythe:
+	sets.ws.crossreaper = {
+	}
+	
+	sets.ws.insurgency = {
+	}
+	
+	sets.ws.quietus = {
+	}
+	
+	sets.ws.catastrophe = {
+	}
+	
+	sets.ws.entropy = {
+	}
+	
+	sets.ws.guillotine = {
+	}
+	
+	sets.ws.shadowofdeath = {
+	}
+	
+	sets.ws.infernalscythe = {
+	}
+	
+	sets.ws.origin = {
+	}
+	
+--Sword:
+	sets.ws.savageblade = {
+	}
+	
+	sets.ws.requiescat = {
+	}
+	
+	sets.ws.sanguineblade = {
+	}
+	
+--Axe:
+	sets.ws.decimation = {
+	}
+	
+	sets.ws.mistralaxe = {
+	}
+	
+--Greataxe:
+	sets.ws.upheaval = {
+	}
+	
+	sets.ws.armorbreak = {
+	}
+	
+--club:
+	sets.ws.judgement = {
+	}
+	
+--general:
+	sets.ws.general = {
+	}
+
+---- ITEM SETS ----
+	sets.items.holywater = {
+		neck="Nicander's Necklace",
+		left_ring="Purity Ring",
+		right_ring="Blenmot's Ring",
+	}
+end
+
+
+
+------------------ DO NOT TOUCH BELOW -------------------------
+
+
 function idle()
-	if player.status == "Engaged" then 
-	equip(sets.idle.attack) 
-	else
-	equip(sets.idle.normal)
+	if Mode == "Tank" then
+		equip(sets.idle.tank)
+	elseif Mode == "Hybrid" then
+		if player.status == "Engaged" then 
+			equip(sets.engaged.normal) 
+		else
+			equip(sets.idle.normal)
+		end
 	end
 end
 
 function status_change(new,old)
 	if new == "Engaged" then
-	equip(sets.idle.attack)
+		idle()
 	else
-	idle()
+		idle()
 	end
 end
 
 function precast(spell)
-	if spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" then 
+	if spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
 		equip(sets.precast.fastcast)
-	elseif spell.type == "WeaponSkill" or spell.type == "JobAbility" then 
-		midcast(spell)
+	elseif spell.type == "JobAbility" then
+		if spell.english == "Blood Weapon" then
+			equip(sets.ja.bloodweapon)
+		elseif spell.english == "Arcane Circle" then
+			equip(sets.ja.arcanecircle)
+		elseif spell.english == "Last Resort" then
+			equip(sets.ja.lastresort)
+		elseif spell.english == "Weapon Bash" then
+			equip(sets.ja.weaponbash)
+		elseif spell.english == "Souleater" then
+			equip(sets.ja.souleater)
+		elseif spell.english == "Dark Seal" then
+			equip(sets.ja.darkseal)
+		elseif spell.english == "Diabolic Eye" then
+			equip(sets.ja.diaboliceye)
+		elseif spell.english == "Nether Void" then
+			equip(sets.ja.nethervoid)
+		end
+	elseif spell.type == "WeaponSkill" then
+		if spell.english == "Tortcleaver" then
+			equip(sets.ws.tortcleaver)
+		elseif spell.english == "Resolution" then
+			equip(sets.ws.resolution)
+		elseif spell.english == "Scourge" then
+			equip(sets.ws.scourge)
+		elseif spell.english == "Ground Strike" then
+			equip(sets.ws.groundstrike)
+		elseif spell.english == "Shockwave" then
+			equip(sets.ws.shockwave)
+		elseif spell.english == "Herculean Slash" then
+			equip(sets.ws.herculeanslash)
+		elseif spell.english == "Cross Reaper" then
+			equip(sets.ws.crossreaper)
+		elseif spell.english == "Insurgency" then
+			equip(sets.ws.insurgency)
+		elseif spell.english == "Quietus" then
+			equip(sets.ws.quietus)
+		elseif spell.english == "Catastrophe" then
+			equip(sets.ws.catastrophe)
+		elseif spell.english == "Entropy" then
+			equip(sets.ws.entropy)
+		elseif spell.english == "Guillotine" then
+			equip(sets.ws.guillotine)
+		elseif spell.english == "Shadow of Death" then
+			equip(sets.ws.shadowofdeath)
+		elseif spell.english == "Infernal Scythe" then
+			equip(sets.ws.infernalscythe)
+		elseif spell.english == "Origin" then
+			equip(sets.ws.origin)
+		elseif spell.english == "Savage Blade" then
+			equip(sets.ws.savageblade)
+		elseif spell.english == "Requiescat" then
+			equip(sets.ws.requiescat)
+		elseif spell.english == "Sanguine Blade" then
+			equip(sets.ws.sanguineblade)
+		elseif spell.english == "Decimation" then
+			equip(sets.ws.decimation)
+		elseif spell.english == "Mistral Axe" then
+			equip(sets.ws.mistralaxe)
+		elseif spell.english == "Upheaval" then
+			equip(sets.ws.upheaval)
+		elseif spell.english == "Armor Break" then
+			equip(sets.ws.armorbreak)
+		elseif spell.english == "Judgement" then
+			equip(sets.ws.judgement)
+		else
+			equip(sets.ws.general)
+		end
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	else
 		idle()
 	end
 end
 
 function midcast(spell)
-	if spell.english == "Drain" or spell.english == "Drain II" or spell.english == "Drain III" then
+	if spell.english == "Endark" then
+		equip(sets.midcast.endark)
+	elseif spell.english == "Stun" then
+		equip(sets.midcast.stun)
+	elseif spell.name:match('Drain') then
 		equip(sets.midcast.drain)
-	elseif spell.english == "Armor Break" then
-		equip(sets.ws.armorbreak)
-	elseif spell.english == "Nether Void" or spell.english == "Dark Seal" then
-		equip(sets.ja.void)
-	elseif spell.english == "Weapon Bash" then
-		equip(sets.ja.weaponbash)
-	elseif spell.english == "Steel Cyclone" or spell.english == "Keen Edge" or spell.english == "Fell Cleave" or spell.english == "Weapon Break" or spell.english == "Upheaval" or spell.english == "Sturmwind" or spell.english == "Iron Tempest" or spell.english == "Shield Break" then 
-		equip(sets.ws.normal)
+	elseif spell.name:match('Absorb') then
+		equip(sets.midcast.absorb)
+	elseif spell.english == "Dread Spikes" then
+		equip(sets.midcast.dreadspikes)
+	elseif spell.name:match('Bio') or spell.name:match('Poison') or spell.name:match('Aspir') or spell.name:match('Bind') or spell.name:match('Sleep') then
+		equip(sets.midcast.enfeeble)
+	elseif spell.type == "BlackMagic" then
+		equip(sets.midcast.spelldamage)
+	elseif spell.type == "Trust" then
+		equip(sets.midcast.trust)
+	elseif spell.type == "JobAbility" then
+		if spell.english == "Blood Weapon" then
+			equip(sets.ja.bloodweapon)
+		elseif spell.english == "Arcane Circle" then
+			equip(sets.ja.arcanecircle)
+		elseif spell.english == "Last Resort" then
+			equip(sets.ja.lastresort)
+		elseif spell.english == "Weapon Bash" then
+			equip(sets.ja.weaponbash)
+		elseif spell.english == "Souleater" then
+			equip(sets.ja.souleater)
+		elseif spell.english == "Dark Seal" then
+			equip(sets.ja.darkseal)
+		elseif spell.english == "Diabolic Eye" then
+			equip(sets.ja.diaboliceye)
+		elseif spell.english == "Nether Void" then
+			equip(sets.ja.nethervoid)
+		end
+	elseif spell.type == "WeaponSkill" then
+		if spell.english == "Tortcleaver" then
+			equip(sets.ws.tortcleaver)
+		elseif spell.english == "Resolution" then
+			equip(sets.ws.resolution)
+		elseif spell.english == "Scourge" then
+			equip(sets.ws.scourge)
+		elseif spell.english == "Ground Strike" then
+			equip(sets.ws.groundstrike)
+		elseif spell.english == "Shockwave" then
+			equip(sets.ws.shockwave)
+		elseif spell.english == "Herculean Slash" then
+			equip(sets.ws.herculeanslash)
+		elseif spell.english == "Cross Reaper" then
+			equip(sets.ws.crossreaper)
+		elseif spell.english == "Insurgency" then
+			equip(sets.ws.insurgency)
+		elseif spell.english == "Quietus" then
+			equip(sets.ws.quietus)
+		elseif spell.english == "Catastrophe" then
+			equip(sets.ws.catastrophe)
+		elseif spell.english == "Entropy" then
+			equip(sets.ws.entropy)
+		elseif spell.english == "Guillotine" then
+			equip(sets.ws.guillotine)
+		elseif spell.english == "Shadow of Death" then
+			equip(sets.ws.shadowofdeath)
+		elseif spell.english == "Infernal Scythe" then
+			equip(sets.ws.infernalscythe)
+		elseif spell.english == "Origin" then
+			equip(sets.ws.origin)
+		elseif spell.english == "Savage Blade" then
+			equip(sets.ws.savageblade)
+		elseif spell.english == "Requiescat" then
+			equip(sets.ws.requiescat)
+		elseif spell.english == "Sanguine Blade" then
+			equip(sets.ws.sanguineblade)
+		elseif spell.english == "Decimation" then
+			equip(sets.ws.decimation)
+		elseif spell.english == "Mistral Axe" then
+			equip(sets.ws.mistralaxe)
+		elseif spell.english == "Upheaval" then
+			equip(sets.ws.upheaval)
+		elseif spell.english == "Armor Break" then
+			equip(sets.ws.armorbreak)
+		elseif spell.english == "Judgement" then
+			equip(sets.ws.judgement)
+		else
+			equip(sets.ws.general)
+		end
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	else
 		idle()
 	end
@@ -156,3 +419,16 @@ function aftercast(spell)
 	idle()
 end
 
+function self_command(command)
+	if command == "ToggleHybrid" then
+		if Mode == "Hybrid" then
+			Mode = "Tank"
+			send_command('console_echo "TANK MODE"')
+			idle()
+		elseif Mode == "Tank" then
+			Mode = "Hybrid"
+			send_command('console_echo "HYBRID MODE"')
+			idle()
+		end
+	end
+end
