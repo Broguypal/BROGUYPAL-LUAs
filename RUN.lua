@@ -57,6 +57,7 @@ Modes = {'Hybrid','DPS','AoETank','SingleTank','MagicEva','MagicAettir'}
     sets.midcast = {}               -- leave this empty    
     sets.aftercast = {}             -- leave this empty
 	sets.ws = {}					-- Leave this empty
+	sets.items = {}
 
  ----			 Idle Sets				----
     sets.idle.normal = {
@@ -345,6 +346,12 @@ Modes = {'Hybrid','DPS','AoETank','SingleTank','MagicEva','MagicAettir'}
 		right_ring="Moonlight Ring",
 		back="Moonbeam Cape",
 		}
+----			Item Sets						----
+	sets.items.holywater = {
+		neck="Nicander's Necklace",
+		left_ring="Purity Ring",
+		right_ring="Blenmot's Ring",
+	}
 
 ----			 Weaponskill Sets				----	
 	sets.ws.dimidiation = {
@@ -479,6 +486,8 @@ function precast(spell)
 		equip(sets.precast.enmity)
 	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
 		equip(sets.precast.fastcast)
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	else
 		idle()
 	end
@@ -506,6 +515,8 @@ function midcast(spell)
 		equip(sets.midcast.phalanx)
 	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" then 
 		equip(sets.midcast.SIR)
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	else
 		idle()
 	end

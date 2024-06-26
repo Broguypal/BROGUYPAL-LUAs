@@ -62,6 +62,7 @@ send_command('bind f10 input //fillmode')
 		sets.midcast.tank = {}
     sets.aftercast = {}             -- leave this empty
 	sets.ws = {}					-- Leave this empty
+	sets.items = {}
  
  
  ---- IDLE SETS ----
@@ -486,6 +487,13 @@ send_command('bind f10 input //fillmode')
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
+	
+---------------------------	ITEM SETS	---------------------------
+	sets.items.holywater = {
+		neck="Nicander's Necklace",
+		left_ring="Purity Ring",
+		right_ring="Blenmot's Ring",
+	}
 end
 
 
@@ -614,6 +622,8 @@ end
 function precast(spell)
 	if spell.name == "Diffusion" then
 		equip(sets.precast.diffusion)
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	elseif spell.type == "BlueMagic" then
 		if spell.english == "Dream Flower" or spell.english == "Sheep Song" then
 			if Mode == "OmenTank" then
@@ -662,6 +672,8 @@ function midcast(spell)
 		else
 			equip(sets.ws.normal)	
 		end
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	elseif Mode == "OmenTank" then
 		if spell.english == "Phalanx" then
 			equip(sets.midcast.tank.phalanx)

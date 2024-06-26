@@ -45,6 +45,7 @@ Modes = {'Hybrid','Counter','Defence'}
     sets.aftercast = {}             -- leave this empty
 	sets.ws = {}					-- Leave this empty
 	sets.ja = {}
+	sets.items = {}
  
  -------------------------------------DT Sets-----------------------------------------------------------
  -- Normal DT / Town set
@@ -385,7 +386,14 @@ Modes = {'Hybrid','Counter','Defence'}
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
 	}
-	
+
+---------------------------	ITEM SETS	---------------------------
+	sets.items.holywater = {
+		neck="Nicander's Necklace",
+		left_ring="Purity Ring",
+		right_ring="Blenmot's Ring",
+	}
+
 end
 
 ------------------------------------ Logic ----------------------------------------------------------
@@ -512,6 +520,8 @@ function precast(spell)
 		end
 	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
 		equip(sets.precast.fastcast)
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	else
 		idle()
 	end
@@ -566,6 +576,8 @@ function midcast(spell)
 		end
 	elseif spell.type == "Trust" then
 		equip(sets.midcast.trust)
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	else
 		equip(sets.midcast.spell)
 	end

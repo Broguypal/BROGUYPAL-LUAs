@@ -50,6 +50,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
     sets.midcast = {}               -- leave this empty    
     sets.aftercast = {}             -- leave this empty
 	sets.ws = {}					-- Leave this empty
+	sets.items = {}
  
  -------------- IDLE SETS ---------------------
     --Hybrid/DPS IDLE--
@@ -754,6 +755,13 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		right_ring="Sroda Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
 	}
+
+---------------------------	ITEM SETS	---------------------------
+	sets.items.holywater = {
+		neck="Nicander's Necklace",
+		left_ring="Purity Ring",
+		right_ring="Blenmot's Ring",
+	}
 end
 
 --------------- LOGIC - DO NOT TOUCH BELOW ------------------
@@ -1137,6 +1145,8 @@ function precast(spell)
 		else
 			equip(sets.ws.normal)
 		end
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	else
 		idle()
 	end
@@ -1193,6 +1203,8 @@ function midcast(spell)
 		equip(sets.precast.enmity)
 	elseif spell.type == "Trust" then
 		equip(sets.midcast.trust)
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	else
 		idle()
 	end

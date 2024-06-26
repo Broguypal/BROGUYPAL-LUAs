@@ -90,7 +90,8 @@ Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','Tank','PetDEF'
 	sets.ja = {}
     sets.midcast = {}    
 		sets.midcast.master = {}
-		sets.midcast.pet = {}     					
+		sets.midcast.pet = {} 
+	sets.items = {}
  	
 ---------------------------	GEAR SETS	---------------------------	
 
@@ -678,6 +679,14 @@ Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','Tank','PetDEF'
 		right_ring="Fickblix's Ring",
 		back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
 	}
+
+---------------------------	ITEM SETS	---------------------------
+	sets.items.holywater = {
+		neck="Nicander's Necklace",
+		left_ring="Purity Ring",
+		right_ring="Blenmot's Ring",
+	}
+
 end
 
 ---------------------------	LOGIC	---------------------------
@@ -876,6 +885,8 @@ function precast(spell)
 		equip(sets.ja.repair)
 	elseif spell.english == "Ventriloquy" then
 		equip(sets.ja.ventriloquy)
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	else
 		idle()
 	end
@@ -922,6 +933,8 @@ function midcast(spell)
 		equip(sets.ja.repair)
 	elseif spell.english == "Ventriloquy" then
 		equip(sets.ja.ventriloquy)
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	else
 		idle()
 	end

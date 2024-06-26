@@ -45,6 +45,7 @@ send_command ('bind numpad0 gs c RangedAttack')
     sets.aftercast = {}             -- leave this empty
 	sets.ws = {}					-- Leave this empty
 	sets.ja = {}					-- Leave this empty
+	sets.items = {}
  
  ------------------ DO NOT TOUCH ABOVE (BUT TOTALLY TOUCH BELOW THIS POINT) ---------
  
@@ -309,7 +310,7 @@ send_command ('bind numpad0 gs c RangedAttack')
 	}
 	
 	sets.ja.roll = {
-		--range="Compensator",
+		range="Compensator",
 		ammo="Chrono Bullet",
 		head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
 		hands="Chasseur's Gants +2",
@@ -324,6 +325,13 @@ send_command ('bind numpad0 gs c RangedAttack')
 	
 	sets.ja.randomdeal = {
 		body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+	}
+
+---------------------------	ITEM SETS	---------------------------
+	sets.items.holywater = {
+		neck="Nicander's Necklace",
+		left_ring="Purity Ring",
+		right_ring="Blenmot's Ring",
 	}
 	
 end
@@ -402,6 +410,8 @@ function precast(spell,action,spellMap,eventArgs)
 		else
 			equip(sets.ja.quickdraw)
 		end
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	end
 end
 
@@ -414,6 +424,8 @@ function midcast(spell,action,spellMap,eventArgs)
 		else
 			equip(sets.midcast.midshot)
 		end
+	elseif spell.english == "Holy Water" then
+		equip(sets.items.holywater)
 	end
 end
 
