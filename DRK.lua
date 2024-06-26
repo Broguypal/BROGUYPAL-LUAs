@@ -65,6 +65,11 @@ Modes = {'Hybrid', 'Tank'}
 	sets.precast.fastcast = {
 	}
 
+--impact
+	sets.precast.impact = set_combine(sets.precast.fastcast, {
+	-- Put impact cloak here only
+	})
+
 ---- MIDCAST SETS ----
 -- Midcast spell damage
 	sets.midcast.spelldamage = {
@@ -92,6 +97,10 @@ Modes = {'Hybrid', 'Tank'}
 
 -- Dreadspikes
 	sets.midcast.dreadspikes = {
+	}
+
+-- impact
+	sets.midcast.impact = {
 	}
 
 -- Trusts
@@ -246,7 +255,9 @@ function status_change(new,old)
 end
 
 function precast(spell)
-	if spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
+	if spell.english == "Impact" then
+		equip(sets.precast.impact)
+	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
 		equip(sets.precast.fastcast)
 	elseif spell.type == "JobAbility" then
 		if spell.english == "Blood Weapon" then
@@ -340,6 +351,8 @@ function midcast(spell)
 		equip(sets.midcast.spelldamage)
 	elseif spell.type == "Trust" then
 		equip(sets.midcast.trust)
+	elseif spell.english == "Impact" then
+		equip(sets.midcast.impact)
 	elseif spell.type == "JobAbility" then
 		if spell.english == "Blood Weapon" then
 			equip(sets.ja.bloodweapon)
