@@ -55,7 +55,7 @@ Modes = {'Hybrid','Counter','Defence'}
 		body="Adamantite Armor",
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs="Mpaca's Hose",
-		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		feet="Herald's Gaiters",
 		neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},
 		waist="Moonbow Belt +1",
 		left_ear="Genmei Earring",
