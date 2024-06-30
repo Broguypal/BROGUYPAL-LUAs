@@ -143,7 +143,7 @@ Modes = {'Hybrid', 'Tank'}
 
  ---- WEAPON SKILL SETS ----
  --Greatsword:
-	sets.ws.tortcleaver = {
+	sets.ws.torcleaver = {
 	}
 	
 	sets.ws.resolution = {
@@ -278,8 +278,8 @@ function precast(spell)
 			equip(sets.ja.nethervoid)
 		end
 	elseif spell.type == "WeaponSkill" then
-		if spell.english == "Tortcleaver" then
-			equip(sets.ws.tortcleaver)
+		if spell.english == "Torcleaver" then
+			equip(sets.ws.torcleaver)
 		elseif spell.english == "Resolution" then
 			equip(sets.ws.resolution)
 		elseif spell.english == "Scourge" then
@@ -372,8 +372,8 @@ function midcast(spell)
 			equip(sets.ja.nethervoid)
 		end
 	elseif spell.type == "WeaponSkill" then
-		if spell.english == "Tortcleaver" then
-			equip(sets.ws.tortcleaver)
+		if spell.english == "Torcleaver" then
+			equip(sets.ws.torcleaver)
 		elseif spell.english == "Resolution" then
 			equip(sets.ws.resolution)
 		elseif spell.english == "Scourge" then
