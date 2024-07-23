@@ -570,12 +570,22 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Shiva Ring +1",
 		back={ name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
-		}
+	}
+	
+	--Elemental Midcast + Obi
+	sets.midcast.elementalobi = set_combine(sets.midcast.elemental, {
+		waist="Hachirin-no-Obi",
+	})
+	
 	-- Midcast elemental - Futae up
 	sets.midcast.elementalfutae = set_combine(sets.midcast.elemental, {
 		hands="Hattori Tekko +2",
 	})
 	
+	--Midcast elemental - Futae Up + Obi
+	sets.midcast.elementalfutaeobi = set_combine(sets.midcast.elementalfutae, {
+		waist="Hachirin-no-Obi",
+	})
 	
 	-- Midcast for trusts - want to have 119 gear in head,body,hands,legs,feet.
 	sets.midcast.trust = {
@@ -738,7 +748,12 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		right_ring="Epaminondas's Ring",
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
 	}
-	
+
+	--chi/teki/to elemental with Obi
+	sets.ws.elementalobi = set_combine(sets.ws.elemental, {
+		waist="Hachirin-no-Obi",
+	})
+
 	--savageblade Weaponskill
 	sets.ws.savageblade = {
 		ammo="Crepuscular Pebble",
@@ -1173,9 +1188,45 @@ function midcast(spell)
 		equip(sets.midcast.enfeeble)
 	elseif spell.name:match('Katon') or spell.name:match('Suiton') or spell.name:match('Raiton') or spell.name:match('Doton') or spell.name:match('Huton') or spell.name:match('Hyoton') then
 		if buffactive['Futae'] then
-			equip(sets.midcast.elementalfutae)
+			if spell.element == world.day_element or spell.element == world.weather_element then
+				if spell.name:match('Katon') and world.day_element ~= "Water" and world.weather_element ~= "Water" then
+					equip(sets.midcast.elementalfutaeobi)
+				elseif spell.name:match('Suiton') and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
+					equip(sets.midcast.elementalfutaeobi)
+				elseif spell.name:match('Raiton') and world.day_element ~= "Earth" and world.weather_element ~= "Earth" then
+					equip(sets.midcast.elementalfutaeobi)
+				elseif spell.name:match('Doton') and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
+					equip(sets.midcast.elementalfutaeobi)
+				elseif spell.name:match('Huton') and world.day_element ~= "Ice" and world.weather_element ~= "Ice" then
+					equip(sets.midcast.elementalfutaeobi)
+				elseif spell.name:match('Hyoton') and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
+					equip(sets.midcast.elementalfutaeobi)
+				else
+					equip(sets.midcast.elementalfutae)
+				end
+			else
+				equip(sets.midcast.elementalfutae)
+			end
 		else
-			equip(sets.midcast.elemental)
+			if spell.element == world.day_element or spell.element == world.weather_element then
+				if spell.name:match('Katon') and world.day_element ~= "Water" and world.weather_element ~= "Water" then
+					equip(sets.midcast.elementalobi)
+				elseif spell.name:match('Suiton') and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
+					equip(sets.midcast.elementalobi)
+				elseif spell.name:match('Raiton') and world.day_element ~= "Earth" and world.weather_element ~= "Earth" then
+					equip(sets.midcast.elementalobi)
+				elseif spell.name:match('Doton') and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
+					equip(sets.midcast.elementalobi)
+				elseif spell.name:match('Huton') and world.day_element ~= "Ice" and world.weather_element ~= "Ice" then
+					equip(sets.midcast.elementalobi)
+				elseif spell.name:match('Hyoton') and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
+					equip(sets.midcast.elementalobi)
+				else
+					equip(sets.midcast.elemental)
+				end
+			else
+				equip(sets.midcast.elemental)
+			end
 		end
 	elseif spell.type == "WeaponSkill" then 
 		if spell.english == "Blade: Shun" then
@@ -1193,7 +1244,19 @@ function midcast(spell)
 		elseif spell.english == "Blade: Ei" then
 			equip(sets.ws.ei)
 		elseif spell.english == "Blade: Chi" or spell.english == "Blade: Teki" or spell.english == "Blade: To" then
-			equip(sets.ws.elemental)
+			if spell.element == world.day_element or spell.element == world.weather_element then
+				if spell.english == "Blade: Chi" and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
+					equip(sets.ws.elementalobi)
+				elseif spell.english == "Blade: Teki" and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
+					equip(sets.ws.elementalobi)
+				elseif spell.english == "Blade: To" and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
+					equip(sets.ws.elementalobi)
+				else
+					equip(sets.ws.elemental)
+				end
+			else
+				equip(sets.ws.elemental)
+			end
 		elseif spell.english == "Savage Blade" then
 			equip(sets.ws.savageblade)
 		else
