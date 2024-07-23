@@ -226,6 +226,10 @@ send_command ('bind numpad0 gs c RangedAttack')
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 	
+	sets.ws.hotshotobi = set_combine(sets.ws.hotshot,{
+		waist="Hachirin-no-Obi",
+	})
+
 	sets.ws.leadensalute = {
 		ammo="Living Bullet",
 		head="Pixie Hairpin +1",
@@ -241,6 +245,10 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ring="Archon Ring",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
+
+	sets.ws.leadensaluteobi = set_combine(sets.ws.leadensalute,{
+		waist="Hachirin-no-Obi",
+	})
 	
 	sets.ws.wildfire = {
 		ammo="Living Bullet",
@@ -258,6 +266,9 @@ send_command ('bind numpad0 gs c RangedAttack')
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
 
+	sets.ws.wildfireobi = set_combine(sets.ws.wildfire,{
+		waist="Hachirin-no-Obi",
+	})
 
 ---- **** IMPORTANT ***** ONLY NON-RANGED WEAPONSKILLS SHOULD HAVE HAUKSBOK BULLET EQUIPPED ******
 	sets.ws.aeolianedge = {
@@ -292,7 +303,11 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ring="Shiva Ring +1",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
-	
+
+	sets.ja.quickdrawobi = set_combine(sets.ja.quickdraw,{
+		waist="Hachirin-no-Obi",
+	})
+
 	sets.ja.quickdrawACC = {
 		ammo="Hauksbok Bullet",
 		head="Malignance Chapeau",
@@ -308,6 +323,10 @@ send_command ('bind numpad0 gs c RangedAttack')
 		right_ring="Stikini Ring +1",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
+
+	sets.ja.quickdrawACCobi = set_combine(sets.ja.quickdrawACC,{
+		waist="Hachirin-no-Obi",
+	})
 	
 	sets.ja.roll = {
 		range="Compensator",
@@ -384,11 +403,23 @@ function precast(spell,action,spellMap,eventArgs)
 		elseif spell.english == "Evisceration" then
 			equip(sets.ws.evisceration)
 		elseif spell.english == "Hot Shot" then
-			equip(sets.ws.hotshot)
+			if (world.day_element == "Fire" or world.weather_element == "Fire") and world.day_element ~= "Water" and world.weather_element ~= "Water" then
+				equip(sets.ws.hotshotobi)
+			else
+				equip(sets.ws.hotshot)
+			end
 		elseif spell.english == "Leaden Salute" then
-			equip(sets.ws.leadensalute)
+			if (world.day_element == "Dark" or world.weather_element == "Dark") and world.day_element ~= "Light" and world.weather_element ~= "Light" then
+				equip(sets.ws.leadensaluteobi)
+			else
+				equip(sets.ws.leadensalute)
+			end
 		elseif spell.english == "Wildfire" then
-			equip(sets.ws.wildfire)
+			if (world.day_element == "Fire" or world.weather_element == "Fire") and world.day_element ~= "Water" and world.weather_element ~= "Water" then
+				equip(sets.ws.wildfireobi)
+			else
+				equip(sets.ws.wildfire)
+			end
 		elseif spell.english == "Aeolian Edge" then
 			equip(sets.ws.aeolianedge)
 		else
@@ -405,10 +436,30 @@ function precast(spell,action,spellMap,eventArgs)
 	elseif spell.type == "CorsairRoll" then
 		equip(sets.ja.roll)
 	elseif spell.type == "CorsairShot" then
-		if spell.english == "Dark Shot" or spell.english == "Light Shot" then
-			equip(sets.ja.quickdrawACC)
+		if spell.element == world.day_element or spell.element == world.weather_element then
+			if spell.english == "Dark Shot" and world.day_element ~= "Light" and world.weather_element ~= "Light" then
+				equip(sets.ja.quickdrawACCobi)
+			elseif spell.english == "Light Shot" and world.day_element ~= "Dark" and world.weather_element ~= "Dark" then
+				equip(sets.ja.quickdrawACCobi)
+			elseif spell.english == "Fire Shot" and world.day_element ~= "Water" and world.weather_element ~= "Water" then
+				equip(sets.ja.quickdrawobi)
+			elseif spell.english == "Water Shot" and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
+				equip(sets.ja.quickdrawobi)
+			elseif spell.english == "Thunder Shot" and world.day_element ~= "Earth" and world.weather_element ~= "Earth" then
+				equip(sets.ja.quickdrawobi)
+			elseif spell.english == "Earth Shot" and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
+				equip(sets.ja.quickdrawobi)
+			elseif spell.english == "Wind Shot" and world.day_element ~= "Ice" and world.weather_element ~= "Ice" then
+				equip(sets.ja.quickdrawobi)
+			elseif spell.english == "Ice Shot" and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
+				equip(sets.ja.quickdrawobi)
+			end
 		else
-			equip(sets.ja.quickdraw)
+			if spell.english == "Dark Shot" or spell.english == "Light Shot" then
+				equip(sets.ja.quickdrawACC)
+			else
+				equip(sets.ja.quickdraw)
+			end
 		end
 	elseif spell.english == "Holy Water" then
 		equip(sets.items.holywater)
