@@ -437,22 +437,54 @@ function precast(spell,action,spellMap,eventArgs)
 		equip(sets.ja.roll)
 	elseif spell.type == "CorsairShot" then
 		if spell.element == world.day_element or spell.element == world.weather_element then
-			if spell.english == "Dark Shot" and world.day_element ~= "Light" and world.weather_element ~= "Light" then
-				equip(sets.ja.quickdrawACCobi)
-			elseif spell.english == "Light Shot" and world.day_element ~= "Dark" and world.weather_element ~= "Dark" then
-				equip(sets.ja.quickdrawACCobi)
-			elseif spell.english == "Fire Shot" and world.day_element ~= "Water" and world.weather_element ~= "Water" then
-				equip(sets.ja.quickdrawobi)
-			elseif spell.english == "Water Shot" and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
-				equip(sets.ja.quickdrawobi)
-			elseif spell.english == "Thunder Shot" and world.day_element ~= "Earth" and world.weather_element ~= "Earth" then
-				equip(sets.ja.quickdrawobi)
-			elseif spell.english == "Earth Shot" and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
-				equip(sets.ja.quickdrawobi)
-			elseif spell.english == "Wind Shot" and world.day_element ~= "Ice" and world.weather_element ~= "Ice" then
-				equip(sets.ja.quickdrawobi)
-			elseif spell.english == "Ice Shot" and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
-				equip(sets.ja.quickdrawobi)
+			if spell.english == "Dark Shot" then 
+				if world.day_element ~= "Light" or world.weather_element ~= "Light" then
+					equip(sets.ja.quickdrawACCobi)
+				else
+					equip(sets.ja.quickdrawACC)
+				end
+			elseif spell.english == "Light Shot" then 
+				if world.day_element ~= "Dark" and world.weather_element ~= "Dark" then
+					equip(sets.ja.quickdrawACCobi)
+				else
+					equip(sets.ja.quickdrawACC)
+				end
+			elseif spell.english == "Fire Shot" then
+				if world.day_element ~= "Water" and world.weather_element ~= "Water" then
+					equip(sets.ja.quickdrawobi)
+				else
+					equip(sets.ja.quickdraw)
+				end
+			elseif spell.english == "Water Shot" then 
+				if world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
+					equip(sets.ja.quickdrawobi)
+				else
+					equip(sets.ja.quickdraw)
+				end
+			elseif spell.english == "Thunder Shot" then
+				if world.day_element ~= "Earth" and world.weather_element ~= "Earth" then
+					equip(sets.ja.quickdrawobi)
+				else
+					equip(sets.ja.quickdraw)
+				end
+			elseif spell.english == "Earth Shot" then
+				if world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
+					equip(sets.ja.quickdrawobi)
+				else
+					equip(sets.ja.quickdraw)
+				end
+			elseif spell.english == "Wind Shot" then 
+				if world.day_element ~= "Ice" and world.weather_element ~= "Ice" then
+					equip(sets.ja.quickdrawobi)
+				else
+					equip(sets.ja.quickdraw)
+				end
+			elseif spell.english == "Ice Shot" then 
+				if world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
+					equip(sets.ja.quickdrawobi)
+				else
+					equip(sets.ja.quickdraw)
+				end
 			end
 		else
 			if spell.english == "Dark Shot" or spell.english == "Light Shot" then
