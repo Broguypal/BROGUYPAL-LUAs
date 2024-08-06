@@ -79,7 +79,7 @@ send_command('bind f10 input //fillmode')
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Shadow Ring",
 		right_ring="Defending Ring",
-		back="Shadow Mantle",
+		back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.idle.tank = {
@@ -166,7 +166,7 @@ send_command('bind f10 input //fillmode')
 
 --35 Magic Haste (22 DW to cap with DW3/17DW to cap with DW4)
 	sets.engaged.hybrid.haste35 = set_combine(sets.engaged.hybrid.hastecap,{
-		-- NOTE: Need to put in DW cape here ((HAVE -10% PDT)
+		back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	})
 
 --30 Magic Haste or lower (31DW to cap with DW3/26DW to cap with DW4)
@@ -202,7 +202,7 @@ send_command('bind f10 input //fillmode')
 --30 Magic Haste or lower (31DW to cap with DW3/26DW to cap with DW4
  
 	sets.engaged.dps.haste30 = set_combine(sets.engaged.dps.haste35,{
-		-- Put DW ambu cape in here (HAVE -10% PDT)
+		back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	})
 
 ---- PRECAST SETS ----
