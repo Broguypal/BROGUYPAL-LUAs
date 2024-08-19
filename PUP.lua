@@ -424,7 +424,7 @@ Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','Tank','PetDEF'
 		feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},
 	}
 	sets.ja.tacticalswitch = {
-	    feet="Karagoz Scarpe +1",
+	    feet="Karagoz Scarpe +2",
 	}
 	sets.ja.repair = {
 	    left_ear="Guignol Earring",
