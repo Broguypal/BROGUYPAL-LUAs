@@ -275,7 +275,7 @@ Modes = {'Hybrid','DPS','AoETank','SingleTank','MagicEva','MagicAettir'}
 		}	
 		
 	sets.precast.pulse = {
-		head="Erilaz Galea +2",
+		head="Erilaz Galea +3",
 		}
 		
 	sets.precast.battuta = {
@@ -317,7 +317,7 @@ Modes = {'Hybrid','DPS','AoETank','SingleTank','MagicEva','MagicAettir'}
 		
     sets.midcast.SIR = {
 		ammo="Staunch Tathlum +1",
-		head="Erilaz Galea +2",
+		head="Erilaz Galea +3",
 		body="Nyame Mail",
 		hands="Rawhide Gloves",
 		legs="Eri. Leg Guards +3",
