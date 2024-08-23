@@ -101,7 +101,7 @@ Modes = {'Hybrid','DPS','AoETank','SingleTank','MagicEva','MagicAettir'}
 		ammo="Staunch Tathlum +1",
 		head={ name="Nyame Helm", augments={'Path: B',}},
 		body="Erilaz Surcoat +3",
-		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		hands="Turms Mittens +1",
 		legs="Eri. Leg Guards +3",
 		feet="Erilaz Greaves +3",
 		neck="Warder's Charm +1",
