@@ -31,12 +31,21 @@ function get_sets()
 
 send_command('bind numpad9 gs c ToggleHybrid')
 send_command('bind numpad8 gs c ToggleDefence')
+send_command('bind numpad7 gs c ToggleMelee')
+
+send_command('bind numpad6 gs c WeaponMagic')
+send_command('bind numpad5 gs c WeaponMelee')
 
 send_command ('bind numpad0 gs c RangedAttack')
- 
+
+send_command('bind f9 input /item "Remedy" <me>')
+send_command('bind f10 input /item "Panacea" <me>')
+send_command('bind f11 input /item "Holy Water" <me>')
+
+
  Mode = "HybridMag"
  
- Modes = {'HybridPhys','HybridMag','Defence'}
+ Modes = {'HybridPhys','HybridMag','Defence','Melee'}
  
     sets.idle = {}                  -- Leave this empty
 	sets.engaged = {}				-- Leave this empty
@@ -71,6 +80,10 @@ send_command ('bind numpad0 gs c RangedAttack')
 	sets.idle.magic = set_combine(sets.idle.normal,{
 		range="Death Penalty",
 		ammo="Living Bullet",
+	})
+	
+	sets.idle.melee = set_combine(sets.idle.normal,{
+		range="Anarchy",
 	})
 
 	sets.idle.tank = {
@@ -110,6 +123,10 @@ send_command ('bind numpad0 gs c RangedAttack')
 	sets.engaged.magic = set_combine(sets.engaged.normal,{
 		range="Death Penalty",
 		ammo="Living Bullet",
+	})
+
+	sets.engaged.melee = set_combine(sets.engaged.normal,{
+		range="Anarchy",
 	})
 
 ---- PRESHOT SET ----
@@ -371,6 +388,12 @@ function idle()
 		else
 			equip(sets.idle.magic)
 		end
+	elseif Mode == "Melee" then
+		if player.status == "Engaged" then
+			equip(sets.engaged.melee)
+		else
+			equip(sets.idle.melee)
+		end
 	end
 end
 
@@ -394,7 +417,7 @@ function precast(spell,action,spellMap,eventArgs)
 	elseif spell.type == 'WeaponSkill' then
 		if player.equipment.ammo == "Hauksbok Bullet" then
 			cancel_spell()
-			add_to_chat(123,'Wong bullet (safety), please recast!')
+			add_to_chat(123,'Wrong bullet (safety), please recast!')
 			idle()
 		elseif spell.english == "Last Stand" then
 			equip(sets.ws.laststand)
@@ -496,7 +519,7 @@ function self_command(command)
 	if command == "RangedAttack" then
 		send_command ('input /ra <t>')
 	elseif command == "ToggleHybrid" then
-		if Mode == "HybridMag" or Mode == "Defence" then
+		if Mode == "HybridMag" or Mode == "Defence" or Mode == "Melee"  then
 			Mode = "HybridPhys"
 			send_command('console_echo "Hybrid Physical"')
 			idle()
@@ -506,10 +529,24 @@ function self_command(command)
 			idle()
 		end
 	elseif command == "ToggleDefence" then
-		if Mode == "HybridPhys" or Mode == "HybridMag" or Mode == "Defence" then
+		if Mode == "HybridPhys" or Mode == "HybridMag" or Mode == "Defence" or Mode == "Melee" then
 			Mode = "Defence"
 			send_command('console_echo "Defence"')
 			idle()
 		end
+	elseif command == "ToggleMelee" then
+		if Mode == "HybridPhys" or Mode == "HybridMag" or Mode == "Defence" then
+			Mode = "Melee"
+			send_command('console_echo "Melee"')
+			idle()
+		end
+	elseif command == "WeaponMagic" then
+		send_command ('input /equip Main "Naegling"')
+		send_command ('input /equip Sub "Tauret"')
+		send_command('console_echo "Magic Weapons Equipped"')
+	elseif command == "WeaponMelee" then
+		send_command ('input /equip Main "Naegling"')
+		send_command ('input /equip Sub "Gleti\'s Knife"')
+		send_command('console_echo "Melee Weapons Equipped"')
 	end
 end
