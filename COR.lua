@@ -83,7 +83,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	})
 	
 	sets.idle.melee = set_combine(sets.idle.normal,{
-		range="Anarchy",
+		range="Anarchy +2",
 	})
 
 	sets.idle.tank = {
@@ -126,7 +126,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	})
 
 	sets.engaged.melee = set_combine(sets.engaged.normal,{
-		range="Anarchy",
+		range="Anarchy +2",
 	})
 
 ---- PRESHOT SET ----
@@ -344,16 +344,20 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	sets.ja.quickdrawACCobi = set_combine(sets.ja.quickdrawACC,{
 		waist="Hachirin-no-Obi",
 	})
-	
-	sets.ja.roll = {
-		range="Compensator",
-		ammo="Chrono Bullet",
+
+	sets.ja.engagedroll = {
 		head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
 		hands="Chasseur's Gants +2",
 		neck="Regal Necklace",
 		left_ring="Luzaf's Ring",
 		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15',}},
 	}
+
+	sets.ja.roll = set_combine(sets.ja.engagedroll,{
+		range="Compensator",
+	})
+	
+
 	
 	sets.ja.wildcard = {
 		feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -450,14 +454,22 @@ function precast(spell,action,spellMap,eventArgs)
 		end
 	elseif spell.type == "JobAbility" then
 		if spell.english == "Double-Up" then
-			equip(sets.ja.roll)
+			if player.status == "Engaged" then
+				equip(sets.ja.engagedroll)
+			else
+				equip(sets.ja.roll)
+			end
 		elseif spell.english == "Wild Card" then
 			equip(sets.ja.wildcard)
 		elseif spell.english == "Random Deal" then
 			equip(sets.ja.randomdeal)
 		end
 	elseif spell.type == "CorsairRoll" then
-		equip(sets.ja.roll)
+		if player.status == "Engaged" then
+			equip(sets.ja.engagedroll)
+		else
+			equip(sets.ja.roll)
+		end
 	elseif spell.type == "CorsairShot" then
 		if spell.english == "Dark Shot" or spell.english == "Light Shot" then
 			if spell.element == world.day_element or spell.element == world.weather_element then
@@ -535,7 +547,7 @@ function self_command(command)
 			idle()
 		end
 	elseif command == "ToggleMelee" then
-		if Mode == "HybridPhys" or Mode == "HybridMag" or Mode == "Defence" then
+		if Mode == "HybridPhys" or Mode == "HybridMag" or Mode == "Defence" or Mode == "Melee" then
 			Mode = "Melee"
 			send_command('console_echo "Melee"')
 			idle()
