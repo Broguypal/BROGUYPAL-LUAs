@@ -35,6 +35,7 @@ send_command('bind numpad7 gs c ToggleMelee')
 
 send_command('bind numpad6 gs c WeaponMagic')
 send_command('bind numpad5 gs c WeaponMelee')
+send_command('bind numpad4 gs c WeaponDagger')
 
 send_command ('bind numpad0 gs c RangedAttack')
 
@@ -553,18 +554,25 @@ function self_command(command)
 			idle()
 		end
 	elseif command == "WeaponMagic" then
-		if main ~= "Naegling" then
+		if Main ~= "Naegling" then
 			send_command ('input /equip Main "Naegling"')
 		elseif Main == "Naegling" then
 			send_command ('input /equip Sub "Tauret"')
 			send_command('console_echo "Magic Weapons Equipped"')
 		end
 	elseif command == "WeaponMelee" then
-		if main ~= "Naegling" then
+		if Main ~= "Naegling" then
 			send_command ('input /equip Main "Naegling"')
 		elseif Main == "Naegling" then 
 			send_command ('input /equip Sub "Gleti\'s Knife"')
 			send_command('console_echo "Melee Weapons Equipped"')
+		end
+	elseif command == "WeaponDagger" then
+		if Main ~= "Tauret" then
+			send_command ('input /equip Main "Tauret"')
+		elseif Main == "Tauret" then 
+			send_command ('input /equip Sub "Gleti\'s Knife"')
+			send_command('console_echo "Dagger Weapons Equipped"')
 		end
 	end
 end
