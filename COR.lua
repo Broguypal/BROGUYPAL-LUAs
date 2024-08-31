@@ -553,12 +553,18 @@ function self_command(command)
 			idle()
 		end
 	elseif command == "WeaponMagic" then
-		send_command ('input /equip Main "Naegling"')
-		send_command ('input /equip Sub "Tauret"')
-		send_command('console_echo "Magic Weapons Equipped"')
+		if main ~= "Naegling" then
+			send_command ('input /equip Main "Naegling"')
+		elseif Main == "Naegling" then
+			send_command ('input /equip Sub "Tauret"')
+			send_command('console_echo "Magic Weapons Equipped"')
+		end
 	elseif command == "WeaponMelee" then
-		send_command ('input /equip Main "Naegling"')
-		send_command ('input /equip Sub "Gleti\'s Knife"')
-		send_command('console_echo "Melee Weapons Equipped"')
+		if main ~= "Naegling" then
+			send_command ('input /equip Main "Naegling"')
+		elseif Main == "Naegling" then 
+			send_command ('input /equip Sub "Gleti\'s Knife"')
+			send_command('console_echo "Melee Weapons Equipped"')
+		end
 	end
 end
