@@ -97,18 +97,83 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		}
 
 	sets.idle.aoetank = {
+		ammo="Staunch Tathlum +1",
+		head="Chev. Armet +2",
+		body="Sakpata's Plate",
+		hands="Sakpata's Gauntlets",
+		legs="Chev. Cuisses +2",
+		feet="Sakpata's Leggings",
+		neck="Warder's Charm +1",
+		waist="Plat. Mog. Belt",
+		left_ear="Tuisto Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Shadow Ring",
+		right_ring="Fortified Ring",
+		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 	}
 	
 	sets.idle.singletank = {
+		ammo="Staunch Tathlum +1",
+		head="Chev. Armet +2",
+		body="Sakpata's Plate",
+		hands="Sakpata's Gauntlets",
+		legs="Chev. Cuisses +2",
+		feet="Sakpata's Leggings",
+		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Tuisto Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Moonbeam Ring",
+		right_ring="Moonlight Ring",
+		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 	}
 	
 	sets.idle.block = {
+		ammo="Staunch Tathlum +1",
+		head="Chev. Armet +2",
+		body="Sakpata's Plate",
+		hands={ name="Souv. Handsch. +1", augments={'HP+65','Shield skill +15','Phys. dmg. taken -4',}},
+		legs="Chev. Cuisses +2",
+		feet="Rev. Leggings +1",
+		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+		waist="Plat. Mog. Belt",
+		left_ear="Thureous Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Moonbeam Ring",
+		right_ring="Moonlight Ring",
+		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 	}
 	
 	sets.idle.magiceva = {
+		ammo="Staunch Tathlum +1",
+		head="Chev. Armet +2",
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs="Chev. Cuisses +2",
+		feet="Rev. Leggings +1",
+		neck="Warder's Charm +1",
+		waist="Plat. Mog. Belt",
+		left_ear="Eabani Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Shadow Ring",
+		right_ring="Moonlight Ring",
+		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 	}
 	
 	sets.idle.mpabsorb = {
+		ammo="Homiliary",
+		head="Chev. Armet +2",
+		body="Sakpata's Plate",
+		hands="Sakpata's Gauntlets",
+		legs="Chev. Cuisses +2",
+		feet="Rev. Leggings +1",
+		neck="Sibyl Scarf",
+		waist="Flume Belt +1",
+		left_ear="Tuisto Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Moonbeam Ring",
+		right_ring="Moonlight Ring",
+		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 	}
 
 ---- ENGAGED SETS ----
