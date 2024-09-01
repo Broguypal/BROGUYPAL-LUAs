@@ -458,6 +458,8 @@ function aftercast(spell)
 		elseif Sword == "Naegling" and Shield == "Blurred" then 
 			send_command('input /equip Sub "Blurred Shield +1"; wait 1; input /equip Main "Naegling"')
 			idle()
+		else
+			idle()
 		end
 	else
 		idle()
