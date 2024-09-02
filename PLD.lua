@@ -329,7 +329,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear="Magnetic Earring",
 		left_ring="Defending Ring",
 		right_ring="Moonlight Ring",
-	}
+	}  
 	
 	sets.midcast.phalanxSIR = set_combine(sets.midcast.phalanx,{
 		ammo="Staunch Tathlum +1",
@@ -491,7 +491,7 @@ function idle()
 		end
 	elseif Mode == "DPS" then
 		if player.status == "Engaged" then
-			equip(sets.engaged.dps)
+			equip(sets.engaged.DPS)
 		else
 			equip(sets.idle.normal)
 		end
