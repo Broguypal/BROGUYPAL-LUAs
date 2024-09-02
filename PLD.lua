@@ -381,25 +381,101 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 
 ---- WEAPONSKILL SETS ----
 	sets.ws.normal = {
+		ammo="Oshasha's Treatise",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+		right_ear="Thrud Earring",
+		left_ring="Sroda Ring",
+		right_ring="Epaminondas's Ring",
+		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 	}
 	
 	sets.ws.savageblade = {
+		ammo="Oshasha's Treatise",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Rep. Plat. Medal",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+		right_ear="Thrud Earring",
+		left_ring="Sroda Ring",
+		right_ring="Epaminondas's Ring",
+		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 	}
 	
 	sets.ws.atonement = {
+		ammo="Sapience Orb",
+		head="Chev. Armet +2",
+		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+		hands="Sakpata's Gauntlets",
+		legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+		feet="Sakpata's Leggings",
+		neck="Moonlight Necklace",
+		waist="Plat. Mog. Belt",
+		left_ear="Friomisi Earring",
+		right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+		left_ring="Petrov Ring",
+		right_ring="Begrudging Ring",
+		back="Moonbeam Cape",
 	}
 	
 	sets.ws.requiescat = {
+		ammo="Coiste Bodhar",
+		head="Flam. Zucchetto +2",
+		body="Sakpata's Plate",
+		hands="Sakpata's Gauntlets",
+		legs="Sakpata's Cuisses",
+		feet="Flam. Gambieras +2",
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+		right_ear="Mache Earring +1",
+		left_ring="Flamma Ring",
+		right_ring="Fickblix's Ring",
+		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 	}
 
 	sets.ws.chantducygne = {
+		ammo="Aurgelmir Orb",
+		head="Flam. Zucchetto +2",
+		body="Flamma Korazin +2",
+		hands="Flam. Manopolas +2",
+		legs="Flamma Dirs +2",
+		feet="Flam. Gambieras +2",
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+		right_ear="Mache Earring +1",
+		left_ring="Flamma Ring",
+		right_ring="Apate Ring",
+		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 	}
 	
 	sets.ws.torcleaver = {
+		ammo="Oshasha's Treatise",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Rep. Plat. Medal",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+		right_ear="Thrud Earring",
+		left_ring="Sroda Ring",
+		right_ring="Epaminondas's Ring",
+		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 	}
 	
-	sets.ws.impulsedrive = {
-	}
 
 end
 
@@ -462,8 +538,6 @@ function precast(spell)
 			equip(sets.ws.chantducygne)
 		elseif spell.english == "Torcleaver" then
 			equip(sets.ws.torcleaver)
-		elseif spell.english == "Impulse Drive" then
-			equip(sets.ws.impulsedrive)
 		else
 			equip(sets.ws.normal)
 		end
