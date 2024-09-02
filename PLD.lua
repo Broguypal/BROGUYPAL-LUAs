@@ -178,24 +178,67 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 
 ---- ENGAGED SETS ----
 	sets.engaged.hybrid = {
+		ammo="Coiste Bodhar",
+		head="Sakpata's Helm",
+		body="Sakpata's Plate",
+		hands="Sakpata's Gauntlets",
+		legs="Sakpata's Cuisses",
+		feet="Sakpata's Leggings",
+		neck="Sanctity Necklace",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Mache Earring +1",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Moonbeam Ring",
+		right_ring="Moonlight Ring",
+		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 	}
 	
 	sets.engaged.DPS = {
+		ammo="Coiste Bodhar",
+		head="Sakpata's Helm",
+		body="Sakpata's Plate",
+		hands="Sakpata's Gauntlets",
+		legs="Sakpata's Cuisses",
+		feet="Sakpata's Leggings",
+		neck="Clotharius Torque",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Mache Earring +1",
+		right_ear="Crep. Earring",
+		left_ring="Fickblix's Ring",
+		right_ring="Moonlight Ring",
+		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
 	}
 	
 
 ---- PRECAST SETS ----
 	sets.precast.fastcast = {
+		ammo="Sapience Orb",
+		head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+		body={ name="Odyss. Chestplate", augments={'"Mag.Atk.Bns."+16','"Fast Cast"+4','STR+11','Mag. Acc.+8',}},
+		hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+		legs="Chev. Cuisses +2",
+		feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+21','"Fast Cast"+3','INT+12','Mag. Acc.+11',}},
+		neck="Voltsurge Torque",
+		waist="Plat. Mog. Belt",
+		left_ear="Tuisto Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Kishar Ring",
+		right_ring="Rahab Ring",
+		back="Moonbeam Cape",
 	}
 	
-	sets.precast.cure = {
-	}
+	sets.precast.cure = set_combine(sets.precast.fastcast,{
+		body={ name="Jumalik Mail", augments={'HP+35','Attack+7',}},
+		left_ear="Mendi. Earring",
+		right_ear="Tuisto Earring",
+	})
 
 ---- JOB ABILITY SETS ----
 	sets.ja.sentinel = {
 	}
 	
 	sets.ja.shieldbash = {
+		left_ear="Knightly Earring",
 	}
 	
 	sets.ja.cover = {
@@ -221,31 +264,109 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 
 ---- MIDCAST SETS ----
 	sets.midcast.cure = {
+		ammo="Staunch Tathlum +1",
+		head="Chev. Armet +2",
+		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+		hands="Sakpata's Gauntlets",
+		legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+		feet="Sakpata's Leggings",
+		neck="Sacro Gorget",
+		waist="Sroda Belt",
+		left_ear="Mendi. Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Sirona's Ring",
+		right_ring="Moonlight Ring",
+		back="Moonbeam Cape",
 	}
 	
-	sets.midcast.cureSIR = {
-	}
+	sets.midcast.cureSIR = set_combine(sets.midcast.cure,{
+		legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+7','Breath dmg. taken -3%',}},
+		feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+21','"Fast Cast"+3','INT+12','Mag. Acc.+11',}},
+		neck="Moonlight Necklace",
+		waist="Audumbla Sash",
+		right_ear="Knightly Earring",
+		left_ring="Evanescence Ring",
+	})
 	
 	sets.midcast.enmity = {
+		ammo="Sapience Orb",
+		head="Chev. Armet +2",
+		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+		hands="Sakpata's Gauntlets",
+		legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+		feet="Sakpata's Leggings",
+		neck="Moonlight Necklace",
+		waist="Plat. Mog. Belt",
+		left_ear="Friomisi Earring",
+		right_ear="Trux Earring",
+		left_ring="Petrov Ring",
+		right_ring="Begrudging Ring",
+		back="Moonbeam Cape",
 	}
 	
-	sets.midcast.enmitySIR = {
-	}
+	sets.midcast.enmitySIR = set_combine(sets.midcast.enmity,{
+		ammo="Staunch Tathlum +1",
+		legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+7','Breath dmg. taken -3%',}},
+		feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+21','"Fast Cast"+3','INT+12','Mag. Acc.+11',}},
+		neck="Moonlight Necklace",
+		waist="Audumbla Sash",
+		left_ear="Knightly Earring",
+		left_ring="Evanescence Ring",
+	})
 	
 	sets.midcast.phalanx = {
 		main="Sakpata's Sword",
+		sub={ name="Priwen", augments={'HP+50','Mag. Evasion+50','Damage Taken -3%',}},
+	    ammo="Staunch Tathlum +1",
+		head={ name="Yorium Barbuta", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+		body={ name="Yorium Cuirass", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+		hands={ name="Souv. Handsch. +1", augments={'HP+65','Shield skill +15','Phys. dmg. taken -4',}},
+		legs="Sakpata's Cuisses",
+		feet={ name="Souveran Schuhs +1", augments={'HP+65','Attack+25','Magic dmg. taken -4',}},
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist="Audumbla Sash",
+		left_ear="Knightly Earring",
+		right_ear="Magnetic Earring",
+		left_ring="Defending Ring",
+		right_ring="Moonlight Ring",
 	}
 	
-	sets.midcast.phalanxSIR = {
-	}
+	sets.midcast.phalanxSIR = set_combine(sets.midcast.phalanx,{
+		ammo="Staunch Tathlum +1",
+		legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+7','Breath dmg. taken -3%',}},
+		feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+21','"Fast Cast"+3','INT+12','Mag. Acc.+11',}},
+		neck="Moonlight Necklace",
+		waist="Audumbla Sash",
+		left_ear="Knightly Earring",
+		left_ring="Evanescence Ring",
+	})
 
 -- No weapon/shield swaps
 	sets.midcast.phalanxOpen = {
+		ammo="Staunch Tathlum +1",
+		head={ name="Yorium Barbuta", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+		body={ name="Yorium Cuirass", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+		hands={ name="Souv. Handsch. +1", augments={'HP+65','Shield skill +15','Phys. dmg. taken -4',}},
+		legs="Sakpata's Cuisses",
+		feet={ name="Souveran Schuhs +1", augments={'HP+65','Attack+25','Magic dmg. taken -4',}},
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist="Audumbla Sash",
+		left_ear="Knightly Earring",
+		right_ear="Magnetic Earring",
+		left_ring="Defending Ring",
+		right_ring="Moonlight Ring",
 	}
 
 -- No weapon/shield swaps
-	sets.midcast.phalanxSIROpen = {
-	}
+	sets.midcast.phalanxSIROpen = set_combine(sets.midcast.phalanxOpen,{
+		ammo="Staunch Tathlum +1",
+		legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+7','Breath dmg. taken -3%',}},
+		feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+21','"Fast Cast"+3','INT+12','Mag. Acc.+11',}},
+		neck="Moonlight Necklace",
+		waist="Audumbla Sash",
+		left_ear="Knightly Earring",
+		left_ring="Evanescence Ring",
+	})
 	
 	sets.midcast.reprisal = {
 	}
