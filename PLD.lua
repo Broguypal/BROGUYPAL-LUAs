@@ -195,14 +195,14 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 	
 	sets.engaged.DPS = {
 		ammo="Coiste Bodhar",
-		head="Sakpata's Helm",
+		head="Flam. Zucchetto +2",
 		body="Sakpata's Plate",
 		hands="Sakpata's Gauntlets",
 		legs="Sakpata's Cuisses",
-		feet="Sakpata's Leggings",
+		feet="Flam. Gambieras +2",
 		neck="Clotharius Torque",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear="Mache Earring +1",
+		left_ear="Telos Earring",
 		right_ear="Crep. Earring",
 		left_ring="Fickblix's Ring",
 		right_ring="Moonlight Ring",
