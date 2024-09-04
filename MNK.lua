@@ -256,10 +256,10 @@ Modes = {'Hybrid','Counter','Defence'}
 	sets.ws.howlingfist = {
 	    ammo="Knobkierrie",
 		head="Mpaca's Cap",
-		body="Adamantite Armor",
+		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-		legs="Mpaca's Hose",
-		feet="Mpaca's Boots",
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Fotia Gorget",
 		waist="Moonbow Belt +1",
 		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
