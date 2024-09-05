@@ -584,10 +584,18 @@ function midcast(spell)
 			equip(sets.midcast.enmity)
 		elseif spell.english:startswith('Phalanx') then
 			if Mode == "AoETank" and player.status == "Engaged" then
-				if Sword == "Open" or Shield == "Open" then
-					equip(sets.midcast.phalanxSIROpen)
+				if buffactive["Phalanx"] then
+					if Sword == "Open" or Shield == "Open" then
+						equip(sets.midcast.phalanxOpen)
+					else
+						equip(sets.midcast.phalanx)
+					end
 				else
-					equip(sets.midcast.phalanxSIR)
+					if Sword == "Open" or Shield == "Open" then
+						equip(sets.midcast.phalanxSIROpen)
+					else
+						equip(sets.midcast.phalanxSIR)
+					end
 				end
 			else
 				if Sword == "Open" or Shield == "Open" then
