@@ -18,6 +18,11 @@ function file_unload()
 	send_command('unbind numpad5')
 	send_command('unbind numpad4')
 	send_command('unbind numpad3')
+	send_command('unbind f8')
+	send_command('unbind f9')
+	send_command('unbind f10')
+	send_command('unbind f11')
+	send_command('unbind f12')
     enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
 end
 
@@ -43,6 +48,14 @@ send_command ('bind ^numpad4 input //aset set odyssey')
 send_command ('bind ^numpad6 input //aset set melee')
 
 send_command ('bind numpad3 input //aset set tank')
+
+--QOL commands
+send_command ('bind numpad1 input /mount "Noble Chocobo"')
+send_command ('bind numpad2 input /dismount')
+send_command('bind f9 input /item "Remedy" <me>')
+send_command('bind f10 input /item "Panacea" <me>')
+send_command('bind f11 input /item "Holy Water" <me>')
+send_command('bind f12 input //fillmode')
 
 Mode = "Hybrid"
 
