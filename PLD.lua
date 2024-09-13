@@ -61,7 +61,7 @@ Mode = "Hybrid"
 Modes = {'Hybrid','DPS','AoETank','BlockTank','SingleTank','MagicEva','MPAbsorb'}
 
 Shield = "Aegis"
-Shields = {'Aegis','Ochain','Blurred','Open'}
+Shields = {'Aegis','Block','Blurred','Open'}
 
 Sword = "Sakpata"
 Swords = {'Sakpata','Malignance','Naegling','Open'}
@@ -629,7 +629,7 @@ function aftercast(spell)
 		if Sword == "Sakpata" and Shield == "Aegis" then
 			send_command('input /equip Sub "Aegis"; wait 1; input /equip Main "Sakpata\'s Sword"')
 			idle()
-		elseif Sword == "Sakpata" and Shield == "Ochain" then
+		elseif Sword == "Sakpata" and Shield == "Block" then
 			send_command('input /equip Sub "Ochain"; wait 1; input /equip Main "Sakpata\'s Sword"')
 			idle()
 		elseif Sword == "Sakpata" and Shield == "Blurred" then
@@ -638,7 +638,7 @@ function aftercast(spell)
 		elseif Sword == "Malignance" and Shield == "Aegis" then
 			send_command('input /equip Sub "Aegis"; wait 1; input /equip Main "Malignance Sword"')
 			idle()
-		elseif Sword == "Malignance" and Shield == "Ochain" then
+		elseif Sword == "Malignance" and Shield == "Block" then
 			send_command('input /equip Sub "Ochain"; wait 1; input /equip Main "Malignance Sword"')
 			idle()
 		elseif Sword == "Malignance" and Shield == "Blurred" then
@@ -647,7 +647,7 @@ function aftercast(spell)
 		elseif Sword == "Naegling" and Shield == "Aegis" then
 			send_command('input /equip Sub "Aegis"; wait 1; input /equip Main "Naegling"')
 			idle()
-		elseif Sword == "Naegling" and Shield == "Ochain" then
+		elseif Sword == "Naegling" and Shield == "Block" then
 			send_command('input /equip Sub "Ochain"; wait 1; input /equip Main "Naegling"')
 			idle()
 		elseif Sword == "Naegling" and Shield == "Blurred" then 
@@ -698,11 +698,11 @@ function self_command(command)
 		end
 	elseif command == "ToggleShield" then
 		if Shield == "Aegis" then
-			Shield = "Ochain"
+			Shield = "Block"
 			send_command('input /equip Sub "Ochain"')
-			send_command('console_echo "Ochain Locked"')
+			send_command('console_echo "Block Shield Locked"')
 			idle()
-		elseif Shield == "Ochain" then
+		elseif Shield == "Block" then
 			Shield = "Blurred"
 			send_command('input /equip Sub "Blurred Shield +1"')
 			send_command('console_echo "Blurred Locked"')
