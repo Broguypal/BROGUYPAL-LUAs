@@ -630,7 +630,7 @@ function aftercast(spell)
 			send_command('input /equip Sub "Aegis"; wait 1; input /equip Main "Sakpata\'s Sword"')
 			idle()
 		elseif Sword == "Sakpata" and Shield == "Block" then
-			send_command('input /equip Sub "Ochain"; wait 1; input /equip Main "Sakpata\'s Sword"')
+			send_command('input /equip Sub "Duban"; wait 1; input /equip Main "Sakpata\'s Sword"')
 			idle()
 		elseif Sword == "Sakpata" and Shield == "Blurred" then
 			send_command('input /equip Sub "Blurred Shield +1"; wait 1; input /equip Main "Sakpata\'s Sword"')
@@ -639,7 +639,7 @@ function aftercast(spell)
 			send_command('input /equip Sub "Aegis"; wait 1; input /equip Main "Malignance Sword"')
 			idle()
 		elseif Sword == "Malignance" and Shield == "Block" then
-			send_command('input /equip Sub "Ochain"; wait 1; input /equip Main "Malignance Sword"')
+			send_command('input /equip Sub "Duban"; wait 1; input /equip Main "Malignance Sword"')
 			idle()
 		elseif Sword == "Malignance" and Shield == "Blurred" then
 			send_command('input /equip Sub "Blurred Shield +1"; wait 1; input /equip Main "Malignance Sword"')
@@ -648,7 +648,7 @@ function aftercast(spell)
 			send_command('input /equip Sub "Aegis"; wait 1; input /equip Main "Naegling"')
 			idle()
 		elseif Sword == "Naegling" and Shield == "Block" then
-			send_command('input /equip Sub "Ochain"; wait 1; input /equip Main "Naegling"')
+			send_command('input /equip Sub "Duban"; wait 1; input /equip Main "Naegling"')
 			idle()
 		elseif Sword == "Naegling" and Shield == "Blurred" then 
 			send_command('input /equip Sub "Blurred Shield +1"; wait 1; input /equip Main "Naegling"')
@@ -699,7 +699,7 @@ function self_command(command)
 	elseif command == "ToggleShield" then
 		if Shield == "Aegis" then
 			Shield = "Block"
-			send_command('input /equip Sub "Ochain"')
+			send_command('input /equip Sub "Duban"')
 			send_command('console_echo "Block Shield Locked"')
 			idle()
 		elseif Shield == "Block" then
