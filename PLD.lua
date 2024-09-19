@@ -93,7 +93,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Moonbeam Ring",
 		right_ring="Moonlight Ring",
-		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 		}
 
 	sets.idle.aoetank = {
@@ -109,7 +109,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Shadow Ring",
 		right_ring="Fortified Ring",
-		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 	sets.idle.singletank = {
@@ -125,7 +125,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Moonbeam Ring",
 		right_ring="Moonlight Ring",
-		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 	sets.idle.block = {
@@ -141,7 +141,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Moonbeam Ring",
 		right_ring="Moonlight Ring",
-		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 	sets.idle.magiceva = {
@@ -157,7 +157,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Shadow Ring",
 		right_ring="Moonlight Ring",
-		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 	sets.idle.mpabsorb = {
@@ -173,7 +173,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Moonbeam Ring",
 		right_ring="Moonlight Ring",
-		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 
 ---- ENGAGED SETS ----
@@ -190,7 +190,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Moonbeam Ring",
 		right_ring="Moonlight Ring",
-		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 	sets.engaged.DPS = {
@@ -206,7 +206,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear="Crep. Earring",
 		left_ring="Fickblix's Ring",
 		right_ring="Moonlight Ring",
-		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 
@@ -393,7 +393,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear="Thrud Earring",
 		left_ring="Sroda Ring",
 		right_ring="Epaminondas's Ring",
-		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 	sets.ws.savageblade = {
@@ -409,7 +409,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear="Thrud Earring",
 		left_ring="Sroda Ring",
 		right_ring="Epaminondas's Ring",
-		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 	sets.ws.atonement = {
@@ -441,7 +441,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear="Mache Earring +1",
 		left_ring="Flamma Ring",
 		right_ring="Fickblix's Ring",
-		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 
 	sets.ws.chantducygne = {
@@ -457,7 +457,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear="Mache Earring +1",
 		left_ring="Flamma Ring",
 		right_ring="Apate Ring",
-		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 	sets.ws.torcleaver = {
@@ -473,7 +473,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		right_ear="Thrud Earring",
 		left_ring="Sroda Ring",
 		right_ring="Epaminondas's Ring",
-		back={ name="Rudianos's Mantle", augments={'Damage taken-5%',}},
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 
