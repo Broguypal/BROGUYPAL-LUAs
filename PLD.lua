@@ -271,7 +271,7 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
 		feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+21','"Fast Cast"+3','INT+12','Mag. Acc.+11',}},
 		neck="Sacro Gorget",
-		waist="Audumbla Sash",
+		waist="Plat. Mog. Belt",
 		left_ear="Tuisto Earring",
 		right_ear={ name="Nourish. Earring +1", augments={'Path: A',}},
 		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
