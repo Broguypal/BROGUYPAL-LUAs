@@ -265,43 +265,43 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 ---- MIDCAST SETS ----
 	sets.midcast.cure = {
 		ammo="Staunch Tathlum +1",
-		head="Chev. Armet +2",
+		head={ name="Loess Barbuta +1", augments={'Path: A',}},
 		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-		hands="Sakpata's Gauntlets",
+		hands={ name="Macabre Gaunt. +1", augments={'Path: A',}},
 		legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-		feet="Sakpata's Leggings",
+		feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+21','"Fast Cast"+3','INT+12','Mag. Acc.+11',}},
 		neck="Sacro Gorget",
-		waist="Sroda Belt",
-		left_ear="Mendi. Earring",
-		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-		left_ring="Sirona's Ring",
-		right_ring="Moonlight Ring",
-		back="Moonbeam Cape",
+		waist="Audumbla Sash",
+		left_ear="Tuisto Earring",
+		right_ear={ name="Nourish. Earring +1", augments={'Path: A',}},
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		right_ring="Eihwaz Ring",
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 	sets.midcast.cureSIR = set_combine(sets.midcast.cure,{
+		head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
 		legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+7','Breath dmg. taken -3%',}},
 		feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+21','"Fast Cast"+3','INT+12','Mag. Acc.+11',}},
 		neck="Moonlight Necklace",
 		waist="Audumbla Sash",
-		right_ear="Knightly Earring",
-		left_ring="Evanescence Ring",
+		right_ear={ name="Nourish. Earring +1", augments={'Path: A',}},
 	})
 	
 	sets.midcast.enmity = {
 		ammo="Sapience Orb",
-		head="Chev. Armet +2",
+		head={ name="Loess Barbuta +1", augments={'Path: A',}},
 		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-		hands="Sakpata's Gauntlets",
+		hands={ name="Macabre Gaunt. +1", augments={'Path: A',}},
 		legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
 		feet="Sakpata's Leggings",
 		neck="Moonlight Necklace",
 		waist="Plat. Mog. Belt",
-		left_ear="Friomisi Earring",
-		right_ear="Trux Earring",
-		left_ring="Petrov Ring",
-		right_ring="Begrudging Ring",
-		back="Moonbeam Cape",
+		left_ear="Trux Earring",
+		right_ear="Friomisi Earring",
+		left_ring="Begrudging Ring",
+		right_ring="Eihwaz Ring",
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 	sets.midcast.enmitySIR = set_combine(sets.midcast.enmity,{
@@ -311,7 +311,9 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		neck="Moonlight Necklace",
 		waist="Audumbla Sash",
 		left_ear="Knightly Earring",
+		right_ear={ name="Nourish. Earring +1", augments={'Path: A',}},
 		left_ring="Evanescence Ring",
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	})
 	
 	sets.midcast.phalanx = {
@@ -332,13 +334,8 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 	}  
 	
 	sets.midcast.phalanxSIR = set_combine(sets.midcast.phalanx,{
-		ammo="Staunch Tathlum +1",
 		legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+7','Breath dmg. taken -3%',}},
-		feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+21','"Fast Cast"+3','INT+12','Mag. Acc.+11',}},
 		neck="Moonlight Necklace",
-		waist="Audumbla Sash",
-		left_ear="Knightly Earring",
-		left_ring="Evanescence Ring",
 	})
 
 -- No weapon/shield swaps
@@ -359,16 +356,24 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 
 -- No weapon/shield swaps
 	sets.midcast.phalanxSIROpen = set_combine(sets.midcast.phalanxOpen,{
+		legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+7','Breath dmg. taken -3%',}},
+		neck="Moonlight Necklace",
+	})
+	
+	sets.midcast.reprisal = {
 		ammo="Staunch Tathlum +1",
+		head={ name="Loess Barbuta +1", augments={'Path: A',}},
+		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+		hands="Sakpata's Gauntlets",
 		legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+7','Breath dmg. taken -3%',}},
 		feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+21','"Fast Cast"+3','INT+12','Mag. Acc.+11',}},
 		neck="Moonlight Necklace",
 		waist="Audumbla Sash",
 		left_ear="Knightly Earring",
-		left_ring="Evanescence Ring",
-	})
-	
-	sets.midcast.reprisal = {
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		right_ring="Eihwaz Ring",
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 
