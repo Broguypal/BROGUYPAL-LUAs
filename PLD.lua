@@ -61,10 +61,10 @@ Mode = "Hybrid"
 Modes = {'Hybrid','DPS','AoETank','BlockTank','SingleTank','MagicEva','MPAbsorb'}
 
 Shield = "Aegis"
-Shields = {'Aegis','Block','Blurred','Open'}
+Shields = {'Aegis','Ochain','Duban','Blurred','Open'}
 
-Sword = "Sakpata"
-Swords = {'Sakpata','Malignance','Naegling','Open'}
+Sword = "Burtgang"
+Swords = {'Burtgang','Malignance','Naegling','Open'}
 
 
     sets.idle = {}                  -- Leave this empty
@@ -220,8 +220,6 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 		feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+21','"Fast Cast"+3','INT+12','Mag. Acc.+11',}},
 		neck="Voltsurge Torque",
 		waist="Plat. Mog. Belt",
-		left_ear="Tuisto Earring",
-		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Kishar Ring",
 		right_ring="Rahab Ring",
 		back="Moonbeam Cape",
@@ -419,18 +417,18 @@ Swords = {'Sakpata','Malignance','Naegling','Open'}
 	
 	sets.ws.atonement = {
 		ammo="Sapience Orb",
-		head="Chev. Armet +2",
+		head={ name="Loess Barbuta +1", augments={'Path: A',}},
 		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-		hands="Sakpata's Gauntlets",
+		hands={ name="Macabre Gaunt. +1", augments={'Path: A',}},
 		legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
 		feet="Sakpata's Leggings",
 		neck="Moonlight Necklace",
 		waist="Plat. Mog. Belt",
-		left_ear="Friomisi Earring",
-		right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-		left_ring="Petrov Ring",
-		right_ring="Begrudging Ring",
-		back="Moonbeam Cape",
+		left_ear="Trux Earring",
+		right_ear="Friomisi Earring",
+		left_ring="Begrudging Ring",
+		right_ring="Eihwaz Ring",
+		back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
 	sets.ws.requiescat = {
@@ -631,19 +629,25 @@ end
 
 function aftercast(spell)
 	if spell.english:startswith('Phalanx') then
-		if Sword == "Sakpata" and Shield == "Aegis" then
-			send_command('input /equip Sub "Aegis"; wait 1; input /equip Main "Sakpata\'s Sword"')
+		if Sword == "Burtgang" and Shield == "Aegis" then
+			send_command('input /equip Sub "Aegis"; wait 1; input /equip Main "Burtgang"')
 			idle()
-		elseif Sword == "Sakpata" and Shield == "Block" then
-			send_command('input /equip Sub "Duban"; wait 1; input /equip Main "Sakpata\'s Sword"')
+		elseif Sword == "Burtgang" and Shield == "Ochain" then
+			send_command('input /equip Sub "Ochain"; wait 1; input /equip Main "Burtgang"')
 			idle()
-		elseif Sword == "Sakpata" and Shield == "Blurred" then
-			send_command('input /equip Sub "Blurred Shield +1"; wait 1; input /equip Main "Sakpata\'s Sword"')
+		elseif Sword == "Burtgang" and Shield == "Duban" then
+			send_command('input /equip Sub "Duban"; wait 1; input /equip Main "Burtgang"')
+			idle()
+		elseif Sword == "Burtgang" and Shield == "Blurred" then
+			send_command('input /equip Sub "Blurred Shield +1"; wait 1; input /equip Main "Burtgang"')
 			idle()
 		elseif Sword == "Malignance" and Shield == "Aegis" then
 			send_command('input /equip Sub "Aegis"; wait 1; input /equip Main "Malignance Sword"')
 			idle()
-		elseif Sword == "Malignance" and Shield == "Block" then
+		elseif Sword == "Malignance" and Shield == "Ochain" then
+			send_command('input /equip Sub "Ochain"; wait 1; input /equip Main "Malignance Sword"')
+			idle()
+		elseif Sword == "Malignance" and Shield == "Duban" then
 			send_command('input /equip Sub "Duban"; wait 1; input /equip Main "Malignance Sword"')
 			idle()
 		elseif Sword == "Malignance" and Shield == "Blurred" then
@@ -652,7 +656,10 @@ function aftercast(spell)
 		elseif Sword == "Naegling" and Shield == "Aegis" then
 			send_command('input /equip Sub "Aegis"; wait 1; input /equip Main "Naegling"')
 			idle()
-		elseif Sword == "Naegling" and Shield == "Block" then
+		elseif Sword == "Naegling" and Shield == "Ochain" then
+			send_command('input /equip Sub "Ochain"; wait 1; input /equip Main "Naegling"')
+			idle()
+		elseif Sword == "Naegling" and Shield == "Duban" then
 			send_command('input /equip Sub "Duban"; wait 1; input /equip Main "Naegling"')
 			idle()
 		elseif Sword == "Naegling" and Shield == "Blurred" then 
@@ -703,11 +710,16 @@ function self_command(command)
 		end
 	elseif command == "ToggleShield" then
 		if Shield == "Aegis" then
-			Shield = "Block"
-			send_command('input /equip Sub "Duban"')
-			send_command('console_echo "Block Shield Locked"')
+			Shield = "Ochain"
+			send_command('input /equip Sub "Ochain"')
+			send_command('console_echo "Ochain Locked"')
 			idle()
-		elseif Shield == "Block" then
+		elseif Shield == "Ochain" then
+			Shield = "Duban"
+			send_command('input /equip Sub "Duban"')
+			send_command('console_echo "Duban Locked"')
+			idle()
+		elseif Shield == "Duban" then
 			Shield = "Blurred"
 			send_command('input /equip Sub "Blurred Shield +1"')
 			send_command('console_echo "Blurred Locked"')
@@ -719,7 +731,7 @@ function self_command(command)
 			idle()
 		end
 	elseif command == "ToggleWeapon" then
-		if Sword == "Sakpata" then
+		if Sword == "Burtgang" then
 			Sword = "Malignance"
 			send_command('input /equip Main "Malignance Sword"')
 			send_command('console_echo "Malignance Locked"')
@@ -730,9 +742,9 @@ function self_command(command)
 			send_command('console_echo "Naegling Locked"')
 			idle()
 		elseif Sword == "Naegling" or Sword == "Open" then
-			Sword = "Sakpata"
-			send_command('input /equip Main "Sakpata\'s Sword"')
-			send_command('console_echo "Sakpata Locked"')
+			Sword = "Burtgang"
+			send_command('input /equip Main "Burtgang"')
+			send_command('console_echo "Burtgang Locked"')
 			idle()
 		end
 	elseif command == "ToggleOpen" then
