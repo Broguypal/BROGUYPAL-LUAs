@@ -163,7 +163,7 @@ Swords = {'Burtgang','Malignance','Naegling','Open'}
 	sets.idle.mpabsorb = {
 		ammo="Homiliary",
 		head="Chev. Armet +2",
-		body="Sakpata's Plate",
+		body="Rev. Surcoat +3",
 		hands="Sakpata's Gauntlets",
 		legs="Chev. Cuisses +2",
 		feet="Rev. Leggings +3",
@@ -214,7 +214,7 @@ Swords = {'Burtgang','Malignance','Naegling','Open'}
 	sets.precast.fastcast = {
 		ammo="Sapience Orb",
 		head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
-		body={ name="Odyss. Chestplate", augments={'"Mag.Atk.Bns."+16','"Fast Cast"+4','STR+11','Mag. Acc.+8',}},
+		body="Rev. Surcoat +3",
 		hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
 		legs="Chev. Cuisses +2",
 		feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+21','"Fast Cast"+3','INT+12','Mag. Acc.+11',}},
@@ -226,7 +226,6 @@ Swords = {'Burtgang','Malignance','Naegling','Open'}
 	}
 	
 	sets.precast.cure = set_combine(sets.precast.fastcast,{
-		body={ name="Jumalik Mail", augments={'HP+35','Attack+7',}},
 		left_ear="Mendi. Earring",
 		right_ear="Tuisto Earring",
 	})
@@ -563,6 +562,8 @@ function precast(spell)
 			equip(sets.ja.invincible)
 		elseif spell.english == "Holy Circle" then
 			equip(sets.ja.holycircle)
+		elseif spell.english == "Provoke" then
+			equip(sets.midcast.enmity)
 		else
 			idle()
 		end
