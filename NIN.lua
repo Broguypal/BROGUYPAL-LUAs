@@ -30,7 +30,8 @@ send_command('bind numpad9 gs c ToggleHybrid')
 send_command('bind numpad8 gs c ToggleTank')
 send_command('bind numpad7 gs c ToggleDPS')
 send_command('bind numpad6 gs c ToggleMalignance')
-send_command('bind numpad5 gs c ToggleEvasion')
+send_command('bind numpad5 gs c ToggleMain')
+send_command('bind numpad4 gs c ToggleSub')
 send_command('bind f9 input /item "Remedy" <me>')
 send_command('bind f10 input /item "Panacea" <me>')
 send_command('bind f11 input /item "Holy Water" <me>')
@@ -1294,9 +1295,7 @@ function self_command(command)
 			Mode = "AoETank"
 			send_command('console_echo "AoETank"')
 			idle()
-		end
-	elseif command == "ToggleEvasion" then
-		if Mode == "Hybrid" or Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "AoETank" or Mode == "DPS" or Mode == "DPSHaste1" then
+		elseif Mode == "AoETank" then
 			Mode = "EvasionTank"
 			send_command('console_echo "EvasionTank"')
 			idle()
@@ -1320,6 +1319,30 @@ function self_command(command)
 			Mode = "DPS"
 			send_command('console_echo "DPS"')
 			idle()
+		end
+	elseif command == "ToggleMain" then
+		if player.equipment.main == "Heishi Shorinken" then
+			send_command ('input /equip Main "Naegling"')
+		elseif player.equipment.main == "Naegling" then
+			send_command ('input /equip Main "Gokotai"')
+		elseif player.equipment.main == "Gokotai" then
+			send_command ('input /equip Main "Fudo Masamune"')
+		elseif player.equipment.main == "Fudo Masamune" then
+			send_command ('input /equip Main "Heishi Shorinken"')
+		else
+			send_command ('input /equip Main "Heishi Shorinken"')
+		end
+	elseif command == "ToggleSub" then
+		if player.equipment.sub == "Kunimitsu" then
+			send_command ('input /equip Sub "Gleti\'s Knife"')
+		elseif player.equipment.sub == "Gleti\'s Knife" then
+			send_command ('input /equip Sub "Hitaki"')
+		elseif player.equipment.sub == "Hitaki" then
+			send_command ('input /equip Sub "Tsuru"')
+		elseif player.equipment.sub == "Tsuru" then
+			send_command ('input /equip Sub "Kunimitsu"')
+		else
+			send_command ('input /equip Sub "Kunimitsu"')
 		end
 	end
 end
