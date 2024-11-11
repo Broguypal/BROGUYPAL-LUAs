@@ -30,8 +30,10 @@ send_command('bind numpad9 gs c ToggleHybrid')
 send_command('bind numpad8 gs c ToggleTank')
 send_command('bind numpad7 gs c ToggleDPS')
 send_command('bind numpad6 gs c ToggleMalignance')
-send_command('bind numpad5 gs c ToggleMain')
-send_command('bind numpad4 gs c ToggleSub')
+
+send_command('bind numpad5 gs c ToggleSub')
+send_command('bind numpad4 gs c ToggleMain')
+
 send_command('bind f9 input /item "Remedy" <me>')
 send_command('bind f10 input /item "Panacea" <me>')
 send_command('bind f11 input /item "Holy Water" <me>')
