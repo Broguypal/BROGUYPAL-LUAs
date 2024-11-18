@@ -61,36 +61,44 @@ Modes = {'Hybrid','Tank','HybridHaste1'}
 
 --------------- ENGAGED SETS ------------------
 
-----Hybrid / Malignance / DPS engaged sets ----
+----Hybrid  ----
+
+--[[ Key DW pieces:
+-- Suppanomimi - 7 DW
+-- Ambu Cape - 10 DW
+-- Adhemar Jacket +1 - 6 DW
+-- Reiki Yotai - 7 DW
+-- Maxixi Tiara +3 - 8 DW
+-- Max = 38 DW
+]]
+
 ------ 0 Haste (need 39 DW) -------------------
 
 	sets.engaged.hybrid.haste0 = {
-		}
+	}
 
 	
 ----- 15 Haste (need 32 DW) ----
 	sets.engaged.hybrid.haste15 = {
-		}
+	}
 
 ---- 30 Haste (need 21 DW) ----
 		sets.engaged.hybrid.haste30 = {
-
-		}
+	}
 
 ---- 35 Haste (need 12 DW) ----
 	sets.engaged.hybrid.haste35 = {
-		}
+	}
 
 
 ---- Capped Haste (need 1 DW - negligible) ----
 	sets.engaged.hybrid.hastecap = {
-		}
+	}
 
 
 --------------- PRECAST SETS ------------------
 	--Fastcast Set
     sets.precast.fastcast = {
-
 	}
 	
 ---- JOB ABILITY SETS ----
