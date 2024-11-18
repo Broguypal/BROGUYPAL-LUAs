@@ -478,7 +478,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		legs="Malignance Tights",
 		feet="Malignance Boots",
 		})
-	sets.engaged.malignance.hastecapdef = set_combine(sets.engaged.malignance.hastecao,{
+	sets.engaged.malignance.hastecapdef = set_combine(sets.engaged.malignance.hastecap,{
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
