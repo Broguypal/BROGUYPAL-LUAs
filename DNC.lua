@@ -55,8 +55,7 @@ Modes = {'Hybrid','Tank','HybridHaste1'}
 	
 	--Tank Idle
 	sets.idle.tank = {
-
-		}
+	}
 
 
 --------------- ENGAGED SETS ------------------
@@ -64,36 +63,40 @@ Modes = {'Hybrid','Tank','HybridHaste1'}
 ----Hybrid  ----
 
 --[[ Key DW pieces:
--- Suppanomimi - 7 DW
+-- Suppanomimi - 5 DW
 -- Ambu Cape - 10 DW
 -- Adhemar Jacket +1 - 6 DW
 -- Reiki Yotai - 7 DW
+-- Eabani earring - 4 DW
 -- Maxixi Tiara +3 - 8 DW
--- Max = 38 DW
+-- Maculele Casaque +3 - 11 DW
+-- Max = 51 DW
 ]]
 
------- 0 Haste (need 39 DW) -------------------
 
-	sets.engaged.hybrid.haste0 = {
-	}
 
+---- Capped Haste (need 1 DW - negligible) ----
+	sets.engaged.hybrid.hastecap = {
 	
------ 15 Haste (need 32 DW) ----
-	sets.engaged.hybrid.haste15 = {
-	}
-
----- 30 Haste (need 21 DW) ----
-		sets.engaged.hybrid.haste30 = {
+	
 	}
 
 ---- 35 Haste (need 12 DW) ----
 	sets.engaged.hybrid.haste35 = {
 	}
 
-
----- Capped Haste (need 1 DW - negligible) ----
-	sets.engaged.hybrid.hastecap = {
+---- 30 Haste (need 21 DW) ----
+	sets.engaged.hybrid.haste30 = {
 	}
+	
+----- 15 Haste (need 32 DW) ----
+	sets.engaged.hybrid.haste15 = {
+	}
+
+------ 0 Haste (need 39 DW) -------------------
+	sets.engaged.hybrid.haste0 = {
+	}
+
 
 
 --------------- PRECAST SETS ------------------
@@ -337,6 +340,50 @@ function midcast(spell)
 		equip(sets.ja.animatedflourish)
 	elseif spell.type == "Trust" then
 		equip(sets.midcast.trust)
+	elseif spell.english == "Provoke" or spell.english == "Animated Flourish" then
+		equip(sets.ja.animatedflourish)
+	elseif spell.type == "Waltz" then
+		equip(sets.ja.waltz)
+	elseif spell.type == "Step" then
+		equip(sets.ja.steps)
+	elseif spell.type == "Jig" then
+			equip(sets.ja.jigs)
+	elseif spell.type == "Samba" then
+		equip(sets.ja.sambas)
+	elseif spell.english == "Violent Flourish" then
+		equip(sets.ja.violentflourish)
+	elseif spell.english == "Reverse Flourish" then
+		equip(sets.ja.reverseflourish)
+	elseif spell.english == "Climactic Flourish" then
+		equip(sets.ja.climacticflourish)
+	elseif spell.english == "Striking Flourish" then
+		equip(sets.ja.strikingflourish)
+	elseif spell.english == "Trance" then
+		equip(sets.ja.trance)
+	elseif spell.english == "No Foot Rise" then
+		equip(sets.ja.nofootrise)
+	elseif spell.english == "Fan Dance" then
+		equip(sets.ja.fandance)
+	elseif spell.english == "Saber Dance" then
+		equip(sets.ja.saberdance)
+	elseif spell.english == "Closed Position" then
+		equip(sets.ja.closedposition)
+	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
+		equip(sets.precast.fastcast)
+	elseif spell.type == "WeaponSkill" then 
+		if spell.english == "Rudra's Storm" then
+			equip(sets.ws.rudrasstorm)
+		elseif spell.english == "Pyrrhic Kleos" then
+			equip(sets.ws.pyrrhickleos)
+		elseif spell.english == "Evisceration" then
+			equip(sets.ws.evisceration)
+		elseif spell.english == "Shark Bite" then
+			equip(sets.ws.sharkbite)
+		elseif spell.english == "Aeolian Edge" then
+			equip(sets.ws.aeolianedge)
+		else
+			equip(sets.ws.normal)
+		end
 	elseif spell.english == "Holy Water" then
 		equip(sets.items.holywater)
 	else
@@ -345,7 +392,11 @@ function midcast(spell)
 end
 
 function aftercast(spell)
-	idle()
+	if player.status == "Engaged" then
+		idle()
+	else
+		idle()
+	end
 end
 
 

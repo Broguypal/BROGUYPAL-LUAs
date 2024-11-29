@@ -42,6 +42,8 @@ send_command ('bind numpad0 gs c RangedAttack')
 send_command('bind f9 input /item "Remedy" <me>')
 send_command('bind f10 input /item "Panacea" <me>')
 send_command('bind f11 input /item "Holy Water" <me>')
+send_command ('bind numpad1 input /mount "Noble Chocobo"')
+send_command ('bind numpad2 input /dismount')
 
 
  Mode = "HybridMag"

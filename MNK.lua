@@ -222,7 +222,7 @@ Modes = {'Hybrid','Counter','Defence'}
 	sets.ws.ragingfists = {
 		ammo="Coiste Bodhar",
 		head="Mpaca's Cap",
-		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}},
 		legs="Mpaca's Hose",
 		feet="Ken. Sune-Ate +1",

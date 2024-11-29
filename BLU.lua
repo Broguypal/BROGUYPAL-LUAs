@@ -184,7 +184,7 @@ send_command('bind f10 input //fillmode')
 
 --30 Magic Haste or lower (31DW to cap with DW3/26DW to cap with DW4)
 	sets.engaged.hybrid.haste30 = set_combine(sets.engaged.hybrid.haste35,{
-		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 	})
 
 
@@ -194,7 +194,7 @@ send_command('bind f10 input //fillmode')
 	sets.engaged.dps.hastecap = {
 	    ammo="Aurgelmir Orb",
 		head={ name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}},
-		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}},
 		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
 		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},

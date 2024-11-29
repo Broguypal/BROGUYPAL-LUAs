@@ -375,7 +375,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
     	})
 	---- DPS ----
 	sets.engaged.DPS.haste15 = set_combine(sets.engaged.DPS.hastecap,{
-		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		waist="Reiki Yotai",
 		left_ear="Eabani Earring",
 		right_ear="Suppanomimi",
@@ -419,14 +419,13 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
     	})
 	---- DPS ----
 	sets.engaged.DPS.haste0 = set_combine(sets.engaged.DPS.hastecap,{
-		body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		feet="Hiza. Sune-Ate +2",
 		waist="Reiki Yotai",
 		left_ear="Eabani Earring",
 		right_ear="Suppanomimi",
 		back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Damage taken-5%',}},
 	})
-
 
 --------------- PRECAST SETS ------------------
 	--Fastcast Set
@@ -461,6 +460,7 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		left_ring="Begrudging Ring",
 		right_ring="Eihwaz Ring",
 	}
+
 --------------- MIDCAST SETS ------------------
 	--Utsusemi Midcast
     sets.midcast.utsusemi = set_combine(sets.precast.fastcast,{
