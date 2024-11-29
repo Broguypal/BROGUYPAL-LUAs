@@ -373,7 +373,7 @@ Modes = {'Hybrid','DPS','AoETank','SingleTank','MagicEva','MagicAettir'}
 	sets.ws.resolution = {
 		ammo="Knobkierrie",
 		head={ name="Lustratio Cap +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
-		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Herculean Gloves", augments={'Accuracy+30','"Triple Atk."+4','Attack+13',}},
 		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
 		feet={ name="Lustra. Leggings +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
