@@ -85,7 +85,7 @@ Swords = {'Burtgang','Malignance','Naegling','Open'}
 		head="Chev. Armet +2",
 		body="Sakpata's Plate",
 		hands="Sakpata's Gauntlets",
-		legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		feet="Sakpata's Leggings",
 		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
 		waist="Flume Belt +1",

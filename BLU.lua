@@ -84,7 +84,7 @@ send_command('bind f10 input //fillmode')
 		head={ name="Nyame Helm", augments={'Path: B',}},
 		body="Hashishin Mintan +2",
 		hands="Hashi. Bazu. +2",
-		legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Sibyl Scarf",
 		waist="Carrier's Sash",

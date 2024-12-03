@@ -69,7 +69,7 @@ send_command ('bind numpad2 input /dismount')
 		head={ name="Nyame Helm", augments={'Path: B',}},
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands="Malignance Gloves",
-		legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
 		waist="Plat. Mog. Belt",
