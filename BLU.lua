@@ -153,14 +153,17 @@ send_command('bind f10 input //fillmode')
 ----HYBRID ENGAGED SETS ----
 
 --[[ Key DW pieces:
--- Suppanomimi - 7 DW
+-- Suppanomimi - 5 DW
+-- Eabani earring - 4 DW
 -- Ambu Cape - 10 DW
 -- Adhemar Jacket +1 - 6 DW
 -- Reiki Yotai - 7 DW
--- Max = 30
+-- Taeon Boots - 9DW
+-- Carmine Cuisses +1 - 6DW
+-- Max = 48 DW
 ]]
-
--- Capped Haste (11 DW to Cap with DW3/ 6 DW to cap with DW4)
+----NOTE ** all sets asume DW3
+-- Capped Haste (11 DW to Cap with DW3)
 	sets.engaged.hybrid.hastecap = {
 		ammo="Aurgelmir Orb",
 		head="Malignance Chapeau",
@@ -177,16 +180,44 @@ send_command('bind f10 input //fillmode')
 		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Accuracy+5','"Store TP"+10',}},
 	}
 
---35 Magic Haste (22 DW to cap with DW3/17DW to cap with DW4)
+--35 Magic Haste (22 DW to cap with DW3)
 	sets.engaged.hybrid.haste35 = set_combine(sets.engaged.hybrid.hastecap,{
-		back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}},
+		waist="Reiki Yotai", --7DW
+		left_ear="Suppanomimi", -- 5DW
+		back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}}, --10DW
 	})
 
---30 Magic Haste or lower (31DW to cap with DW3/26DW to cap with DW4)
-	sets.engaged.hybrid.haste30 = set_combine(sets.engaged.hybrid.haste35,{
-		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+--30 Magic Haste (31DW to cap with DW3)
+	sets.engaged.hybrid.haste30 = set_combine(sets.engaged.hybrid.hastecap,{
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, -- 6DW
+		waist="Reiki Yotai", --7DW
+		left_ear="Suppanomimi", -- 5DW
+		right_ear="Eabani Earring", -- 4 DW
+		back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}}, --10DW
+
 	})
 
+-- 15 Magic Haste (42DW to cap with DW 3)
+	sets.engaged.hybrid.haste15 = set_combine(sets.engaged.hybrid.hastecap,{
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, -- 6DW
+		feet={ name="Taeon Boots", augments={'Accuracy+25','"Dual Wield"+5','DEX+10',}}, --9 DW
+		waist="Reiki Yotai", --7DW
+		left_ear="Suppanomimi", -- 5DW
+		right_ear="Eabani Earring", -- 4 DW
+		back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}}, --10DW
+	})
+
+-- 0 Magic Haste (49DW to cap with DW3)
+	
+	sets.engaged.hybrid.haste0 = set_combine(sets.engaged.hybrid.hastecap,{
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, -- 6DW
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}}, --6DW
+		feet={ name="Taeon Boots", augments={'Accuracy+25','"Dual Wield"+5','DEX+10',}}, --9 DW
+		waist="Reiki Yotai", --7DW
+		left_ear="Suppanomimi", -- 5DW
+		right_ear="Eabani Earring", -- 4 DW
+		back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}}, --10DW
+	})
 
 ---- DPS ENGAGED SETS ----
 
@@ -194,29 +225,59 @@ send_command('bind f10 input //fillmode')
 	sets.engaged.dps.hastecap = {
 	    ammo="Aurgelmir Orb",
 		head={ name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}},
-		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6DW
 		hands={ name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}},
 		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
 		feet={ name="Herculean Boots", augments={'Accuracy+18 Attack+18','"Triple Atk."+4',}},
 		neck="Mirage Stole +1",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear="Suppanomimi",
+		left_ear="Suppanomimi", -- 5DW
 		right_ear="Telos Earring",
 		left_ring="Epona's Ring",
 		right_ring="Fickblix's Ring",
 		back={ name="Rosmerta's Cape", augments={'Accuracy+20 Attack+20','Accuracy+5','"Store TP"+10',}},
 	}
 
---35 Magic Haste(22 DW to cap with DW3/17DW to cap with DW4)
+--35 Magic Haste(22 DW to cap with DW3)
 	sets.engaged.dps.haste35 = set_combine(sets.engaged.dps.hastecap,{
-		waist="Reiki Yotai",
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, -- 6DW
+		waist="Reiki Yotai", --7DW
+		left_ear="Suppanomimi", -- 5DW
+		right_ear="Eabani Earring", -- 4 DW
 	})
 
---30 Magic Haste or lower (31DW to cap with DW3/26DW to cap with DW4
+--30 Magic Haste or lower (31DW to cap with DW3
  
-	sets.engaged.dps.haste30 = set_combine(sets.engaged.dps.haste35,{
-		back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}},
+	sets.engaged.dps.haste30 = set_combine(sets.engaged.dps.hastecap,{
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, -- 6DW
+		waist="Reiki Yotai", --7DW
+		left_ear="Suppanomimi", -- 5DW
+		right_ear="Eabani Earring", -- 4 DW
+		feet={ name="Taeon Boots", augments={'Accuracy+25','"Dual Wield"+5','DEX+10',}}, --9 DW
 	})
+
+-- 15 Magic Haste (42DW to cap with DW 3)
+	sets.engaged.dps.haste15 = set_combine(sets.engaged.dps.hastecap,{
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, -- 6DW
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}}, --6DW
+		feet={ name="Taeon Boots", augments={'Accuracy+25','"Dual Wield"+5','DEX+10',}}, --9 DW
+		waist="Reiki Yotai", --7DW
+		left_ear="Suppanomimi", -- 5DW
+		back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}}, --10DW
+	})
+
+-- 0 Magic Haste (49DW to cap with DW3)
+	
+	sets.engaged.dps.haste0 = set_combine(sets.engaged.dps.hastecap,{
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, -- 6DW
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}}, --6DW
+		feet={ name="Taeon Boots", augments={'Accuracy+25','"Dual Wield"+5','DEX+10',}}, --9 DW
+		waist="Reiki Yotai", --7DW
+		left_ear="Suppanomimi", -- 5DW
+		right_ear="Eabani Earring", -- 4 DW
+		back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}}, --10DW
+	})
+
 
 ---- PRECAST SETS ----
     sets.precast.fastcast = {
@@ -582,11 +643,24 @@ function idle()
 				elseif Mode == "DPS" then
 					equip(sets.engaged.dps.haste35)
 				end
-			else
+			elseif ( ( buffactive[580] or buffactive[33] or buffactive.march == 2 ) or
+            ( buffactive.march == 1 and buffactive[604] ) ) then
 				if Mode == "Hybrid" then
 					equip(sets.engaged.hybrid.haste30)
 				elseif Mode == "DPS" then
 					equip(sets.engaged.dps.haste30)
+				end
+			elseif ( buffactive.march == 1 or buffactive[604] ) then
+				if Mode == "Hybrid" then
+					equip(sets.engaged.hybrid.haste15)
+				elseif Mode == "DPS" then
+					equip(sets.engaged.dps.haste15)
+				end
+			else
+				if Mode == "Hybrid" then
+					equip(sets.engaged.hybrid.haste0)
+				elseif Mode == "DPS" then
+					equip(sets.engaged.dps.haste0)
 				end
 			end
 		else
@@ -611,11 +685,26 @@ function idle()
 				elseif Mode == "DPSHaste1" then
 					equip(sets.engaged.dps.haste35)
 				end
-			else
+			elseif ( buffactive.march == 2 ) or -- two marches from ghorn
+            ( (buffactive[33] or buffactive[604]) and buffactive.march == 1 ) or  -- MG or haste + 1 march
+            ( buffactive[580] ) or  -- geo haste
+            ( buffactive[33] and buffactive[604] ) then -- haste with MG
 				if Mode == "HybridHaste1" then
 					equip(sets.engaged.hybrid.haste30)
 				elseif Mode == "DPSHaste1" then
 					equip(sets.engaged.dps.haste30)
+				end
+			elseif buffactive[33] or buffactive[604] or buffactive.march == 1 then
+				if Mode == "HybridHaste1" then
+					equip(sets.engaged.hybrid.haste15)
+				elseif Mode == "DPSHaste1" then
+					equip(sets.engaged.dps.haste15)
+				end
+			else
+				if Mode == "HybridHaste1" then
+					equip(sets.engaged.hybrid.haste0)
+				elseif Mode == "DPSHaste1" then
+					equip(sets.engaged.dps.haste0)
 				end
 			end
 		else
