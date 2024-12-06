@@ -133,6 +133,7 @@ Max - 41 DW
 		-- Ambu DW Cape
 	}
 	sets.engaged.hybrid.hastecapNINenspell = set_combine(sets.engaged.hybrid.hastecapNIN,{
+		head="Umuthi Hat",
 		hands="Aya. Manopolas +2",
 		waist="Orpheus's Sash",
 	})
@@ -153,6 +154,7 @@ Max - 41 DW
 		-- Ambu cape --10DW
 	}
 	sets.engaged.hybrid.hastecapDNCenspell = set_combine(sets.engaged.hybrid.hastecapDNC,{
+		head="Umuthi Hat",
 		hands="Aya. Manopolas +2",
 		waist="Orpheus's Sash",
 	})
@@ -165,6 +167,7 @@ Max - 41 DW
 		-- Ambu cape --10DW
 	})
 	sets.engaged.hybrid.haste35NINenspell = set_combine(sets.engaged.hybrid.haste35NIN,{
+		head="Umuthi Hat",
 		hands="Aya. Manopolas +2",
 		waist="Orpheus's Sash",
 	})
@@ -177,18 +180,20 @@ Max - 41 DW
 		-- Ambu cape --10DW
 	})
 	sets.engaged.hybrid.haste35DNCenspell = set_combine(sets.engaged.hybrid.haste35DNC,{
+		head="Umuthi Hat",
 		hands="Aya. Manopolas +2",
 		waist="Orpheus's Sash",
 	})
 
 ---- 30 Haste (need 31 DW (nin)/ 41DW (dnc)) ----
-	sets.engaged.hybrid.haste30 = set_combine(sets.engaged.hybrid.hastecapNIN,{
+	sets.engaged.hybrid.haste30NIN = set_combine(sets.engaged.hybrid.hastecapNIN,{
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}}, --6DW
 		feet={ name="Taeon Boots", augments={'Accuracy+25','"Dual Wield"+5','DEX+10',}}, --9 DW
 		left_ear="Suppanomimi", -- 5DW
 		-- Ambu cape --10DW
 	})
 	sets.engaged.hybrid.haste30NINenspell = set_combine(sets.engaged.hybrid.haste30NIN,{
+		head="Umuthi Hat",
 		hands="Aya. Manopolas +2",
 		waist="Orpheus's Sash",
 	})
@@ -202,6 +207,7 @@ Max - 41 DW
 		-- Ambu cape --10DW
 	})
 	sets.engaged.hybrid.haste30DNCenspell = set_combine(sets.engaged.hybrid.haste30DNC,{
+		head="Umuthi Hat",
 		hands="Aya. Manopolas +2",
 		waist="Orpheus's Sash",
 	})
@@ -216,6 +222,7 @@ Max - 41 DW
 		-- Ambu cape --10DW
 	})
 	sets.engaged.hybrid.haste15NINenspell = set_combine(sets.engaged.hybrid.haste15NIN,{
+		head="Umuthi Hat",
 		hands="Aya. Manopolas +2",
 		waist="Orpheus's Sash",
 	})
@@ -280,7 +287,12 @@ Max - 41 DW
 	
 	sets.midcast.cursna = {}
 	
-	sets.midcast.fastcast = {}
+	sets.midcast.fastcast = {
+		head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+		body={ name="Merlinic Jubbah", augments={'Mag. Acc.+26','"Fast Cast"+6','MND+6',}},
+		legs={ name="Lengo Pants", augments={'INT+8','Mag. Acc.+14','"Mag.Atk.Bns."+13',}},
+		feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+6','"Fast Cast"+6','Mag. Acc.+13',}},
+	}
 		--Fastcast here.
 	
 	sets.midcast.bio = {}
