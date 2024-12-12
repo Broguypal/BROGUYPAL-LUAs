@@ -62,7 +62,7 @@ Modes = {'HybridMB','Tank','HybridFreeCast'}
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Defending Ring",
 		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-		back="Moonbeam Cape",
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
 	
 	
@@ -80,7 +80,7 @@ Modes = {'HybridMB','Tank','HybridFreeCast'}
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Defending Ring",
 		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-		back="Moonbeam Cape",
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
 
 
@@ -112,7 +112,7 @@ Max - 41 DW
 		right_ear="Crep. Earring",
 		left_ring="Fickblix's Ring",
 		right_ring="Ilabrat Ring",
-		back="Moonbeam Cape",
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
 
 
@@ -130,7 +130,7 @@ Max - 41 DW
 		right_ear="Crep. Earring",
 		left_ring="Fickblix's Ring",
 		right_ring="Ilabrat Ring",
-		-- Ambu DW Cape
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
 	sets.engaged.hybrid.hastecapNINenspell = set_combine(sets.engaged.hybrid.hastecapNIN,{
 		head="Umuthi Hat",
@@ -151,7 +151,7 @@ Max - 41 DW
 		right_ear="Eabani Earring", --4DW
 		left_ring="Fickblix's Ring",
 		right_ring="Ilabrat Ring",
-		-- Ambu cape --10DW
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
 	sets.engaged.hybrid.hastecapDNCenspell = set_combine(sets.engaged.hybrid.hastecapDNC,{
 		head="Umuthi Hat",
@@ -164,7 +164,7 @@ Max - 41 DW
 	sets.engaged.hybrid.haste35NIN = set_combine(sets.engaged.hybrid.hastecapNIN,{
 		feet={ name="Taeon Boots", augments={'Accuracy+25','"Dual Wield"+5','DEX+10',}}, --9 DW
 		right_ear="Eabani Earring", -- 4 DW
-		-- Ambu cape --10DW
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	})
 	sets.engaged.hybrid.haste35NINenspell = set_combine(sets.engaged.hybrid.haste35NIN,{
 		head="Umuthi Hat",
@@ -177,7 +177,7 @@ Max - 41 DW
 		feet={ name="Taeon Boots", augments={'Accuracy+25','"Dual Wield"+5','DEX+10',}}, --9 DW
 		left_ear="Suppanomimi", -- 5DW
 		right_ear="Eabani Earring", -- 4 DW
-		-- Ambu cape --10DW
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	})
 	sets.engaged.hybrid.haste35DNCenspell = set_combine(sets.engaged.hybrid.haste35DNC,{
 		head="Umuthi Hat",
@@ -190,7 +190,7 @@ Max - 41 DW
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}}, --6DW
 		feet={ name="Taeon Boots", augments={'Accuracy+25','"Dual Wield"+5','DEX+10',}}, --9 DW
 		left_ear="Suppanomimi", -- 5DW
-		-- Ambu cape --10DW
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	})
 	sets.engaged.hybrid.haste30NINenspell = set_combine(sets.engaged.hybrid.haste30NIN,{
 		head="Umuthi Hat",
@@ -204,7 +204,7 @@ Max - 41 DW
 		waist="Reiki Yotai", --7DW
 		left_ear="Suppanomimi", -- 5DW
 		right_ear="Eabani Earring", -- 4 DW
-		-- Ambu cape --10DW
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	})
 	sets.engaged.hybrid.haste30DNCenspell = set_combine(sets.engaged.hybrid.haste30DNC,{
 		head="Umuthi Hat",
@@ -219,7 +219,7 @@ Max - 41 DW
 		waist="Reiki Yotai", --7DW
 		left_ear="Suppanomimi", -- 5DW
 		right_ear="Eabani Earring", -- 4 DW
-		-- Ambu cape --10DW
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	})
 	sets.engaged.hybrid.haste15NINenspell = set_combine(sets.engaged.hybrid.haste15NIN,{
 		head="Umuthi Hat",
@@ -315,6 +315,7 @@ Max - 41 DW
 		right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
 		left_ring="Sroda Ring",
 		right_ring="Epaminondas's Ring",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 	
 	sets.ws.SavageBlade = {
@@ -330,6 +331,7 @@ Max - 41 DW
 		right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
 		left_ring="Sroda Ring",
 		right_ring="Epaminondas's Ring",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 	
 	sets.ws.ChantDuCygne = {
@@ -345,6 +347,7 @@ Max - 41 DW
 		right_ear="Sherida Earring",
 		left_ring="Begrudging Ring",
 		right_ring="Ilabrat Ring",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 	
 	sets.ws.DeathBlossom = {
@@ -360,6 +363,7 @@ Max - 41 DW
 		right_ear="Malignance Earring",
 		left_ring="Sroda Ring",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 	
 	sets.ws.Requiscat = {
@@ -375,6 +379,7 @@ Max - 41 DW
 		right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
 		left_ring="Sroda Ring",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 	
 	sets.ws.SanguineBlade = {
@@ -390,6 +395,7 @@ Max - 41 DW
 		right_ear="Malignance Earring",
 		left_ring="Archon Ring",
 		right_ring="Epaminondas's Ring",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 	
 	sets.ws.SeraphBlade = {
@@ -405,6 +411,7 @@ Max - 41 DW
 		right_ear="Malignance Earring",
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Epaminondas's Ring",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 	
 	sets.ws.RedLotusBlade = {
@@ -420,6 +427,7 @@ Max - 41 DW
 		right_ear="Malignance Earring",
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Epaminondas's Ring",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 	
 	sets.ws.Evisceration = {
@@ -435,6 +443,7 @@ Max - 41 DW
 		right_ear="Sherida Earring",
 		left_ring="Begrudging Ring",
 		right_ring="Ilabrat Ring",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 	
 	sets.ws.BlackHalo = {
@@ -450,6 +459,7 @@ Max - 41 DW
 		right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
 		left_ring="Sroda Ring",
 		right_ring="Epaminondas's Ring",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 
 	sets.ws.AeolianEdge = {
@@ -465,6 +475,7 @@ Max - 41 DW
 		right_ear="Malignance Earring",
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Epaminondas's Ring",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 
 ---------------------------	ITEM SETS	---------------------------
