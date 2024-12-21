@@ -23,6 +23,7 @@ function file_unload()
 	send_command('unbind f11')
 	send_command('unbind f12')
     enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
+	send_command('console_displayactivity 1')
 end
 
 function get_sets()
@@ -231,6 +232,11 @@ Max - 41 DW
 --------------- PRECAST SETS ------------------
 	--Fastcast Set
     sets.precast.fastcast = {
+		head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+		body={ name="Merlinic Jubbah", augments={'Mag. Acc.+26','"Fast Cast"+6','MND+6',}},
+		legs={ name="Lengo Pants", augments={'INT+8','Mag. Acc.+14','"Mag.Atk.Bns."+13',}},
+		feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+6','"Fast Cast"+6','Mag. Acc.+13',}},
+		neck="Voltsurge Torque",
 	}
 	
 ---- JOB ABILITY SETS ----
@@ -252,30 +258,169 @@ Max - 41 DW
 		waist="Hachirin-no-Obi",
 	})
 
-	sets.midcast.magicBURST = {}
+	sets.midcast.magicBURST = {
+		range="Ullr",
+		head="Leth. Chappel +2",
+		body="Lethargy Sayon +2",
+		hands="Leth. Ganth. +2",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Luminary Sash",
+		left_ear="Crep. Earring",
+		right_ear="Malignance Earring",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		right_ring="Stikini Ring +1",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
+	}
 	
 	sets.midcast.magicBURSTobi = set_combine(sets.midcast.magicBURST,{
 		waist="Hachirin-no-Obi",
 	})
 
 
-	sets.midcast.magicACC = {}
-
-	sets.midcast.aspir = {}
 	
-	sets.midcast.enfeebleMND = {}
-		--MND based enfeeble
-		
-	sets.midcast.enfeebleINT = {}
-		--INT based
 
-	sets.midcast.enfeebleSKILL = {}
+	
+	
+	sets.midcast.enfeebleDURATION = {
+	    range="Ullr",
+		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		body="Lethargy Sayon +2",
+		hands="Leth. Ganth. +2",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Luminary Sash",
+		left_ear="Crep. Earring",
+		right_ear="Malignance Earring",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		right_ring="Stikini Ring +1",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
+	}
+	
+	sets.midcast.enfeeblePOTENCY = {
+		range="Ullr",
+		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		body="Lethargy Sayon +2",
+		hands="Leth. Ganth. +2",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Luminary Sash",
+		left_ear="Crep. Earring",
+		right_ear="Malignance Earring",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		right_ring="Stikini Ring +1",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
+	}
+	
+	sets.midcast.enfeebleMNDPOTENCY = {
+		range="Ullr",
+		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		body="Lethargy Sayon +2",
+		hands="Leth. Ganth. +2",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Luminary Sash",
+		left_ear="Crep. Earring",
+		right_ear="Malignance Earring",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		right_ring="Stikini Ring +1",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
+	}
+		--MND based enfeeble
+
+	sets.midcast.enfeebleINTPOTENCY = {
+		range="Ullr",
+		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		body="Lethargy Sayon +2",
+		hands="Leth. Ganth. +2",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Luminary Sash",
+		left_ear="Crep. Earring",
+		right_ear="Malignance Earring",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		right_ring="Stikini Ring +1",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
+	}
+		--INT based
+	
+	sets.midcast.enfeebleSKILL= {
+		range="Ullr",
+		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		body="Lethargy Sayon +2",
+		hands="Leth. Ganth. +2",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Luminary Sash",
+		left_ear="Crep. Earring",
+		right_ear="Malignance Earring",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		right_ring="Stikini Ring +1",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
+	
+	}
+	
+	sets.midcast.enfeebleDIA = {
+		range="Ullr",
+		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		body="Lethargy Sayon +2",
+		hands="Leth. Ganth. +2",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Luminary Sash",
+		left_ear="Crep. Earring",
+		right_ear="Malignance Earring",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		right_ring="Stikini Ring +1",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
+	}
+	
+	sets.midcast.enfeebleBIO = {
+		range="Ullr",
+		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		body="Lethargy Sayon +2",
+		hands="Leth. Ganth. +2",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Luminary Sash",
+		left_ear="Crep. Earring",
+		right_ear="Malignance Earring",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		right_ring="Stikini Ring +1",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
+	}
+	
+	sets.midcast.aspir = {
+		range="Ullr",
+		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		body="Lethargy Sayon +2",
+		hands="Leth. Ganth. +2",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Luminary Sash",
+		left_ear="Crep. Earring",
+		right_ear="Malignance Earring",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		right_ring="Stikini Ring +1",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
+	}
 	
 	sets.midcast.enhanceDURATION = {}
 	
 	sets.midcast.enhanceSKILL = {}
 	
-	sets.midcast.enhanceINT = {}
+	sets.midcast.enhanceSPIKES = {}
+	
+	sets.midcast.enhanceGAIN = {}
 	
 	sets.midcast.stoneskin = {}
 	
@@ -283,15 +428,31 @@ Max - 41 DW
 	
 	sets.midcast.phalanxOTHERS = {}
 	
-	sets.midcast.cure = {}
+	sets.midcast.cure = {
+		ammo="Staunch Tathlum +1",
+		head={ name="Kaykaus Mitra +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
+		body="Bunzi's Robe",
+		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
+		legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
+		feet={ name="Kaykaus Boots +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist="Plat. Mog. Belt",
+		left_ear="Mendi. Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
+	}
 	
 	sets.midcast.cursna = {}
 	
+
 	sets.midcast.fastcast = {
 		head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
 		body={ name="Merlinic Jubbah", augments={'Mag. Acc.+26','"Fast Cast"+6','MND+6',}},
 		legs={ name="Lengo Pants", augments={'INT+8','Mag. Acc.+14','"Mag.Atk.Bns."+13',}},
 		feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+6','"Fast Cast"+6','Mag. Acc.+13',}},
+		neck="Voltsurge Torque",
 	}
 		--Fastcast here.
 	
@@ -387,8 +548,8 @@ Max - 41 DW
 		head="Pixie Hairpin +1",
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands="Jhakri Cuffs +2",
-		legs={ name="Nyame Flanchard", augments={'Path: B',}},
-		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
 		neck="Sibyl Scarf",
 		waist="Orpheus's Sash",
 		left_ear="Friomisi Earring",
@@ -532,8 +693,10 @@ end)
 function status_change(new,old)
 	if new == "Engaged" then
 		idle()
+		send_command('input //gs disable main; input //gs disable sub; input //gs disable range')
 	else
 		idle()
+		send_command('input //gs enable main; input //gs enable sub; input //gs enable range')
 	end
 end
 
@@ -708,22 +871,29 @@ function midcast(spell)
 		else
 			idle()
 		end
-	elseif spell.name:match('Sleep') or spell.name:match('Sleepga') or spell.name:match('Bind') or spell.name:match('Break') or spell.name:match('Silence') or spell.name:match('Inundation') or spell.name:match('Gravity') or spell.name:match('Dispel') then
-		equip(sets.midcast.magicACC)
+
+	elseif spell.name:match('Sleep') or spell.name:match('Sleepga') or spell.name:match('Bind') or spell.name:match('Break') or spell.name:match('Silence') or spell.name:match('Gravity') then
+		equip(sets.midcast.enfeebleDURATION)
+	elseif spell.name:match('Paralyze') or spell.name:match('Addle') or spell.name:match('Slow') or spell.name:match('Distract') or spell.name:match('Frazzle') then
+		equip(sets.midcast.enfeebleMNDPOTENCY)
+	elseif spell.name:match('Blind') then
+		equip(sets.midcast.enfeebleINTPOTENCY)
+	elseif spell.name:match('Dispel') or spell.name:match('Poison') then
+		equip(sets.midcast.enfeebleSKILL)
+	elseif spell.name:match('Dia') or spell.name:match('Diaga') or spell.name:match('Inundation') then
+		equip(sets.midcast.enfeebleDIA)
+	elseif spell.name:match('Bio') then
+		equip (sets.midcast.enfeebleBIO)
 	elseif spell.name:match('Drain') or spell.name:match('Aspir') then
 		equip(sets.midcast.aspir)
-	elseif spell.name:match('Paralyze') or spell.name:match('Addle') or spell.name:match('Slow') or spell.name:match('Distract') or spell.name:match('Frazzle') then
-		equip(sets.midcast.enfeebleMND)
-	elseif spell.name:match('Blind') then
-		equip(sets.midcast.enfeebleINT)
-	elseif spell.name:match('Poison') or spell.name:match('Dia') or spell.name:match('Diaga') then
-		equip(sets.midcast.enfeebleSKILL)
 	elseif spell.name:match('Haste') or spell.name:match('Flurry') or spell.name:match('Blink') or spell.name:match('Protect') or spell.name:match('Shell') or spell.name:match('Refresh') or spell.name:match('Gain-VIT') or spell.name:match('Gain-MIND') or spell.name:match('Gain-CHR') or spell.name:match('Gain-AGI') or spell.name:match('Gain-STR') or spell.name:match('Gain-INT') or spell.name:match('Gain-DEX') then
 		equip(sets.midcast.enhanceDURATION)
 	elseif spell.name:match('Temper') or spell.name:match('Aquaveil') or spell.name:match('Enfire') or spell.name:match('Enblizzard') or spell.name:match('Enaero') or spell.name:match('Enstone') or spell.name:match('Enthunder') or spell.name:match('Enwater') or spell.name:match('Barfire') or spell.name:match('Barblizzard') or spell.name:match('Baraero') or spell.name:match('Barstone') or spell.name:match('Barthunder') or spell.name:match('Barwater') or spell.name:match('Barsleep') or spell.name:match('Barpoison') or spell.name:match('Barparalyze') or spell.name:match('Barblind') or spell.name:match('Barsilence') or spell.name:match('Barvirus') or spell.name:match('Barpetrify') or spell.name:match('Baramnesia') then
 		equip(sets.midcast.enhanceSKILL)
 	elseif spell.name:match('Blaze Spikes') or spell.name:match('Ice Spikes') or spell.name:match('Shock Spikes') then
-		equip(sets.midcast.enhanceINT)
+		equip(sets.midcast.enhanceSPIKES)
+	elseif spell.name:match('Gain') then
+		equip (sets.midcast.enhanceGAIN)
 	elseif spell.name:match('Stoneskin') then
 		equip(sets.midcast.stoneskin)
 	elseif spell.name:match('Phalanx') then
@@ -738,8 +908,6 @@ function midcast(spell)
 		equip(sets.midcast.cursna)
 	elseif spell.name:match('Raise') or spell.name:match('Invisible') or spell.name:match('Sneak') or spell.name:match('Deodorize') then
 		equip(sets.midcast.fastcast)
-	elseif spell.name:match('Bio') then
-		equip (sets.midcast.bio)
 	elseif spell.type == "WeaponSkill" then 
 		if spell.english == "Savage Blade" then
 			equip(sets.ws.SavageBlade)

@@ -40,7 +40,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 
 Mode = "Hybrid"
 
-Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','EvasionTank','DPS','DPSHaste1'}
+Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','EvasionTank','MagicEvasionTank','DPS','DPSHaste1'}
 
     sets.idle = {}               	-- Leave this empty.   
 	sets.engaged = {}				-- Leave this empty.
@@ -131,6 +131,23 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		right_ring="Hizamaru Ring",
 		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','Evasion+15',}},
 		}
+	
+	--Magic Evasion Tank Idle
+	sets.idle.magicevasion = {
+		ammo="Date Shuriken",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Warder's Charm +1",
+		waist="Engraved Belt",
+		left_ear="Eabani Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','Evasion+15',}},
+	}
 
 --------------- ENGAGED SETS ------------------
 ---- TANK Engaged Sets ----
@@ -192,6 +209,23 @@ Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','Evas
 		legs="Hattori Hakama +2",
 		})
 
+---- Magic Evasion Engaged Set----
+	sets.engaged.evasion.magic = {
+	    ammo="Date Shuriken",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+		waist="Engraved Belt",
+		left_ear="Eabani Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Store TP"+10','Evasion+15',}},
+	}
+	
 ----Hybrid / Malignance / DPS engaged sets ----
 
 ---- Capped Haste (need 1 DW - negligible) ----
@@ -1056,6 +1090,12 @@ function idle()
 				equip(sets.idle.evasion)
 			end
 		end
+	elseif Mode == "MagicEvasionTank" then
+		if player.status == "Engaged" then
+			equip(sets.engaged.evasion.magic)
+		else
+			equip(sets.idle.magicevasion)
+		end
 	end
 end
 
@@ -1213,13 +1253,13 @@ function self_command(command)
 			Mode = "HybridHaste1"
 			send_command('console_echo "HybridHaste1"')
 			idle()
-		elseif Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "AoETank" or Mode == "EvasionTank" or Mode == "DPS" or Mode == "DPSHaste1" then
+		elseif Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "AoETank" or Mode == "EvasionTank" or Mode == "MagicEvasionTank" or Mode == "DPS" or Mode == "DPSHaste1" then
 			Mode = "Hybrid"
 			send_command('console_echo "Hybrid"')
 			idle()
 		end
 	elseif command == "ToggleTank" then
-		if Mode == "Hybrid" or Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "EvasionTank" or Mode == "DPS" or Mode == "DPSHaste1" then
+		if Mode == "Hybrid" or Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "MagicEvasionTank" or Mode == "DPS" or Mode == "DPSHaste1" then
 			Mode = "AoETank"
 			send_command('console_echo "AoETank"')
 			idle()
@@ -1227,13 +1267,17 @@ function self_command(command)
 			Mode = "EvasionTank"
 			send_command('console_echo "EvasionTank"')
 			idle()
+		elseif Mode == "EvasionTank" then
+			Mode = "MagicEvasionTank"
+			send_command('console_echo "MagicEvasionTank"')
+			idle()
 		end
 	elseif command == "ToggleMalignance" then
 		if Mode == "Malignance" then
 			Mode = "MalignanceHaste1"
 			send_command('console_echo "MalignanceHaste1"')
 			idle()
-		elseif Mode == "Hybrid" or Mode == "HybridHaste1" or Mode == "MalignanceHaste1" or Mode == "AoETank" or Mode == "EvasionTank" or Mode == "DPS" or Mode == "DPSHaste1" then
+		elseif Mode == "Hybrid" or Mode == "HybridHaste1" or Mode == "MalignanceHaste1" or Mode == "AoETank" or Mode == "EvasionTank" or Mode == "MagicEvasionTank" or Mode == "DPS" or Mode == "DPSHaste1" then
 			Mode = "Malignance"
 			send_command('console_echo "Malignance"')
 			idle()
@@ -1243,7 +1287,7 @@ function self_command(command)
 			Mode = "DPSHaste1"
 			send_command('console_echo "DPSHaste1"')
 			idle()
-		elseif Mode == "Hybrid" or Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "AoETank" or Mode == "EvasionTank" or Mode == "DPSHaste1" then
+		elseif Mode == "Hybrid" or Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "AoETank" or Mode == "EvasionTank" or Mode == "MagicEvasionTank" or Mode == "DPSHaste1" then
 			Mode = "DPS"
 			send_command('console_echo "DPS"')
 			idle()
