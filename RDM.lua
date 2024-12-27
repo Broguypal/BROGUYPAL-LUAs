@@ -301,7 +301,7 @@ Modes = {'MeleeMagicBurst','MeleeFreeCast','ZeroTPEnspell','CasterMagicBurst','C
 	sets.midcast.aspir = {
 		sub="Ammurapi Shield",
 		range="Ullr",
-		head="Leth. Chappel +2",
+		head="Pixie Hairpin +1",
 		body="Lethargy Sayon +2",
 		hands="Leth. Ganth. +2",
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+6','Mag. Acc.+13',}},
@@ -311,7 +311,7 @@ Modes = {'MeleeMagicBurst','MeleeFreeCast','ZeroTPEnspell','CasterMagicBurst','C
 		left_ear="Malignance Earring",
 		right_ear="Snotra Earring",
 		left_ring="Evanescence Ring",
-		right_ring="Stikini Ring +1",
+		left_ring="Archon Ring",
 		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 
@@ -319,8 +319,10 @@ Modes = {'MeleeMagicBurst','MeleeFreeCast','ZeroTPEnspell','CasterMagicBurst','C
 --Enspells / Temper
 	sets.midcast.enhanceSKILL = {}
 
---Haste/Flurry/Protect/Shell/Blink
+--Haste/Flurry/Protect/Shell/Blink/Barspells
 	sets.midcast.enhanceDURATION = {}
+	
+	sets.midcast.enhanceOTHERS = {}
 	
 	--- NEED DUration for others enhancing here
 
@@ -689,28 +691,28 @@ end
 
 
 function midcast(spell)
-	if spell.type == "Trust" then
-		equip(sets.midcast.trust)
-	elseif spell.name:match('Fire') or spell.name:match('Blizzard') or spell.name:match('Aero') or spell.name:match('Stone') or spell.name:match('Thunder') or spell.name:match('Water') then
-		if Mode == "MeleeMagicBurst" or Mode == "CasterMagicBurst" then
-			if spell.element == world.day_element or spell.element == world.weather_element then
-				if spell.name:match('Fire') and world.day_element ~= "Water" and world.weather_element ~= "Water" then
-					equip(sets.midcast.elementalBURSTobi)
-				elseif spell.name:match('Water') and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
-					equip(sets.midcast.elementalBURSTobi)
-				elseif spell.name:match('Thunder') and world.day_element ~= "Earth" and world.weather_element ~= "Earth" then
-					equip(sets.midcast.elementalBURSTobi)
-				elseif spell.name:match('Stone') and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
-					equip(sets.midcast.elementalBURSTobi)
-				elseif spell.name:match('Aero') and world.day_element ~= "Ice" and world.weather_element ~= "Ice" then
-					equip(sets.midcast.elementalBURSTobi)
-				elseif spell.name:match('Blizzard') and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
-					equip(sets.midcast.elementalBURSTobi)
+	if spell.skill == "Elemental Magic" then
+		if spell.name:match('Fire') or spell.name:match('Blizzard') or spell.name:match('Aero') or spell.name:match('Stone') or spell.name:match('Thunder') or spell.name:match('Water') then
+			if Mode == "MeleeMagicBurst" or Mode == "CasterMagicBurst" then
+				if spell.element == world.day_element or spell.element == world.weather_element then
+					if spell.name:match('Fire') and world.day_element ~= "Water" and world.weather_element ~= "Water" then
+						equip(sets.midcast.elementalBURSTobi)
+					elseif spell.name:match('Water') and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
+						equip(sets.midcast.elementalBURSTobi)
+					elseif spell.name:match('Thunder') and world.day_element ~= "Earth" and world.weather_element ~= "Earth" then
+						equip(sets.midcast.elementalBURSTobi)
+					elseif spell.name:match('Stone') and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
+						equip(sets.midcast.elementalBURSTobi)
+					elseif spell.name:match('Aero') and world.day_element ~= "Ice" and world.weather_element ~= "Ice" then
+						equip(sets.midcast.elementalBURSTobi)
+					elseif spell.name:match('Blizzard') and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
+						equip(sets.midcast.elementalBURSTobi)
+					else
+						equip(sets.midcast.elementalBURST)
+					end
 				else
 					equip(sets.midcast.elementalBURST)
 				end
-			else
-				equip(sets.midcast.elementalBURST)
 			end
 		elseif Mode == "MeleeFreeCast" or Mode == "CasterFreecast" or Mode == "ZeroTPEnspell" then
 			if spell.element == world.day_element or spell.element == world.weather_element then
@@ -735,76 +737,88 @@ function midcast(spell)
 		else
 			idle()
 		end
-	elseif spell.name:match('Sleep') or spell.name:match('Sleepga') or spell.name:match('Bind') or spell.name:match('Break') or spell.name:match('Silence') then
-		if Mode == "CasterMagicFreecast" then
-			equip(sets.midcast.enfeebleMAXacc)
-		else
-			equip(sets.midcast.enfeebleDURATION)
+	elseif spell.skill == "Enfeebling Magic" then
+		if spell.name:match('Sleep') or spell.name:match('Sleepga') or spell.name:match('Bind') or spell.name:match('Break') or spell.name:match('Silence') then
+			if Mode == "CasterMagicFreecast" then
+				equip(sets.midcast.enfeebleMAXacc)
+			else
+				equip(sets.midcast.enfeebleDURATION)
+			end
+		elseif spell.name:match('Paralyze') or spell.name:match('Addle') or spell.name:match('Slow') or spell.name:match('Poison') then
+			if Mode == "CasterMagicFreecast" then
+				equip(sets.midcast.enfeebleMAXacc)
+			else
+				equip(sets.midcast.enfeeblePOTENCY)
+			end
+		elseif spell.name:match('Distract') or spell.name:match('Frazzle') then
+			if Mode == "CasterMagicFreecast" then
+				equip(sets.midcast.enfeebleMAXacc)
+			else
+				equip(sets.midcast.FrazzleDistract)
+			end
+		elseif spell.name:match('Gravity') or spell.name:match('Dispel') then
+			if Mode == "CasterMagicFreecast" then
+				equip(sets.midcast.enfeebleMAXacc)
+			else
+				equip(sets.midcast.GravityDispel)
+			end
+		elseif spell.name:match('Blind') then
+			if Mode == "CasterMagicFreecast" then
+				equip(sets.midcast.enfeebleMAXacc)
+			else
+				equip(sets.midcast.blind)
+			end
+		elseif spell.name:match('Dia') or spell.name:match('Diaga') or spell.name:match('Inundation') then
+			equip(sets.midcast.enfeebleDIA)
 		end
-	elseif spell.name:match('Paralyze') or spell.name:match('Addle') or spell.name:match('Slow') or spell.name:match('Poison') then
-		if Mode == "CasterMagicFreecast" then
-			equip(sets.midcast.enfeebleMAXacc)
-		else
-			equip(sets.midcast.enfeeblePOTENCY)
-		end
-	elseif spell.name:match('Distract') or spell.name:match('Frazzle') then
-		if Mode == "CasterMagicFreecast" then
-			equip(sets.midcast.enfeebleMAXacc)
-		else
-			equip(sets.midcast.FrazzleDistract)
-		end
-	elseif spell.name:match('Gravity') or spell.name:match('Dispel') then
-		if Mode == "CasterMagicFreecast" then
-			equip(sets.midcast.enfeebleMAXacc)
-		else
-			equip(sets.midcast.GravityDispel)
-		end
-	elseif spell.name:match('Blind') then
-		if Mode == "CasterMagicFreecast" then
-			equip(sets.midcast.enfeebleMAXacc)
-		else
-			equip(sets.midcast.blind)
-		end
-	elseif spell.name:match('Dia') or spell.name:match('Diaga') or spell.name:match('Inundation') then
-		equip(sets.midcast.enfeebleDIA)
-	elseif spell.name:match('Bio') then
-		if Mode == "CasterMagicFreecast" then
-			equip(sets.midcast.enfeebleMAXacc)
-		else
-			equip (sets.midcast.enfeebleBIO)
-		end
-	elseif spell.name:match('Drain') or spell.name:match('Aspir') then
-		if Mode == "CasterMagicFreecast" then
-			equip(sets.midcast.enfeebleMAXacc)
-		else
+	elseif spell.skill == "Dark Magic" then
+		if spell.name:match('Drain') or spell.name:match('Aspir') then
 			equip(sets.midcast.aspir)
+		elseif spell.name:match('Bio') then
+			if Mode == "CasterMagicFreecast" then
+				equip(sets.midcast.enfeebleMAXacc)
+			else
+				equip (sets.midcast.enfeebleBIO)
+			end
 		end
-	elseif spell.name:match('Haste') or spell.name:match('Flurry') or spell.name:match('Blink') or spell.name:match('Protect') or spell.name:match('Shell') then
-		equip(sets.midcast.enhanceDURATION)
-	elseif spell.name:match('Temper') or spell.name:match('Enfire') or spell.name:match('Enblizzard') or spell.name:match('Enaero') or spell.name:match('Enstone') or spell.name:match('Enthunder') or spell.name:match('Enwater') or spell.name:match('Barfire') or spell.name:match('Barblizzard') or spell.name:match('Baraero') or spell.name:match('Barstone') or spell.name:match('Barthunder') or spell.name:match('Barwater') or spell.name:match('Barsleep') or spell.name:match('Barpoison') or spell.name:match('Barparalyze') or spell.name:match('Barblind') or spell.name:match('Barsilence') or spell.name:match('Barvirus') or spell.name:match('Barpetrify') or spell.name:match('Baramnesia') then
-		equip(sets.midcast.enhanceSKILL)
-	elseif spell.name:match('Blaze Spikes') or spell.name:match('Ice Spikes') or spell.name:match('Shock Spikes') then
-		equip(sets.midcast.enhanceSPIKES)
-	elseif spell.name:match('Gain-VIT') or spell.name:match('Gain-MIND') or spell.name:match('Gain-CHR') or spell.name:match('Gain-AGI') or spell.name:match('Gain-STR') or spell.name:match('Gain-INT') or spell.name:match('Gain-DEX') then
-		equip(sets.midcast.enhanceGAIN)
-	elseif spell.name:match('Aquaveil') then
-		equip(sets.midcast.aquaveil)
-	elseif spell.name:match('Refresh') then
-		equip(sets.midcast.refresh)
-	elseif spell.name:match('Stoneskin') then
-		equip(sets.midcast.stoneskin)
-	elseif spell.name:match('Phalanx') then
-		if player.target.type == "Self" then
-			equip(sets.midcast.phalanxSELF)
-		else
-			equip(sets.midcast.phalanxOTHERS)
+	elseif spell.skill == "Enhancing Magic" then
+		if spell.name:match('Haste') or spell.name:match('Flurry') or spell.name:match('Blink') or spell.name:match('Protect') or spell.name:match('Shell') 
+		or spell.name:match('Barfire') or spell.name:match('Barblizzard') or spell.name:match('Baraero') or spell.name:match('Barstone') or spell.name:match('Barthunder') or spell.name:match('Barwater') 
+		or spell.name:match('Barsleep') or spell.name:match('Barpoison') or spell.name:match('Barparalyze') or spell.name:match('Barblind') or spell.name:match('Barsilence') or spell.name:match('Barvirus') or spell.name:match('Barpetrify') or spell.name:match('Baramnesia') then
+			if player.target.type == "Self" then
+				equip(sets.midcast.enhanceDURATION)
+			else
+				equip(sets.midcast.enhanceOTHERS)
+			end
+		elseif spell.name:match('Temper') or spell.name:match('Enfire') or spell.name:match('Enblizzard') or spell.name:match('Enaero') or spell.name:match('Enstone') or spell.name:match('Enthunder') or spell.name:match('Enwater') then
+			equip(sets.midcast.enhanceSKILL)
+		elseif spell.name:match('Blaze Spikes') or spell.name:match('Ice Spikes') or spell.name:match('Shock Spikes') then
+			equip(sets.midcast.enhanceSPIKES)
+		elseif spell.name:match('Gain-VIT') or spell.name:match('Gain-MIND') or spell.name:match('Gain-CHR') or spell.name:match('Gain-AGI') or spell.name:match('Gain-STR') or spell.name:match('Gain-INT') or spell.name:match('Gain-DEX') then
+			equip(sets.midcast.enhanceGAIN)
+		elseif spell.name:match('Aquaveil') then
+			equip(sets.midcast.aquaveil)
+		elseif spell.name:match('Refresh') then
+			equip(sets.midcast.refresh)
+		elseif spell.name:match('Stoneskin') then
+			equip(sets.midcast.stoneskin)
+		elseif spell.name:match('Phalanx') then
+			if player.target.type == "Self" then
+				equip(sets.midcast.phalanxSELF)
+			else
+				equip(sets.midcast.phalanxOTHERS)
+			end
+		elseif spell.name:match('Invisible') or spell.name:match('Sneak') or spell.name:match('Deodorize') then
+			equip(sets.midcast.fastcast)
 		end
-	elseif spell.name:match('Cure') or spell.name:match('Cura') or spell.name:match('Curaga') then
-		equip(sets.midcast.cure)
-	elseif spell.name:match('Cursna') then
-		equip(sets.midcast.cursna)
-	elseif spell.name:match('Raise') or spell.name:match('Invisible') or spell.name:match('Sneak') or spell.name:match('Deodorize') then
-		equip(sets.midcast.fastcast)
+	elseif spell.skill == "Healing Magic" then
+		if spell.name:match('Cure') or spell.name:match('Cura') or spell.name:match('Curaga') then
+			equip(sets.midcast.cure)
+		elseif spell.name:match('Cursna') then
+			equip(sets.midcast.cursna)
+		elseif spell.name:match('Raise') or spell.name:match('Reraise') then
+			equip(sets.midcast.fastcast)
+		end
 	elseif spell.type == "WeaponSkill" then 
 		if spell.english == "Savage Blade" then
 			equip(sets.ws.SavageBlade)
@@ -833,7 +847,9 @@ function midcast(spell)
 		equip(sets.midcast.utsusemi)
 	elseif spell.english == "Holy Water" then
 		equip(sets.items.holywater)
-	else
+	elseif spell.type == "Trust" then
+		equip(sets.midcast.trust)
+	else  
 		idle()
 	end
 end
@@ -859,19 +875,22 @@ function self_command(command)
 			send_command('console_echo "Melee / Free Cast Mode"')
 			idle()
 		end
-	elseif command == "ToggleTank" then
+	end
+	if command == "ToggleTank" then
 		if Mode == "MeleeMagicBurst" or Mode == "MeleeFreeCast" or Mode == "ZeroTPEnspell" or Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
 			Mode = "Tank"
 			send_command('console_echo "Tank Mode"')
 			idle()
 		end
-	elseif command == "ToggleSpecial" then
+	end
+	if command == "ToggleSpecial" then
 		if Mode == "MeleeFreeCast" or Mode == "MeleeMagicBurst" or Mode == "Tank" or Mode == "ZeroTPEnspell" or Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
 			Mode = "ZeroTPEnspell"
 			send_command('console_echo "Zero TP Enspell Mode"')
 			idle()
 		end
-	elseif command == "ToggleCaster" then
+	end
+	if command == "ToggleCaster" then
 		if Mode == "MeleeFreeCast" or Mode == "MeleeMagicBurst" or Mode == "Tank" or Mode == "ZeroTPEnspell" or Mode == "CasterMagicBurst" then
 			Mode = "CasterMagicFreecast"
 			send_command('console_echo "Caster Freecast / Accuracy Mode"')
@@ -882,15 +901,49 @@ function self_command(command)
 			send_command('console_echo "Caster Magic Burst Mode"')
 			idle()
 		end
---[[elseif command == "ToggleMain" then
+	end
+	if command == "ToggleMain" then
 		if Mode == "MeleeFreeCast" or Mode == "MeleeMagicBurst" or Mode == "Tank" then
+			if player.equipment.main == "Crocea Mors" then
+				send_command ('input /equip Main "Naegling"')
+			elseif player.equipment.main == "Naegling" then
+				send_command ('input /equip Main "Tauret"')
+			elseif player.equipment.main == "Tauret" then 
+				send_command ('input /equip Main "Crocea Mors"')
+			elseif player.equipment.main ~= "Tauret" and player.equipment.main ~= "Naegling" and player.equipment.main ~= "Crocea Mors" then
+				send_command ('input /equip Main "Crocea Mors"')
+			end
 		elseif Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
+			if player.equipment.main == "Crocea Mors" then
+				send_command ('input /equip Main "Daybreak"')
+			elseif player.equipment.main == "Daybreak" then
+				send_command ('input /equip Main "Bunzi\'s Rod"')
+			elseif player.equipment.main == "Bunzi\'s Rod" then
+				send_command ('input /equip Main "Crocea Mors"')
+			elseif player.equipment.main ~= "Daybreak" and player.equipment.main ~= "Bunzi\'s Rod" and player.equipment.main ~= "Crocea Mors" then
+				send_command ('input /equip Main "Crocea Mors"')
+			end
 		end
-	elseif command = "ToggleSub" then
+	end
+	if command == "ToggleSub" then
 		if Mode == "MeleeFreeCast" or Mode == "MeleeMagicBurst" or Mode == "Tank" then
+			if player.sub_job =='NIN' or player.sub_job =='DNC' then
+				if player.equipment.sub == "Thibron" then
+					send_command ('input /equip Sub "Daybreak"')
+				elseif player.equipment.sub == "Daybreak" then
+					send_command ('input /equip Sub "Bunzi\'s Rod"')
+				elseif player.equipment.sub == "Bunzi\'s Rod" then
+					send_command ('input /equip Sub "Gleti\'s knife"')
+				elseif player.equipment.sub == "Gleti\'s knife" then
+					send_command ('input /equip Sub "Thibron"')
+				elseif player.equipment.sub ~= "Thibron" and player.equipment.sub ~= "Daybreak" and player.equipment.sub ~= "Bunzi\'s Rod" and player.equipment.sub ~= "Gleti\'s knife" then
+					send_command ('input /equip Sub "Thibron"')
+				end
+			else
+				send_command ('input /equip Sub "Ammurapi shield"')
+			end
 		elseif Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
-		elseif Mode == "ZeroTPEnspell" then
-		-- only swap for shield for emergency situations
-		end]]
+			send_command ('input /equip Sub "Ammurapi shield"')
+		end
 	end
 end
