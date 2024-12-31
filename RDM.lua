@@ -876,7 +876,8 @@ function midcast(spell)
 	elseif spell.skill == "Dark Magic" then
 		if spell.name:match('Drain') or spell.name:match('Aspir') then
 			equip(sets.midcast.aspir)
-		elseif spell.name:match('Bio') then
+		end
+		if spell.name:match('Bio') then
 			if Mode == "CasterMagicFreecast" then
 				equip(sets.midcast.enfeebleMAXacc)
 			else
@@ -884,41 +885,49 @@ function midcast(spell)
 			end
 		end
 	elseif spell.skill == "Enhancing Magic" then
-		if spell.name:match('Haste') or spell.name:match('Flurry') or spell.name:match('Blink') or spell.name:match('Protect') or spell.name:match('Shell') 
-		or spell.name:match('Barfire') or spell.name:match('Barblizzard') or spell.name:match('Baraero') or spell.name:match('Barstone') or spell.name:match('Barthunder') or spell.name:match('Barwater') 
-		or spell.name:match('Barsleep') or spell.name:match('Barpoison') or spell.name:match('Barparalyze') or spell.name:match('Barblind') or spell.name:match('Barsilence') or spell.name:match('Barvirus') or spell.name:match('Barpetrify') or spell.name:match('Baramnesia') then
+		if spell.name:match('Haste') or spell.name:match('Flurry') or spell.name:match('Blink') or spell.name:match('Protect') or spell.name:match('Shell') or spell.english:startswith('Bar') then 
 			if spell.target.type == 'SELF' then
 				equip(sets.midcast.enhanceDURATION)
 			else
 				equip(sets.midcast.enhanceOTHERS)
 			end
-		elseif spell.name:match('Temper') or spell.name:match('Enfire') or spell.name:match('Enblizzard') or spell.name:match('Enaero') or spell.name:match('Enstone') or spell.name:match('Enthunder') or spell.name:match('Enwater') then
+		end
+		if spell.name:match('Temper') or spell.name:match('Enfire') or spell.name:match('Enblizzard') or spell.name:match('Enaero') or spell.name:match('Enstone') or spell.name:match('Enthunder') or spell.name:match('Enwater') then
 			equip(sets.midcast.enhanceSKILL)
-		elseif spell.name:match('Blaze Spikes') or spell.name:match('Ice Spikes') or spell.name:match('Shock Spikes') then
+		end
+		if spell.name:match('Blaze Spikes') or spell.name:match('Ice Spikes') or spell.name:match('Shock Spikes') then
 			equip(sets.midcast.enhanceSPIKES)
-		elseif spell.name:match('Gain-VIT') or spell.name:match('Gain-MIND') or spell.name:match('Gain-CHR') or spell.name:match('Gain-AGI') or spell.name:match('Gain-STR') or spell.name:match('Gain-INT') or spell.name:match('Gain-DEX') then
+		end
+		if spell.english:startswith('Gain') then
 			equip(sets.midcast.enhanceGAIN)
-		elseif spell.name:match('Aquaveil') then
+		end
+		if spell.name:match('Aquaveil') then
 			equip(sets.midcast.aquaveil)
-		elseif spell.name:match('Refresh') then
+		end
+		if spell.name:match('Refresh') then
 			equip(sets.midcast.refresh)
-		elseif spell.name:match('Stoneskin') then
+		end
+		if spell.name:match('Stoneskin') then
 			equip(sets.midcast.stoneskin)
-		elseif spell.name:match('Phalanx') then
+		end
+		if spell.name:match('Phalanx') then
 			if spell.target.type == 'SELF' then
 				equip(sets.midcast.phalanxSELF)
 			else
 				equip(sets.midcast.enhanceOTHERS)
 			end
-		elseif spell.name:match('Invisible') or spell.name:match('Sneak') or spell.name:match('Deodorize') then
+		end
+		if spell.name:match('Invisible') or spell.name:match('Sneak') or spell.name:match('Deodorize') then
 			equip(sets.midcast.fastcast)
 		end
 	elseif spell.skill == "Healing Magic" then
 		if spell.name:match('Cure') or spell.name:match('Cura') or spell.name:match('Curaga') then
 			equip(sets.midcast.cure)
-		elseif spell.name:match('Cursna') then
+		end
+		if spell.name:match('Cursna') then
 			equip(sets.midcast.cursna)
-		elseif spell.name:match('Raise') or spell.name:match('Reraise') then
+		end
+		if spell.name:match('Raise') or spell.name:match('Reraise') then
 			equip(sets.midcast.fastcast)
 		end
 	elseif spell.type == "WeaponSkill" then 
@@ -1013,23 +1022,33 @@ function self_command(command)
 		if Mode == "MeleeFreeCast" or Mode == "MeleeMagicBurst" or Mode == "Tank" then
 			if player.equipment.main == "Crocea Mors" then
 				send_command ('input /equip Main "Naegling"')
-			elseif player.equipment.main == "Naegling" then
+			end
+			if player.equipment.main == "Naegling" then
 				send_command ('input /equip Main "Tauret"')
-			elseif player.equipment.main == "Tauret" then 
-				send_command ('input /equip Main "Crocea Mors"')
-			elseif player.equipment.main ~= "Tauret" and player.equipment.main ~= "Naegling" and player.equipment.main ~= "Crocea Mors" then
+			end
+			if player.equipment.main == "Tauret" then 
 				send_command ('input /equip Main "Crocea Mors"')
 			end
-		elseif Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
+			if player.equipment.main ~= "Tauret" and player.equipment.main ~= "Naegling" and player.equipment.main ~= "Crocea Mors" then
+				send_command ('input /equip Main "Crocea Mors"')
+			end
+		end
+		if Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
 			if player.equipment.main == "Crocea Mors" then
 				send_command ('input /equip Main "Daybreak"')
-			elseif player.equipment.main == "Daybreak" then
+			end
+			if player.equipment.main == "Daybreak" then
 				send_command ('input /equip Main "Bunzi\'s Rod"')
-			elseif player.equipment.main == "Bunzi\'s Rod" then
-				send_command ('input /equip Main "Crocea Mors"')
-			elseif player.equipment.main ~= "Daybreak" and player.equipment.main ~= "Bunzi\'s Rod" and player.equipment.main ~= "Crocea Mors" then
+			end
+			if player.equipment.main == "Bunzi\'s Rod" then
 				send_command ('input /equip Main "Crocea Mors"')
 			end
+			if player.equipment.main ~= "Daybreak" and player.equipment.main ~= "Bunzi\'s Rod" and player.equipment.main ~= "Crocea Mors" then
+				send_command ('input /equip Main "Crocea Mors"')
+			end
+		end
+		if Mode == "Enspell" then
+			send_command ('input /equip Main "Crocea Mors"')
 		end
 	end
 	if command == "ToggleSub" then
@@ -1037,20 +1056,28 @@ function self_command(command)
 			if player.sub_job =='NIN' or player.sub_job =='DNC' then
 				if player.equipment.sub == "Thibron" then
 					send_command ('input /equip Sub "Daybreak"')
-				elseif player.equipment.sub == "Daybreak" then
+				end
+				if player.equipment.sub == "Daybreak" then
 					send_command ('input /equip Sub "Bunzi\'s Rod"')
-				elseif player.equipment.sub == "Bunzi\'s Rod" then
+				end
+				if player.equipment.sub == "Bunzi\'s Rod" then
 					send_command ('input /equip Sub "Gleti\'s knife"')
-				elseif player.equipment.sub == "Gleti\'s knife" then
+				end
+				if player.equipment.sub == "Gleti\'s knife" then
 					send_command ('input /equip Sub "Thibron"')
-				elseif player.equipment.sub ~= "Thibron" and player.equipment.sub ~= "Daybreak" and player.equipment.sub ~= "Bunzi\'s Rod" and player.equipment.sub ~= "Gleti\'s knife" then
-					send_command ('input /equip Sub "Thibron"')
+				end
+				if player.equipment.sub ~= "Thibron" and player.equipment.sub ~= "Daybreak" and player.equipment.sub ~= "Bunzi\'s Rod" and player.equipment.sub ~= "Gleti\'s knife" then
+					send_command ('input /equip Sub "Daybreak"')
 				end
 			else
 				send_command ('input /equip Sub "Ammurapi shield"')
 			end
-		elseif Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
+		end
+		if Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
 			send_command ('input /equip Sub "Ammurapi shield"')
+		end
+		if Mode == "Enspell" then
+			send_command ('input /equip Sub "Pukulatmuj +1"')
 		end
 	end
 end
