@@ -40,7 +40,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 
 Mode = "MeleeMagicBurst"
 
-Modes = {'MeleeMagicBurst','MeleeFreeCast','ZeroTPEnspell','CasterMagicBurst','CasterFreecast','Tank'}
+Modes = {'MeleeMagicBurst','MeleeFreeCast','Enspell','ZeroTPEnspell','CasterMagicBurst','CasterFreecast','Tank'}
 
     sets.idle = {}               	-- Leave this empty.   
 	sets.engaged = {}				-- Leave this empty.
@@ -107,6 +107,7 @@ Modes = {'MeleeMagicBurst','MeleeFreeCast','ZeroTPEnspell','CasterMagicBurst','C
 		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
 
+-- Normal Hybrid set dual wield
 	sets.engaged.hybrid.dualwield = {
 		ammo="Coiste Bodhar",
 		head="Malignance Chapeau",
@@ -122,10 +123,25 @@ Modes = {'MeleeMagicBurst','MeleeFreeCast','ZeroTPEnspell','CasterMagicBurst','C
 		right_ring="Chirich Ring +1",
 		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
-	sets.engaged.hybrid.dualwieldenspell = set_combine(sets.engaged.hybrid.dualwield,{
+
+-- Normal Hybrid set dual wield + shadows up
+	sets.engaged.hybrid.dualwieldenspellshadows = set_combine(sets.engaged.hybrid.dualwield,{
 		head="Umuthi Hat",
 		hands="Aya. Manopolas +2",
 		waist="Orpheus's Sash",
+	})
+
+-- Enspell mode
+	sets.engaged.hybrid.enspell = set_combine(sets.engaged.hybrid.dualwield,{
+		main={ name="Crocea Mors", augments={'Path: C',}},
+		sub={ name="Pukulatmuj +1", augments={'Path: A',}},
+	})
+
+-- Enspell mode + shadows up
+	
+	sets.engaged.hybrid.enspellshadows = set_combine(sets.engaged.hybrid.dualwieldenspellshadows,{
+		main={ name="Crocea Mors", augments={'Path: C',}},
+		sub={ name="Pukulatmuj +1", augments={'Path: A',}},
 	})
 
 	sets.engaged.hybrid.zeroTPenspell = {}
@@ -137,7 +153,8 @@ Modes = {'MeleeMagicBurst','MeleeFreeCast','ZeroTPEnspell','CasterMagicBurst','C
 		body={ name="Merlinic Jubbah", augments={'Mag. Acc.+26','"Fast Cast"+6','MND+6',}},
 		legs={ name="Lengo Pants", augments={'INT+8','Mag. Acc.+14','"Mag.Atk.Bns."+13',}},
 		feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+6','"Fast Cast"+6','Mag. Acc.+13',}},
-		neck="Voltsurge Torque",
+		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+		waist="Plat. Mog. Belt",
 	}
 	
 ---- JOB ABILITY SETS ----
@@ -317,17 +334,63 @@ Modes = {'MeleeMagicBurst','MeleeFreeCast','ZeroTPEnspell','CasterMagicBurst','C
 
 ---- ENHANCING SETS ----
 --Enspells / Temper
-	sets.midcast.enhanceSKILL = {}
+	sets.midcast.enhanceSKILL = {
+		main="Secespita",
+		sub={ name="Pukulatmuj +1", augments={'Path: A',}},
+		ammo="Staunch Tathlum +1",
+		head="Befouled Crown",
+		body={ name="Viti. Tabard +3", augments={'Enhances "Chainspell" effect',}},
+		hands={ name="Viti. Gloves +3", augments={'Enhancing Magic duration',}},
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		feet="Leth. Houseaux +2",
+		neck="Incanter's Torque",
+		waist="Olympus Sash",
+		left_ear="Mimir Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +10','Enha.mag. skill +10','Mag. Acc.+5','Enh. Mag. eff. dur. +17',}},
+	}
 
---Haste/Flurry/Protect/Shell/Blink/Barspells
-	sets.midcast.enhanceDURATION = {}
+--Haste/Flurry/Protect/Shell/Blink/Barspells (SELF)
+	sets.midcast.enhanceDURATION = {
+		sub="Ammurapi Shield",
+		ammo="Staunch Tathlum +1",
+		head={ name="Telchine Cap", augments={'Spell interruption rate down -10%','Enh. Mag. eff. dur. +10',}},
+		body={ name="Viti. Tabard +3", augments={'Enhances "Chainspell" effect',}},
+		hands="Atrophy Gloves +2",
+		legs={ name="Telchine Braconi", augments={'Spell interruption rate down -10%','Enh. Mag. eff. dur. +10',}},
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Olympus Sash",
+		left_ear="Mimir Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		right_ring="Defending Ring",
+		back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +10','Enha.mag. skill +10','Mag. Acc.+5','Enh. Mag. eff. dur. +17',}},
+	}
 	
-	sets.midcast.enhanceOTHERS = {}
-	
-	--- NEED DUration for others enhancing here
+	sets.midcast.enhanceOTHERS = {
+		sub="Ammurapi Shield",
+		ammo="Staunch Tathlum +1",
+		head="Leth. Chappel +2",
+		body="Lethargy Sayon +2",
+		hands="Atrophy Gloves +2",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Olympus Sash",
+		left_ear="Mimir Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		right_ring="Defending Ring",
+		back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +10','Enha.mag. skill +10','Mag. Acc.+5','Enh. Mag. eff. dur. +17',}},
+	}
 
 --Gain spells
-	sets.midcast.enhanceGAIN = {}
+	sets.midcast.enhanceGAIN = set_combine(sets.midcast.enhanceDURATION,{
+		hands={ name="Viti. Gloves +3", augments={'Enhancing Magic duration',}},
+	})
 
 --Spikes spells
 	sets.midcast.enhanceSPIKES = {}
@@ -339,10 +402,24 @@ Modes = {'MeleeMagicBurst','MeleeFreeCast','ZeroTPEnspell','CasterMagicBurst','C
 	
 	sets.midcast.stoneskin = {}
 	
-	sets.midcast.phalanxSELF = {}
+	sets.midcast.phalanxSELF = {
+		main="Sakpata's Sword",
+		sub="Ammurapi Shield",
+		ammo="Staunch Tathlum +1",
+		head="Leth. Chappel +2",
+		body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+		hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+		legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+		feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+		neck="Incanter's Torque",
+		waist="Olympus Sash",
+		left_ear="Mimir Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +10','Enha.mag. skill +10','Mag. Acc.+5','Enh. Mag. eff. dur. +17',}},
+	}
 	
-	sets.midcast.phalanxOTHERS = {}
-
 ---- CURE SETS ----
 	sets.midcast.cure = {
 		main="Daybreak",
@@ -615,6 +692,19 @@ end
 
 --------------- LOGIC - DO NOT TOUCH BELOW ------------------
 
+windower.register_event('gain buff', function(buff_id)
+	if buff_id == 66 then
+		idle()
+	end
+end)
+
+windower.register_event('lose buff', function(buff_id)
+	if buff_id == 66 then
+		idle()
+	end
+end)
+
+
 function status_change(new,old)
 	if new == "Engaged" then
 		idle()
@@ -627,12 +717,24 @@ end
 
 
 function idle()
-	if Mode == "MeleeMagicBurst" or Mode == "MeleeFreeCast" then
+	if Mode == "MeleeMagicBurst" or Mode == "MeleeFreeCast" or Mode == "Enspell" then
 		if player.status == "Engaged" then 
 			if player.sub_job =='NIN' or player.sub_job =='DNC' then
 				if buffactive["Enfire"] or buffactive["Enblizzard"] or buffactive["Enaero"] or buffactive["Enstone"] or buffactive["Enthunder"] or buffactive["Enwater"] or
 				buffactive["Enfire II"] or buffactive["Enblizzard II"] or buffactive["Enaero II"] or buffactive["Enstone II"] or buffactive["Enthunder II"] or buffactive["Enwater II"] then
-					equip(sets.engaged.hybrid.dualwieldenspell)
+					if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+						if Mode == "MeleeMagicBurst" or Mode == "MeleeFreeCast" then
+							equip(sets.engaged.hybrid.dualwieldenspellshadows)
+						elseif Mode == "Enspell" then
+							equip(sets.engaged.hybrid.enspellshadows)
+						end
+					else
+						if Mode == "MeleeMagicBurst" or Mode == "MeleeFreeCast" then
+							equip(sets.engaged.hybrid.dualwield)
+						elseif Mode == "Enspell" then
+							equip(sets.engaged.hybrid.enspell)
+						end
+					end
 				else 
 					equip(sets.engaged.hybrid.dualwield)
 				end
@@ -693,7 +795,7 @@ end
 function midcast(spell)
 	if spell.skill == "Elemental Magic" then
 		if spell.name:match('Fire') or spell.name:match('Blizzard') or spell.name:match('Aero') or spell.name:match('Stone') or spell.name:match('Thunder') or spell.name:match('Water') then
-			if Mode == "MeleeMagicBurst" or Mode == "CasterMagicBurst" then
+			if Mode == "MeleeMagicBurst" or Mode == "CasterMagicBurst" or Mode == "Enspell" or Mode == "ZeroTPEnspell" then
 				if spell.element == world.day_element or spell.element == world.weather_element then
 					if spell.name:match('Fire') and world.day_element ~= "Water" and world.weather_element ~= "Water" then
 						equip(sets.midcast.elementalBURSTobi)
@@ -714,7 +816,7 @@ function midcast(spell)
 					equip(sets.midcast.elementalBURST)
 				end
 			end
-		elseif Mode == "MeleeFreeCast" or Mode == "CasterFreecast" or Mode == "ZeroTPEnspell" then
+		elseif Mode == "MeleeFreeCast" or Mode == "CasterFreecast" then
 			if spell.element == world.day_element or spell.element == world.weather_element then
 				if spell.name:match('Fire') and world.day_element ~= "Water" and world.weather_element ~= "Water" then
 					equip(sets.midcast.elementalFREECASTobi)
@@ -785,7 +887,7 @@ function midcast(spell)
 		if spell.name:match('Haste') or spell.name:match('Flurry') or spell.name:match('Blink') or spell.name:match('Protect') or spell.name:match('Shell') 
 		or spell.name:match('Barfire') or spell.name:match('Barblizzard') or spell.name:match('Baraero') or spell.name:match('Barstone') or spell.name:match('Barthunder') or spell.name:match('Barwater') 
 		or spell.name:match('Barsleep') or spell.name:match('Barpoison') or spell.name:match('Barparalyze') or spell.name:match('Barblind') or spell.name:match('Barsilence') or spell.name:match('Barvirus') or spell.name:match('Barpetrify') or spell.name:match('Baramnesia') then
-			if player.target.type == "Self" then
+			if spell.target.type == 'SELF' then
 				equip(sets.midcast.enhanceDURATION)
 			else
 				equip(sets.midcast.enhanceOTHERS)
@@ -806,7 +908,7 @@ function midcast(spell)
 			if player.target.type == "Self" then
 				equip(sets.midcast.phalanxSELF)
 			else
-				equip(sets.midcast.phalanxOTHERS)
+				equip(sets.midcast.enhanceOTHERS)
 			end
 		elseif spell.name:match('Invisible') or spell.name:match('Sneak') or spell.name:match('Deodorize') then
 			equip(sets.midcast.fastcast)
@@ -865,7 +967,7 @@ end
 
 function self_command(command)
 	if command == "ToggleMelee" then 
-		if Mode == "Tank" or Mode == "MeleeFreeCast" or Mode == "ZeroTPEnspell" or Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
+		if Mode == "Tank" or Mode == "MeleeFreeCast" or Mode == "ZeroTPEnspell" or Mode == "Enspell" or Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
 			Mode = "MeleeMagicBurst"
 			send_command('console_echo "Melee / Magic Burst Mode"')
 			--Equip weapon in sub command
@@ -877,7 +979,7 @@ function self_command(command)
 		end
 	end
 	if command == "ToggleTank" then
-		if Mode == "MeleeMagicBurst" or Mode == "MeleeFreeCast" or Mode == "ZeroTPEnspell" or Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
+		if Mode == "MeleeMagicBurst" or Mode == "MeleeFreeCast" or Mode == "ZeroTPEnspell" or Mode == "Enspell" or Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
 			Mode = "Tank"
 			send_command('console_echo "Tank Mode"')
 			idle()
@@ -885,16 +987,21 @@ function self_command(command)
 	end
 	if command == "ToggleSpecial" then
 		if Mode == "MeleeFreeCast" or Mode == "MeleeMagicBurst" or Mode == "Tank" or Mode == "ZeroTPEnspell" or Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
+			Mode = "Enspell"
+			send_command('console_echo "Enspell Mode"')
+			send_command ('input /equip Sub "Pukulatmuj +1"')
+			idle()
+		elseif Mode == "Enspell" then
 			Mode = "ZeroTPEnspell"
 			send_command('console_echo "Zero TP Enspell Mode"')
 			idle()
 		end
 	end
 	if command == "ToggleCaster" then
-		if Mode == "MeleeFreeCast" or Mode == "MeleeMagicBurst" or Mode == "Tank" or Mode == "ZeroTPEnspell" or Mode == "CasterMagicBurst" then
+		if Mode == "MeleeFreeCast" or Mode == "MeleeMagicBurst" or Mode == "Tank" or Mode == "Enspell" or Mode == "ZeroTPEnspell" or Mode == "CasterMagicBurst" then
 			Mode = "CasterMagicFreecast"
 			send_command('console_echo "Caster Freecast / Accuracy Mode"')
-			--Equip shield in sub command
+			send_command ('input /equip Sub "Ammurapi shield"')
 			idle()
 		elseif Mode == "CasterMagicFreecast" then
 			Mode = "CasterMagicBurst"
