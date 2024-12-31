@@ -905,7 +905,7 @@ function midcast(spell)
 		elseif spell.name:match('Stoneskin') then
 			equip(sets.midcast.stoneskin)
 		elseif spell.name:match('Phalanx') then
-			if player.target.type == "Self" then
+			if spell.target.type == 'SELF' then
 				equip(sets.midcast.phalanxSELF)
 			else
 				equip(sets.midcast.enhanceOTHERS)
