@@ -29,6 +29,28 @@ function file_unload()
     enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
 end
 
+--------------------------- SETTING UP TEXTBOX ------------------------------------------
+Mode = "Normal"
+
+Pet_Mode = "NA"
+ 
+Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','PetTank','PetDEF','MasterDEF'}
+Pet_Modes = {'NA','Bruiser','Tank','Sharpshot','Ranged','WHM','BLM','RDM','Unknown'}
+
+gearswap_box = function()
+  str = '           \\cs(130,130,130)PUPPETMASTER\\cr\n'
+  str = str..' Current Mode:\\cs(255,150,100)   '..Mode..'\\cr\n'
+  str = str..' Pet Mode:\\cs(255,150,100)   '..Pet_Mode..'\\cr\n'
+    return str
+end
+
+gearswap_box_config = {pos={x=1250,y=525},padding=8,text={font='sans-serif',size=10,stroke={width=2,alpha=255},Fonts={'sans-serif'},},bg={alpha=0},flags={}}
+gearswap_jobbox = texts.new(gearswap_box_config)
+
+function user_setup()
+	gearswap_jobbox:text(gearswap_box())		
+	gearswap_jobbox:show()
+end
 
 ---------------------------	INIT. SETS		---------------------------	
 function get_sets()
@@ -69,11 +91,9 @@ send_command('bind numpad8 gs c ToggleOverdrive')
 send_command('bind numpad7 gs c ToggleTank')
 send_command('bind numpad6 gs c ToggleMasterDEF')
 send_command('bind numpad5 gs c TogglePetDEF')
+send_command('bind numpad4 gs c ToggleWeapons')
 
  
-Mode = "Normal"
- 
-Modes = {'Normal','DualTank','Master','Overdrive','OverdriveDEF','Tank','PetDEF','MasterDEF'}
 
     sets.idle = {}	
 	sets.engaged = {}
@@ -722,11 +742,11 @@ function idle()
 		else
 			equip(sets.idle.normal)
 		end
-	elseif Mode == "Tank" or Mode == "DualTank" then
+	elseif Mode == "PetTank" or Mode == "DualTank" then
 		if player.status == "Idle" and pet.status == "Engaged" then
 			equip(sets.engaged.pet.turtle)
 		elseif player.status == "Engaged" and pet.status == "Engaged" then
-			if Mode == "Tank" then
+			if Mode == "PetTank" then
 				equip(sets.engaged.pet.turtle)
 			elseif Mode == "DualTank" then
 				equip(sets.engaged.hybrid.dualtank)
@@ -933,6 +953,44 @@ function midcast(spell)
 		equip(sets.ja.repair)
 	elseif spell.english == "Ventriloquy" then
 		equip(sets.ja.ventriloquy)
+	elseif spell.english == "Activate" or "Deus Ex Automata" then
+		if pet.head == "Soulsoother Head" and pet.frame == "Valoredge Frame" then
+			Pet_Mode = "Tank"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.head == "Valoredge Head" and pet.frame == "Valoredge Frame" then
+			Pet_Mode = "Bruiser"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.frame == "Harlequin Frame" then
+			Pet_Mode = "Bruiser"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.head == "Valoredge Head" and pet.frame == "Sharpshot Frame" then
+			Pet_Mode = "Sharpshot"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.head == "Sharpshot Head" and pet.frame == "Sharpshot Frame" then
+			Pet_Mode = "Ranged"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.head == "Spiritreaver Head" and pet.frame == "Stormwaker Frame" then
+			Pet_Mode = "BLM"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.head == "Soulsoother Head" and pet.frame == "Stormwaker Frame" then
+			Pet_Mode = "WHM"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.head == "Stormwaker Head" and pet.frame == "Stormwaker Frame" then
+			Pet_Mode = "RDM"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		else
+			Pet_Mode = "Unknown"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		end
 	elseif spell.english == "Holy Water" then
 		equip(sets.items.holywater)
 	else
@@ -956,7 +1014,13 @@ end
 
 
 function aftercast(spell)
-	idle()
+	if spell.english == "Deactivate" then
+		Pet_Mode = "NA"
+		gearswap_jobbox:text(gearswap_box())
+		gearswap_jobbox:show()
+	else
+		idle()
+	end
 end
 
 function pet_aftercast(spell)
@@ -967,46 +1031,59 @@ end
 
 function self_command(command)
 	if command == "ToggleNormal" then
-		if Mode == "Master" or Mode == "DualTank" or Mode == "Overdrive" or Mode == "OverdriveDEF" or Mode == "Tank" or Mode == "PetDEF" or Mode == "MasterDEF" then
+		if Mode == "Master" or Mode == "DualTank" or Mode == "Overdrive" or Mode == "OverdriveDEF" or Mode == "PetTank" or Mode == "PetDEF" or Mode == "MasterDEF" then
 			Mode = "Normal"
-			send_command('console_echo "Normal"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
 		elseif Mode == "Normal" then
 			Mode = "Master"
-			send_command('console_echo "Master"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+
 		end
 	elseif command == "ToggleOverdrive" then
-		if Mode == "Normal" or Mode == "DualTank" or Mode == "Master" or Mode == "OverdriveDEF" or Mode == "Tank" or Mode == "PetDEF" or Mode == "MasterDEF" then
+		if Mode == "Normal" or Mode == "DualTank" or Mode == "Master" or Mode == "OverdriveDEF" or Mode == "PetTank" or Mode == "PetDEF" or Mode == "MasterDEF" then
 			Mode = "Overdrive"
-			send_command('console_echo "Overdrive"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+
 		elseif Mode == "Overdrive" then
 			Mode = "OverdriveDEF"
-			send_command('console_echo "OverdriveDEF"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
 		end
 	elseif command == "ToggleTank" then
 		if Mode == "Normal" or Mode == "DualTank" or Mode == "Master" or Mode == "Overdrive" or Mode == "OverdriveDEF" or Mode == "PetDEF" or Mode == "MasterDEF" then
-			Mode = "Tank"
-			send_command('console_echo "Tank"')
+			Mode = "PetTank"
 			idle()
-		elseif Mode == "Tank" then
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif Mode == "PetTank" then
 			Mode = "DualTank"
-			send_command('console_echo "DualTank"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+
 		end
 	elseif command == "ToggleMasterDEF" then
-		if Mode == "Normal" or Mode == "DualTank" or Mode == "Master" or Mode == "Overdrive" or Mode == "OverdriveDEF" or Mode == "Tank" or Mode == "PetDEF" then
+		if Mode == "Normal" or Mode == "DualTank" or Mode == "Master" or Mode == "Overdrive" or Mode == "OverdriveDEF" or Mode == "PetTank" or Mode == "PetDEF" then
 			Mode = "MasterDEF"
-			send_command('console_echo "MasterDEF"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
 		end
 	elseif command == "TogglePetDEF" then
-		if Mode == "Normal" or Mode == "DualTank" or Mode == "Master" or Mode == "Overdrive" or Mode == "OverdriveDEF" or Mode == "Tank" or Mode == "MasterDEF" then
+		if Mode == "Normal" or Mode == "DualTank" or Mode == "Master" or Mode == "Overdrive" or Mode == "OverdriveDEF" or Mode == "PetTank" or Mode == "MasterDEF" then
 			Mode = "PetDEF"
-			send_command('console_echo "PetDEF"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
 		end
 	end
 end
+
+user_setup()
