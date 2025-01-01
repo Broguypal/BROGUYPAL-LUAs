@@ -25,6 +25,34 @@ function file_unload()
     enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
 end
 
+Mode = "Hybrid"
+Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','EvasionTank','MagicEvasionTank','DPS','DPSHaste1'}
+
+shika = 0
+inofu = 0
+chono = 0
+shihei = 0 
+utsubuff = "\\cs(255,0,0)0"
+
+gearswap_box = function()
+  str = '           \\cs(130,130,130)NINJA\\cr\n'
+  str = str..' Offense Mode:\\cs(255,150,100)   '..Mode..'\\cr\n'
+  str = str..'  Ino(E): '..inofu..'\\cs(255,255,255)   Shika(B): '..shika..'\\cr\n'
+  str = str..'Cho(D): '..chono.."\\cs(255,255,255)  Shihei(U): "..shihei.."\\cr\n"
+  str = str..'Utsusemi Shadows: '..utsubuff.."\\cr\n"
+  return str
+end
+
+-- Change position coordinates
+gearswap_box_config = {pos={x=1320,y=550},padding=8,text={font='sans-serif',size=10,stroke={width=2,alpha=255},Fonts={'sans-serif'},},bg={alpha=0},flags={}}
+gearswap_jobbox = texts.new(gearswap_box_config)
+
+function user_setup()
+	check_tool_count()
+	gearswap_jobbox:text(gearswap_box())		
+	gearswap_jobbox:show()
+end
+
 function get_sets()
 send_command('bind numpad9 gs c ToggleHybrid')
 send_command('bind numpad8 gs c ToggleTank')
@@ -38,9 +66,6 @@ send_command('bind f9 input /item "Remedy" <me>')
 send_command('bind f10 input /item "Panacea" <me>')
 send_command('bind f11 input /item "Holy Water" <me>')
 
-Mode = "Hybrid"
-
-Modes = {'Hybrid','HybridHaste1','Malignance','MalignanceHaste1','AoETank','EvasionTank','MagicEvasionTank','DPS','DPSHaste1'}
 
     sets.idle = {}               	-- Leave this empty.   
 	sets.engaged = {}				-- Leave this empty.
@@ -1138,18 +1163,20 @@ end
 
 function midcast(spell)
 	if spell.name:match('Utsusemi') then
-		if buffactive['Copy Image'] then
-			send_command('cancel Copy Image')
-			equip(sets.midcast.utsusemi)
-		elseif buffactive['Copy Image (2)'] then
-			send_command('cancel 444')
-			equip(sets.midcast.utsusemi)
-		elseif buffactive['Copy Image (3)'] then
-			send_command('cancel 445')
-			equip(sets.midcast.utsusemi)
-		elseif buffactive['Copy Image (4+)'] then
-			send_command('cancel 446')
-			equip(sets.midcast.utsusemi)
+		if spell.english == "Utsusemi: Ichi" or spell.english == "Utsusemi: Ni" then
+			if buffactive['Copy Image'] then
+				send_command('cancel Copy Image')
+				equip(sets.midcast.utsusemi)
+			elseif buffactive['Copy Image (2)'] then
+				send_command('cancel 444')
+				equip(sets.midcast.utsusemi)
+			elseif buffactive['Copy Image (3)'] then
+				send_command('cancel 445')
+				equip(sets.midcast.utsusemi)
+			elseif buffactive['Copy Image (4+)'] then
+				send_command('cancel 446')
+				equip(sets.midcast.utsusemi)
+			end
 		else
 			equip(sets.midcast.utsusemi)
 		end
@@ -1251,46 +1278,55 @@ function self_command(command)
 	if command == "ToggleHybrid" then
 		if Mode == "Hybrid" then
 			Mode = "HybridHaste1"
-			send_command('console_echo "HybridHaste1"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
 		elseif Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "AoETank" or Mode == "EvasionTank" or Mode == "MagicEvasionTank" or Mode == "DPS" or Mode == "DPSHaste1" then
 			Mode = "Hybrid"
-			send_command('console_echo "Hybrid"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
 		end
 	elseif command == "ToggleTank" then
 		if Mode == "Hybrid" or Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "MagicEvasionTank" or Mode == "DPS" or Mode == "DPSHaste1" then
 			Mode = "AoETank"
-			send_command('console_echo "AoETank"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
 		elseif Mode == "AoETank" then
 			Mode = "EvasionTank"
-			send_command('console_echo "EvasionTank"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
 		elseif Mode == "EvasionTank" then
 			Mode = "MagicEvasionTank"
-			send_command('console_echo "MagicEvasionTank"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
 		end
 	elseif command == "ToggleMalignance" then
 		if Mode == "Malignance" then
 			Mode = "MalignanceHaste1"
-			send_command('console_echo "MalignanceHaste1"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
 		elseif Mode == "Hybrid" or Mode == "HybridHaste1" or Mode == "MalignanceHaste1" or Mode == "AoETank" or Mode == "EvasionTank" or Mode == "MagicEvasionTank" or Mode == "DPS" or Mode == "DPSHaste1" then
 			Mode = "Malignance"
-			send_command('console_echo "Malignance"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
 		end
 	elseif command == "ToggleDPS" then
 		if Mode == "DPS" then
 			Mode = "DPSHaste1"
-			send_command('console_echo "DPSHaste1"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
 		elseif Mode == "Hybrid" or Mode == "HybridHaste1" or Mode == "Malignance" or Mode == "MalignanceHaste1" or Mode == "AoETank" or Mode == "EvasionTank" or Mode == "MagicEvasionTank" or Mode == "DPSHaste1" then
 			Mode = "DPS"
-			send_command('console_echo "DPS"')
 			idle()
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
 		end
 	elseif command == "ToggleMain" then
 		if player.equipment.main == "Heishi Shorinken" then
@@ -1318,3 +1354,70 @@ function self_command(command)
 		end
 	end
 end
+
+function buff_change(buff, gain)
+	if buffactive['Copy Image'] then
+		utsubuff = "\\cs(255,127,0)1"	
+	elseif buffactive['Copy Image (2)'] then 
+		utsubuff = "\\cs(255,255,0)2"
+	elseif buffactive['Copy Image (3)'] then
+		utsubuff = "\\cs(127,255,0)3"
+	elseif buffactive['Copy Image (4+)'] then
+		utsubuff = "\\cs(0,255,0)4+"
+	else 
+		utsubuff = "\\cs(255,0,0)0" 
+	end
+	gearswap_jobbox:text(gearswap_box())
+	gearswap_jobbox:show()
+end	
+
+function check_tool_count()
+	ctool = {'Shikanofuda',
+		'Shihei',
+		'Chonofuda',
+		'Inoshishinofuda'}
+
+	for t =1,4  do
+
+		if not player.inventory[ctool[t]] then
+			curCount = 0
+		elseif player.inventory[ctool[t]].count then
+			curCount = player.inventory[ctool[t]].count
+		end
+		a = ''
+
+		--defined green = 99
+		cMax = 99
+		cColorR = 0
+		if curCount > cMax then
+			cColorR = 0
+			cColorG = 255
+		else
+			percent = (curCount/cMax * 100)
+			if percent >=50 then
+				cColorG = 255
+				cColorR =math.floor(5 * (100-percent))
+			else 
+				cColorR = 255
+				cColorG = 255-math.floor(5 * (50-percent))
+			end
+		end
+		if curCount == 0 then
+			a = "\\cs(255,0,0)" .. '0'
+		else 
+			a = "\\cs("..cColorR..","..cColorG..",0)" .. (curCount) 
+		end
+
+		if t == 1 then
+			shika = a
+		elseif t == 2 then
+			shihei = a
+		elseif t == 3 then
+			chono = a 
+		elseif t == 4 then
+			inofu = a 
+		end
+	end
+end
+
+user_setup()
