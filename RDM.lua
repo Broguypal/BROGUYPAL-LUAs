@@ -109,6 +109,11 @@ function get_sets()
 		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
+	
+	sets.idle.enpell = set_combine(sets.idle.hybrid,{
+		main={ name="Crocea Mors", augments={'Path: C',}},
+		sub={ name="Pukulatmuj +1", augments={'Path: A',}},
+	})
 
 
 --------------- ENGAGED SETS ------------------
@@ -729,11 +734,11 @@ end)
 
 function status_change(new,old)
 	if new == "Engaged" then
+		idle()
 		send_command('input //gs disable main; input //gs disable sub; input //gs disable range')
-		idle()
 	else
-		send_command('input //gs enable main; input //gs enable sub; input //gs enable range')
 		idle()
+		send_command('input //gs enable main; input //gs enable sub; input //gs enable range')
 	end
 end
 
@@ -764,7 +769,11 @@ function idle()
 				equip(sets.engaged.hybrid.normal)
 			end
 		else
-			equip(sets.idle.hybrid)
+			if Mode == "Melee" then
+				equip(sets.idle.hybrid)
+			elseif Mode == "Enspell" then
+				equip(sets.idle.enpell)
+			end
 		end
 	elseif Mode == "ZeroTPEnspell" then
 		if player.status == "Engaged" then
