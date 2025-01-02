@@ -52,9 +52,17 @@ function user_setup()
 	gearswap_jobbox:show()
 end
 
----------------------------	INIT. SETS		---------------------------	
-function get_sets()
--------- Optional Commands ----------
+--------------------------- Commands ----------------------------------
+--------Required Commands Below ----------
+
+send_command('bind numpad9 gs c ToggleNormal')
+send_command('bind numpad8 gs c ToggleOverdrive')
+send_command('bind numpad7 gs c ToggleTank')
+send_command('bind numpad6 gs c ToggleMasterDEF')
+send_command('bind numpad5 gs c TogglePetDEF')
+send_command('bind numpad4 gs c ToggleWeapons')
+
+--------- Personal Commands ---------------
 send_command('bind f9 input /item "Remedy" <me>')
 send_command('bind f10 input /item "Panacea" <me>')
 send_command('bind f11 input /item "Holy Water" <me>')
@@ -84,16 +92,9 @@ send_command ('bind ^numpad0 input //acon equipset nuke')
 send_command ('bind !numpad0 input //acon equipset ranged')
 
 
---------Required Commands Below ----------
+---------------------------	INIT. SETS		---------------------------	
+function get_sets()
 
-send_command('bind numpad9 gs c ToggleNormal')
-send_command('bind numpad8 gs c ToggleOverdrive')
-send_command('bind numpad7 gs c ToggleTank')
-send_command('bind numpad6 gs c ToggleMasterDEF')
-send_command('bind numpad5 gs c TogglePetDEF')
-send_command('bind numpad4 gs c ToggleWeapons')
-
- 
 
     sets.idle = {}	
 	sets.engaged = {}
@@ -711,7 +712,7 @@ end
 
 ---------------------------	LOGIC	---------------------------
 
--- Registering event for pet change -- Essentially, this checks the Pet TP every second, and if it reaches 850+ it automatically swaps to the appropriate pet weaponskill set.
+-- Registering event for pet changes -- Essentially, this checks the Pet TP every second, and if it reaches 850+ it automatically swaps to the appropriate pet weaponskill set.
 windower.register_event('time change', function(new, old)
 	if new > old and pet.isvalid and pet.status == "Engaged" then 
 		if ( Mode == "Normal" or Mode == "DualTank" ) and pet.tp >= 850 and player.tp <= 400 then
@@ -721,7 +722,10 @@ windower.register_event('time change', function(new, old)
 			if pet.frame == "Valoredge Frame" or pet.frame == "Harlequin Frame" then
 				equip(sets.ws.pet.bonecrusher)
 			end
-		end 
+		end
+	end
+	if new > old then
+		check_pet_status()
 	end
 end)
 
@@ -953,44 +957,8 @@ function midcast(spell)
 		equip(sets.ja.repair)
 	elseif spell.english == "Ventriloquy" then
 		equip(sets.ja.ventriloquy)
-	elseif spell.english == "Activate" or "Deus Ex Automata" then
-		if pet.head == "Soulsoother Head" and pet.frame == "Valoredge Frame" then
-			Pet_Mode = "Tank"
-			gearswap_jobbox:text(gearswap_box())
-			gearswap_jobbox:show()
-		elseif pet.head == "Valoredge Head" and pet.frame == "Valoredge Frame" then
-			Pet_Mode = "Bruiser"
-			gearswap_jobbox:text(gearswap_box())
-			gearswap_jobbox:show()
-		elseif pet.frame == "Harlequin Frame" then
-			Pet_Mode = "Bruiser"
-			gearswap_jobbox:text(gearswap_box())
-			gearswap_jobbox:show()
-		elseif pet.head == "Valoredge Head" and pet.frame == "Sharpshot Frame" then
-			Pet_Mode = "Sharpshot"
-			gearswap_jobbox:text(gearswap_box())
-			gearswap_jobbox:show()
-		elseif pet.head == "Sharpshot Head" and pet.frame == "Sharpshot Frame" then
-			Pet_Mode = "Ranged"
-			gearswap_jobbox:text(gearswap_box())
-			gearswap_jobbox:show()
-		elseif pet.head == "Spiritreaver Head" and pet.frame == "Stormwaker Frame" then
-			Pet_Mode = "BLM"
-			gearswap_jobbox:text(gearswap_box())
-			gearswap_jobbox:show()
-		elseif pet.head == "Soulsoother Head" and pet.frame == "Stormwaker Frame" then
-			Pet_Mode = "WHM"
-			gearswap_jobbox:text(gearswap_box())
-			gearswap_jobbox:show()
-		elseif pet.head == "Stormwaker Head" and pet.frame == "Stormwaker Frame" then
-			Pet_Mode = "RDM"
-			gearswap_jobbox:text(gearswap_box())
-			gearswap_jobbox:show()
-		else
-			Pet_Mode = "Unknown"
-			gearswap_jobbox:text(gearswap_box())
-			gearswap_jobbox:show()
-		end
+	elseif spell.english == "Activate" or spell.english == "Deus Ex Automata" then
+		check_pet_status()
 	elseif spell.english == "Holy Water" then
 		equip(sets.items.holywater)
 	else
@@ -1015,9 +983,7 @@ end
 
 function aftercast(spell)
 	if spell.english == "Deactivate" then
-		Pet_Mode = "NA"
-		gearswap_jobbox:text(gearswap_box())
-		gearswap_jobbox:show()
+		check_pet_status()
 	else
 		idle()
 	end
@@ -1026,8 +992,6 @@ end
 function pet_aftercast(spell)
 	idle()
 end
-
-
 
 function self_command(command)
 	if command == "ToggleNormal" then
@@ -1083,6 +1047,52 @@ function self_command(command)
 			gearswap_jobbox:text(gearswap_box())
 			gearswap_jobbox:show()
 		end
+	end
+end
+
+function check_pet_status()
+	if pet.isvalid then
+		if pet.head == "Soulsoother Head" and pet.frame == "Valoredge Frame" then
+			Pet_Mode = "Tank"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.head == "Valoredge Head" and pet.frame == "Valoredge Frame" then
+			Pet_Mode = "Bruiser"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.frame == "Harlequin Frame" then
+			Pet_Mode = "Bruiser"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.head == "Valoredge Head" and pet.frame == "Sharpshot Frame" then
+			Pet_Mode = "Sharpshot"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.head == "Sharpshot Head" and pet.frame == "Sharpshot Frame" then
+			Pet_Mode = "Ranged"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.head == "Spiritreaver Head" and pet.frame == "Stormwaker Frame" then
+			Pet_Mode = "BLM"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.head == "Soulsoother Head" and pet.frame == "Stormwaker Frame" then
+			Pet_Mode = "WHM"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		elseif pet.head == "Stormwaker Head" and pet.frame == "Stormwaker Frame" then
+			Pet_Mode = "RDM"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		else
+			Pet_Mode = "Unknown"
+			gearswap_jobbox:text(gearswap_box())
+			gearswap_jobbox:show()
+		end
+	else
+		Pet_Mode = "NA"
+		gearswap_jobbox:text(gearswap_box())
+		gearswap_jobbox:show()
 	end
 end
 
