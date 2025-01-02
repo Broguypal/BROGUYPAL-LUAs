@@ -25,12 +25,11 @@ function file_unload()
     enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
 	send_command('console_displayactivity 1')
 end
-
-function get_sets()
+---------------- KEYBINDS -----------------------
 send_command('bind numpad9 gs c ToggleMelee')
 send_command('bind numpad8 gs c ToggleTank')
-send_command('bind numpad7 gs c ToggleCaster')
-send_command('bind numpad6 gs c ToggleSpecial')
+send_command('bind numpad7 gs c ToggleBurst')
+send_command('bind numpad6 gs c ToggleEnfeeble')
 send_command('bind numpad4 gs c ToggleMain')
 send_command('bind numpad5 gs c ToggleSub')
 
@@ -38,10 +37,34 @@ send_command('bind f9 input /item "Remedy" <me>')
 send_command('bind f10 input /item "Panacea" <me>')
 send_command('bind f11 input /item "Holy Water" <me>')
 
-Mode = "MeleeMagicBurst"
+----------------- MODES / UI TEXT BOX -----------------------------
+Mode = "Melee"
+Enfeeble = "Normal"
+Magic = "Burst"
 
-Modes = {'MeleeMagicBurst','MeleeFreeCast','Enspell','ZeroTPEnspell','CasterMagicBurst','CasterFreecast','Tank'}
+Modes = {'Melee','Enspell','ZeroTPEnspell','Tank','Caster'}
+Enfeebles = {'Normal','Accuracy'}
+Magics = {'Burst','Freecast'}
 
+gearswap_box = function()
+  str = '           \\cs(130,130,130)RED MAGE\\cr\n'
+  str = str..' Offense Mode:\\cs(255,150,100)   '..Mode..'\\cr\n'
+  str = str..' Casting Mode:\\cs(255,150,100)   '..Magic..'\\cr\n'
+  str = str..' Enfeeble Mode:\\cs(255,150,100)   '..Enfeeble..'\\cr\n'
+    return str
+end
+
+gearswap_box_config = {pos={x=1320,y=550},padding=8,text={font='sans-serif',size=10,stroke={width=2,alpha=255},Fonts={'sans-serif'},},bg={alpha=0},flags={}}
+gearswap_jobbox = texts.new(gearswap_box_config)
+
+function user_setup()
+	gearswap_jobbox:text(gearswap_box())		
+	gearswap_jobbox:show()
+end
+
+-----------------------GEAR SETS------------------------------
+
+function get_sets()
     sets.idle = {}               	-- Leave this empty.   
 	sets.engaged = {}				-- Leave this empty.
 		sets.engaged.hybrid = {}
@@ -69,7 +92,6 @@ Modes = {'MeleeMagicBurst','MeleeFreeCast','Enspell','ZeroTPEnspell','CasterMagi
 		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 	}
-	
 	
 	--Tank Idle
 	sets.idle.tank = {
@@ -707,29 +729,29 @@ end)
 
 function status_change(new,old)
 	if new == "Engaged" then
-		idle()
 		send_command('input //gs disable main; input //gs disable sub; input //gs disable range')
-	else
 		idle()
+	else
 		send_command('input //gs enable main; input //gs enable sub; input //gs enable range')
+		idle()
 	end
 end
 
 
 function idle()
-	if Mode == "MeleeMagicBurst" or Mode == "MeleeFreeCast" or Mode == "Enspell" then
+	if Mode == "Melee" or Mode == "Enspell" then
 		if player.status == "Engaged" then 
 			if player.sub_job =='NIN' or player.sub_job =='DNC' then
 				if buffactive["Enfire"] or buffactive["Enblizzard"] or buffactive["Enaero"] or buffactive["Enstone"] or buffactive["Enthunder"] or buffactive["Enwater"] or
 				buffactive["Enfire II"] or buffactive["Enblizzard II"] or buffactive["Enaero II"] or buffactive["Enstone II"] or buffactive["Enthunder II"] or buffactive["Enwater II"] then
 					if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-						if Mode == "MeleeMagicBurst" or Mode == "MeleeFreeCast" then
+						if Mode == "Melee" then
 							equip(sets.engaged.hybrid.dualwieldenspellshadows)
 						elseif Mode == "Enspell" then
 							equip(sets.engaged.hybrid.enspellshadows)
 						end
 					else
-						if Mode == "MeleeMagicBurst" or Mode == "MeleeFreeCast" then
+						if Mode == "Melee" then
 							equip(sets.engaged.hybrid.dualwield)
 						elseif Mode == "Enspell" then
 							equip(sets.engaged.hybrid.enspell)
@@ -750,9 +772,8 @@ function idle()
 		else
 			equip(sets.idle.tank)
 		end
-	elseif Mode == "Tank"  then
+	elseif Mode == "Tank" or Mode == "Caster" then
 		equip(sets.idle.tank)
-
 	end
 end
 
@@ -795,7 +816,7 @@ end
 function midcast(spell)
 	if spell.skill == "Elemental Magic" then
 		if spell.name:match('Fire') or spell.name:match('Blizzard') or spell.name:match('Aero') or spell.name:match('Stone') or spell.name:match('Thunder') or spell.name:match('Water') then
-			if Mode == "MeleeMagicBurst" or Mode == "CasterMagicBurst" or Mode == "Enspell" or Mode == "ZeroTPEnspell" then
+			if Magic == "Burst" then
 				if spell.element == world.day_element or spell.element == world.weather_element then
 					if spell.name:match('Fire') and world.day_element ~= "Water" and world.weather_element ~= "Water" then
 						equip(sets.midcast.elementalBURSTobi)
@@ -815,70 +836,57 @@ function midcast(spell)
 				else
 					equip(sets.midcast.elementalBURST)
 				end
-			end
-		elseif Mode == "MeleeFreeCast" or Mode == "CasterFreecast" then
-			if spell.element == world.day_element or spell.element == world.weather_element then
-				if spell.name:match('Fire') and world.day_element ~= "Water" and world.weather_element ~= "Water" then
-					equip(sets.midcast.elementalFREECASTobi)
-				elseif spell.name:match('Water') and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
-					equip(sets.midcast.elementalFREECASTobi)
-				elseif spell.name:match('Thunder') and world.day_element ~= "Earth" and world.weather_element ~= "Earth" then
-					equip(sets.midcast.elementalFREECASTobi)
-				elseif spell.name:match('Stone') and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
-					equip(sets.midcast.elementalFREECASTobi)
-				elseif spell.name:match('Aero') and world.day_element ~= "Ice" and world.weather_element ~= "Ice" then
-					equip(sets.midcast.elementalFREECASTobi)
-				elseif spell.name:match('Blizzard') and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
-					equip(sets.midcast.elementalFREECASTobi)
+			elseif Magic == "Freecast" then
+				if spell.element == world.day_element or spell.element == world.weather_element then
+					if spell.name:match('Fire') and world.day_element ~= "Water" and world.weather_element ~= "Water" then
+						equip(sets.midcast.elementalFREECASTobi)
+					elseif spell.name:match('Water') and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
+						equip(sets.midcast.elementalFREECASTobi)
+					elseif spell.name:match('Thunder') and world.day_element ~= "Earth" and world.weather_element ~= "Earth" then
+						equip(sets.midcast.elementalFREECASTobi)
+					elseif spell.name:match('Stone') and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
+						equip(sets.midcast.elementalFREECASTobi)
+					elseif spell.name:match('Aero') and world.day_element ~= "Ice" and world.weather_element ~= "Ice" then
+						equip(sets.midcast.elementalFREECASTobi)
+					elseif spell.name:match('Blizzard') and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
+						equip(sets.midcast.elementalFREECASTobi)
+					else
+						equip(sets.midcast.elementalFREECAST)
+					end
 				else
 					equip(sets.midcast.elementalFREECAST)
 				end
 			else
-				equip(sets.midcast.elementalFREECAST)
+				idle()
 			end
-		else
-			idle()
 		end
 	elseif spell.skill == "Enfeebling Magic" then
-		if spell.name:match('Sleep') or spell.name:match('Sleepga') or spell.name:match('Bind') or spell.name:match('Break') or spell.name:match('Silence') then
-			if Mode == "CasterMagicFreecast" then
-				equip(sets.midcast.enfeebleMAXacc)
+		if Enfeeble == "Accuracy" then
+			if spell.name:match('Dia') or spell.name:match('Diaga') or spell.name:match('Inundation') then
+				equip(sets.midcast.enfeebleDIA)
 			else
+				equip(sets.midcast.enfeebleMAXacc)
+			end
+		elseif Enfeeble == "Normal" then
+			if spell.name:match('Sleep') or spell.name:match('Sleepga') or spell.name:match('Bind') or spell.name:match('Break') or spell.name:match('Silence') then
 				equip(sets.midcast.enfeebleDURATION)
-			end
-		elseif spell.name:match('Paralyze') or spell.name:match('Addle') or spell.name:match('Slow') or spell.name:match('Poison') then
-			if Mode == "CasterMagicFreecast" then
-				equip(sets.midcast.enfeebleMAXacc)
-			else
+			elseif spell.name:match('Paralyze') or spell.name:match('Addle') or spell.name:match('Slow') or spell.name:match('Poison') then
 				equip(sets.midcast.enfeeblePOTENCY)
-			end
-		elseif spell.name:match('Distract') or spell.name:match('Frazzle') then
-			if Mode == "CasterMagicFreecast" then
-				equip(sets.midcast.enfeebleMAXacc)
-			else
+			elseif spell.name:match('Distract') or spell.name:match('Frazzle') then
 				equip(sets.midcast.FrazzleDistract)
-			end
-		elseif spell.name:match('Gravity') or spell.name:match('Dispel') then
-			if Mode == "CasterMagicFreecast" then
-				equip(sets.midcast.enfeebleMAXacc)
-			else
+			elseif spell.name:match('Gravity') or spell.name:match('Dispel') then
 				equip(sets.midcast.GravityDispel)
-			end
-		elseif spell.name:match('Blind') then
-			if Mode == "CasterMagicFreecast" then
-				equip(sets.midcast.enfeebleMAXacc)
-			else
+			elseif spell.name:match('Blind') then
 				equip(sets.midcast.blind)
+			elseif spell.name:match('Dia') or spell.name:match('Diaga') or spell.name:match('Inundation') then
+				equip(sets.midcast.enfeebleDIA)
 			end
-		elseif spell.name:match('Dia') or spell.name:match('Diaga') or spell.name:match('Inundation') then
-			equip(sets.midcast.enfeebleDIA)
 		end
 	elseif spell.skill == "Dark Magic" then
 		if spell.name:match('Drain') or spell.name:match('Aspir') then
 			equip(sets.midcast.aspir)
-		end
-		if spell.name:match('Bio') then
-			if Mode == "CasterMagicFreecast" then
+		elseif spell.name:match('Bio') then
+			if Enfeeble == "Accuracy" then
 				equip(sets.midcast.enfeebleMAXacc)
 			else
 				equip (sets.midcast.enfeebleBIO)
@@ -891,43 +899,33 @@ function midcast(spell)
 			else
 				equip(sets.midcast.enhanceOTHERS)
 			end
-		end
-		if spell.name:match('Temper') or spell.name:match('Enfire') or spell.name:match('Enblizzard') or spell.name:match('Enaero') or spell.name:match('Enstone') or spell.name:match('Enthunder') or spell.name:match('Enwater') then
+		elseif spell.name:match('Temper') or spell.name:match('Enfire') or spell.name:match('Enblizzard') or spell.name:match('Enaero') or spell.name:match('Enstone') or spell.name:match('Enthunder') or spell.name:match('Enwater') then
 			equip(sets.midcast.enhanceSKILL)
-		end
-		if spell.name:match('Blaze Spikes') or spell.name:match('Ice Spikes') or spell.name:match('Shock Spikes') then
+		elseif spell.name:match('Blaze Spikes') or spell.name:match('Ice Spikes') or spell.name:match('Shock Spikes') then
 			equip(sets.midcast.enhanceSPIKES)
-		end
-		if spell.english:startswith('Gain') then
+		elseif spell.english:startswith('Gain') then
 			equip(sets.midcast.enhanceGAIN)
-		end
-		if spell.name:match('Aquaveil') then
+		elseif spell.name:match('Aquaveil') then
 			equip(sets.midcast.aquaveil)
-		end
-		if spell.name:match('Refresh') then
+		elseif spell.name:match('Refresh') then
 			equip(sets.midcast.refresh)
-		end
-		if spell.name:match('Stoneskin') then
+		elseif spell.name:match('Stoneskin') then
 			equip(sets.midcast.stoneskin)
-		end
-		if spell.name:match('Phalanx') then
+		elseif spell.name:match('Phalanx') then
 			if spell.target.type == 'SELF' then
 				equip(sets.midcast.phalanxSELF)
 			else
 				equip(sets.midcast.enhanceOTHERS)
 			end
-		end
-		if spell.name:match('Invisible') or spell.name:match('Sneak') or spell.name:match('Deodorize') then
+		elseif spell.name:match('Invisible') or spell.name:match('Sneak') or spell.name:match('Deodorize') then
 			equip(sets.midcast.fastcast)
 		end
 	elseif spell.skill == "Healing Magic" then
 		if spell.name:match('Cure') or spell.name:match('Cura') or spell.name:match('Curaga') then
 			equip(sets.midcast.cure)
-		end
-		if spell.name:match('Cursna') then
+		elseif spell.name:match('Cursna') then
 			equip(sets.midcast.cursna)
-		end
-		if spell.name:match('Raise') or spell.name:match('Reraise') then
+		elseif spell.name:match('Raise') or spell.name:match('Reraise') then
 			equip(sets.midcast.fastcast)
 		end
 	elseif spell.type == "WeaponSkill" then 
@@ -965,61 +963,58 @@ function midcast(spell)
 	end
 end
 
+
+
 function aftercast(spell)
-	if player.status == "Engaged" then
-		idle()
-	else
-		idle()
-	end
+	idle()
 end
 
 
+
 function self_command(command)
-	if command == "ToggleMelee" then 
-		if Mode == "Tank" or Mode == "MeleeFreeCast" or Mode == "ZeroTPEnspell" or Mode == "Enspell" or Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
-			Mode = "MeleeMagicBurst"
-			send_command('console_echo "Melee / Magic Burst Mode"')
-			--Equip weapon in sub command
+	if command == "ToggleMelee" then
+		if Mode == "Tank" or Mode == "ZeroTPEnspell" or Mode == "Caster" then
+			Mode = "Melee"
 			idle()
-		elseif Mode == "MeleeMagicBurst" then
-			Mode = "MeleeFreeCast"
-			send_command('console_echo "Melee / Free Cast Mode"')
-			idle()
-		end
-	end
-	if command == "ToggleTank" then
-		if Mode == "MeleeMagicBurst" or Mode == "MeleeFreeCast" or Mode == "ZeroTPEnspell" or Mode == "Enspell" or Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
-			Mode = "Tank"
-			send_command('console_echo "Tank Mode"')
-			idle()
-		end
-	end
-	if command == "ToggleSpecial" then
-		if Mode == "MeleeFreeCast" or Mode == "MeleeMagicBurst" or Mode == "Tank" or Mode == "ZeroTPEnspell" or Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
+		elseif Mode == "Melee" then
 			Mode = "Enspell"
-			send_command('console_echo "Enspell Mode"')
-			send_command ('input /equip Sub "Pukulatmuj +1"')
 			idle()
 		elseif Mode == "Enspell" then
 			Mode = "ZeroTPEnspell"
-			send_command('console_echo "Zero TP Enspell Mode"')
+			idle()
+		end
+	end 
+	if command == "ToggleTank" then
+		if Mode == "Melee" or Mode == "ZeroTPEnspell" or Mode == "Enspell" or Mode == "Caster" then
+			Mode = "Tank"
+			idle()
+		elseif Mode == "Tank" then
+			Mode = "Caster"
 			idle()
 		end
 	end
-	if command == "ToggleCaster" then
-		if Mode == "MeleeFreeCast" or Mode == "MeleeMagicBurst" or Mode == "Tank" or Mode == "Enspell" or Mode == "ZeroTPEnspell" or Mode == "CasterMagicBurst" then
-			Mode = "CasterMagicFreecast"
-			send_command('console_echo "Caster Freecast / Accuracy Mode"')
-			send_command ('input /equip Sub "Ammurapi shield"')
-			idle()
-		elseif Mode == "CasterMagicFreecast" then
-			Mode = "CasterMagicBurst"
-			send_command('console_echo "Caster Magic Burst Mode"')
-			idle()
+	if command == "ToggleEnfeeble" then
+		if Enfeeble == "Normal" then
+			Enfeeble = "Accuracy"
+			if player.status == "Engaged" and (Mode == "Melee" or Mode == "Enspell") then
+				send_command('input //gs enable main; input //gs enable sub; input //gs enable range')
+			end
+		elseif Enfeeble == "Accuracy" then
+			Enfeeble = "Normal"
+			if player.status == "Engaged" and (Mode == "Melee" or Mode == "Enspell") then
+				send_command('input //gs disable main; input //gs disable sub; input //gs disable range')
+			end
+		end
+	end 
+	if command == "ToggleBurst" then
+		if Magic == "Burst" then
+			Magic = "Freecast"
+		elseif Magic == "Freecast" then
+			Magic = "Burst"
 		end
 	end
 	if command == "ToggleMain" then
-		if Mode == "MeleeFreeCast" or Mode == "MeleeMagicBurst" or Mode == "Tank" then
+		if Mode == "Melee" or Mode == "Tank" then
 			if player.equipment.main == "Crocea Mors" then
 				send_command ('input /equip Main "Naegling"')
 			end
@@ -1033,7 +1028,7 @@ function self_command(command)
 				send_command ('input /equip Main "Crocea Mors"')
 			end
 		end
-		if Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
+		if Mode == "Caster" then
 			if player.equipment.main == "Crocea Mors" then
 				send_command ('input /equip Main "Daybreak"')
 			end
@@ -1052,7 +1047,7 @@ function self_command(command)
 		end
 	end
 	if command == "ToggleSub" then
-		if Mode == "MeleeFreeCast" or Mode == "MeleeMagicBurst" or Mode == "Tank" then
+		if Mode == "Melee" or Mode == "Melee" or Mode == "Tank" then
 			if player.sub_job =='NIN' or player.sub_job =='DNC' then
 				if player.equipment.sub == "Thibron" then
 					send_command ('input /equip Sub "Daybreak"')
@@ -1073,11 +1068,15 @@ function self_command(command)
 				send_command ('input /equip Sub "Ammurapi shield"')
 			end
 		end
-		if Mode == "CasterMagicFreecast" or Mode == "CasterMagicBurst" then
+		if Mode == "Caster" or Mode == "CasterMagicBurst" then
 			send_command ('input /equip Sub "Ammurapi shield"')
 		end
 		if Mode == "Enspell" then
 			send_command ('input /equip Sub "Pukulatmuj +1"')
 		end
 	end
+	gearswap_jobbox:text(gearswap_box())		
+	gearswap_jobbox:show()
 end
+
+user_setup()
