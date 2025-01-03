@@ -354,7 +354,7 @@ Modes = {'Hybrid','Counter','Defence'}
 
 -- Footwork
 	sets.ja.footwork = {
-		feet="Bhikku Gaiters +1",
+		feet="Shukuyu Sune-Ate",
 	}
 
 -- Mantra
