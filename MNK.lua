@@ -30,6 +30,9 @@ function get_sets()
 send_command('bind numpad9 gs c ToggleHybrid')
 send_command('bind numpad8 gs c ToggleCounter')
 send_command('bind numpad7 gs c ToggleDefence')
+send_command('bind numpad4 gs c ToggleWeapon')
+send_command('bind numpad5 gs c ToggleStaff')
+
 send_command('bind f9 input /item "Remedy" <me>')
 send_command('bind f10 input /item "Panacea" <me>')
 send_command('bind f11 input /item "Holy Water" <me>')
@@ -660,5 +663,15 @@ function self_command(command)
 			send_command('console_echo "Defence"')
 			idle()
 		end
+	elseif command == "ToggleWeapon" then
+		if player.equipment.main == "Godhands" then
+			send_command ('input /equip Main "Verethragna"')
+		elseif player.equipment.main == "Verethragna" then
+			send_command ('input /equip Main "Godhands"')
+		else
+			send_command ('input /equip Main "Godhands"')
+		end
+	elseif command == "ToggleStaff" then
+		send_command ('input /equip Main "Malignance pole"')
 	end
 end
