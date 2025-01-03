@@ -159,10 +159,23 @@ function get_sets()
 	})
 
 -- Enspell mode
-	sets.engaged.hybrid.enspell = set_combine(sets.engaged.hybrid.dualwield,{
+	sets.engaged.hybrid.enspell = {
 		main={ name="Crocea Mors", augments={'Path: C',}},
 		sub={ name="Pukulatmuj +1", augments={'Path: A',}},
-	})
+		ammo="Coiste Bodhar",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Anu Torque",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Sherida Earring",
+		right_ear="Telos Earring",
+		left_ring="Fickblix's Ring",
+		right_ring="Chirich Ring +1",
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
+	}
 
 -- Enspell mode + shadows up
 	
