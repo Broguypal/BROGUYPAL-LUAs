@@ -1058,19 +1058,13 @@ function self_command(command)
 	if command == "ToggleSub" then
 		if Mode == "Melee" or Mode == "Melee" or Mode == "Tank" then
 			if player.sub_job =='NIN' or player.sub_job =='DNC' then
-				if player.equipment.sub == "Thibron" then
-					send_command ('input /equip Sub "Daybreak"')
-				end
 				if player.equipment.sub == "Daybreak" then
-					send_command ('input /equip Sub "Bunzi\'s Rod"')
-				end
-				if player.equipment.sub == "Bunzi\'s Rod" then
-					send_command ('input /equip Sub "Gleti\'s knife"')
-				end
-				if player.equipment.sub == "Gleti\'s knife" then
 					send_command ('input /equip Sub "Thibron"')
-				end
-				if player.equipment.sub ~= "Thibron" and player.equipment.sub ~= "Daybreak" and player.equipment.sub ~= "Bunzi\'s Rod" and player.equipment.sub ~= "Gleti\'s knife" then
+				elseif player.equipment.sub == "Thibron" then
+					send_command ('input /equip Sub "Bunzi\'s Rod"')
+				elseif player.equipment.sub == "Bunzi\'s Rod" then
+					send_command ('input /equip Sub "Daybreak"')
+				else
 					send_command ('input /equip Sub "Daybreak"')
 				end
 			else
