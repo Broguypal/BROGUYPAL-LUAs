@@ -25,17 +25,6 @@ function file_unload()
     enable("main","sub","range","ammo","head","neck","ear1","ear2","body","hands","ring1","ring2","back","waist","legs","feet")
 	send_command('console_displayactivity 1')
 end
----------------- KEYBINDS -----------------------
-send_command('bind numpad9 gs c ToggleMelee')
-send_command('bind numpad8 gs c ToggleTank')
-send_command('bind numpad7 gs c ToggleBurst')
-send_command('bind numpad6 gs c ToggleEnfeeble')
-send_command('bind numpad4 gs c ToggleMain')
-send_command('bind numpad5 gs c ToggleSub')
-
-send_command('bind f9 input /item "Remedy" <me>')
-send_command('bind f10 input /item "Panacea" <me>')
-send_command('bind f11 input /item "Holy Water" <me>')
 
 ----------------- MODES / UI TEXT BOX -----------------------------
 Mode = "Melee"
@@ -65,6 +54,19 @@ end
 -----------------------GEAR SETS------------------------------
 
 function get_sets()
+---------------- KEYBINDS -----------------------
+send_command('bind numpad9 gs c ToggleMelee')
+send_command('bind numpad8 gs c ToggleTank')
+send_command('bind numpad7 gs c ToggleBurst')
+send_command('bind numpad6 gs c ToggleEnfeeble')
+send_command('bind numpad4 gs c ToggleMain')
+send_command('bind numpad5 gs c ToggleSub')
+
+send_command('bind f9 input /item "Remedy" <me>')
+send_command('bind f10 input /item "Panacea" <me>')
+send_command('bind f11 input /item "Holy Water" <me>')
+
+
     sets.idle = {}               	-- Leave this empty.   
 	sets.engaged = {}				-- Leave this empty.
 		sets.engaged.hybrid = {}
@@ -1039,28 +1041,22 @@ function self_command(command)
 		if Mode == "Melee" or Mode == "Tank" then
 			if player.equipment.main == "Crocea Mors" then
 				send_command ('input /equip Main "Naegling"')
-			end
-			if player.equipment.main == "Naegling" then
+			elseif player.equipment.main == "Naegling" then
 				send_command ('input /equip Main "Tauret"')
-			end
-			if player.equipment.main == "Tauret" then 
+			elseif player.equipment.main == "Tauret" then 
 				send_command ('input /equip Main "Crocea Mors"')
-			end
-			if player.equipment.main ~= "Tauret" and player.equipment.main ~= "Naegling" and player.equipment.main ~= "Crocea Mors" then
+			else
 				send_command ('input /equip Main "Crocea Mors"')
 			end
 		end
 		if Mode == "Caster" then
 			if player.equipment.main == "Crocea Mors" then
 				send_command ('input /equip Main "Daybreak"')
-			end
-			if player.equipment.main == "Daybreak" then
+			elseif player.equipment.main == "Daybreak" then
 				send_command ('input /equip Main "Bunzi\'s Rod"')
-			end
-			if player.equipment.main == "Bunzi\'s Rod" then
+			elseif player.equipment.main == "Bunzi\'s Rod" then
 				send_command ('input /equip Main "Crocea Mors"')
-			end
-			if player.equipment.main ~= "Daybreak" and player.equipment.main ~= "Bunzi\'s Rod" and player.equipment.main ~= "Crocea Mors" then
+			else
 				send_command ('input /equip Main "Crocea Mors"')
 			end
 		end
