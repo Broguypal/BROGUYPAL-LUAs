@@ -43,7 +43,7 @@ end
 Player_Mode = "Melee"
 Casting_Mode = "Burst"
 Enfeeble_Mode = "Normal"
-Weapon_Mode = "Unlocked"
+Weapon_Mode = "Locked"
 
 Player_Modes = {'Melee','Enspell','ZeroTPEnspell','Tank','Caster'}
 Casting_Modes = {'Burst','Freecast'}
