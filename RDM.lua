@@ -74,7 +74,7 @@ function get_sets()
 ---------------- KEYBINDS -----------------------
 send_command('bind numpad9 gs c ToggleMelee')
 send_command('bind numpad8 gs c ToggleTank')
-send_command('bind numpad8 gs c ToggleCaster')
+send_command('bind numpad7 gs c ToggleCaster')
 send_command('bind numpad3 gs c ToggleBurst')
 send_command('bind numpad1 gs c ToggleEnfeeble')
 send_command('bind numpad4 gs c ToggleMain')
@@ -100,7 +100,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
  -------------- IDLE SETS ---------------------
     --Hybrid/DPS IDLE--
 	sets.idle.hybrid = {
-		ammo="Homiliary",
+		ammo="Staunch Tathlum +1",
 		head={ name="Nyame Helm", augments={'Path: B',}},
 		body="Shamash Robe",
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -119,13 +119,13 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	sets.idle.tank = {
 		main="Sakpata's Sword",
 		sub="Ammurapi Shield",
-		ammo="Homiliary",
+		ammo="Staunch Tathlum +1",
 		head={ name="Nyame Helm", augments={'Path: B',}},
-		body="Shamash Robe",
+		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
-		neck="Sibyl Scarf",
+		neck="Warder's Charm +1",
 		waist="Carrier's Sash",
 		left_ear="Infused Earring",
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -916,7 +916,7 @@ function idle()
 		if player.status == "Engaged" then
 			equip(sets.engaged.hybrid.zeroTPenspell)
 		else
-			equip(sets.idle.tank)
+			equip(sets.idle.hybrid)
 		end
 	elseif Player_Mode == "Tank" then
 		equip(sets.idle.tank)
@@ -1298,7 +1298,7 @@ function self_command(command)
 			idle()
 		end
 	elseif command == "ToggleCaster" then
-		if Player_Mode == "Melee" or Player_Mode == "ZeroTPEnspell" or Player_Mode == "Enspell" or Player_Mode == "Tank"then
+		if Player_Mode == "Melee" or Player_Mode == "ZeroTPEnspell" or Player_Mode == "Enspell" or Player_Mode == "Tank" then
 			Player_Mode = "Caster"
 			idle()
 		end
