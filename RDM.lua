@@ -9,6 +9,19 @@
 -- 						RED MAGE LUA
 
 
+--[[
+
+TO DO:
+2. Make "if engaged AND Player_Mode == Melee AND Enfeeble_Mode == "Normal" - no weapon swap set. 
+	- remove auto weapon locks when changing states (So damn wonky)
+3. Attach default weapons for caster mode (Caster mode idle)-
+4. Rebind keys - 9 melee/8 tank / 7 caster / 1 accuracy mode / 3 burs mode / 6 lock or unlock weapons
+5. Create Weapon locked set -  and make set visible on textbox (weapon_state = "Unlocked")
+
+
+]]
+
+
 
 function file_unload()
     send_command('unbind numpad9')
@@ -27,19 +40,23 @@ function file_unload()
 end
 
 ----------------- MODES / UI TEXT BOX -----------------------------
-Mode = "Melee"
-Enfeeble = "Normal"
-Magic = "Burst"
+Player_Mode = "Melee"
+Casting_Mode = "Burst"
+Enfeeble_Mode = "Normal"
+Weapon_Mode = "Unlocked"
 
-Modes = {'Melee','Enspell','ZeroTPEnspell','Tank','Caster'}
-Enfeebles = {'Normal','Accuracy'}
-Magics = {'Burst','Freecast'}
+Player_Modes = {'Melee','Enspell','ZeroTPEnspell','Tank','Caster'}
+Casting_Modes = {'Burst','Freecast'}
+Enfeeble_Modes = {'Normal','Accuracy'}
+Weapon_Modes = {'Unlocked','Locked'}
+
 
 gearswap_box = function()
-  str = '           \\cs(130,130,130)RED MAGE\\cr\n'
-  str = str..' Offense Mode:\\cs(255,150,100)   '..Mode..'\\cr\n'
-  str = str..' Casting Mode:\\cs(255,150,100)   '..Magic..'\\cr\n'
-  str = str..' Enfeeble Mode:\\cs(255,150,100)   '..Enfeeble..'\\cr\n'
+  str = '           \\cs(204,0,0)RED MAGE\\cr\n'
+  str = str..' Offense Mode:\\cs(255,150,100)   '..Player_Mode..'\\cr\n'
+  str = str..' Casting Mode:\\cs(255,0,102)   '..Casting_Mode..'\\cr\n'
+  str = str..' Enfeeble Mode:\\cs(0,153,51)   '..Enfeeble_Mode..'\\cr\n'
+  str = str..' Weapon Mode:\\cs(128,128,128)   '..Weapon_Mode..'\\cr\n'
     return str
 end
 
@@ -57,21 +74,24 @@ function get_sets()
 ---------------- KEYBINDS -----------------------
 send_command('bind numpad9 gs c ToggleMelee')
 send_command('bind numpad8 gs c ToggleTank')
-send_command('bind numpad7 gs c ToggleBurst')
-send_command('bind numpad6 gs c ToggleEnfeeble')
+send_command('bind numpad8 gs c ToggleCaster')
+send_command('bind numpad3 gs c ToggleBurst')
+send_command('bind numpad1 gs c ToggleEnfeeble')
 send_command('bind numpad4 gs c ToggleMain')
 send_command('bind numpad5 gs c ToggleSub')
+send_command('bind numpad6 gs c ToggleWeapon')
 
 send_command('bind f9 input /item "Remedy" <me>')
 send_command('bind f10 input /item "Panacea" <me>')
 send_command('bind f11 input /item "Holy Water" <me>')
 
+--------------- EQUIPMENT SETS ------------------
 
-    sets.idle = {}               	-- Leave this empty.   
-	sets.engaged = {}				-- Leave this empty.
-		sets.engaged.hybrid = {}
+    sets.idle = {}               	-- Leave this empty 
+	sets.engaged = {}				-- Leave this empty
+		sets.engaged.hybrid = {}	-- Leave this empty
     sets.precast = {}               -- leave this empty 
-	sets.ja = {}
+	sets.ja = {}					-- Leave this empty
     sets.midcast = {}               -- leave this empty    
     sets.aftercast = {}             -- leave this empty
 	sets.ws = {}					-- Leave this empty
@@ -81,11 +101,11 @@ send_command('bind f11 input /item "Holy Water" <me>')
     --Hybrid/DPS IDLE--
 	sets.idle.hybrid = {
 		ammo="Homiliary",
-		head="Malignance Chapeau",
+		head={ name="Nyame Helm", augments={'Path: B',}},
 		body="Shamash Robe",
-		hands="Malignance Gloves",
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-		feet="Malignance Boots",
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Sibyl Scarf",
 		waist="Carrier's Sash",
 		left_ear="Infused Earring",
@@ -97,12 +117,33 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	
 	--Tank Idle
 	sets.idle.tank = {
+		main="Sakpata's Sword",
+		sub="Ammurapi Shield",
 		ammo="Homiliary",
 		head={ name="Nyame Helm", augments={'Path: B',}},
 		body="Shamash Robe",
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Sibyl Scarf",
+		waist="Carrier's Sash",
+		left_ear="Infused Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
+	}
+	
+	--Caster idle
+	sets.idle.caster = {
+		main={ name="Crocea Mors", augments={'Path: C',}},
+		sub="Ammurapi Shield",
+		ammo="Homiliary",
+		head="Malignance Chapeau",
+		body="Shamash Robe",
+		hands="Malignance Gloves",
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		feet="Malignance Boots",
 		neck="Sibyl Scarf",
 		waist="Carrier's Sash",
 		left_ear="Infused Earring",
@@ -214,10 +255,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 
 ---- ENFEEBLE SETS ----
 -- Max Accuracy
-	sets.midcast.enfeebleMAXacc = {
-		main={ name="Crocea Mors", augments={'Path: C',}},
-		sub="Ammurapi Shield",
-		range="Ullr",
+	sets.midcast.enfeebleACCURACY = {
 		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 		body="Lethargy Sayon +2",
 		hands="Leth. Ganth. +2",
@@ -232,11 +270,14 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 
---Frazzle or distract
-	sets.midcast.FrazzleDistract = {
+	sets.midcast.enfeebleACCURACYweapons = set_combine(sets.midcast.enfeebleACCURACY,{
 		main={ name="Crocea Mors", augments={'Path: C',}},
 		sub="Ammurapi Shield",
 		range="Ullr",
+	})
+
+--Frazzle or distract
+	sets.midcast.enfeebleFRAZDIST = {
 		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 		body="Lethargy Sayon +2",
 		hands="Leth. Ganth. +2",
@@ -251,11 +292,14 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	} 
 
---gravity/dispel
-	sets.midcast.GravityDispel = {
+	sets.midcast.enfeebleFRAZDISTweapons = set_combine(sets.midcast.enfeebleFRAZDIST,{
 		main={ name="Crocea Mors", augments={'Path: C',}},
 		sub="Ammurapi Shield",
 		range="Ullr",
+	})
+
+--gravity/dispel
+	sets.midcast.enfeebleGRAVDISP = {
 		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 		body="Lethargy Sayon +2",
 		hands="Leth. Ganth. +2",
@@ -269,6 +313,12 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ring="Stikini Ring +1",
 		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
+	
+	sets.midcast.enfeebleGRAVDISPweapons = set_combine(sets.midcast.enfeebleGRAVDISP,{
+		main={ name="Crocea Mors", augments={'Path: C',}},
+		sub="Ammurapi Shield",
+		range="Ullr",
+	})
 
 -- Paralyze/Slow/Addle/poison
 	sets.midcast.enfeeblePOTENCY = {
@@ -286,10 +336,12 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ring="Stikini Ring +1",
 		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
+	
+	sets.midcast.enfeeblePOTENCYweapons = set_combine(sets.midcast.enfeeblePOTENCY,{
+	})
 
 -- Silence/Sleep/Break/Bind
 	sets.midcast.enfeebleDURATION = {
-		range="Ullr",
 		head="Leth. Chappel +2",
 		body="Lethargy Sayon +2",
 		hands="Leth. Ganth. +2",
@@ -303,10 +355,13 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ring="Stikini Ring +1",
 		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
+	
+	sets.midcast.enfeebleDURATIONweapons = set_combine(sets.midcast.enfeebleDURATION,{
+		range="Ullr",
+	})
 
 --Blind (int based)
-	sets.midcast.blind = {
-		sub="Ammurapi Shield",
+	sets.midcast.enfeebleBLIND = {
 		ammo="Ombre Tathlum +1",
 		head="Ea Hat +1",
 		body="Ea Houppe. +1",
@@ -319,12 +374,15 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ear="Snotra Earring",
 		left_ring="Kishar Ring",
 		right_ring="Stikini Ring +1",
-		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},	}
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
+	}
 
+	sets.midcast.enfeebleBLINDweapons = set_combine(sets.midcast.enfeebleBLIND,{
+		sub="Ammurapi Shield",
+	})
 	
 --Dia/Inundation
-	sets.midcast.enfeebleDIA = {
-		main="Daybreak",
+	sets.midcast.enfeebleINUNDIA = {
 		head="Leth. Chappel +2",
 		body="Lethargy Sayon +2",
 		hands="Leth. Ganth. +2",
@@ -338,10 +396,14 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 
+	sets.midcast.enfeebleINUNDIAweapons = set_combine(sets.midcast.enfeebleINUNDIA,{
+		main="Daybreak",
+	})
+
+---- DARK MAGIC SETS ----
+
 --Bio
-	sets.midcast.enfeebleBIO = {
-		sub="Ammurapi Shield",
-		range="Ullr",
+	sets.midcast.darkBIO = {
 		head="Leth. Chappel +2",
 		body="Lethargy Sayon +2",
 		hands="Leth. Ganth. +2",
@@ -356,10 +418,13 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 
---Aspir / Drain
-	sets.midcast.aspir = {
+	sets.midcast.darkBIOweapons = set_combine(sets.midcast.darkBIO,{
 		sub="Ammurapi Shield",
 		range="Ullr",
+	})
+
+--Aspir / Drain
+	sets.midcast.darkASPIRDRAIN = {
 		head="Pixie Hairpin +1",
 		body="Lethargy Sayon +2",
 		hands="Leth. Ganth. +2",
@@ -374,11 +439,14 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
 
+	sets.midcast.darkASPIRDRAINweapons = set_combine(sets.midcast.darkASPIRDRAIN,{
+		sub="Ammurapi Shield",
+		range="Ullr",
+	})
+
 ---- ENHANCING SETS ----
 --Enspells / Temper
 	sets.midcast.enhanceSKILL = {
-		main="Secespita",
-		sub={ name="Pukulatmuj +1", augments={'Path: A',}},
 		ammo="Staunch Tathlum +1",
 		head="Befouled Crown",
 		body={ name="Viti. Tabard +3", augments={'Enhances "Chainspell" effect',}},
@@ -394,9 +462,13 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +10','Enha.mag. skill +10','Mag. Acc.+5','Enh. Mag. eff. dur. +17',}},
 	}
 
+	sets.midcast.enhanceSKILLweapons = set_combine(sets.midcast.enhanceSKILL,{
+		main={ name="Pukulatmuj +1", augments={'Path: A',}},
+		sub="Secespita",
+	})
+
 --Haste/Flurry/Protect/Shell/Blink/Barspells (SELF)
 	sets.midcast.enhanceDURATION = {
-		sub="Ammurapi Shield",
 		ammo="Staunch Tathlum +1",
 		head={ name="Telchine Cap", augments={'Spell interruption rate down -10%','Enh. Mag. eff. dur. +10',}},
 		body={ name="Viti. Tabard +3", augments={'Enhances "Chainspell" effect',}},
@@ -411,9 +483,12 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ring="Defending Ring",
 		back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +10','Enha.mag. skill +10','Mag. Acc.+5','Enh. Mag. eff. dur. +17',}},
 	}
-	
-	sets.midcast.enhanceOTHERS = {
+
+	sets.midcast.enhanceDURATIONweapons = set_combine(sets.midcast.enhanceDURATION,{
 		sub="Ammurapi Shield",
+	})
+
+	sets.midcast.enhanceOTHERS = {
 		ammo="Staunch Tathlum +1",
 		head="Leth. Chappel +2",
 		body="Lethargy Sayon +2",
@@ -429,24 +504,42 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +10','Enha.mag. skill +10','Mag. Acc.+5','Enh. Mag. eff. dur. +17',}},
 	}
 
+	sets.midcast.enhanceOTHERSweapons = set_combine(sets.midcast.enhanceOTHERS,{
+		sub="Ammurapi Shield",
+	})
+
 --Gain spells
 	sets.midcast.enhanceGAIN = set_combine(sets.midcast.enhanceDURATION,{
 		hands={ name="Viti. Gloves +3", augments={'Enhancing Magic duration',}},
 	})
 
---Spikes spells
+	sets.midcast.enhanceGAINweapons = set_combine(sets.midcast.enhanceGAIN,{
+		sub="Ammurapi Shield",
+	})
+
+--Spikes spells 
 	sets.midcast.enhanceSPIKES = {}
 
+	sets.midcast.enhanceSPIKESweapons = set_combine(sets.midcast.enhanceSPIKES,{
+	})
 	
-	sets.midcast.aquaveil = {}
+	sets.midcast.enhanceAQUAVEIL = {}
 	
-	sets.midcast.refresh = {}
+	sets.midcast.enhanceAQUAVEILweapons = set_combine(sets.midcast.enhanceAQUAVEIL,{
+	})
+
+	sets.midcast.enhanceREFRESH = {}
+
+	sets.midcast.enhanceREFRESHweapons = set_combine(sets.midcast.enhanceREFRESH,{
+	})
 	
-	sets.midcast.stoneskin = {}
-	
-	sets.midcast.phalanxSELF = {
-		main="Sakpata's Sword",
-		sub="Ammurapi Shield",
+	sets.midcast.enhanceSTONESKIN = {}
+
+	sets.midcast.enhanceSTONESKINweapons = set_combine(sets.midcast.enhanceSTONESKIN,{
+	})
+
+--self phalanx enhancements
+	sets.midcast.enhancePHALANXSELF = {
 		ammo="Staunch Tathlum +1",
 		head="Leth. Chappel +2",
 		body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
@@ -461,11 +554,14 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ring="Stikini Ring +1",
 		back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +10','Enha.mag. skill +10','Mag. Acc.+5','Enh. Mag. eff. dur. +17',}},
 	}
-	
----- CURE SETS ----
-	sets.midcast.cure = {
-		main="Daybreak",
+
+	sets.midcast.enhancePHALANXSELFweapons = set_combine(sets.midcast.enhancePHALANXSELF,{
+		main="Sakpata's Sword",
 		sub="Ammurapi Shield",
+	})
+	
+---- HEALING MAGIC SETS ----
+	sets.midcast.healingCURE = {
 		ammo="Staunch Tathlum +1",
 		head={ name="Kaykaus Mitra +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
 		body="Bunzi's Robe",
@@ -480,14 +576,19 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
-	
-	sets.midcast.cursna = {}
-	
+
+	sets.midcast.healingCUREweapons = set_combine(sets.midcast.healingCURE,{
+		main="Daybreak",
+		sub="Ammurapi Shield",
+	})
+
+	sets.midcast.healingCURSNA = {}
+
+	sets.midcast.healingCURSNAweapons = set_combine(sets.midcast.healingCURSNA,{
+	})
 
 ----Elemental sets ----
 	sets.midcast.elementalFREECAST = {
-		main="Bunzi's Rod",
-		sub="Ammurapi Shield",
 		ammo="Pemphredo Tathlum",
 		head="Leth. Chappel +2",
 		body="Lethargy Sayon +2",
@@ -502,14 +603,22 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
-	
-	sets.midcast.elementalFREECASTobi = set_combine(sets.midcast.elementalFREECAST,{
+
+	sets.midcast.elementalFREECASTweapons = set_combine(sets.midcast.elementalFREECAST,{
+		main="Bunzi's Rod",
+		sub="Ammurapi Shield",
+	})
+
+	sets.midcast.elementalFREECASTOBI = set_combine(sets.midcast.elementalFREECAST,{
 		waist="Hachirin-no-Obi",
 	})
 
-	sets.midcast.elementalBURST = {
+	sets.midcast.elementalFREECASTOBIweapons = set_combine(sets.midcast.elementalFREECASTOBI,{
 		main="Bunzi's Rod",
 		sub="Ammurapi Shield",
+	})
+
+	sets.midcast.elementalBURST = {
 		ammo="Pemphredo Tathlum",
 		head="Ea Hat +1",
 		body="Ea Houppe. +1",
@@ -524,12 +633,23 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
 	}
-	
-	sets.midcast.elementalBURSTobi = set_combine(sets.midcast.elementalBURST,{
+
+	sets.midcast.elementalBURSTweapons = set_combine(sets.midcast.elementalBURST,{
+		main="Bunzi's Rod",
+		sub="Ammurapi Shield",
+	})
+
+	sets.midcast.elementalBURSTOBI = set_combine(sets.midcast.elementalBURST,{
 		waist="Hachirin-no-Obi",
 	})
 
+	sets.midcast.elementalBURSTOBIweapons = set_combine(sets.midcast.elementalBURSTOBI,{
+		main="Bunzi's Rod",
+		sub="Ammurapi Shield",
+	})
 
+---- OTHER MIDCAST ----
+--invisible/sneak/deodorize/raise
 	sets.midcast.fastcast = {
 		head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
 		body={ name="Merlinic Jubbah", augments={'Mag. Acc.+26','"Fast Cast"+6','MND+6',}},
@@ -538,12 +658,16 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
 		waist="Plat. Mog. Belt",
 	}
-		--Fastcast here.
-	
-	sets.midcast.bio = {}
-		--Dark magic skill here
-	
-	sets.midcast.utsusemi = {}
+
+--Utsusemi
+	sets.midcast.utsusemi = {
+		head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+		body={ name="Merlinic Jubbah", augments={'Mag. Acc.+26','"Fast Cast"+6','MND+6',}},
+		legs={ name="Lengo Pants", augments={'INT+8','Mag. Acc.+14','"Mag.Atk.Bns."+13',}},
+		feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+6','"Fast Cast"+6','Mag. Acc.+13',}},
+		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+		waist="Plat. Mog. Belt",
+	}
 	
 --------------- Weaponskill SETS ------------------
 	--undefined Weaponskills
@@ -750,30 +874,28 @@ end)
 function status_change(new,old)
 	if new == "Engaged" then
 		idle()
-		send_command('input //gs disable main; input //gs disable sub; input //gs disable range')
 	else
 		idle()
-		send_command('input //gs enable main; input //gs enable sub; input //gs enable range')
 	end
 end
 
 
 function idle()
-	if Mode == "Melee" or Mode == "Enspell" then
+	if Player_Mode == "Melee" or Player_Mode == "Enspell" then
 		if player.status == "Engaged" then 
 			if player.sub_job =='NIN' or player.sub_job =='DNC' then
 				if buffactive["Enfire"] or buffactive["Enblizzard"] or buffactive["Enaero"] or buffactive["Enstone"] or buffactive["Enthunder"] or buffactive["Enwater"] or
 				buffactive["Enfire II"] or buffactive["Enblizzard II"] or buffactive["Enaero II"] or buffactive["Enstone II"] or buffactive["Enthunder II"] or buffactive["Enwater II"] then
 					if buffactive['Copy Image'] or buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-						if Mode == "Melee" then
+						if Player_Mode == "Melee" then
 							equip(sets.engaged.hybrid.dualwieldenspellshadows)
-						elseif Mode == "Enspell" then
+						elseif Player_Mode == "Enspell" then
 							equip(sets.engaged.hybrid.enspellshadows)
 						end
 					else
-						if Mode == "Melee" then
+						if Player_Mode == "Melee" then
 							equip(sets.engaged.hybrid.dualwield)
-						elseif Mode == "Enspell" then
+						elseif Player_Mode == "Enspell" then
 							equip(sets.engaged.hybrid.enspell)
 						end
 					end
@@ -784,22 +906,25 @@ function idle()
 				equip(sets.engaged.hybrid.normal)
 			end
 		else
-			if Mode == "Melee" then
+			if Player_Mode == "Melee" then
 				equip(sets.idle.hybrid)
-			elseif Mode == "Enspell" then
+			elseif Player_Mode == "Enspell" then
 				equip(sets.idle.enpell)
 			end
 		end
-	elseif Mode == "ZeroTPEnspell" then
+	elseif Player_Mode == "ZeroTPEnspell" then
 		if player.status == "Engaged" then
 			equip(sets.engaged.hybrid.zeroTPenspell)
 		else
 			equip(sets.idle.tank)
 		end
-	elseif Mode == "Tank" or Mode == "Caster" then
+	elseif Player_Mode == "Tank" then
 		equip(sets.idle.tank)
+	elseif Player_Mode == "Caster" then
+		equip(sets.idle.caster)
 	end
 end
+
 
 
 function precast(spell)
@@ -837,118 +962,278 @@ function precast(spell)
 end
 
 
+--[[
+if player.status == "Engaged" and Player_Mode == "Melee" and Enfeeble_Mode == "Normal" then
+]]
+
 function midcast(spell)
 	if spell.skill == "Elemental Magic" then
 		if spell.name:match('Fire') or spell.name:match('Blizzard') or spell.name:match('Aero') or spell.name:match('Stone') or spell.name:match('Thunder') or spell.name:match('Water') then
-			if Magic == "Burst" then
+			if Casting_Mode == "Burst" then
 				if spell.element == world.day_element or spell.element == world.weather_element then
 					if spell.name:match('Fire') and world.day_element ~= "Water" and world.weather_element ~= "Water" then
-						equip(sets.midcast.elementalBURSTobi)
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalBURSTOBI)
+						else
+							equip(sets.midcast.elementalBURSTOBIweapons)
+						end
 					elseif spell.name:match('Water') and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
-						equip(sets.midcast.elementalBURSTobi)
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalBURSTOBI)
+						else
+							equip(sets.midcast.elementalBURSTOBIweapons)
+						end
 					elseif spell.name:match('Thunder') and world.day_element ~= "Earth" and world.weather_element ~= "Earth" then
-						equip(sets.midcast.elementalBURSTobi)
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalBURSTOBI)
+						else
+							equip(sets.midcast.elementalBURSTOBIweapons)
+						end
 					elseif spell.name:match('Stone') and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
-						equip(sets.midcast.elementalBURSTobi)
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalBURSTOBI)
+						else
+							equip(sets.midcast.elementalBURSTOBIweapons)
+						end
 					elseif spell.name:match('Aero') and world.day_element ~= "Ice" and world.weather_element ~= "Ice" then
-						equip(sets.midcast.elementalBURSTobi)
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalBURSTOBI)
+						else
+							equip(sets.midcast.elementalBURSTOBIweapons)
+						end
 					elseif spell.name:match('Blizzard') and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
-						equip(sets.midcast.elementalBURSTobi)
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalBURSTOBI)
+						else
+							equip(sets.midcast.elementalBURSTOBIweapons)
+						end
 					else
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalBURST)
+						else
+							equip(sets.midcast.elementalBURSTweapons)
+						end
+					end
+				else
+					if player.status == "Engaged" or Weapon_Mode == "Locked" then
 						equip(sets.midcast.elementalBURST)
+					else
+						equip(sets.midcast.elementalBURSTweapons)
 					end
-				else
-					equip(sets.midcast.elementalBURST)
 				end
-			elseif Magic == "Freecast" then
+			elseif Casting_Mode == "Freecast" then
 				if spell.element == world.day_element or spell.element == world.weather_element then
 					if spell.name:match('Fire') and world.day_element ~= "Water" and world.weather_element ~= "Water" then
-						equip(sets.midcast.elementalFREECASTobi)
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalFREECASTOBI)
+						else
+							equip(sets.midcast.elementalFREECASTOBIweapons)
+						end
 					elseif spell.name:match('Water') and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
-						equip(sets.midcast.elementalFREECASTobi)
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalFREECASTOBI)
+						else
+							equip(sets.midcast.elementalFREECASTOBIweapons)
+						end
 					elseif spell.name:match('Thunder') and world.day_element ~= "Earth" and world.weather_element ~= "Earth" then
-						equip(sets.midcast.elementalFREECASTobi)
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalFREECASTOBI)
+						else
+							equip(sets.midcast.elementalFREECASTOBIweapons)
+						end
 					elseif spell.name:match('Stone') and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
-						equip(sets.midcast.elementalFREECASTobi)
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalFREECASTOBI)
+						else
+							equip(sets.midcast.elementalFREECASTOBIweapons)
+						end
 					elseif spell.name:match('Aero') and world.day_element ~= "Ice" and world.weather_element ~= "Ice" then
-						equip(sets.midcast.elementalFREECASTobi)
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalFREECASTOBI)
+						else
+							equip(sets.midcast.elementalFREECASTOBIweapons)
+						end
 					elseif spell.name:match('Blizzard') and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
-						equip(sets.midcast.elementalFREECASTobi)
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalFREECASTOBI)
+						else
+							equip(sets.midcast.elementalFREECASTOBIweapons)
+						end
 					else
-						equip(sets.midcast.elementalFREECAST)
+						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+							equip(sets.midcast.elementalFREECAST)
+						else
+							equip(sets.midcast.elementalFREECASTweapons)
+						end
 					end
 				else
-					equip(sets.midcast.elementalFREECAST)
+					if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						equip(sets.midcast.elementalFREECAST)
+					else
+						equip(sets.midcast.elementalFREECASTweapons)
+					end
 				end
 			else
 				idle()
 			end
 		end
 	elseif spell.skill == "Enfeebling Magic" then
-		if Enfeeble == "Accuracy" then
+		if Enfeeble_Mode == "Accuracy" then
 			if spell.name:match('Dia') or spell.name:match('Diaga') or spell.name:match('Inundation') then
-				equip(sets.midcast.enfeebleDIA)
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.enfeebleINUNDIA)
+				else
+					equip(sets.midcast.enfeebleINUNDIAweapons)
+				end
 			else
-				equip(sets.midcast.enfeebleMAXacc)
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.enfeebleACCURACY)
+				else
+					equip(sets.midcast.enfeebleACCURACYweapons)
+				end
 			end
-		elseif Enfeeble == "Normal" then
+		elseif Enfeeble_Mode == "Normal" then
 			if spell.name:match('Sleep') or spell.name:match('Sleepga') or spell.name:match('Bind') or spell.name:match('Break') or spell.name:match('Silence') then
-				equip(sets.midcast.enfeebleDURATION)
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.enfeebleDURATION)
+				else
+					equip(sets.midcast.enfeebleDURATIONweapons)
+				end
 			elseif spell.name:match('Paralyze') or spell.name:match('Addle') or spell.name:match('Slow') or spell.name:match('Poison') then
-				equip(sets.midcast.enfeeblePOTENCY)
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.enfeeblePOTENCY)
+				else
+					equip(sets.midcast.enfeeblePOTENCYweapons)
+				end
 			elseif spell.name:match('Distract') or spell.name:match('Frazzle') then
-				equip(sets.midcast.FrazzleDistract)
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.enfeebleFRAZDIST)
+				else
+					equip(sets.midcast.enfeebleFRAZDISTweapons)
+				end
 			elseif spell.name:match('Gravity') or spell.name:match('Dispel') then
-				equip(sets.midcast.GravityDispel)
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.enfeebleGRAVDISP)
+				else
+					equip(sets.midcast.enfeebleGRAVDISPweapons)
+				end
 			elseif spell.name:match('Blind') then
-				equip(sets.midcast.blind)
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.enfeebleBLIND)
+				else
+					equip(sets.midcast.enfeebleBLINDweapons)
+				end
 			elseif spell.name:match('Dia') or spell.name:match('Diaga') or spell.name:match('Inundation') then
-				equip(sets.midcast.enfeebleDIA)
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.enfeebleINUNDIA)
+				else
+					equip(sets.midcast.enfeebleINUNDIAweapons)
+				end
 			end
 		end
 	elseif spell.skill == "Dark Magic" then
 		if spell.name:match('Drain') or spell.name:match('Aspir') then
-			equip(sets.midcast.aspir)
-		elseif spell.name:match('Bio') then
-			if Enfeeble == "Accuracy" then
-				equip(sets.midcast.enfeebleMAXacc)
+			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				equip(sets.midcast.darkASPIRDRAIN)
 			else
-				equip (sets.midcast.enfeebleBIO)
+				equip(sets.midcast.darkASPIRDRAINweapons)
+			end
+		elseif spell.name:match('Bio') then
+			if Enfeeble_Mode == "Accuracy" then
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.enfeebleACCURACY)
+				else
+					equip(sets.midcast.enfeebleACCURACYweapons)
+				end
+			else
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.darkBIO)
+				else
+					equip(sets.midcast.darkBIOweapons)
+				end
 			end
 		end
 	elseif spell.skill == "Enhancing Magic" then
 		if spell.name:match('Haste') or spell.name:match('Flurry') or spell.name:match('Blink') or spell.name:match('Protect') or spell.name:match('Shell') or spell.english:startswith('Bar') then 
 			if spell.target.type == 'SELF' then
-				equip(sets.midcast.enhanceDURATION)
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.enhanceDURATION)
+				else
+					equip(sets.midcast.enhanceDURATIONweapons)
+				end
 			else
-				equip(sets.midcast.enhanceOTHERS)
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.enhanceOTHERS)
+				else
+					equip(sets.midcast.enhanceOTHERSweapons)
+				end
 			end
 		elseif spell.name:match('Temper') or spell.name:match('Enfire') or spell.name:match('Enblizzard') or spell.name:match('Enaero') or spell.name:match('Enstone') or spell.name:match('Enthunder') or spell.name:match('Enwater') then
-			equip(sets.midcast.enhanceSKILL)
+			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				equip(sets.midcast.enhanceSKILL)
+			else
+				equip(sets.midcast.enhanceSKILLweapons)
+			end
 		elseif spell.name:match('Blaze Spikes') or spell.name:match('Ice Spikes') or spell.name:match('Shock Spikes') then
-			equip(sets.midcast.enhanceSPIKES)
+			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				equip(sets.midcast.enhanceSPIKES)
+			else
+				equip(sets.midcast.enhanceSPIKESweapons)
+			end
 		elseif spell.english:startswith('Gain') then
-			equip(sets.midcast.enhanceGAIN)
+			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				equip(sets.midcast.enhanceGAIN)
+			else
+				equip(sets.midcast.enhanceGAINweapons)
+			end
 		elseif spell.name:match('Aquaveil') then
-			equip(sets.midcast.aquaveil)
+			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				equip(sets.midcast.enhanceAQUAVEIL)
+			else
+				equip(sets.midcast.enhanceAQUAVEILweapons)
+			end
 		elseif spell.name:match('Refresh') then
-			equip(sets.midcast.refresh)
+			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				equip(sets.midcast.enhanceREFRESH)
+			else
+				equip(sets.midcast.enhanceREFRESHweapons)
+			end
 		elseif spell.name:match('Stoneskin') then
-			equip(sets.midcast.stoneskin)
+			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				equip(sets.midcast.enhanceSTONESKIN)
+			else
+				equip(sets.midcast.enhanceSTONESKINweapons)
+			end
 		elseif spell.name:match('Phalanx') then
 			if spell.target.type == 'SELF' then
-				equip(sets.midcast.phalanxSELF)
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.enhancePHALANXSELF)
+				else
+					equip(sets.midcast.enhancePHALANXSELFweapons)
+				end
 			else
-				equip(sets.midcast.enhanceOTHERS)
+				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					equip(sets.midcast.enhanceOTHERS)
+				else
+					equip(sets.midcast.enhanceOTHERSweapons)
+				end
 			end
 		elseif spell.name:match('Invisible') or spell.name:match('Sneak') or spell.name:match('Deodorize') then
 			equip(sets.midcast.fastcast)
 		end
 	elseif spell.skill == "Healing Magic" then
 		if spell.name:match('Cure') or spell.name:match('Cura') or spell.name:match('Curaga') then
-			equip(sets.midcast.cure)
+			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				equip(sets.midcast.healingCURE)
+			else
+				equip(sets.midcast.healingCUREweapons)
+			end
 		elseif spell.name:match('Cursna') then
-			equip(sets.midcast.cursna)
+			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				equip(sets.midcast.healingCURSNA)
+			else
+				equip(sets.midcast.healingCURSNAweapons)
+			end	
 		elseif spell.name:match('Raise') or spell.name:match('Reraise') then
 			equip(sets.midcast.fastcast)
 		end
@@ -997,48 +1282,46 @@ end
 
 function self_command(command)
 	if command == "ToggleMelee" then
-		if Mode == "Tank" or Mode == "ZeroTPEnspell" or Mode == "Caster" then
-			Mode = "Melee"
+		if Player_Mode == "Tank" or Player_Mode == "ZeroTPEnspell" or Player_Mode == "Caster" then
+			Player_Mode = "Melee"
 			idle()
-		elseif Mode == "Melee" then
-			Mode = "Enspell"
+		elseif Player_Mode == "Melee" then
+			Player_Mode = "Enspell"
 			idle()
-		elseif Mode == "Enspell" then
-			Mode = "ZeroTPEnspell"
-			idle()
-		end
-	end 
-	if command == "ToggleTank" then
-		if Mode == "Melee" or Mode == "ZeroTPEnspell" or Mode == "Enspell" or Mode == "Caster" then
-			Mode = "Tank"
-			idle()
-		elseif Mode == "Tank" then
-			Mode = "Caster"
+		elseif Player_Mode == "Enspell" then
+			Player_Mode = "ZeroTPEnspell"
 			idle()
 		end
-	end
-	if command == "ToggleEnfeeble" then
-		if Enfeeble == "Normal" then
-			Enfeeble = "Accuracy"
-			if player.status == "Engaged" and (Mode == "Melee" or Mode == "Enspell") then
-				send_command('input //gs enable main; input //gs enable sub; input //gs enable range')
-			end
-		elseif Enfeeble == "Accuracy" then
-			Enfeeble = "Normal"
-			if player.status == "Engaged" and (Mode == "Melee" or Mode == "Enspell") then
-				send_command('input //gs disable main; input //gs disable sub; input //gs disable range')
-			end
+	elseif command == "ToggleTank" then
+		if Player_Mode == "Melee" or Player_Mode == "ZeroTPEnspell" or Player_Mode == "Enspell" or Player_Mode == "Caster" then
+			Player_Mode = "Tank"
+			idle()
 		end
-	end 
-	if command == "ToggleBurst" then
-		if Magic == "Burst" then
-			Magic = "Freecast"
-		elseif Magic == "Freecast" then
-			Magic = "Burst"
+	elseif command == "ToggleCaster" then
+		if Player_Mode == "Melee" or Player_Mode == "ZeroTPEnspell" or Player_Mode == "Enspell" or Player_Mode == "Tank"then
+			Player_Mode = "Caster"
+			idle()
 		end
-	end
-	if command == "ToggleMain" then
-		if Mode == "Melee" or Mode == "Tank" then
+	elseif command == "ToggleEnfeeble" then
+		if Enfeeble_Mode == "Normal" then
+			Enfeeble_Mode = "Accuracy"
+		elseif Enfeeble_Mode == "Accuracy" then
+			Enfeeble_Mode = "Normal"
+		end
+	elseif command == "ToggleBurst" then
+		if Casting_Mode == "Burst" then
+			Casting_Mode = "Freecast"
+		elseif Casting_Mode == "Freecast" then
+			Casting_Mode = "Burst"
+		end
+	elseif command == "ToggleWeapon" then
+		if Weapon_Mode == "Unlocked" then
+			Weapon_Mode = "Locked"
+		elseif Weapon_Mode == "Locked" then
+			Weapon_Mode = "Unlocked"
+		end
+	elseif command == "ToggleMain" then
+		if Player_Mode == "Melee" or Player_Mode == "Tank" then
 			if player.equipment.main == "Crocea Mors" then
 				send_command ('input /equip Main "Naegling"')
 			elseif player.equipment.main == "Naegling" then
@@ -1048,8 +1331,7 @@ function self_command(command)
 			else
 				send_command ('input /equip Main "Crocea Mors"')
 			end
-		end
-		if Mode == "Caster" then
+		elseif Player_Mode == "Caster" then
 			if player.equipment.main == "Crocea Mors" then
 				send_command ('input /equip Main "Daybreak"')
 			elseif player.equipment.main == "Daybreak" then
@@ -1059,13 +1341,11 @@ function self_command(command)
 			else
 				send_command ('input /equip Main "Crocea Mors"')
 			end
-		end
-		if Mode == "Enspell" then
+		elseif Player_Mode == "Enspell" then
 			send_command ('input /equip Main "Crocea Mors"')
 		end
-	end
-	if command == "ToggleSub" then
-		if Mode == "Melee" or Mode == "Melee" or Mode == "Tank" then
+	elseif command == "ToggleSub" then
+		if Player_Mode == "Melee" or Player_Mode == "Melee" or Player_Mode == "Tank" then
 			if player.sub_job =='NIN' or player.sub_job =='DNC' then
 				if player.equipment.sub == "Daybreak" then
 					send_command ('input /equip Sub "Thibron"')
@@ -1080,10 +1360,10 @@ function self_command(command)
 				send_command ('input /equip Sub "Ammurapi shield"')
 			end
 		end
-		if Mode == "Caster" or Mode == "CasterMagicBurst" then
+		if Player_Mode == "Caster" or Player_Mode == "CasterMagicBurst" then
 			send_command ('input /equip Sub "Ammurapi shield"')
 		end
-		if Mode == "Enspell" then
+		if Player_Mode == "Enspell" then
 			send_command ('input /equip Sub "Pukulatmuj +1"')
 		end
 	end
