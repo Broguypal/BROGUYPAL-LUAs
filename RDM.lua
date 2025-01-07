@@ -752,7 +752,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	}
 	
 	sets.ws.SanguineBlade = {
-		ammo="Pemphredo Tathlum",
+		ammo="Sroda Tathlum",
 		head="Pixie Hairpin +1",
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands="Jhakri Cuffs +2",
@@ -768,7 +768,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	}
 	
 	sets.ws.SeraphBlade = {
-		ammo="Pemphredo Tathlum",
+		ammo="Sroda Tathlum",
 		head={ name="Nyame Helm", augments={'Path: B',}},
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands="Jhakri Cuffs +2",
