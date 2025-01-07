@@ -517,25 +517,65 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		sub="Ammurapi Shield",
 	})
 
---Spikes spells 
-	sets.midcast.enhanceSPIKES = {}
-
-	sets.midcast.enhanceSPIKESweapons = set_combine(sets.midcast.enhanceSPIKES,{
-	})
 	
-	sets.midcast.enhanceAQUAVEIL = {}
+	sets.midcast.enhanceAQUAVEIL = {
+		ammo="Staunch Tathlum +1",
+		head={ name="Amalric Coif +1", augments={'MP+80','INT+12','Enmity-6',}},
+		body={ name="Viti. Tabard +3", augments={'Enhances "Chainspell" effect',}},
+		hands="Atrophy Gloves +2",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Olympus Sash",
+		left_ear="Mimir Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		right_ring="Defending Ring",
+		back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +10','Enha.mag. skill +10','Mag. Acc.+5','Enh. Mag. eff. dur. +17',}},
+	}
 	
 	sets.midcast.enhanceAQUAVEILweapons = set_combine(sets.midcast.enhanceAQUAVEIL,{
+		sub="Ammurapi Shield",
 	})
 
-	sets.midcast.enhanceREFRESH = {}
+	sets.midcast.enhanceREFRESH = {
+		ammo="Staunch Tathlum +1",
+		head={ name="Amalric Coif +1", augments={'MP+80','INT+12','Enmity-6',}},
+		body={ name="Viti. Tabard +3", augments={'Enhances "Chainspell" effect',}},
+		hands="Atrophy Gloves +2",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Olympus Sash",
+		left_ear="Mimir Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		right_ring="Defending Ring",
+		back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +10','Enha.mag. skill +10','Mag. Acc.+5','Enh. Mag. eff. dur. +17',}},
+	}
 
 	sets.midcast.enhanceREFRESHweapons = set_combine(sets.midcast.enhanceREFRESH,{
+		sub="Ammurapi Shield",
 	})
 	
-	sets.midcast.enhanceSTONESKIN = {}
+	sets.midcast.enhanceSTONESKIN = {
+		ammo="Staunch Tathlum +1",
+		head="Umuthi Hat",
+		body={ name="Viti. Tabard +3", augments={'Enhances "Chainspell" effect',}},
+		hands="Atrophy Gloves +2",
+		legs={ name="Telchine Braconi", augments={'Spell interruption rate down -10%','Enh. Mag. eff. dur. +10',}},
+		feet="Leth. Houseaux +2",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Siegel Sash",
+		left_ear="Mimir Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		right_ring="Defending Ring",
+		back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +10','Enha.mag. skill +10','Mag. Acc.+5','Enh. Mag. eff. dur. +17',}},
+	}
 
 	sets.midcast.enhanceSTONESKINweapons = set_combine(sets.midcast.enhanceSTONESKIN,{
+		sub="Ammurapi Shield",
 	})
 
 --self phalanx enhancements
@@ -1176,9 +1216,9 @@ function midcast(spell)
 			end
 		elseif spell.name:match('Blaze Spikes') or spell.name:match('Ice Spikes') or spell.name:match('Shock Spikes') then
 			if player.status == "Engaged" or Weapon_Mode == "Locked" then
-				equip(sets.midcast.enhanceSPIKES)
+				equip(sets.midcast.enhanceDURATION)
 			else
-				equip(sets.midcast.enhanceSPIKESweapons)
+				equip(sets.midcast.enhanceDURATIONweapons)
 			end
 		elseif spell.english:startswith('Gain') then
 			if player.status == "Engaged" or Weapon_Mode == "Locked" then
