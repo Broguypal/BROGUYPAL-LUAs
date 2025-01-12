@@ -629,7 +629,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 
 ----Elemental sets ----
 	sets.midcast.elementalFREECAST = {
-		ammo="Pemphredo Tathlum",
+		ammo="Sroda Tathlum",
 		head="Leth. Chappel +2",
 		body="Lethargy Sayon +2",
 		hands="Leth. Ganth. +2",
@@ -637,7 +637,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		feet="Leth. Houseaux +2",
 		neck="Sibyl Scarf",
 		waist="Skrymir Cord",
-		left_ear="Crematio Earring",
+		left_ear="Friomisi Earring",
 		right_ear="Malignance Earring",
 		left_ring="Shiva Ring +1",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -667,7 +667,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		feet="Leth. Houseaux +2",
 		neck="Sibyl Scarf",
 		waist="Skrymir Cord",
-		left_ear="Crematio Earring",
+		left_ear="Friomisi Earring",
 		right_ear="Malignance Earring",
 		left_ring="Shiva Ring +1",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
