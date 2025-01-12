@@ -1245,11 +1245,13 @@ function midcast(spell)
 			equip(sets.ws.kamu)
 		elseif spell.english == "Blade: Ei" then
 			equip(sets.ws.ei)
-		elseif spell.english == "Blade: Chi" or spell.english == "Blade: Teki" or spell.english == "Blade: To" then
+		elseif spell.english == "Blade: Chi" or spell.english == "Blade: Teki" or spell.english == "Blade: To" or spell.english == "Blade: Yu" then
 			if spell.element == world.day_element or spell.element == world.weather_element then
 				if spell.english == "Blade: Chi" and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
 					equip(sets.ws.elementalobi)
 				elseif spell.english == "Blade: Teki" and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
+					equip(sets.ws.elementalobi)
+				elseif spell.english == "Blade: Yu" and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
 					equip(sets.ws.elementalobi)
 				elseif spell.english == "Blade: To" and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
 					equip(sets.ws.elementalobi)
