@@ -646,7 +646,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 
 	sets.midcast.elementalFREECASTweapons = set_combine(sets.midcast.elementalFREECAST,{
 		main="Bunzi's Rod",
-		sub="Ammurapi Shield",
+		sub="Culminus",
 	})
 
 	sets.midcast.elementalFREECASTOBI = set_combine(sets.midcast.elementalFREECAST,{
