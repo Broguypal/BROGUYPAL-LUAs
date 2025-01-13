@@ -629,7 +629,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 
 ----Elemental sets ----
 	sets.midcast.elementalFREECAST = {
-		ammo="Sroda Tathlum",
+		ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
 		head="Leth. Chappel +2",
 		body="Lethargy Sayon +2",
 		hands="Leth. Ganth. +2",
@@ -659,7 +659,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	})
 
 	sets.midcast.elementalBURST = {
-		ammo="Pemphredo Tathlum",
+		ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
 		head="Ea Hat +1",
 		body="Ea Houppe. +1",
 		hands="Bunzi's Gloves",

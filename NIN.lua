@@ -549,7 +549,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 
 	--Elemental Midcast
     sets.midcast.elemental = {
-	    ammo="Pemphredo Tathlum",
+	    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
 		head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
