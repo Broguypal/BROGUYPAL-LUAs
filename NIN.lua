@@ -724,6 +724,27 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
 	}
 	
+	-- Yu Weaponskill
+	sets.ws.yu = {
+		ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+		head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Fotia Gorget",
+		waist="Orpheus's Sash",
+		left_ear="Crematio Earring",
+		right_ear="Friomisi Earring",
+		left_ring="Shiva Ring +1",
+		right_ring="Epaminondas's Ring",
+		back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}},
+	}
+	
+	sets.ws.yuobi = set_combine(sets.ws.yu,{
+		waist="Hachirin-no-Obi",
+	})
+	
 	--chi/teki/to Weaponskill
 	sets.ws.elemental = {
 	    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -1154,7 +1175,29 @@ function precast(spell)
 		elseif spell.english == "Blade: Ei" then
 			equip(sets.ws.ei)
 		elseif spell.english == "Blade: Chi" or spell.english == "Blade: Teki" or spell.english == "Blade: To" then
-			equip(sets.ws.elemental)
+			if spell.element == world.day_element or spell.element == world.weather_element then
+				if spell.english == "Blade: Chi" and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
+					equip(sets.ws.elementalobi)
+				elseif spell.english == "Blade: Teki" and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
+					equip(sets.ws.elementalobi)
+				elseif spell.english == "Blade: To" and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
+					equip(sets.ws.elementalobi)
+				else
+					equip(sets.ws.elemental)
+				end
+			else
+				equip(sets.ws.elemental)
+			end
+		elseif spell.english == "Blade: Yu" then
+			if spell.element == world.day_element or spell.element == world.weather_element then
+				if world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
+					equip(sets.ws.yuobi)
+				else
+					equip(sets.ws.yu)
+				end
+			else
+				equip(sets.ws.yu)
+			end
 		elseif spell.english == "Savage Blade" then
 			equip(sets.ws.savageblade)
 		else
@@ -1245,13 +1288,11 @@ function midcast(spell)
 			equip(sets.ws.kamu)
 		elseif spell.english == "Blade: Ei" then
 			equip(sets.ws.ei)
-		elseif spell.english == "Blade: Chi" or spell.english == "Blade: Teki" or spell.english == "Blade: To" or spell.english == "Blade: Yu" then
+		elseif spell.english == "Blade: Chi" or spell.english == "Blade: Teki" or spell.english == "Blade: To" then
 			if spell.element == world.day_element or spell.element == world.weather_element then
 				if spell.english == "Blade: Chi" and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
 					equip(sets.ws.elementalobi)
 				elseif spell.english == "Blade: Teki" and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
-					equip(sets.ws.elementalobi)
-				elseif spell.english == "Blade: Yu" and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
 					equip(sets.ws.elementalobi)
 				elseif spell.english == "Blade: To" and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
 					equip(sets.ws.elementalobi)
@@ -1260,6 +1301,16 @@ function midcast(spell)
 				end
 			else
 				equip(sets.ws.elemental)
+			end
+		elseif spell.english == "Blade: Yu" then
+			if spell.element == world.day_element or spell.element == world.weather_element then
+				if world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
+					equip(sets.ws.yuobi)
+				else
+					equip(sets.ws.yu)
+				end
+			else
+				equip(sets.ws.yu)
 			end
 		elseif spell.english == "Savage Blade" then
 			equip(sets.ws.savageblade)
