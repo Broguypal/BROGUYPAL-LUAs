@@ -541,7 +541,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	sets.midcast.enhanceREFRESH = {
 		ammo="Staunch Tathlum +1",
 		head={ name="Amalric Coif +1", augments={'MP+80','INT+12','Enmity-6',}},
-		body={ name="Viti. Tabard +3", augments={'Enhances "Chainspell" effect',}},
+		body="Atrophy Tabard +2",
 		hands="Atrophy Gloves +2",
 		legs="Leth. Fuseau +2",
 		feet="Leth. Houseaux +2",
@@ -623,7 +623,9 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		sub="Ammurapi Shield",
 	})
 
-	sets.midcast.healingCURSNA = {}
+	sets.midcast.healingCURSNA = {
+		body="Atrophy Tabard +2",
+	}
 
 	sets.midcast.healingCURSNAweapons = set_combine(sets.midcast.healingCURSNA,{
 	})
