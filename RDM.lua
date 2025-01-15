@@ -555,6 +555,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	}
 
 	sets.midcast.enhanceREFRESHweapons = set_combine(sets.midcast.enhanceREFRESH,{
+		main="Daybreak",
 		sub="Ammurapi Shield",
 	})
 	
