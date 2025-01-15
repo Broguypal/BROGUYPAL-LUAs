@@ -267,7 +267,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ear="Snotra Earring",
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Stikini Ring +1",
-		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Spell interruption rate down-10%',}},
+		back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 
 	sets.midcast.enfeebleACCURACYweapons = set_combine(sets.midcast.enfeebleACCURACY,{
@@ -374,7 +374,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ear="Snotra Earring",
 		left_ring="Kishar Ring",
 		right_ring="Stikini Ring +1",
-		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +8','"Mag.Atk.Bns."+10',}},
+		back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 
 	sets.midcast.enfeebleBLINDweapons = set_combine(sets.midcast.enfeebleBLIND,{
