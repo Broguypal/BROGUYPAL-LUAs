@@ -505,7 +505,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		left_ring="Rahab Ring",
 		right_ring="Kishar Ring",
-		back={ name="Andartia's Mantle", augments={'"Fast Cast"+10',}},
+		back={ name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	}
 	--Utsusemi Precast
 	sets.precast.utsusemi = set_combine(sets.precast.fastcast,{
