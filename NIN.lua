@@ -1153,12 +1153,14 @@ end
 
 
 function precast(spell)
-	if spell.name:match('Utsusemi') then
-		equip(sets.precast.utsusemi)
-	elseif spell.english == "Provoke" or spell.english == "Issekigan" then
+	if spell.english == "Provoke" or spell.english == "Issekigan" then
 		equip(sets.precast.enmity)
 	elseif spell.type == "BlueMagic" or spell.type == "BlackMagic" or spell.type == "WhiteMagic" or spell.type == "Ninjutsu" or spell.type == "Trust" then 
-		equip(sets.precast.fastcast)
+		if spell.name:match('Utsusemi') then
+			equip(sets.precast.utsusemi)
+		else
+			equip(sets.precast.fastcast)
+		end
 	elseif spell.type == "WeaponSkill" then 
 		if spell.english == "Blade: Shun" then
 			equip(sets.ws.shun)
@@ -1229,6 +1231,8 @@ function midcast(spell)
 		else
 			equip(sets.midcast.utsusemi)
 		end
+	elseif spell.name:match('Migawari') then
+		equip(sets.midcast.precast)
 	elseif spell.name:match('Kurayami') or spell.name:match('Hojo') or spell.name:match('Dokumori') or spell.name:match('Jubaku') or spell.name:match('Yurin') or spell.name:match('Aisha') then
 		equip(sets.midcast.enfeeble)
 	elseif spell.name:match('Katon') or spell.name:match('Suiton') or spell.name:match('Raiton') or spell.name:match('Doton') or spell.name:match('Huton') or spell.name:match('Hyoton') then
