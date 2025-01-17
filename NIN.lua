@@ -577,6 +577,8 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	-- Midcast elemental - Futae up
 	sets.midcast.elementalfutae = set_combine(sets.midcast.elemental, {
 		hands="Hattori Tekko +2",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
 	})
 	
 	--Midcast elemental - Futae Up + Obi
