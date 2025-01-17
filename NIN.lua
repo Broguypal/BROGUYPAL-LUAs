@@ -530,6 +530,11 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		feet="Hattori Kyahan +3",
 	})
 	
+	--Migawari midcast
+	sets.midcast.migawari = set_combine(sets.precast.fastcast,{
+		feet={ name="Mochi. Kyahan +3", augments={'Enh. Ninj. Mag. Acc/Cast Time Red.',}},
+	})
+	
 	--Enfeeble Midcast
     sets.midcast.enfeeble = {
 	    ammo="Pemphredo Tathlum",
@@ -1232,7 +1237,7 @@ function midcast(spell)
 			equip(sets.midcast.utsusemi)
 		end
 	elseif spell.name:match('Migawari') then
-		equip(sets.midcast.precast)
+		equip(sets.midcast.migawari)
 	elseif spell.name:match('Kurayami') or spell.name:match('Hojo') or spell.name:match('Dokumori') or spell.name:match('Jubaku') or spell.name:match('Yurin') or spell.name:match('Aisha') then
 		equip(sets.midcast.enfeeble)
 	elseif spell.name:match('Katon') or spell.name:match('Suiton') or spell.name:match('Raiton') or spell.name:match('Doton') or spell.name:match('Huton') or spell.name:match('Hyoton') then
