@@ -9,18 +9,6 @@
 -- 						RED MAGE LUA
 
 
---[[
-
-TO DO:
-2. Make "if engaged AND Player_Mode == Melee AND Enfeeble_Mode == "Normal" - no weapon swap set. 
-	- remove auto weapon locks when changing states (So damn wonky)
-3. Attach default weapons for caster mode (Caster mode idle)-
-4. Rebind keys - 9 melee/8 tank / 7 caster / 1 accuracy mode / 3 burs mode / 6 lock or unlock weapons
-5. Create Weapon locked set -  and make set visible on textbox (weapon_state = "Unlocked")
-
-
-]]
-
 
 
 function file_unload()
@@ -644,7 +632,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ear="Malignance Earring",
 		left_ring="Shiva Ring +1",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +8','"Mag.Atk.Bns."+10',}},
+		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +8','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}},
 	}
 
 	sets.midcast.elementalFREECASTweapons = set_combine(sets.midcast.elementalFREECAST,{
@@ -674,7 +662,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		right_ear="Malignance Earring",
 		left_ring="Shiva Ring +1",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +8','"Mag.Atk.Bns."+10',}},
+		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +8','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}},
 	}
 
 	sets.midcast.elementalBURSTweapons = set_combine(sets.midcast.elementalBURST,{
