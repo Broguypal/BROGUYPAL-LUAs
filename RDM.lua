@@ -145,6 +145,12 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		main={ name="Crocea Mors", augments={'Path: C',}},
 		sub={ name="Pukulatmuj +1", augments={'Path: A',}},
 	})
+	
+	sets.idle.ZeroTPEnspell = set_combine(sets.idle.hybrid,{
+		main="Qutrub Knife",
+		sub="Ceremonial Dagger",
+	})
+	
 
 
 --------------- ENGAGED SETS ------------------
@@ -215,7 +221,23 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		sub={ name="Pukulatmuj +1", augments={'Path: A',}},
 	})
 
-	sets.engaged.hybrid.zeroTPenspell = {}
+	sets.engaged.hybrid.zeroTPenspell = {
+	    main="Qutrub Knife",
+		sub="Ceremonial Dagger",
+		range="Ullr",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Aya. Manopolas +2",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Orpheus's Sash",
+		left_ear="Sherida Earring",
+		right_ear="Suppanomimi",
+		left_ring="Fickblix's Ring",
+		right_ring="Chirich Ring +1",
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
+	}
 
 --------------- PRECAST SETS ------------------
 	--Fastcast Set
@@ -624,8 +646,10 @@ send_command('bind f11 input /item "Holy Water" <me>')
 		head="Leth. Chappel +2",
 		body="Lethargy Sayon +2",
 		hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+		--hands="Leth. Ganth. +2",
 		legs="Leth. Fuseau +2",
 		feet={ name="Amalric Nails +1", augments={'Mag. Acc.+20','"Mag.Atk.Bns."+20','"Conserve MP"+7',}},
+		--feet="Leth. Houseaux +2",
 		neck="Sibyl Scarf",
 		waist="Skrymir Cord",
 		left_ear="Friomisi Earring",
@@ -638,6 +662,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	sets.midcast.elementalFREECASTweapons = set_combine(sets.midcast.elementalFREECAST,{
 		main="Bunzi's Rod",
 		sub="Culminus",
+		--sub="Ammurapi Shield",
 	})
 
 	sets.midcast.elementalFREECASTOBI = set_combine(sets.midcast.elementalFREECAST,{
@@ -947,7 +972,7 @@ function idle()
 		if player.status == "Engaged" then
 			equip(sets.engaged.hybrid.zeroTPenspell)
 		else
-			equip(sets.idle.hybrid)
+			equip(sets.idle.ZeroTPEnspell)
 		end
 	elseif Player_Mode == "Tank" then
 		equip(sets.idle.tank)
