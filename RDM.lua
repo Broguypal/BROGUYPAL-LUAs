@@ -10,7 +10,6 @@
 
 
 
-
 function file_unload()
     send_command('unbind numpad9')
     send_command('unbind numpad8')
@@ -348,6 +347,8 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	}
 	
 	sets.midcast.enfeeblePOTENCYweapons = set_combine(sets.midcast.enfeeblePOTENCY,{
+		main={ name="Crocea Mors", augments={'Path: C',}},
+		sub="Ammurapi Shield",
 	})
 
 -- Silence/Sleep/Break/Bind
@@ -367,6 +368,8 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	}
 	
 	sets.midcast.enfeebleDURATIONweapons = set_combine(sets.midcast.enfeebleDURATION,{
+		main={ name="Crocea Mors", augments={'Path: C',}},
+		sub="Ammurapi Shield",
 		range="Ullr",
 	})
 
@@ -388,6 +391,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	}
 
 	sets.midcast.enfeebleBLINDweapons = set_combine(sets.midcast.enfeebleBLIND,{
+		main={ name="Crocea Mors", augments={'Path: C',}},
 		sub="Ammurapi Shield",
 	})
 	
@@ -408,6 +412,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 
 	sets.midcast.enfeebleINUNDIAweapons = set_combine(sets.midcast.enfeebleINUNDIA,{
 		main="Daybreak",
+		sub="Ammurapi Shield",
 	})
 
 ---- DARK MAGIC SETS ----
@@ -429,6 +434,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	}
 
 	sets.midcast.darkBIOweapons = set_combine(sets.midcast.darkBIO,{
+		main={ name="Crocea Mors", augments={'Path: C',}},
 		sub="Ammurapi Shield",
 		range="Ullr",
 	})
@@ -450,6 +456,7 @@ send_command('bind f11 input /item "Holy Water" <me>')
 	}
 
 	sets.midcast.darkASPIRDRAINweapons = set_combine(sets.midcast.darkASPIRDRAIN,{
+		main={ name="Crocea Mors", augments={'Path: C',}},
 		sub="Ammurapi Shield",
 		range="Ullr",
 	})
@@ -1028,50 +1035,50 @@ function midcast(spell)
 			if Casting_Mode == "Burst" then
 				if spell.element == world.day_element or spell.element == world.weather_element then
 					if spell.name:match('Fire') and world.day_element ~= "Water" and world.weather_element ~= "Water" then
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalBURSTOBI)
 						else
 							equip(sets.midcast.elementalBURSTOBIweapons)
 						end
 					elseif spell.name:match('Water') and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalBURSTOBI)
 						else
 							equip(sets.midcast.elementalBURSTOBIweapons)
 						end
 					elseif spell.name:match('Thunder') and world.day_element ~= "Earth" and world.weather_element ~= "Earth" then
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalBURSTOBI)
 						else
 							equip(sets.midcast.elementalBURSTOBIweapons)
 						end
 					elseif spell.name:match('Stone') and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalBURSTOBI)
 						else
 							equip(sets.midcast.elementalBURSTOBIweapons)
 						end
 					elseif spell.name:match('Aero') and world.day_element ~= "Ice" and world.weather_element ~= "Ice" then
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalBURSTOBI)
 						else
 							equip(sets.midcast.elementalBURSTOBIweapons)
 						end
 					elseif spell.name:match('Blizzard') and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalBURSTOBI)
 						else
 							equip(sets.midcast.elementalBURSTOBIweapons)
 						end
 					else
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalBURST)
 						else
 							equip(sets.midcast.elementalBURSTweapons)
 						end
 					end
 				else
-					if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 						equip(sets.midcast.elementalBURST)
 					else
 						equip(sets.midcast.elementalBURSTweapons)
@@ -1080,50 +1087,50 @@ function midcast(spell)
 			elseif Casting_Mode == "Freecast" then
 				if spell.element == world.day_element or spell.element == world.weather_element then
 					if spell.name:match('Fire') and world.day_element ~= "Water" and world.weather_element ~= "Water" then
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalFREECASTOBI)
 						else
 							equip(sets.midcast.elementalFREECASTOBIweapons)
 						end
 					elseif spell.name:match('Water') and world.day_element ~= "Lightning" and world.weather_element ~= "Lightning" then
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalFREECASTOBI)
 						else
 							equip(sets.midcast.elementalFREECASTOBIweapons)
 						end
 					elseif spell.name:match('Thunder') and world.day_element ~= "Earth" and world.weather_element ~= "Earth" then
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalFREECASTOBI)
 						else
 							equip(sets.midcast.elementalFREECASTOBIweapons)
 						end
 					elseif spell.name:match('Stone') and world.day_element ~= "Wind" and world.weather_element ~= "Wind" then
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalFREECASTOBI)
 						else
 							equip(sets.midcast.elementalFREECASTOBIweapons)
 						end
 					elseif spell.name:match('Aero') and world.day_element ~= "Ice" and world.weather_element ~= "Ice" then
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalFREECASTOBI)
 						else
 							equip(sets.midcast.elementalFREECASTOBIweapons)
 						end
 					elseif spell.name:match('Blizzard') and world.day_element ~= "Fire" and world.weather_element ~= "Fire" then
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalFREECASTOBI)
 						else
 							equip(sets.midcast.elementalFREECASTOBIweapons)
 						end
 					else
-						if player.status == "Engaged" or Weapon_Mode == "Locked" then
+						if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 							equip(sets.midcast.elementalFREECAST)
 						else
 							equip(sets.midcast.elementalFREECASTweapons)
 						end
 					end
 				else
-					if player.status == "Engaged" or Weapon_Mode == "Locked" then
+					if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 						equip(sets.midcast.elementalFREECAST)
 					else
 						equip(sets.midcast.elementalFREECASTweapons)
@@ -1136,13 +1143,13 @@ function midcast(spell)
 	elseif spell.skill == "Enfeebling Magic" then
 		if Enfeeble_Mode == "Accuracy" then
 			if spell.name:match('Dia') or spell.name:match('Diaga') or spell.name:match('Inundation') then
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.enfeebleINUNDIA)
 				else
 					equip(sets.midcast.enfeebleINUNDIAweapons)
 				end
 			else
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.enfeebleACCURACY)
 				else
 					equip(sets.midcast.enfeebleACCURACYweapons)
@@ -1150,37 +1157,37 @@ function midcast(spell)
 			end
 		elseif Enfeeble_Mode == "Normal" then
 			if spell.name:match('Sleep') or spell.name:match('Sleepga') or spell.name:match('Bind') or spell.name:match('Break') or spell.name:match('Silence') then
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.enfeebleDURATION)
 				else
 					equip(sets.midcast.enfeebleDURATIONweapons)
 				end
 			elseif spell.name:match('Paralyze') or spell.name:match('Addle') or spell.name:match('Slow') or spell.name:match('Poison') then
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.enfeeblePOTENCY)
 				else
 					equip(sets.midcast.enfeeblePOTENCYweapons)
 				end
 			elseif spell.name:match('Distract') or spell.name:match('Frazzle') then
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.enfeebleFRAZDIST)
 				else
 					equip(sets.midcast.enfeebleFRAZDISTweapons)
 				end
 			elseif spell.name:match('Gravity') or spell.name:match('Dispel') then
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.enfeebleGRAVDISP)
 				else
 					equip(sets.midcast.enfeebleGRAVDISPweapons)
 				end
 			elseif spell.name:match('Blind') then
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.enfeebleBLIND)
 				else
 					equip(sets.midcast.enfeebleBLINDweapons)
 				end
 			elseif spell.name:match('Dia') or spell.name:match('Diaga') or spell.name:match('Inundation') then
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.enfeebleINUNDIA)
 				else
 					equip(sets.midcast.enfeebleINUNDIAweapons)
@@ -1189,20 +1196,20 @@ function midcast(spell)
 		end
 	elseif spell.skill == "Dark Magic" then
 		if spell.name:match('Drain') or spell.name:match('Aspir') then
-			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+			if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 				equip(sets.midcast.darkASPIRDRAIN)
 			else
 				equip(sets.midcast.darkASPIRDRAINweapons)
 			end
 		elseif spell.name:match('Bio') then
 			if Enfeeble_Mode == "Accuracy" then
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.enfeebleACCURACY)
 				else
 					equip(sets.midcast.enfeebleACCURACYweapons)
 				end
 			else
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.darkBIO)
 				else
 					equip(sets.midcast.darkBIOweapons)
@@ -1212,63 +1219,63 @@ function midcast(spell)
 	elseif spell.skill == "Enhancing Magic" then
 		if spell.name:match('Haste') or spell.name:match('Flurry') or spell.name:match('Blink') or spell.name:match('Protect') or spell.name:match('Shell') or spell.english:startswith('Bar') then 
 			if spell.target.type == 'SELF' then
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.enhanceDURATION)
 				else
 					equip(sets.midcast.enhanceDURATIONweapons)
 				end
 			else
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.enhanceOTHERS)
 				else
 					equip(sets.midcast.enhanceOTHERSweapons)
 				end
 			end
 		elseif spell.name:match('Temper') or spell.name:match('Enfire') or spell.name:match('Enblizzard') or spell.name:match('Enaero') or spell.name:match('Enstone') or spell.name:match('Enthunder') or spell.name:match('Enwater') then
-			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+			if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 				equip(sets.midcast.enhanceSKILL)
 			else
 				equip(sets.midcast.enhanceSKILLweapons)
 			end
 		elseif spell.name:match('Blaze Spikes') or spell.name:match('Ice Spikes') or spell.name:match('Shock Spikes') then
-			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+			if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 				equip(sets.midcast.enhanceDURATION)
 			else
 				equip(sets.midcast.enhanceDURATIONweapons)
 			end
 		elseif spell.english:startswith('Gain') then
-			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+			if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 				equip(sets.midcast.enhanceGAIN)
 			else
 				equip(sets.midcast.enhanceGAINweapons)
 			end
 		elseif spell.name:match('Aquaveil') then
-			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+			if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 				equip(sets.midcast.enhanceAQUAVEIL)
 			else
 				equip(sets.midcast.enhanceAQUAVEILweapons)
 			end
 		elseif spell.name:match('Refresh') then
-			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+			if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 				equip(sets.midcast.enhanceREFRESH)
 			else
 				equip(sets.midcast.enhanceREFRESHweapons)
 			end
 		elseif spell.name:match('Stoneskin') then
-			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+			if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 				equip(sets.midcast.enhanceSTONESKIN)
 			else
 				equip(sets.midcast.enhanceSTONESKINweapons)
 			end
 		elseif spell.name:match('Phalanx') then
 			if spell.target.type == 'SELF' then
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.enhancePHALANXSELF)
 				else
 					equip(sets.midcast.enhancePHALANXSELFweapons)
 				end
 			else
-				if player.status == "Engaged" or Weapon_Mode == "Locked" then
+				if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 					equip(sets.midcast.enhanceOTHERS)
 				else
 					equip(sets.midcast.enhanceOTHERSweapons)
@@ -1279,13 +1286,13 @@ function midcast(spell)
 		end
 	elseif spell.skill == "Healing Magic" then
 		if spell.name:match('Cure') or spell.name:match('Cura') or spell.name:match('Curaga') then
-			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+			if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 				equip(sets.midcast.healingCURE)
 			else
 				equip(sets.midcast.healingCUREweapons)
 			end
 		elseif spell.name:match('Cursna') then
-			if player.status == "Engaged" or Weapon_Mode == "Locked" then
+			if Player_Mode ~= "ZeroTPEnspell" and (player.status == "Engaged" or Weapon_Mode == "Locked") then
 				equip(sets.midcast.healingCURSNA)
 			else
 				equip(sets.midcast.healingCURSNAweapons)
